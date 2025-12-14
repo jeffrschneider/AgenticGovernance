@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Governance Framework v2.1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            card: '#111827',
+                            accent: '#3B82F6', // Blue
+                            glow: '#60A5FA',
+                            purple: '#8B5CF6',
+                            success: '#10B981',
+                            danger: '#EF4444',
+                            warning: '#F59E0B'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #E2E8F0;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3B82F6; 
+        }
+
+        .neon-border {
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+        .neon-border:hover {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            border-color: #3B82F6;
+        }
+
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+        }
+
+        /* Diagram Grid Styles */
+        .arch-diagram {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            padding: 2rem;
+            background: #111827;
+            border: 1px solid #1F2937;
+            border-radius: 0.5rem;
+        }
+        .arch-box {
+            background: #1F2937;
+            border: 1px solid #374151;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            text-align: center;
+            font-size: 0.875rem;
+            position: relative;
+        }
+        .arch-layer {
+            grid-column: 1 / -1;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px dashed #3B82F6;
+            color: #93C5FD;
+            font-weight: bold;
+            padding: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .arch-arrow-down {
+            grid-column: 1 / -1;
+            height: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: #6B7280;
+        }
+
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
+                    <!-- Menu Title Update -->
+                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
+                        <a href="#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
+                        <a href="#lifecycle" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Lifecycle</a>
+                        <a href="#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
+                        <a href="#financial" class="text-brand-warning hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Financial</a>
+                        <a href="#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Foundations -->
+    <header id="foundations" class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <!-- Version Badge Removed -->
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-gray-400">
+                Agentic Enterprise<br>Governance Framework
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400">
+                Balancing the speed of AI autonomy with the rigor of enterprise control. 
+            </p>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+                <div class="p-6 rounded-xl bg-brand-card border border-gray-800 neon-border">
+                    <div class="text-brand-accent mb-2 font-mono text-sm">TENSION 01</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Agility vs. Control</h3>
+                    <p class="text-sm text-gray-400">Enable speed without sacrificing accountability.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-brand-card border border-gray-800 neon-border">
+                    <div class="text-brand-purple mb-2 font-mono text-sm">TENSION 02</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Autonomy vs. Oversight</h3>
+                    <p class="text-sm text-gray-400">Freedom to act within defined boundaries.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-brand-card border border-gray-800 neon-border">
+                    <div class="text-brand-success mb-2 font-mono text-sm">TENSION 03</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Innovation vs. Standards</h3>
+                    <p class="text-sm text-gray-400">Experimentation with enterprise coherence.</p>
+                </div>
+            </div>
+
+            <!-- Intro Text Replaced for Educational Tone -->
+            <div class="max-w-4xl mx-auto border-t border-gray-800 pt-10 text-left">
+                <h3 class="text-white font-bold text-2xl mb-4 text-center">Why an Agentic Framework?</h3>
+                <div class="prose prose-invert prose-lg text-gray-400 max-w-none">
+                    <p class="mb-4">
+                        As organizations rapidly integrate autonomous AI agents into their workflows, traditional IT governance models often fall short. Unlike standard software, agents operate with a high degree of autonomy—making decisions, executing transactions, and interacting with external systems without direct human intervention.
+                    </p>
+                    <p>
+                        Without a dedicated governance framework, this autonomy creates significant risks ranging from data leakage and hallucination to regulatory non-compliance and runaway operational costs. This framework provides the necessary scaffolding to harness agentic power responsibly, ensuring that every autonomous action remains aligned with enterprise values, security protocols, and strategic goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pb-24">
+
+        <!-- Section I: Compliance -->
+        <section id="compliance" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-8 section-header">I. Compliance Alignment Layer</h2>
+            <p class="text-gray-400 mb-8 max-w-3xl">All agentic governance must trace back to binding obligations. We maintain a compliance mapping that connects each agent capability to its governing obligations.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-brand-card p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors group">
+                    <div class="h-10 w-10 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-text" class="text-blue-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Contractual</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex gap-2"><span class="text-blue-500">•</span>Customer agreements (SLAs)</li>
+                        <li class="flex gap-2"><span class="text-blue-500">•</span>Vendor contracts (LLMs)</li>
+                        <li class="flex gap-2"><span class="text-blue-500">•</span>IP Agreements</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-brand-card p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors group">
+                    <div class="h-10 w-10 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="scale" class="text-purple-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Regulatory</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex gap-2"><span class="text-purple-500">•</span>GDPR, CCPA, HIPAA</li>
+                        <li class="flex gap-2"><span class="text-purple-500">•</span>EU AI Act</li>
+                        <li class="flex gap-2"><span class="text-purple-500">•</span>Export controls</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-brand-card p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors group">
+                    <div class="h-10 w-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="building" class="text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Internal Policy</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex gap-2"><span class="text-emerald-500">•</span>Acceptable Use Policy</li>
+                        <li class="flex gap-2"><span class="text-emerald-500">•</span>Risk Appetite</li>
+                        <li class="flex gap-2"><span class="text-emerald-500">•</span>Data Classification</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-brand-card p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors group">
+                    <div class="h-10 w-10 bg-rose-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="heart-handshake" class="text-rose-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Ethical</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex gap-2"><span class="text-rose-500">•</span>Fairness & Transparency</li>
+                        <li class="flex gap-2"><span class="text-rose-500">•</span>Bias Mitigation</li>
+                        <li class="flex gap-2"><span class="text-rose-500">•</span>Explainability Standards</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section II: Lifecycle -->
+        <section id="lifecycle" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-8 section-header">II. Lifecycle Governance Model</h2>
+            <!-- Intro Sentence Added -->
+            <p class="text-gray-400 mb-8 max-w-3xl">Governance must be embedded at each phase, not bolted on afterward.</p>
+            
+            <div class="space-y-4">
+                
+                <!-- Plan Time -->
+                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-blue-500/20 text-blue-400 font-mono text-xs px-2 py-1 rounded border border-blue-500/30">PHASE 1</span>
+                            <h3 class="text-xl font-bold">Plan Time</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-gray-800/50">
+                        <div class="grid md:grid-cols-3 gap-8 mt-4">
+                            <div>
+                                <h4 class="font-bold text-blue-400 mb-2">Strategic Planning</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Alignment to business objectives</li>
+                                    <li>Capability roadmapping</li>
+                                    <li>Investment governance</li>
+                                    <li>Risk assessment (vendor lock-in)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-400 mb-2">Portfolio Planning</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Demand intake & rationalization</li>
+                                    <li>Duplication detection</li>
+                                    <li>Retirement planning for legacy</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-400 mb-2">Agent Catalog</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Centralized registry</li>
+                                    <li>Ownership assignment</li>
+                                    <li>Portfolio Health Dashboard</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Design Time -->
+                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-purple-500/20 text-purple-400 font-mono text-xs px-2 py-1 rounded border border-purple-500/30">PHASE 2</span>
+                            <h3 class="text-xl font-bold">Design Time</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-gray-800/50">
+                        <div class="grid md:grid-cols-3 gap-8 mt-4">
+                            <div>
+                                <h4 class="font-bold text-purple-400 mb-2">Architecture Governance</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Right-sizing principles</li>
+                                    <li>Scope boundaries</li>
+                                    <li>Explainability mandates</li>
+                                    <li>Security-by-design</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-purple-400 mb-2">Standards & Patterns</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Approved tech stacks</li>
+                                    <li>Naming conventions</li>
+                                    <li>Observability requirements</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-purple-400 mb-2">Shadow IT Control</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Discovery mechanisms</li>
+                                    <li>Amnesty pathways</li>
+                                    <li>Sandbox environments</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Build Time -->
+                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-emerald-500/20 text-emerald-400 font-mono text-xs px-2 py-1 rounded border border-emerald-500/30">PHASE 3</span>
+                            <h3 class="text-xl font-bold">Build Time</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-gray-800/50">
+                        <div class="grid md:grid-cols-2 gap-8 mt-4">
+                            <div>
+                                <h4 class="font-bold text-emerald-400 mb-2">Development Standards</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Agent-specific CI/CD pipelines</li>
+                                    <li>Unit testing & simulation</li>
+                                    <li>Integration testing</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-emerald-400 mb-2">Quality Gates</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Code review</li>
+                                    <li>Security scanning (static/dynamic)</li>
+                                    <li>Performance baseline validation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Run Time -->
+                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50" open>
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-rose-500/20 text-rose-400 font-mono text-xs px-2 py-1 rounded border border-rose-500/30">PHASE 4</span>
+                            <h3 class="text-xl font-bold">Run Time (Critical)</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-gray-800/50">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
+                            <div class="bg-gray-800/30 p-4 rounded">
+                                <h4 class="font-bold text-rose-400 mb-2 text-sm">Agent Mesh</h4>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>Traffic management</li>
+                                    <li>Service auth (mTLS)</li>
+                                    <li>Circuit breakers</li>
+                                    <li>Auto-scaling</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800/30 p-4 rounded">
+                                <h4 class="font-bold text-rose-400 mb-2 text-sm">Data Protection</h4>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>Real-time PII masking</li>
+                                    <li>Data minimization</li>
+                                    <li>Cross-border controls</li>
+                                    <li>Automated redaction</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800/30 p-4 rounded">
+                                <h4 class="font-bold text-rose-400 mb-2 text-sm">MCP Security</h4>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>Tool allowlisting</li>
+                                    <li>Scope limitation</li>
+                                    <li>Audit logging</li>
+                                    <li>Anomaly detection</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800/30 p-4 rounded">
+                                <h4 class="font-bold text-rose-400 mb-2 text-sm">Model Gateway</h4>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>Prompt injection detection</li>
+                                    <li>Content filtering</li>
+                                    <li>Token limits</li>
+                                    <li>Model versioning</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 border border-rose-500/20 rounded bg-rose-900/10 text-center">
+                            <span class="text-rose-400 font-bold text-sm">Runtime Policy Engine:</span> <span class="text-gray-400 text-sm">Enforces rules dynamically based on context, user role, and risk signals.</span>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Decommission Time (Added) -->
+                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-gray-500/20 text-gray-400 font-mono text-xs px-2 py-1 rounded border border-gray-500/30">PHASE 5</span>
+                            <h3 class="text-xl font-bold">Decommission Time</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="p-6 pt-0 border-t border-gray-800/50">
+                        <div class="grid md:grid-cols-2 gap-8 mt-4">
+                            <div>
+                                <h4 class="font-bold text-gray-400 mb-2">Retirement Planning</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Impact assessment before shutdown</li>
+                                    <li>Data migration & archival</li>
+                                    <li>Knowledge transfer documentation</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-400 mb-2">Graceful Degradation</h4>
+                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Downstream dependency notification</li>
+                                    <li>Historical audit record preservation</li>
+                                    <li>Fallback path verification</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- Section IV & V & VI & VII: Cross Cutting Grid -->
+        <section id="cross-cutting" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-4 section-header">Cross-Cutting Disciplines</h2>
+            <p class="text-gray-400 mb-8 max-w-4xl">
+                While the lifecycle model addresses governance at specific points in time, certain disciplines must be continuous and omnipresent. These cross-cutting concerns—Security, Performance, Enablement, and Financial Governance—operate in parallel with every phase of development and deployment, ensuring a holistic approach to risk management and value realization.
+            </p>
+            
+            <div class="space-y-6">
+                
+                <!-- Security -->
+                <div class="bg-brand-card/50 border-l-4 border-red-500 p-6 rounded-r-lg hover:bg-gray-800/50 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="md:w-1/4">
+                            <h3 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                                <i data-lucide="lock" class="w-6 h-6 text-red-500"></i> IV. Security & Risk
+                            </h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-wider font-mono">Continuous Protection</p>
+                        </div>
+                        <div class="md:w-3/4 grid md:grid-cols-3 gap-6">
+                            <div>
+                                <strong class="text-gray-200 block mb-1">Defensive Guardrails:</strong>
+                                <p class="text-sm text-gray-400">Zero-trust arch, input validation, rate limiting.</p>
+                            </div>
+                            <div>
+                                <strong class="text-gray-200 block mb-1">Threat Modeling:</strong>
+                                <p class="text-sm text-gray-400">Prompt injection, tool misuse, model poisoning detection.</p>
+                            </div>
+                            <div>
+                                <strong class="text-gray-200 block mb-1">Incident Response:</strong>
+                                <p class="text-sm text-gray-400">Kill switches, forensic logging, AI-specific playbooks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance -->
+                <div class="bg-brand-card/50 border-l-4 border-yellow-500 p-6 rounded-r-lg hover:bg-gray-800/50 transition-colors">
+                     <div class="flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="md:w-1/4">
+                            <h3 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                                <i data-lucide="gauge" class="w-6 h-6 text-yellow-500"></i> V. Performance & QA
+                            </h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-wider font-mono">Quality Assurance</p>
+                        </div>
+                        <div class="md:w-3/4 grid md:grid-cols-3 gap-6">
+                            <div>
+                                <strong class="text-gray-200 block mb-1">Benchmarks:</strong>
+                                <p class="text-sm text-gray-400">Accuracy against ground truth, latency, cost per task.</p>
+                            </div>
+                            <div>
+                                <strong class="text-gray-200 block mb-1">Evaluation:</strong>
+                                <p class="text-sm text-gray-400">Hallucination detection, regression detection, adversarial testing.</p>
+                            </div>
+                            <div>
+                                <strong class="text-gray-200 block mb-1">Feedback Loops:</strong>
+                                <p class="text-sm text-gray-400">Capture signals from business users to improve agent performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enablement -->
+                <div class="bg-brand-card/50 border-l-4 border-purple-500 p-6 rounded-r-lg hover:bg-gray-800/50 transition-colors">
+                     <div class="flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="md:w-1/4">
+                            <h3 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                                <i data-lucide="users" class="w-6 h-6 text-purple-500"></i> VI. Enablement
+                            </h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-wider font-mono">Organizational Change</p>
+                        </div>
+                        <div class="md:w-3/4 grid md:grid-cols-3 gap-6">
+                            <div>
+                                <strong class="text-gray-200 block mb-1">Governance Bodies:</strong>
+                                <p class="text-sm text-gray-400">Strategy Council, Arch Board, AI Ethics Committee.</p>
+                            </div>
+                            <div>
+                                <strong class="text-gray-200 block mb-1">RACI & Roles:</strong>
+                                <p class="text-sm text-gray-400">Dedicated AI officers, named owners for every agent.</p>
+                            </div>
+                            <div>
+                                <strong class="text-gray-200 block mb-1">Change Mgmt:</strong>
+                                <p class="text-sm text-gray-400">Training programs, maturity models, resistance management.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial (Highlighted) -->
+                <div id="financial" class="bg-emerald-900/10 border-l-4 border-emerald-500 p-6 rounded-r-lg hover:bg-emerald-900/20 transition-colors">
+                     <div class="flex flex-col md:flex-row md:items-start gap-6">
+                        <div class="md:w-1/4">
+                            <h3 class="text-2xl font-bold text-emerald-400 mb-2 flex items-center gap-2">
+                                <i data-lucide="dollar-sign" class="w-6 h-6 text-emerald-500"></i> VII. Financial
+                            </h3>
+                            <p class="text-xs text-emerald-500/70 uppercase tracking-wider font-mono">FinOps for Agents</p>
+                        </div>
+                        <div class="md:w-3/4 grid md:grid-cols-3 gap-6">
+                            <div>
+                                <strong class="text-white block mb-1">Token Economics:</strong>
+                                <p class="text-sm text-gray-400">Assign cost centers to agents. Marketing Agent spend hits the marketing budget.</p>
+                            </div>
+                            <div>
+                                <strong class="text-white block mb-1">Granular Tracking:</strong>
+                                <p class="text-sm text-gray-400">Tagging standards by agent, task type, project.</p>
+                            </div>
+                            <div>
+                                <strong class="text-white block mb-1">Multi-Model Strategy:</strong>
+                                <p class="text-sm text-gray-400">Track and optimize costs across different LLM providers (e.g., using cheaper models for simpler tasks).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Governance Operating Model -->
+        <section id="operating-model" class="scroll-mt-24">
+            <!-- Corrected Numbering to VIII -->
+             <h2 class="text-3xl font-bold mb-4 section-header">VIII. Operating Model</h2>
+             <p class="text-gray-400 mb-8 max-w-4xl">
+                 A static framework is insufficient for dynamic agentic systems. The Operating Model defines how governance is applied in practice, tailoring oversight intensity to the specific risk profile of each agent. By tiering agents based on their autonomy and impact, organizations can apply rigorous control where necessary (Strategic/Critical agents) while allowing faster innovation cycles for lower-risk experiments (Exploratory agents).
+             </p>
+             
+             <div class="overflow-x-auto">
+                 <table class="w-full text-left border-collapse">
+                     <thead>
+                         <tr class="bg-gray-800 text-gray-200">
+                             <th class="p-4 rounded-tl-lg">Tier</th>
+                             <th class="p-4">Characteristics</th>
+                             <th class="p-4 rounded-tr-lg">Governance Approach</th>
+                         </tr>
+                     </thead>
+                     <tbody class="divide-y divide-gray-800 bg-brand-card">
+                         <tr class="hover:bg-gray-800/50 transition-colors">
+                             <td class="p-4 text-blue-400 font-bold font-mono">Tier 1: Exploratory</td>
+                             <td class="p-4 text-sm text-gray-400">Sandbox only, no production data.</td>
+                             <td class="p-4 text-sm text-gray-300">Self-service with guardrails.</td>
+                         </tr>
+                         <tr class="hover:bg-gray-800/50 transition-colors">
+                             <td class="p-4 text-emerald-400 font-bold font-mono">Tier 2: Operational</td>
+                             <td class="p-4 text-sm text-gray-400">Production use, limited autonomy, reversible actions.</td>
+                             <td class="p-4 text-sm text-gray-300">Lightweight review, automated checks.</td>
+                         </tr>
+                         <tr class="hover:bg-gray-800/50 transition-colors">
+                             <td class="p-4 text-yellow-400 font-bold font-mono">Tier 3: Critical</td>
+                             <td class="p-4 text-sm text-gray-400">High autonomy, sensitive data, irreversible actions.</td>
+                             <td class="p-4 text-sm text-gray-300">Full design review, continuous monitoring.</td>
+                         </tr>
+                         <tr class="hover:bg-gray-800/50 transition-colors">
+                             <td class="p-4 text-rose-400 font-bold font-mono">Tier 4: Strategic</td>
+                             <td class="p-4 text-sm text-gray-400">Enterprise-wide impact, external-facing, regulatory scope.</td>
+                             <td class="p-4 text-sm text-gray-300">Executive sponsorship, external audit.</td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
+        </section>
+
+        <!-- Visual Architecture Diagram -->
+        <section class="py-12">
+            <!-- Renamed Title -->
+            <h2 class="text-center text-2xl font-bold mb-8 text-gray-500">Framework Visual Summary</h2>
+            <div class="arch-diagram hidden md:grid">
+                
+                <!-- Compliance Layer -->
+                <div class="arch-layer" style="background: rgba(139, 92, 246, 0.1); border-color: #8B5CF6; color: #C4B5FD;">
+                    Compliance Alignment Layer (Contracts • Regulations • Policies • Ethics)
+                </div>
+
+                <!-- Down Arrows -->
+                <div class="arch-arrow-down">
+                    <i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i>
+                </div>
+
+                <!-- Phases Boxes -->
+                <div class="arch-box border-blue-500/50">
+                    <strong class="block text-blue-400 mb-2">PLAN</strong>
+                    <ul class="text-xs text-left text-gray-400 space-y-1">
+                        <li>Strategy</li>
+                        <li>Portfolio</li>
+                        <li>Catalog</li>
+                    </ul>
+                </div>
+                <div class="arch-box border-purple-500/50">
+                    <strong class="block text-purple-400 mb-2">DESIGN</strong>
+                    <ul class="text-xs text-left text-gray-400 space-y-1">
+                        <li>Architecture</li>
+                        <li>Standards</li>
+                        <li>Shadow IT</li>
+                    </ul>
+                </div>
+                <div class="arch-box border-emerald-500/50">
+                    <strong class="block text-emerald-400 mb-2">BUILD</strong>
+                    <ul class="text-xs text-left text-gray-400 space-y-1">
+                        <li>CI/CD</li>
+                        <li>Quality Gates</li>
+                        <li>Dev Stds</li>
+                    </ul>
+                </div>
+                <div class="arch-box border-rose-500/50" style="grid-column: span 2;">
+                    <strong class="block text-rose-400 mb-2">RUN</strong>
+                    <div class="grid grid-cols-2 gap-2 text-xs text-left text-gray-400">
+                        <div>
+                            <li>Agent Mesh</li>
+                            <li>Data Prot</li>
+                        </div>
+                        <div>
+                            <li>MCP Sec</li>
+                            <li>Model GW</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-box border-gray-500/50">
+                    <strong class="block text-gray-400 mb-2">DECOM</strong>
+                    <ul class="text-xs text-left text-gray-400 space-y-1">
+                        <li>Impact</li>
+                        <li>Knowledge</li>
+                        <li>Data</li>
+                    </ul>
+                </div>
+
+                <!-- Down Arrows -->
+                <div class="arch-arrow-down">
+                    <i data-lucide="arrow-down"></i>
+                </div>
+
+                <!-- Cross Cutting Layer -->
+                <div class="arch-layer grid grid-cols-4 gap-4" style="background: rgba(16, 185, 129, 0.05); border-color: #10B981; color: #6EE7B7;">
+                    <div class="text-center"><strong class="block text-red-400">Security</strong>Guardrails</div>
+                    <div class="text-center"><strong class="block text-yellow-400">Performance</strong>Benchmarks</div>
+                    <div class="text-center"><strong class="block text-purple-400">Enablement</strong>Training</div>
+                    <!-- Financial FinOps Changed to Financial Cost Models -->
+                    <div class="text-center"><strong class="block text-emerald-400">Financial</strong>Cost Models</div>
+                </div>
+            </div>
+            
+            <!-- Mobile Fallback for Diagram -->
+            <div class="md:hidden bg-gray-900 p-4 rounded text-center text-sm text-gray-400 border border-gray-800">
+                (View on desktop to see full architectural diagram)
+            </div>
+        </section>
+
+        <!-- Outro Section Added -->
+        <section class="max-w-4xl mx-auto text-center py-12 border-t border-gray-800">
+            <div class="flex justify-center mb-8">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-brand-accent/20 blur-xl rounded-full animate-pulse-slow"></div>
+                    <i data-lucide="compass" class="relative w-16 h-16 text-brand-accent"></i>
+                </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">The Path Forward</h3>
+            <p class="text-gray-400 text-lg">
+                This governance framework is not a static rulebook but a living system. By treating governance as code and policy as an enabler, organizations can harness the transformative power of Agentic AI while protecting their reputation, data, and bottom line.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
+                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
+            </div>
+            <div class="text-gray-600 text-sm text-center md:text-right">
+                <p>&copy; 2026 Enterprise Architecture Group.</p>
+                <p>Framework Version 2.1</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Optional: Simple scroll reveal effect
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            // section.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700'); 
+            // In a real production site, we'd add the observer logic here to toggle classes
+            // For this single file, keeping it simple static/css hover interactions
+        });
+    </script>
+</body>
+</html>
