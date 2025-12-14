@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifecycle Governance: Run Time - Agentic Governance Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            card: '#111827',
+                            accent: '#3B82F6',
+                            glow: '#60A5FA',
+                            purple: '#8B5CF6',
+                            success: '#10B981',
+                            danger: '#EF4444',
+                            warning: '#F59E0B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #E2E8F0;
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0F19; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
+        .section-header { position: relative; display: inline-block; }
+        .section-header::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 60px; height: 3px;
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+        }
+        .objective-card { transition: all 0.3s ease; }
+        .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(244, 63, 94, 0.15); }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
+                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
+                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
+                        <a href="index.html#lifecycle" class="text-rose-400 px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-rose-400">Lifecycle</a>
+                        <a href="index.html#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
+                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="index.html#lifecycle" class="hover:text-brand-accent transition-colors">Lifecycle</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-300">Run Time</span>
+            </div>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="h-14 w-14 bg-rose-500/20 rounded-xl flex items-center justify-center">
+                    <i data-lucide="play" class="w-8 h-8 text-rose-400"></i>
+                </div>
+                <div>
+                    <span class="text-rose-400 font-mono text-sm">SECTION V - PHASE 4 (CRITICAL)</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                        Lifecycle Governance: Run Time
+                    </h1>
+                </div>
+            </div>
+
+            <p class="text-xl text-gray-400 max-w-3xl mb-8">
+                Runtime controls are the critical enforcement layer where policies become action. This phase governs agent behavior in production, protecting data, enforcing access controls, and ensuring operational resilience.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2 bg-rose-500/10 px-4 py-2 rounded-lg border border-rose-500/30">
+                    <i data-lucide="alert-circle" class="w-5 h-5 text-rose-400"></i>
+                    <span class="text-sm text-rose-300 font-semibold">Critical Phase</span>
+                </div>
+                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
+                    <i data-lucide="target" class="w-5 h-5 text-rose-400"></i>
+                    <span class="text-sm text-gray-300"><strong class="text-white">12</strong> Control Objectives</span>
+                </div>
+                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
+                    <i data-lucide="shield" class="w-5 h-5 text-blue-400"></i>
+                    <span class="text-sm text-gray-300">Real-time Protection</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+
+        <!-- Control Objectives -->
+        <section>
+            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
+
+            <div class="grid gap-6">
+
+                <!-- RUN-01 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-rose-400">RUN-01</span>
+                            <i data-lucide="network" class="w-10 h-10 text-rose-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Agent Mesh Policy Enforcement</h3>
+                            <p class="text-gray-400 mb-4">Enforce policies governing agent-to-agent communication, ensuring only authorized interactions occur within the agent mesh.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Unauthorized agent-to-agent communication</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Policy violation incidents</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-02 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-blue-400">RUN-02</span>
+                            <i data-lucide="key" class="w-10 h-10 text-blue-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Authentication and Authorization</h3>
+                            <p class="text-gray-400 mb-4">Ensure robust authentication and authorization controls for all agent capabilities and data access.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Unauthorized access to agent capabilities</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Authentication failure rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-03 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-purple-400">RUN-03</span>
+                            <i data-lucide="user-x" class="w-10 h-10 text-purple-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">PII Detection and Protection</h3>
+                            <p class="text-gray-400 mb-4">Implement real-time detection and protection of personally identifiable information (PII) in agent inputs and outputs.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Personal data exposure</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">PII leak incidents</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-04 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-yellow-400">RUN-04</span>
+                            <i data-lucide="minimize-2" class="w-10 h-10 text-yellow-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Data Minimization Enforcement</h3>
+                            <p class="text-gray-400 mb-4">Enforce data minimization principles ensuring agents only collect and process data necessary for their specific tasks.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Excessive data collection or sharing</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Data scope violations detected</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-05 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-emerald-400">RUN-05</span>
+                            <i data-lucide="server" class="w-10 h-10 text-emerald-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">MCP Server Access Control</h3>
+                            <p class="text-gray-400 mb-4">Implement least-privilege access controls for Model Context Protocol (MCP) server connections and tool permissions.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Excessive tool permissions</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">% MCP connections with least-privilege config</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-06 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-cyan-400">RUN-06</span>
+                            <i data-lucide="door-closed" class="w-10 h-10 text-cyan-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Model Gateway Policy Enforcement</h3>
+                            <p class="text-gray-400 mb-4">Route all LLM requests through a governed gateway that enforces usage policies, content filtering, and access controls.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Uncontrolled LLM access</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">% requests through governed gateway</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-07 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-orange-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-orange-400">RUN-07</span>
+                            <i data-lucide="filter" class="w-10 h-10 text-orange-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Content Filtering Effectiveness</h3>
+                            <p class="text-gray-400 mb-4">Filter harmful, inappropriate, or policy-violating content in both inputs and outputs of agent interactions.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Harmful input or output</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Filtered content incidents</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-08 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-red-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-red-400">RUN-08</span>
+                            <i data-lucide="syringe" class="w-10 h-10 text-red-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Prompt Injection Prevention</h3>
+                            <p class="text-gray-400 mb-4">Detect and block adversarial prompt injection attacks that attempt to manipulate agent behavior.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Adversarial prompt attacks</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Injection attempts blocked</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-09 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-indigo-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-indigo-400">RUN-09</span>
+                            <i data-lucide="gauge" class="w-10 h-10 text-indigo-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Rate Limiting Enforcement</h3>
+                            <p class="text-gray-400 mb-4">Enforce rate limits to prevent resource exhaustion, abuse, and runaway costs from excessive agent activity.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Resource exhaustion or abuse</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Rate limit triggers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-10 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-teal-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-teal-400">RUN-10</span>
+                            <i data-lucide="eye" class="w-10 h-10 text-teal-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Observability Coverage</h3>
+                            <p class="text-gray-400 mb-4">Ensure comprehensive observability including logging, metrics, and tracing for all agent activities to eliminate blind spots.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Blind spots in agent behavior</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">% agents with full observability</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-11 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-pink-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-pink-400">RUN-11</span>
+                            <i data-lucide="refresh-cw" class="w-10 h-10 text-pink-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Resilience and Failover</h3>
+                            <p class="text-gray-400 mb-4">Implement resilience patterns including circuit breakers, retries, and failover mechanisms to maintain service availability.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Service disruption from agent failure</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Failover test success rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUN-12 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-lime-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-lime-400">RUN-12</span>
+                            <i data-lucide="trending-up" class="w-10 h-10 text-lime-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Scalability Adequacy</h3>
+                            <p class="text-gray-400 mb-4">Ensure agents can scale to meet demand without performance degradation, with adequate capacity headroom.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Performance degradation under load</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Capacity headroom percentage</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Summary Table -->
+        <section class="mt-16">
+            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800 text-gray-200">
+                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
+                            <th class="p-4">Objective</th>
+                            <th class="p-4">Primary Risk Addressed</th>
+                            <th class="p-4 rounded-tr-lg">Key Metric</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800 bg-brand-card">
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-rose-400 font-bold font-mono">RUN-01</td>
+                            <td class="p-4 text-sm text-gray-300">Agent Mesh Policy Enforcement</td>
+                            <td class="p-4 text-sm text-gray-400">Unauthorized agent-to-agent communication</td>
+                            <td class="p-4 text-sm text-gray-400">Policy violation incidents</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-blue-400 font-bold font-mono">RUN-02</td>
+                            <td class="p-4 text-sm text-gray-300">Authentication and Authorization</td>
+                            <td class="p-4 text-sm text-gray-400">Unauthorized access to agent capabilities</td>
+                            <td class="p-4 text-sm text-gray-400">Authentication failure rate</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-purple-400 font-bold font-mono">RUN-03</td>
+                            <td class="p-4 text-sm text-gray-300">PII Detection and Protection</td>
+                            <td class="p-4 text-sm text-gray-400">Personal data exposure</td>
+                            <td class="p-4 text-sm text-gray-400">PII leak incidents</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-yellow-400 font-bold font-mono">RUN-04</td>
+                            <td class="p-4 text-sm text-gray-300">Data Minimization Enforcement</td>
+                            <td class="p-4 text-sm text-gray-400">Excessive data collection or sharing</td>
+                            <td class="p-4 text-sm text-gray-400">Data scope violations detected</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-emerald-400 font-bold font-mono">RUN-05</td>
+                            <td class="p-4 text-sm text-gray-300">MCP Server Access Control</td>
+                            <td class="p-4 text-sm text-gray-400">Excessive tool permissions</td>
+                            <td class="p-4 text-sm text-gray-400">% MCP connections with least-privilege config</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-cyan-400 font-bold font-mono">RUN-06</td>
+                            <td class="p-4 text-sm text-gray-300">Model Gateway Policy Enforcement</td>
+                            <td class="p-4 text-sm text-gray-400">Uncontrolled LLM access</td>
+                            <td class="p-4 text-sm text-gray-400">% requests through governed gateway</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-orange-400 font-bold font-mono">RUN-07</td>
+                            <td class="p-4 text-sm text-gray-300">Content Filtering Effectiveness</td>
+                            <td class="p-4 text-sm text-gray-400">Harmful input or output</td>
+                            <td class="p-4 text-sm text-gray-400">Filtered content incidents</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-red-400 font-bold font-mono">RUN-08</td>
+                            <td class="p-4 text-sm text-gray-300">Prompt Injection Prevention</td>
+                            <td class="p-4 text-sm text-gray-400">Adversarial prompt attacks</td>
+                            <td class="p-4 text-sm text-gray-400">Injection attempts blocked</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-indigo-400 font-bold font-mono">RUN-09</td>
+                            <td class="p-4 text-sm text-gray-300">Rate Limiting Enforcement</td>
+                            <td class="p-4 text-sm text-gray-400">Resource exhaustion or abuse</td>
+                            <td class="p-4 text-sm text-gray-400">Rate limit triggers</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-teal-400 font-bold font-mono">RUN-10</td>
+                            <td class="p-4 text-sm text-gray-300">Observability Coverage</td>
+                            <td class="p-4 text-sm text-gray-400">Blind spots in agent behavior</td>
+                            <td class="p-4 text-sm text-gray-400">% agents with full observability</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-pink-400 font-bold font-mono">RUN-11</td>
+                            <td class="p-4 text-sm text-gray-300">Resilience and Failover</td>
+                            <td class="p-4 text-sm text-gray-400">Service disruption from agent failure</td>
+                            <td class="p-4 text-sm text-gray-400">Failover test success rate</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-lime-400 font-bold font-mono">RUN-12</td>
+                            <td class="p-4 text-sm text-gray-300">Scalability Adequacy</td>
+                            <td class="p-4 text-sm text-gray-400">Performance degradation under load</td>
+                            <td class="p-4 text-sm text-gray-400">Capacity headroom percentage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <section class="mt-16 pt-12 border-t border-gray-800">
+            <div class="flex flex-col sm:flex-row justify-between gap-4">
+                <a href="lifecycle-build.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-emerald-500/50 transition-colors group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-emerald-400 transition-colors"></i>
+                    <div>
+                        <span class="text-xs text-gray-500">Previous</span>
+                        <p class="text-white font-semibold">IV. Build Time</p>
+                    </div>
+                </a>
+                <a href="lifecycle-decommission.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-gray-500/50 transition-colors group text-right sm:flex-row-reverse">
+                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-colors"></i>
+                    <div>
+                        <span class="text-xs text-gray-500">Next</span>
+                        <p class="text-white font-semibold">VI. Decommission Time</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
+                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
+            </div>
+            <div class="text-gray-600 text-sm text-center md:text-right">
+                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
+                <p>Framework Version 2.1</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

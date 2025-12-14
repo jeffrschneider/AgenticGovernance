@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifecycle Governance: Decommission Time - Agentic Governance Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            card: '#111827',
+                            accent: '#3B82F6',
+                            glow: '#60A5FA',
+                            purple: '#8B5CF6',
+                            success: '#10B981',
+                            danger: '#EF4444',
+                            warning: '#F59E0B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #E2E8F0;
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0F19; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
+        .section-header { position: relative; display: inline-block; }
+        .section-header::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 60px; height: 3px;
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+        }
+        .objective-card { transition: all 0.3s ease; }
+        .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(107, 114, 128, 0.15); }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
+                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
+                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
+                        <a href="index.html#lifecycle" class="text-gray-400 px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-gray-400">Lifecycle</a>
+                        <a href="index.html#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
+                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="index.html#lifecycle" class="hover:text-brand-accent transition-colors">Lifecycle</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-300">Decommission Time</span>
+            </div>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="h-14 w-14 bg-gray-500/20 rounded-xl flex items-center justify-center">
+                    <i data-lucide="power-off" class="w-8 h-8 text-gray-400"></i>
+                </div>
+                <div>
+                    <span class="text-gray-400 font-mono text-sm">SECTION VI - PHASE 5</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                        Lifecycle Governance: Decommission Time
+                    </h1>
+                </div>
+            </div>
+
+            <p class="text-xl text-gray-400 max-w-3xl mb-8">
+                Orderly retirement of agents is essential to prevent disruption, data loss, and compliance gaps. Decommission Time controls ensure graceful shutdown with proper knowledge transfer and audit preservation.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
+                    <i data-lucide="target" class="w-5 h-5 text-gray-400"></i>
+                    <span class="text-sm text-gray-300"><strong class="text-white">6</strong> Control Objectives</span>
+                </div>
+                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
+                    <i data-lucide="archive" class="w-5 h-5 text-blue-400"></i>
+                    <span class="text-sm text-gray-300">Data Preservation</span>
+                </div>
+                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
+                    <i data-lucide="git-branch" class="w-5 h-5 text-purple-400"></i>
+                    <span class="text-sm text-gray-300">Graceful Transition</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+
+        <!-- Control Objectives -->
+        <section>
+            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
+
+            <div class="grid gap-6">
+
+                <!-- DCM-01 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-gray-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-gray-400">DCM-01</span>
+                            <i data-lucide="clipboard-check" class="w-10 h-10 text-gray-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Impact Assessment Completion</h3>
+                            <p class="text-gray-400 mb-4">Complete comprehensive impact assessments before agent retirement to identify affected systems, users, and processes.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Disruption from agent retirement</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">% retirements with impact assessment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DCM-02 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-blue-400">DCM-02</span>
+                            <i data-lucide="database" class="w-10 h-10 text-blue-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Data Migration and Archival</h3>
+                            <p class="text-gray-400 mb-4">Ensure all agent data is properly migrated or archived according to retention policies before shutdown.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Data loss or compliance gaps</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Data migration success rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DCM-03 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-purple-400">DCM-03</span>
+                            <i data-lucide="book" class="w-10 h-10 text-purple-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Knowledge Transfer Documentation</h3>
+                            <p class="text-gray-400 mb-4">Document institutional knowledge, lessons learned, and operational insights before agent retirement to preserve organizational learning.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Institutional knowledge loss</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">% retirements with knowledge transfer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DCM-04 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-yellow-400">DCM-04</span>
+                            <i data-lucide="bell" class="w-10 h-10 text-yellow-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Downstream Notification</h3>
+                            <p class="text-gray-400 mb-4">Notify all dependent systems and stakeholders of impending agent retirement with adequate lead time for transition planning.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Dependent system failures</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Notification completion rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DCM-05 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-emerald-400">DCM-05</span>
+                            <i data-lucide="archive" class="w-10 h-10 text-emerald-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Audit Record Preservation</h3>
+                            <p class="text-gray-400 mb-4">Preserve all audit records, logs, and compliance evidence for retired agents according to retention requirements.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Inability to investigate historical issues</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">% retirements with preserved audit trail</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DCM-06 -->
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-rose-400">DCM-06</span>
+                            <i data-lucide="route" class="w-10 h-10 text-rose-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Graceful Degradation Verification</h3>
+                            <p class="text-gray-400 mb-4">Verify that dependent systems can gracefully handle agent retirement through tested fallback paths and degradation strategies.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
+                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Hard failures in dependent systems</p>
+                                </div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Fallback path test success rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Summary Table -->
+        <section class="mt-16">
+            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800 text-gray-200">
+                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
+                            <th class="p-4">Objective</th>
+                            <th class="p-4">Primary Risk Addressed</th>
+                            <th class="p-4 rounded-tr-lg">Key Metric</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800 bg-brand-card">
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-gray-400 font-bold font-mono">DCM-01</td>
+                            <td class="p-4 text-sm text-gray-300">Impact Assessment Completion</td>
+                            <td class="p-4 text-sm text-gray-400">Disruption from agent retirement</td>
+                            <td class="p-4 text-sm text-gray-400">% retirements with impact assessment</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-blue-400 font-bold font-mono">DCM-02</td>
+                            <td class="p-4 text-sm text-gray-300">Data Migration and Archival</td>
+                            <td class="p-4 text-sm text-gray-400">Data loss or compliance gaps</td>
+                            <td class="p-4 text-sm text-gray-400">Data migration success rate</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-purple-400 font-bold font-mono">DCM-03</td>
+                            <td class="p-4 text-sm text-gray-300">Knowledge Transfer Documentation</td>
+                            <td class="p-4 text-sm text-gray-400">Institutional knowledge loss</td>
+                            <td class="p-4 text-sm text-gray-400">% retirements with knowledge transfer</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-yellow-400 font-bold font-mono">DCM-04</td>
+                            <td class="p-4 text-sm text-gray-300">Downstream Notification</td>
+                            <td class="p-4 text-sm text-gray-400">Dependent system failures</td>
+                            <td class="p-4 text-sm text-gray-400">Notification completion rate</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-emerald-400 font-bold font-mono">DCM-05</td>
+                            <td class="p-4 text-sm text-gray-300">Audit Record Preservation</td>
+                            <td class="p-4 text-sm text-gray-400">Inability to investigate historical issues</td>
+                            <td class="p-4 text-sm text-gray-400">% retirements with preserved audit trail</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors">
+                            <td class="p-4 text-rose-400 font-bold font-mono">DCM-06</td>
+                            <td class="p-4 text-sm text-gray-300">Graceful Degradation Verification</td>
+                            <td class="p-4 text-sm text-gray-400">Hard failures in dependent systems</td>
+                            <td class="p-4 text-sm text-gray-400">Fallback path test success rate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <section class="mt-16 pt-12 border-t border-gray-800">
+            <div class="flex flex-col sm:flex-row justify-between gap-4">
+                <a href="lifecycle-run.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-rose-500/50 transition-colors group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-rose-400 transition-colors"></i>
+                    <div>
+                        <span class="text-xs text-gray-500">Previous</span>
+                        <p class="text-white font-semibold">V. Run Time</p>
+                    </div>
+                </a>
+                <a href="security-risk.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-red-500/50 transition-colors group text-right sm:flex-row-reverse">
+                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-red-400 transition-colors"></i>
+                    <div>
+                        <span class="text-xs text-gray-500">Next</span>
+                        <p class="text-white font-semibold">VII. Security & Risk</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
+                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
+            </div>
+            <div class="text-gray-600 text-sm text-center md:text-right">
+                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
+                <p>Framework Version 2.1</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
