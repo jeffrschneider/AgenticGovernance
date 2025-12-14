@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizational Enablement - Agentic Governance Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { brand: { dark: '#0B0F19', card: '#111827', accent: '#3B82F6', glow: '#60A5FA', purple: '#8B5CF6', success: '#10B981', danger: '#EF4444', warning: '#F59E0B' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B0F19; color: #E2E8F0; background-image: radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 25%); }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #0B0F19; } ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
+        .section-header { position: relative; display: inline-block; } .section-header::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, #8B5CF6, #3B82F6); }
+        .objective-card { transition: all 0.3s ease; } .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15); }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
+                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
+                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
+                        <a href="index.html#lifecycle" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Lifecycle</a>
+                        <a href="index.html#cross-cutting" class="text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-purple-400">Cross-Cutting</a>
+                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="index.html#cross-cutting" class="hover:text-brand-accent transition-colors">Cross-Cutting</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-300">Organizational Enablement</span>
+            </div>
+            <div class="flex items-center gap-4 mb-6">
+                <div class="h-14 w-14 bg-purple-500/20 rounded-xl flex items-center justify-center">
+                    <i data-lucide="users" class="w-8 h-8 text-purple-400"></i>
+                </div>
+                <div>
+                    <span class="text-purple-400 font-mono text-sm">SECTION X</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">Organizational Enablement</h1>
+                </div>
+            </div>
+            <p class="text-xl text-gray-400 max-w-3xl mb-8">People and processes are as critical as technology. These controls establish governance bodies, roles, training programs, and change management practices to enable successful AI adoption.</p>
+            <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2 bg-purple-500/10 px-4 py-2 rounded-lg border border-purple-500/30">
+                    <i data-lucide="users" class="w-5 h-5 text-purple-400"></i>
+                    <span class="text-sm text-purple-300 font-semibold">People & Process</span>
+                </div>
+                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
+                    <i data-lucide="target" class="w-5 h-5 text-purple-400"></i>
+                    <span class="text-sm text-gray-300"><strong class="text-white">10</strong> Control Objectives</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <section>
+            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
+            <div class="grid gap-6">
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-purple-400">ORG-01</span>
+                            <i data-lucide="landmark" class="w-10 h-10 text-purple-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Governance Body Effectiveness</h3>
+                            <p class="text-gray-400 mb-4">Establish effective governance bodies (councils, boards, committees) that make timely decisions and enforce policies.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Governance decisions not made or enforced</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Decision cycle time</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-blue-400">ORG-02</span>
+                            <i data-lucide="user-check" class="w-10 h-10 text-blue-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Role and Accountability Clarity</h3>
+                            <p class="text-gray-400 mb-4">Ensure every agent has a named accountable owner with clear responsibilities.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Gaps or overlaps in responsibility</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% agents with named accountable owner</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-yellow-400">ORG-03</span>
+                            <i data-lucide="table-2" class="w-10 h-10 text-yellow-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">RACI Completeness</h3>
+                            <p class="text-gray-400 mb-4">Define RACI matrices for all governance activities to clarify who decides, acts, and informs.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Confusion over who decides, acts, or informs</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% governance activities with RACI defined</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-emerald-400">ORG-04</span>
+                            <i data-lucide="graduation-cap" class="w-10 h-10 text-emerald-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Executive Training Coverage</h3>
+                            <p class="text-gray-400 mb-4">Ensure executives understand AI governance to make informed strategic decisions.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Leadership decisions without understanding</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% executives completing training</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-cyan-400">ORG-05</span>
+                            <i data-lucide="code" class="w-10 h-10 text-cyan-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Developer Training Coverage</h3>
+                            <p class="text-gray-400 mb-4">Train developers on secure, compliant agent development practices.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Insecure or non-compliant development</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% developers certified</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-rose-400">ORG-06</span>
+                            <i data-lucide="briefcase" class="w-10 h-10 text-rose-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Business User Training Coverage</h3>
+                            <p class="text-gray-400 mb-4">Train business users on proper agent usage to prevent misuse and maximize value.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Misuse or underutilization of agents</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% business users completing training</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-orange-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-orange-400">ORG-07</span>
+                            <i data-lucide="handshake" class="w-10 h-10 text-orange-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Governance Liaison Effectiveness</h3>
+                            <p class="text-gray-400 mb-4">Maintain effective liaisons between governance and business units to ensure alignment.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Business units disconnected from governance</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Business unit satisfaction score</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-indigo-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-indigo-400">ORG-08</span>
+                            <i data-lucide="refresh-cw" class="w-10 h-10 text-indigo-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Change Management Execution</h3>
+                            <p class="text-gray-400 mb-4">Execute effective change management to overcome resistance and drive governance adoption.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Resistance and adoption failure</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Governance adoption rate</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-pink-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-pink-400">ORG-09</span>
+                            <i data-lucide="megaphone" class="w-10 h-10 text-pink-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Communication Effectiveness</h3>
+                            <p class="text-gray-400 mb-4">Communicate governance requirements effectively to ensure stakeholder awareness.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Stakeholders unaware of governance requirements</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Awareness survey score</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-teal-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-teal-400">ORG-10</span>
+                            <i data-lucide="message-square" class="w-10 h-10 text-teal-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Feedback Mechanism Utilization</h3>
+                            <p class="text-gray-400 mb-4">Capture and act on feedback to continuously improve governance practices.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Governance not improving from input</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Feedback volume and action rate</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mt-16">
+            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead><tr class="bg-gray-800 text-gray-200"><th class="p-4 rounded-tl-lg font-mono">ID</th><th class="p-4">Objective</th><th class="p-4">Primary Risk Addressed</th><th class="p-4 rounded-tr-lg">Key Metric</th></tr></thead>
+                    <tbody class="divide-y divide-gray-800 bg-brand-card text-sm">
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-purple-400 font-bold font-mono">ORG-01</td><td class="p-4 text-gray-300">Governance Body Effectiveness</td><td class="p-4 text-gray-400">Governance decisions not made or enforced</td><td class="p-4 text-gray-400">Decision cycle time</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-blue-400 font-bold font-mono">ORG-02</td><td class="p-4 text-gray-300">Role and Accountability Clarity</td><td class="p-4 text-gray-400">Gaps or overlaps in responsibility</td><td class="p-4 text-gray-400">% agents with named accountable owner</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-yellow-400 font-bold font-mono">ORG-03</td><td class="p-4 text-gray-300">RACI Completeness</td><td class="p-4 text-gray-400">Confusion over who decides, acts, or informs</td><td class="p-4 text-gray-400">% governance activities with RACI defined</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-emerald-400 font-bold font-mono">ORG-04</td><td class="p-4 text-gray-300">Executive Training Coverage</td><td class="p-4 text-gray-400">Leadership decisions without understanding</td><td class="p-4 text-gray-400">% executives completing training</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-cyan-400 font-bold font-mono">ORG-05</td><td class="p-4 text-gray-300">Developer Training Coverage</td><td class="p-4 text-gray-400">Insecure or non-compliant development</td><td class="p-4 text-gray-400">% developers certified</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-rose-400 font-bold font-mono">ORG-06</td><td class="p-4 text-gray-300">Business User Training Coverage</td><td class="p-4 text-gray-400">Misuse or underutilization of agents</td><td class="p-4 text-gray-400">% business users completing training</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-orange-400 font-bold font-mono">ORG-07</td><td class="p-4 text-gray-300">Governance Liaison Effectiveness</td><td class="p-4 text-gray-400">Business units disconnected from governance</td><td class="p-4 text-gray-400">Business unit satisfaction score</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-indigo-400 font-bold font-mono">ORG-08</td><td class="p-4 text-gray-300">Change Management Execution</td><td class="p-4 text-gray-400">Resistance and adoption failure</td><td class="p-4 text-gray-400">Governance adoption rate</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-pink-400 font-bold font-mono">ORG-09</td><td class="p-4 text-gray-300">Communication Effectiveness</td><td class="p-4 text-gray-400">Stakeholders unaware of governance requirements</td><td class="p-4 text-gray-400">Awareness survey score</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-teal-400 font-bold font-mono">ORG-10</td><td class="p-4 text-gray-300">Feedback Mechanism Utilization</td><td class="p-4 text-gray-400">Governance not improving from input</td><td class="p-4 text-gray-400">Feedback volume and action rate</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mt-16 pt-12 border-t border-gray-800">
+            <div class="flex flex-col sm:flex-row justify-between gap-4">
+                <a href="financial-governance.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-emerald-500/50 transition-colors group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-emerald-400 transition-colors"></i>
+                    <div><span class="text-xs text-gray-500">Previous</span><p class="text-white font-semibold">IX. Financial Governance</p></div>
+                </a>
+                <a href="continuous-improvement.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-colors group text-right sm:flex-row-reverse">
+                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors"></i>
+                    <div><span class="text-xs text-gray-500">Next</span><p class="text-white font-semibold">XI. Continuous Improvement</p></div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black border-t border-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-4 md:mb-0"><i data-lucide="shield" class="text-gray-600 h-6 w-6"></i><span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span></div>
+            <div class="text-gray-600 text-sm text-center md:text-right"><p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p><p>Framework Version 2.1</p></div>
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Improvement - Agentic Governance Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { brand: { dark: '#0B0F19', card: '#111827', accent: '#3B82F6', glow: '#60A5FA', purple: '#8B5CF6', success: '#10B981', danger: '#EF4444', warning: '#F59E0B' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B0F19; color: #E2E8F0; background-image: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 25%); }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #0B0F19; } ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
+        .section-header { position: relative; display: inline-block; } .section-header::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, #3B82F6, #10B981); }
+        .objective-card { transition: all 0.3s ease; } .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15); }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
+                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
+                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
+                        <a href="index.html#lifecycle" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Lifecycle</a>
+                        <a href="index.html#cross-cutting" class="text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-blue-400">Cross-Cutting</a>
+                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <a href="index.html#cross-cutting" class="hover:text-brand-accent transition-colors">Cross-Cutting</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span class="text-gray-300">Continuous Improvement</span>
+            </div>
+            <div class="flex items-center gap-4 mb-6">
+                <div class="h-14 w-14 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                    <i data-lucide="rotate-cw" class="w-8 h-8 text-blue-400"></i>
+                </div>
+                <div>
+                    <span class="text-blue-400 font-mono text-sm">SECTION XI</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">Continuous Improvement</h1>
+                </div>
+            </div>
+            <p class="text-xl text-gray-400 max-w-3xl mb-8">Governance is not static—it must evolve with changing technology, threats, and business needs. These controls ensure ongoing assessment, learning, and advancement of governance capabilities.</p>
+            <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-lg border border-blue-500/30">
+                    <i data-lucide="trending-up" class="w-5 h-5 text-blue-400"></i>
+                    <span class="text-sm text-blue-300 font-semibold">Evolution & Learning</span>
+                </div>
+                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
+                    <i data-lucide="target" class="w-5 h-5 text-blue-400"></i>
+                    <span class="text-sm text-gray-300"><strong class="text-white">6</strong> Control Objectives</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <section>
+            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
+            <div class="grid gap-6">
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-blue-400">IMP-01</span>
+                            <i data-lucide="activity" class="w-10 h-10 text-blue-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Governance Health Monitoring</h3>
+                            <p class="text-gray-400 mb-4">Monitor overall governance health through dashboards and key metrics to detect failures early.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Undetected governance failures</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Governance health dashboard availability</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-purple-400">IMP-02</span>
+                            <i data-lucide="bar-chart-2" class="w-10 h-10 text-purple-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Maturity Assessment Cadence</h3>
+                            <p class="text-gray-400 mb-4">Conduct regular maturity assessments to identify gaps and drive capability improvement.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Stagnant governance capability</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Assessment completion rate</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-emerald-400">IMP-03</span>
+                            <i data-lucide="scale" class="w-10 h-10 text-emerald-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Benchmark Comparison</h3>
+                            <p class="text-gray-400 mb-4">Compare governance practices against industry benchmarks to identify improvement opportunities.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Falling behind industry practices</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Benchmark gap score</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-yellow-400">IMP-04</span>
+                            <i data-lucide="git-branch" class="w-10 h-10 text-yellow-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Framework Evolution</h3>
+                            <p class="text-gray-400 mb-4">Evolve the governance framework to adapt to new technologies, threats, and business requirements.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Governance not adapting to change</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Framework update recency</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-rose-400">IMP-05</span>
+                            <i data-lucide="book-open" class="w-10 h-10 text-rose-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Lessons Learned Integration</h3>
+                            <p class="text-gray-400 mb-4">Capture and integrate lessons from incidents to prevent repeated mistakes.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Repeated mistakes</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% incidents with lessons captured</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
+                            <span class="font-mono font-bold text-2xl text-cyan-400">IMP-06</span>
+                            <i data-lucide="cpu" class="w-10 h-10 text-cyan-400 mt-3"></i>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Automation Advancement</h3>
+                            <p class="text-gray-400 mb-4">Progressively automate governance controls to reduce manual bottlenecks and improve consistency.</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Manual governance bottlenecks</p></div>
+                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% controls automated</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mt-16">
+            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead><tr class="bg-gray-800 text-gray-200"><th class="p-4 rounded-tl-lg font-mono">ID</th><th class="p-4">Objective</th><th class="p-4">Primary Risk Addressed</th><th class="p-4 rounded-tr-lg">Key Metric</th></tr></thead>
+                    <tbody class="divide-y divide-gray-800 bg-brand-card text-sm">
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-blue-400 font-bold font-mono">IMP-01</td><td class="p-4 text-gray-300">Governance Health Monitoring</td><td class="p-4 text-gray-400">Undetected governance failures</td><td class="p-4 text-gray-400">Governance health dashboard availability</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-purple-400 font-bold font-mono">IMP-02</td><td class="p-4 text-gray-300">Maturity Assessment Cadence</td><td class="p-4 text-gray-400">Stagnant governance capability</td><td class="p-4 text-gray-400">Assessment completion rate</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-emerald-400 font-bold font-mono">IMP-03</td><td class="p-4 text-gray-300">Benchmark Comparison</td><td class="p-4 text-gray-400">Falling behind industry practices</td><td class="p-4 text-gray-400">Benchmark gap score</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-yellow-400 font-bold font-mono">IMP-04</td><td class="p-4 text-gray-300">Framework Evolution</td><td class="p-4 text-gray-400">Governance not adapting to change</td><td class="p-4 text-gray-400">Framework update recency</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-rose-400 font-bold font-mono">IMP-05</td><td class="p-4 text-gray-300">Lessons Learned Integration</td><td class="p-4 text-gray-400">Repeated mistakes</td><td class="p-4 text-gray-400">% incidents with lessons captured</td></tr>
+                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-cyan-400 font-bold font-mono">IMP-06</td><td class="p-4 text-gray-300">Automation Advancement</td><td class="p-4 text-gray-400">Manual governance bottlenecks</td><td class="p-4 text-gray-400">% controls automated</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mt-16 pt-12 border-t border-gray-800">
+            <div class="flex flex-col sm:flex-row justify-between gap-4">
+                <a href="organizational-enablement.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-purple-500/50 transition-colors group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors"></i>
+                    <div><span class="text-xs text-gray-500">Previous</span><p class="text-white font-semibold">X. Organizational Enablement</p></div>
+                </a>
+                <a href="index.html#operating-model" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-brand-accent/50 transition-colors group text-right sm:flex-row-reverse">
+                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-brand-accent transition-colors"></i>
+                    <div><span class="text-xs text-gray-500">Back to Framework</span><p class="text-white font-semibold">Operating Model</p></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Closing Section -->
+        <section class="mt-16 text-center">
+            <div class="flex justify-center mb-8">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-brand-accent/20 blur-xl rounded-full animate-pulse"></div>
+                    <i data-lucide="compass" class="relative w-16 h-16 text-brand-accent"></i>
+                </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-white">The Journey Continues</h3>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Continuous improvement is the final piece of the governance puzzle—and the beginning of the next iteration. By treating governance as an evolving practice, organizations can stay ahead of risks while enabling AI innovation.
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-black border-t border-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-4 md:mb-0"><i data-lucide="shield" class="text-gray-600 h-6 w-6"></i><span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span></div>
+            <div class="text-gray-600 text-sm text-center md:text-right"><p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p><p>Framework Version 2.1</p></div>
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
