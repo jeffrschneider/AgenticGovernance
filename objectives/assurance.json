@@ -17,15 +17,15 @@
     },
     {
       "id": "ASR-02",
-      "title": "Evidence the agent cannot change",
-      "statement": "Draw evidence from records that the agent and its builders cannot edit, so that the agent is never vouching for itself.",
+      "title": "Immutable evidence",
+      "statement": "Draw evidence from records that are only ever added to and are signed as they are written, so that nobody, whether the agent, its builders, its owner or the platform, can alter one without it showing.",
       "risk": "Self-reported evidence",
-      "metric": "Share of evidence held where the agent cannot write",
+      "metric": "Share of evidence held in signed, append-only records",
       "tiers": [
         "No requirement applies to an experiment.",
         "Evidence is stored outside the agent.",
-        "Evidence is stored where neither the agent nor its operators can change it, and changes to the store are recorded.",
-        "Evidence is signed when it is written, so that tampering can be detected by anyone who checks."
+        "Evidence is append-only and signed when it is written, so neither the agent nor its operators can change it unnoticed.",
+        "Anyone outside the organization can verify the signatures and the chain of records without the team's help."
       ],
       "evidence": "The evidence store's settings and its own access records.",
       "checkers": ["internal", "outside", "partner"]

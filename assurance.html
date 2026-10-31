@@ -66,8 +66,8 @@
       <p>Every control objective on this site names its evidence and who may check it. For that evidence to prove anything, it has to meet three conditions.</p>
       <div class="cards three">
         <div class="card">
-          <h3>The agent cannot change it</h3>
-          <p>Evidence comes from records the agent and its builders cannot edit. Otherwise the agent is vouching for itself.</p>
+          <h3>Nobody can alter it unnoticed</h3>
+          <p>Evidence comes from records that are only ever added to and are signed as they are written. Otherwise whoever can alter them is vouching for themselves.</p>
         </div>
         <div class="card">
           <h3>It is current</h3>
@@ -139,18 +139,18 @@
       </dl>
     </article>
     <article class="obj" id="asr-02">
-      <header><span class="oid">ASR-02</span><h3>Evidence the agent cannot change</h3></header>
-      <p class="stmt">Draw evidence from records that the agent and its builders cannot edit, so that the agent is never vouching for itself.</p>
+      <header><span class="oid">ASR-02</span><h3>Immutable evidence</h3></header>
+      <p class="stmt">Draw evidence from records that are only ever added to and are signed as they are written, so that nobody, whether the agent, its builders, its owner or the platform, can alter one without it showing.</p>
       <dl class="facts">
         <div><dt>Risk addressed</dt><dd>Self-reported evidence</dd></div>
-        <div><dt>Key metric</dt><dd>Share of evidence held where the agent cannot write</dd></div>
+        <div><dt>Key metric</dt><dd>Share of evidence held in signed, append-only records</dd></div>
       </dl>
       <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Evidence is stored outside the agent.</li>
-        <li><span class="tier t3">Tier 3 Critical</span><br>Evidence is stored where neither the agent nor its operators can change it, and changes to the store are recorded.</li>
-        <li><span class="tier t4">Tier 4 Strategic</span><br>Evidence is signed when it is written, so that tampering can be detected by anyone who checks.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Evidence is append-only and signed when it is written, so neither the agent nor its operators can change it unnoticed.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Anyone outside the organization can verify the signatures and the chain of records without the team's help.</li>
       </ol>
       <dl class="proof">
         <div><dt>Evidence</dt><dd>The evidence store's settings and its own access records.</dd></div>
@@ -296,7 +296,7 @@
       <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
       <tbody>
       <tr><td data-h="ID"><a href="#asr-01">ASR-01</a></td><td data-h="Objective">Evidence for every objective</td><td data-h="Key metric">Share of applicable objectives with named evidence</td></tr>
-      <tr><td data-h="ID"><a href="#asr-02">ASR-02</a></td><td data-h="Objective">Evidence the agent cannot change</td><td data-h="Key metric">Share of evidence held where the agent cannot write</td></tr>
+      <tr><td data-h="ID"><a href="#asr-02">ASR-02</a></td><td data-h="Objective">Immutable evidence</td><td data-h="Key metric">Share of evidence held in signed, append-only records</td></tr>
       <tr><td data-h="ID"><a href="#asr-03">ASR-03</a></td><td data-h="Objective">Current evidence</td><td data-h="Key metric">Share of evidence that matches the running version</td></tr>
       <tr><td data-h="ID"><a href="#asr-04">ASR-04</a></td><td data-h="Objective">Readable by someone outside the team</td><td data-h="Key metric">Requests for evidence answered without the team's help</td></tr>
       <tr><td data-h="ID"><a href="#asr-05">ASR-05</a></td><td data-h="Objective">Internal audit plan</td><td data-h="Key metric">Share of the audit plan completed</td></tr>

@@ -213,13 +213,13 @@
     {
       "id": "RUN-15",
       "title": "Records of work",
-      "statement": "Record every piece of work with who asked, on whose behalf, what the agent did and the result, including failures, in records the agent cannot change.",
+      "statement": "Record every piece of work with who asked, on whose behalf, what the agent did and the result, including failures, in records nobody can alter unnoticed.",
       "risk": "Nobody can say why an agent did something",
       "metric": "Share of work items with a complete record",
       "tiers": [
         "The experiment keeps a log of its runs.",
         "Every piece of work names who asked and records the result, including errors.",
-        "The records are written where the agent cannot change them.",
+        "The records are only ever added to and each is signed, so nobody can change one without it showing.",
         "Someone outside the team can read the records without the team's help."
       ],
       "evidence": "Sampled work records and the storage settings that prevent edits.",

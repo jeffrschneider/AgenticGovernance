@@ -168,7 +168,7 @@
     {
       "id": "SEC-12",
       "title": "Forensic logging",
-      "statement": "Log enough, in records the agent cannot change, to investigate and attribute any security incident involving an agent.",
+      "statement": "Log enough, in records nobody can alter unnoticed, to investigate and attribute any security incident involving an agent.",
       "risk": "Incidents nobody can investigate",
       "metric": "Log completeness score",
       "tiers": [
