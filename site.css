@@ -290,5 +290,5 @@ footer.sitefoot a{ color:var(--accent); font-weight:600; }
 .sb-tr{fill:none;stroke-width:1.6}
 .sb-tl{font-family:'IBM Plex Mono','Martian Mono',ui-monospace,Menlo,monospace;font-size:11px;font-weight:600;letter-spacing:.12em}
 .sb-cap{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:11.5px;fill:#9AA5B8}
-.sb-title{font-family:'Space Grotesk','Bricolage Grotesque',system-ui,sans-serif;font-size:22px;font-weight:600;fill:#E8ECF3}
+.sb-title{font-family:'Space Grotesk','Bricolage Grotesque',system-ui,sans-serif;font-size:31px;font-weight:700;letter-spacing:-.01em;fill:#F2A65A}
 .sb-by{font-family:'IBM Plex Mono','Martian Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.1em;fill:#F2A65A}
