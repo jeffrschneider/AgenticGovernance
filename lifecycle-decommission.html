@@ -1,411 +1,260 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Lifecycle Governance: Decommission Time - Agentic Governance Framework</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            card: '#111827',
-                            accent: '#3B82F6',
-                            glow: '#60A5FA',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            danger: '#EF4444',
-                            warning: '#F59E0B'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0F19;
-            color: #E2E8F0;
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
-        }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0F19; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
-        .section-header { position: relative; display: inline-block; }
-        .section-header::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
-        }
-        .objective-card { transition: all 0.3s ease; }
-        .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(107, 114, 128, 0.15); }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Decommission Time | Agentic Governance Framework</title>
+<meta name="description" content="Decommission time retires an agent cleanly: dependents are told, data is handled as stated, records are kept, and the key and the name are retired.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html" class="on" aria-current="page"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section II, lifecycle phase 6 of 6</p>
+      <h1>Decommission time</h1>
+      <p class="lede">Decommission time ends an agent without breaking what depends on it. Dependents are told in time, the agent's data is handled as its declaration says, its records are kept, and its key and its name are retired so that nothing can speak as it afterwards.</p>
+      <div class="adlc"><p>In the Agentic Development Lifecycle, this phase governs <a href="https://agenticdevelopment.ai/stages.html#decommission">Decommission</a> (stage 24), and <a href="https://agenticdevelopment.ai/stages.html#retract">Retract</a> (stage 16) for anything the agent published.</p></div>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
-                        <a href="index.html#lifecycle" class="text-gray-400 px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-gray-400">Lifecycle</a>
-                        <a href="index.html#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
-                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+  <section class="band">
+    <div class="wrap">
+      <h2>What decommission time covers</h2>
+      <div class="cards three">
+        <div class="card">
+          <h3>Retirement planning</h3>
+          <p>Before shutdown, the organization assesses who and what will be affected, migrates or archives the data according to retention rules, and writes down what was learned from running the agent.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="index.html#lifecycle" class="hover:text-brand-accent transition-colors">Lifecycle</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-300">Decommission Time</span>
-            </div>
-
-            <div class="flex items-center gap-4 mb-6">
-                <div class="h-14 w-14 bg-gray-500/20 rounded-xl flex items-center justify-center">
-                    <i data-lucide="power-off" class="w-8 h-8 text-gray-400"></i>
-                </div>
-                <div>
-                    <span class="text-gray-400 font-mono text-sm">SECTION VI - PHASE 5</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                        Lifecycle Governance: Decommission Time
-                    </h1>
-                </div>
-            </div>
-
-            <p class="text-xl text-gray-400 max-w-3xl mb-8">
-                Orderly retirement of agents is essential to prevent disruption, data loss, and compliance gaps. Decommission Time controls ensure graceful shutdown with proper knowledge transfer and audit preservation.
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="target" class="w-5 h-5 text-gray-400"></i>
-                    <span class="text-sm text-gray-300"><strong class="text-white">6</strong> Control Objectives</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="archive" class="w-5 h-5 text-blue-400"></i>
-                    <span class="text-sm text-gray-300">Data Preservation</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="git-branch" class="w-5 h-5 text-purple-400"></i>
-                    <span class="text-sm text-gray-300">Graceful Transition</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Graceful degradation</h3>
+          <p>Every dependent is told with enough notice to plan, fallback paths are tested, and the agent's address stops answering rather than answering wrongly.</p>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-
-        <!-- Control Objectives -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
-
-            <div class="grid gap-6">
-
-                <!-- DCM-01 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-gray-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-gray-400">DCM-01</span>
-                            <i data-lucide="clipboard-check" class="w-10 h-10 text-gray-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Impact Assessment Completion</h3>
-                            <p class="text-gray-400 mb-4">Complete comprehensive impact assessments before agent retirement to identify affected systems, users, and processes.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Disruption from agent retirement</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% retirements with impact assessment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DCM-02 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-blue-400">DCM-02</span>
-                            <i data-lucide="database" class="w-10 h-10 text-blue-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Data Migration and Archival</h3>
-                            <p class="text-gray-400 mb-4">Ensure all agent data is properly migrated or archived according to retention policies before shutdown.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Data loss or compliance gaps</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Data migration success rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DCM-03 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-purple-400">DCM-03</span>
-                            <i data-lucide="book" class="w-10 h-10 text-purple-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Knowledge Transfer Documentation</h3>
-                            <p class="text-gray-400 mb-4">Document institutional knowledge, lessons learned, and operational insights before agent retirement to preserve organizational learning.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Institutional knowledge loss</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% retirements with knowledge transfer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DCM-04 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-yellow-400">DCM-04</span>
-                            <i data-lucide="bell" class="w-10 h-10 text-yellow-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Downstream Notification</h3>
-                            <p class="text-gray-400 mb-4">Notify all dependent systems and stakeholders of impending agent retirement with adequate lead time for transition planning.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Dependent system failures</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Notification completion rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DCM-05 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-emerald-400">DCM-05</span>
-                            <i data-lucide="archive" class="w-10 h-10 text-emerald-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Audit Record Preservation</h3>
-                            <p class="text-gray-400 mb-4">Preserve all audit records, logs, and compliance evidence for retired agents according to retention requirements.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Inability to investigate historical issues</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% retirements with preserved audit trail</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DCM-06 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-rose-400">DCM-06</span>
-                            <i data-lucide="route" class="w-10 h-10 text-rose-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Graceful Degradation Verification</h3>
-                            <p class="text-gray-400 mb-4">Verify that dependent systems can gracefully handle agent retirement through tested fallback paths and degradation strategies.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Hard failures in dependent systems</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Fallback path test success rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Summary Table -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800 text-gray-200">
-                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
-                            <th class="p-4">Objective</th>
-                            <th class="p-4">Primary Risk Addressed</th>
-                            <th class="p-4 rounded-tr-lg">Key Metric</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800 bg-brand-card">
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-gray-400 font-bold font-mono">DCM-01</td>
-                            <td class="p-4 text-sm text-gray-300">Impact Assessment Completion</td>
-                            <td class="p-4 text-sm text-gray-400">Disruption from agent retirement</td>
-                            <td class="p-4 text-sm text-gray-400">% retirements with impact assessment</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-blue-400 font-bold font-mono">DCM-02</td>
-                            <td class="p-4 text-sm text-gray-300">Data Migration and Archival</td>
-                            <td class="p-4 text-sm text-gray-400">Data loss or compliance gaps</td>
-                            <td class="p-4 text-sm text-gray-400">Data migration success rate</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-purple-400 font-bold font-mono">DCM-03</td>
-                            <td class="p-4 text-sm text-gray-300">Knowledge Transfer Documentation</td>
-                            <td class="p-4 text-sm text-gray-400">Institutional knowledge loss</td>
-                            <td class="p-4 text-sm text-gray-400">% retirements with knowledge transfer</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-yellow-400 font-bold font-mono">DCM-04</td>
-                            <td class="p-4 text-sm text-gray-300">Downstream Notification</td>
-                            <td class="p-4 text-sm text-gray-400">Dependent system failures</td>
-                            <td class="p-4 text-sm text-gray-400">Notification completion rate</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-emerald-400 font-bold font-mono">DCM-05</td>
-                            <td class="p-4 text-sm text-gray-300">Audit Record Preservation</td>
-                            <td class="p-4 text-sm text-gray-400">Inability to investigate historical issues</td>
-                            <td class="p-4 text-sm text-gray-400">% retirements with preserved audit trail</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-rose-400 font-bold font-mono">DCM-06</td>
-                            <td class="p-4 text-sm text-gray-300">Graceful Degradation Verification</td>
-                            <td class="p-4 text-sm text-gray-400">Hard failures in dependent systems</td>
-                            <td class="p-4 text-sm text-gray-400">Fallback path test success rate</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="mt-16 pt-12 border-t border-gray-800">
-            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                <a href="lifecycle-run.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-rose-500/50 transition-colors group">
-                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-rose-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Previous</span>
-                        <p class="text-white font-semibold">V. Run Time</p>
-                    </div>
-                </a>
-                <a href="security-risk.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-red-500/50 transition-colors group text-right sm:flex-row-reverse">
-                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-red-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Next</span>
-                        <p class="text-white font-semibold">VII. Security & Risk</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
-                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
-            </div>
-            <div class="text-gray-600 text-sm text-center md:text-right">
-                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
-                <p>Framework Version 2.1</p>
-            </div>
+        <div class="card">
+          <h3>Identity and records</h3>
+          <p>The agent's credentials are revoked and its key is retired. Its name is never given to another agent, and its audit records stay readable for as long as the retention rules require.</p>
         </div>
-    </footer>
+      </div>
+      <p>An agent usually reaches this phase because its review date found no objective still worth its cost, as <a href="compliance-alignment.html">section I</a> requires, or because its retirement conditions, set at <a href="lifecycle-plan.html">Plan time</a>, were met.</p>
+    </div>
+  </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 7 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="dcm-01">
+      <header><span class="oid">DCM-01</span><h3>Impact assessment</h3></header>
+      <p class="stmt">Assess who and what will be affected before an agent is retired, including the systems, people, processes and other agents that rely on it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Disruption when an agent is retired</dd></div>
+        <div><dt>Key metric</dt><dd>Share of retirements with an impact assessment</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The builder checks that no one else uses the experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The assessment lists dependents from the catalog.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each dependent's owner confirms their plan before retirement.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The executive sponsor approves the retirement after reviewing the assessment.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The impact assessment and the confirmations from dependents' owners.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dcm-02">
+      <header><span class="oid">DCM-02</span><h3>Data handled as stated</h3></header>
+      <p class="stmt">Migrate, archive or delete the agent's data as its declaration and the retention rules say, before it is shut down.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Lost data or data kept longer than allowed</dd></div>
+        <div><dt>Key metric</dt><dd>Share of retirements whose data was handled as declared</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox data is deleted.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Data is migrated or archived according to the retention rules.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Deletion is verified, and the verification is recorded.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Data handling is certified by the data owner and audited.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The record of what data was migrated, archived or deleted, with verification.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dcm-03">
+      <header><span class="oid">DCM-03</span><h3>Knowledge transfer</h3></header>
+      <p class="stmt">Write down what was learned from running the agent before it is retired, so that the organization keeps it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Losing what the organization learned</dd></div>
+        <div><dt>Key metric</dt><dd>Share of retirements with a knowledge transfer record</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The builder notes what the experiment showed.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The owner writes a short retirement note.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The note covers incidents, limits that were hit and what replaced the agent.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The note is reviewed by the team that takes over the work.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The retirement note in the agent's record.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dcm-04">
+      <header><span class="oid">DCM-04</span><h3>Dependents told in time</h3></header>
+      <p class="stmt">Tell every dependent system, agent and person that the agent will be retired, early enough for them to plan.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Dependent systems failing</dd></div>
+        <div><dt>Key metric</dt><dd>Share of dependents told before the notice period</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No notice is required for an experiment no one else uses.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Dependents in the catalog are told before retirement.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Notice follows a set period, and each dependent acknowledges it.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Partners outside the organization are told under their contracts' notice terms.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The notices sent, the dates and the acknowledgements.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dcm-05">
+      <header><span class="oid">DCM-05</span><h3>Records preserved</h3></header>
+      <p class="stmt">Keep the audit records, logs and evidence of a retired agent for as long as retention rules require, readable without the agent.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Being unable to investigate past events</dd></div>
+        <div><dt>Key metric</dt><dd>Share of retirements with preserved records</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox logs are kept until the experiment's review is done.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Records are kept for the retention period.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Records stay readable without the retired agent's systems, and retrieval is tested.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>An outside auditor can retrieve the records for the full regulatory period.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The archive location and the result of the retrieval test.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dcm-06">
+      <header><span class="oid">DCM-06</span><h3>Graceful degradation</h3></header>
+      <p class="stmt">Test that dependents handle the agent's absence through fallback paths before it is switched off, and make the agent's address stop answering rather than answer wrongly.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Hard failures in dependent systems</dd></div>
+        <div><dt>Key metric</dt><dd>Fallback test success rate</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment no one else uses.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Dependents confirm they have a fallback.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Fallbacks are tested before shutdown.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The agent is withdrawn in stages, with a return path until fallbacks are proven.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Fallback test results and the shutdown record.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dcm-07">
+      <header><span class="oid">DCM-07</span><h3>Key retired and name never reused</h3></header>
+      <p class="stmt">Revoke the agent's credentials and retire its key when it ends, and never give its name to another agent, so that nothing can speak as it afterwards.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A retired agent's identity used by something else</dd></div>
+        <div><dt>Key metric</dt><dd>Share of retired agents with revoked credentials and a reserved name</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox credentials are revoked.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>All credentials are revoked on retirement.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The key is retired, and the name is reserved so that it cannot be issued again.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Partners that trusted the agent are told its identity is retired.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The revocation record, and the name registry entry marked as retired.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#dcm-01">DCM-01</a></td><td data-h="Objective">Impact assessment</td><td data-h="Key metric">Share of retirements with an impact assessment</td></tr>
+      <tr><td data-h="ID"><a href="#dcm-02">DCM-02</a></td><td data-h="Objective">Data handled as stated</td><td data-h="Key metric">Share of retirements whose data was handled as declared</td></tr>
+      <tr><td data-h="ID"><a href="#dcm-03">DCM-03</a></td><td data-h="Objective">Knowledge transfer</td><td data-h="Key metric">Share of retirements with a knowledge transfer record</td></tr>
+      <tr><td data-h="ID"><a href="#dcm-04">DCM-04</a></td><td data-h="Objective">Dependents told in time</td><td data-h="Key metric">Share of dependents told before the notice period</td></tr>
+      <tr><td data-h="ID"><a href="#dcm-05">DCM-05</a></td><td data-h="Objective">Records preserved</td><td data-h="Key metric">Share of retirements with preserved records</td></tr>
+      <tr><td data-h="ID"><a href="#dcm-06">DCM-06</a></td><td data-h="Objective">Graceful degradation</td><td data-h="Key metric">Fallback test success rate</td></tr>
+      <tr><td data-h="ID"><a href="#dcm-07">DCM-07</a></td><td data-h="Objective">Key retired and name never reused</td><td data-h="Key metric">Share of retired agents with revoked credentials and a reserved name</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="lifecycle-change.html"><small>Previous</small><span>Change</span></a>
+  <a class="next" href="network.html"><small>Next</small><span>Network</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>

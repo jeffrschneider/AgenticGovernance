@@ -1,627 +1,452 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Lifecycle Governance: Run Time - Agentic Governance Framework</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            card: '#111827',
-                            accent: '#3B82F6',
-                            glow: '#60A5FA',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            danger: '#EF4444',
-                            warning: '#F59E0B'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0F19;
-            color: #E2E8F0;
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
-        }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0F19; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
-        .section-header { position: relative; display: inline-block; }
-        .section-header::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
-        }
-        .objective-card { transition: all 0.3s ease; }
-        .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(244, 63, 94, 0.15); }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Run Time | Agentic Governance Framework</title>
+<meta name="description" content="Run time is where policy becomes enforcement: identity on every request, limits enforced outside the agent, people deciding where risk requires it, and records the agent cannot change.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html" class="on" aria-current="page"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section II, lifecycle phase 4 of 6</p>
+      <h1>Run time</h1>
+      <p class="lede">Run time is where policy becomes enforcement. While an agent works, its identity is checked on every request, its limits are enforced by something other than the agent, a person decides where the risk calls for it, and every act is recorded where the agent cannot change it.</p>
+      <div class="adlc"><p>In the Agentic Development Lifecycle, this phase governs <a href="https://agenticdevelopment.ai/stages.html#deploy">Deploy</a> (stage 11), the Prove stages <a href="https://agenticdevelopment.ai/stages.html#conformance">Conformance</a> and <a href="https://agenticdevelopment.ai/stages.html#acceptance">Acceptance</a> (12 and 13), the Use stages <a href="https://agenticdevelopment.ai/stages.html#docs">Docs</a>, <a href="https://agenticdevelopment.ai/stages.html#publish">Publish</a> and <a href="https://agenticdevelopment.ai/stages.html#retract">Retract</a> (14 to 16), and the Run stages <a href="https://agenticdevelopment.ai/stages.html#monitor">Monitor</a>, <a href="https://agenticdevelopment.ai/stages.html#eval">Eval</a>, <a href="https://agenticdevelopment.ai/stages.html#incident">Incident response</a> and <a href="https://agenticdevelopment.ai/stages.html#cost">Cost</a> (17 to 20).</p></div>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
-                        <a href="index.html#lifecycle" class="text-rose-400 px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-rose-400">Lifecycle</a>
-                        <a href="index.html#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
-                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+  <section class="band">
+    <div class="wrap">
+      <h2>What run time covers</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>The network's rules, enforced</h3>
+          <p>The relationships an agent depends on are recorded under the <a href="network.html">Network</a> discipline: who has admitted it, the mandates it works under, and its contracts with other agents. At run time each interaction is checked against them, so an agent reaches only the agents it has been admitted to, within the authority it was given.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="index.html#lifecycle" class="hover:text-brand-accent transition-colors">Lifecycle</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-300">Run Time</span>
-            </div>
-
-            <div class="flex items-center gap-4 mb-6">
-                <div class="h-14 w-14 bg-rose-500/20 rounded-xl flex items-center justify-center">
-                    <i data-lucide="play" class="w-8 h-8 text-rose-400"></i>
-                </div>
-                <div>
-                    <span class="text-rose-400 font-mono text-sm">SECTION V - PHASE 4 (CRITICAL)</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                        Lifecycle Governance: Run Time
-                    </h1>
-                </div>
-            </div>
-
-            <p class="text-xl text-gray-400 max-w-3xl mb-8">
-                Runtime controls are the critical enforcement layer where policies become action. This phase governs agent behavior in production, protecting data, enforcing access controls, and ensuring operational resilience.
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 bg-rose-500/10 px-4 py-2 rounded-lg border border-rose-500/30">
-                    <i data-lucide="alert-circle" class="w-5 h-5 text-rose-400"></i>
-                    <span class="text-sm text-rose-300 font-semibold">Critical Phase</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="target" class="w-5 h-5 text-rose-400"></i>
-                    <span class="text-sm text-gray-300"><strong class="text-white">12</strong> Control Objectives</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="shield" class="w-5 h-5 text-blue-400"></i>
-                    <span class="text-sm text-gray-300">Real-time Protection</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Data protection</h3>
+          <p>Personal data is found and masked in prompts, replies and logs. Agents collect only the data their task needs, data stays within the borders its rules allow, and output is cleaned of anything that must not leave.</p>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-
-        <!-- Control Objectives -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
-
-            <div class="grid gap-6">
-
-                <!-- RUN-01 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-rose-400">RUN-01</span>
-                            <i data-lucide="network" class="w-10 h-10 text-rose-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Agent Mesh Policy Enforcement</h3>
-                            <p class="text-gray-400 mb-4">Enforce policies governing agent-to-agent communication, ensuring only authorized interactions occur within the agent mesh.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Unauthorized agent-to-agent communication</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Policy violation incidents</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-02 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-blue-400">RUN-02</span>
-                            <i data-lucide="key" class="w-10 h-10 text-blue-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Authentication and Authorization</h3>
-                            <p class="text-gray-400 mb-4">Ensure robust authentication and authorization controls for all agent capabilities and data access.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Unauthorized access to agent capabilities</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Authentication failure rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-03 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-purple-400">RUN-03</span>
-                            <i data-lucide="user-x" class="w-10 h-10 text-purple-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">PII Detection and Protection</h3>
-                            <p class="text-gray-400 mb-4">Implement real-time detection and protection of personally identifiable information (PII) in agent inputs and outputs.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Personal data exposure</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">PII leak incidents</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-04 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-yellow-400">RUN-04</span>
-                            <i data-lucide="minimize-2" class="w-10 h-10 text-yellow-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Data Minimization Enforcement</h3>
-                            <p class="text-gray-400 mb-4">Enforce data minimization principles ensuring agents only collect and process data necessary for their specific tasks.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Excessive data collection or sharing</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Data scope violations detected</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-05 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-emerald-400">RUN-05</span>
-                            <i data-lucide="server" class="w-10 h-10 text-emerald-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">MCP Server Access Control</h3>
-                            <p class="text-gray-400 mb-4">Implement least-privilege access controls for Model Context Protocol (MCP) server connections and tool permissions.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Excessive tool permissions</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% MCP connections with least-privilege config</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-06 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-cyan-400">RUN-06</span>
-                            <i data-lucide="door-closed" class="w-10 h-10 text-cyan-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Model Gateway Policy Enforcement</h3>
-                            <p class="text-gray-400 mb-4">Route all LLM requests through a governed gateway that enforces usage policies, content filtering, and access controls.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Uncontrolled LLM access</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% requests through governed gateway</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-07 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-orange-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-orange-400">RUN-07</span>
-                            <i data-lucide="filter" class="w-10 h-10 text-orange-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Content Filtering Effectiveness</h3>
-                            <p class="text-gray-400 mb-4">Filter harmful, inappropriate, or policy-violating content in both inputs and outputs of agent interactions.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Harmful input or output</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Filtered content incidents</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-08 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-red-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-red-400">RUN-08</span>
-                            <i data-lucide="syringe" class="w-10 h-10 text-red-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Prompt Injection Prevention</h3>
-                            <p class="text-gray-400 mb-4">Detect and block adversarial prompt injection attacks that attempt to manipulate agent behavior.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Adversarial prompt attacks</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Injection attempts blocked</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-09 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-indigo-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-indigo-400">RUN-09</span>
-                            <i data-lucide="gauge" class="w-10 h-10 text-indigo-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Rate Limiting Enforcement</h3>
-                            <p class="text-gray-400 mb-4">Enforce rate limits to prevent resource exhaustion, abuse, and runaway costs from excessive agent activity.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Resource exhaustion or abuse</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Rate limit triggers</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-10 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-teal-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-teal-400">RUN-10</span>
-                            <i data-lucide="eye" class="w-10 h-10 text-teal-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Observability Coverage</h3>
-                            <p class="text-gray-400 mb-4">Ensure comprehensive observability including logging, metrics, and tracing for all agent activities to eliminate blind spots.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Blind spots in agent behavior</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with full observability</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-11 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-pink-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-pink-400">RUN-11</span>
-                            <i data-lucide="refresh-cw" class="w-10 h-10 text-pink-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Resilience and Failover</h3>
-                            <p class="text-gray-400 mb-4">Implement resilience patterns including circuit breakers, retries, and failover mechanisms to maintain service availability.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Service disruption from agent failure</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Failover test success rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RUN-12 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-lime-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-lime-400">RUN-12</span>
-                            <i data-lucide="trending-up" class="w-10 h-10 text-lime-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Scalability Adequacy</h3>
-                            <p class="text-gray-400 mb-4">Ensure agents can scale to meet demand without performance degradation, with adequate capacity headroom.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Performance degradation under load</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Capacity headroom percentage</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Summary Table -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800 text-gray-200">
-                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
-                            <th class="p-4">Objective</th>
-                            <th class="p-4">Primary Risk Addressed</th>
-                            <th class="p-4 rounded-tr-lg">Key Metric</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800 bg-brand-card">
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-rose-400 font-bold font-mono">RUN-01</td>
-                            <td class="p-4 text-sm text-gray-300">Agent Mesh Policy Enforcement</td>
-                            <td class="p-4 text-sm text-gray-400">Unauthorized agent-to-agent communication</td>
-                            <td class="p-4 text-sm text-gray-400">Policy violation incidents</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-blue-400 font-bold font-mono">RUN-02</td>
-                            <td class="p-4 text-sm text-gray-300">Authentication and Authorization</td>
-                            <td class="p-4 text-sm text-gray-400">Unauthorized access to agent capabilities</td>
-                            <td class="p-4 text-sm text-gray-400">Authentication failure rate</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-purple-400 font-bold font-mono">RUN-03</td>
-                            <td class="p-4 text-sm text-gray-300">PII Detection and Protection</td>
-                            <td class="p-4 text-sm text-gray-400">Personal data exposure</td>
-                            <td class="p-4 text-sm text-gray-400">PII leak incidents</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-yellow-400 font-bold font-mono">RUN-04</td>
-                            <td class="p-4 text-sm text-gray-300">Data Minimization Enforcement</td>
-                            <td class="p-4 text-sm text-gray-400">Excessive data collection or sharing</td>
-                            <td class="p-4 text-sm text-gray-400">Data scope violations detected</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-emerald-400 font-bold font-mono">RUN-05</td>
-                            <td class="p-4 text-sm text-gray-300">MCP Server Access Control</td>
-                            <td class="p-4 text-sm text-gray-400">Excessive tool permissions</td>
-                            <td class="p-4 text-sm text-gray-400">% MCP connections with least-privilege config</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-cyan-400 font-bold font-mono">RUN-06</td>
-                            <td class="p-4 text-sm text-gray-300">Model Gateway Policy Enforcement</td>
-                            <td class="p-4 text-sm text-gray-400">Uncontrolled LLM access</td>
-                            <td class="p-4 text-sm text-gray-400">% requests through governed gateway</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-orange-400 font-bold font-mono">RUN-07</td>
-                            <td class="p-4 text-sm text-gray-300">Content Filtering Effectiveness</td>
-                            <td class="p-4 text-sm text-gray-400">Harmful input or output</td>
-                            <td class="p-4 text-sm text-gray-400">Filtered content incidents</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-red-400 font-bold font-mono">RUN-08</td>
-                            <td class="p-4 text-sm text-gray-300">Prompt Injection Prevention</td>
-                            <td class="p-4 text-sm text-gray-400">Adversarial prompt attacks</td>
-                            <td class="p-4 text-sm text-gray-400">Injection attempts blocked</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-indigo-400 font-bold font-mono">RUN-09</td>
-                            <td class="p-4 text-sm text-gray-300">Rate Limiting Enforcement</td>
-                            <td class="p-4 text-sm text-gray-400">Resource exhaustion or abuse</td>
-                            <td class="p-4 text-sm text-gray-400">Rate limit triggers</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-teal-400 font-bold font-mono">RUN-10</td>
-                            <td class="p-4 text-sm text-gray-300">Observability Coverage</td>
-                            <td class="p-4 text-sm text-gray-400">Blind spots in agent behavior</td>
-                            <td class="p-4 text-sm text-gray-400">% agents with full observability</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-pink-400 font-bold font-mono">RUN-11</td>
-                            <td class="p-4 text-sm text-gray-300">Resilience and Failover</td>
-                            <td class="p-4 text-sm text-gray-400">Service disruption from agent failure</td>
-                            <td class="p-4 text-sm text-gray-400">Failover test success rate</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-lime-400 font-bold font-mono">RUN-12</td>
-                            <td class="p-4 text-sm text-gray-300">Scalability Adequacy</td>
-                            <td class="p-4 text-sm text-gray-400">Performance degradation under load</td>
-                            <td class="p-4 text-sm text-gray-400">Capacity headroom percentage</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="mt-16 pt-12 border-t border-gray-800">
-            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                <a href="lifecycle-build.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-emerald-500/50 transition-colors group">
-                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-emerald-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Previous</span>
-                        <p class="text-white font-semibold">IV. Build Time</p>
-                    </div>
-                </a>
-                <a href="lifecycle-decommission.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-gray-500/50 transition-colors group text-right sm:flex-row-reverse">
-                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Next</span>
-                        <p class="text-white font-semibold">VI. Decommission Time</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
-                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
-            </div>
-            <div class="text-gray-600 text-sm text-center md:text-right">
-                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
-                <p>Framework Version 2.1</p>
-            </div>
+        <div class="card">
+          <h3>Tool security</h3>
+          <p>Agents use only the tools approved for them, through connections set to least privilege, with rights that expire. Each tool call is checked against what the tool accepts, and every call is recorded.</p>
         </div>
-    </footer>
+        <div class="card">
+          <h3>The model gateway</h3>
+          <p>Model requests go through a governed gateway that applies usage policy, filters content, enforces spending limits and records the model version used. Instructions hidden in what an agent reads are treated as content and never as commands.</p>
+        </div>
+        <div class="card">
+          <h3>Inside the agent</h3>
+          <p>An agent stops when it repeats itself or stops making progress, gives up on a slow call after a set time, and checks each reply against its promised form before it leaves. Every step is traced, so a single run can be followed from start to finish.</p>
+        </div>
+        <div class="card">
+          <h3>People, records and alerts</h3>
+          <p>Acts that commit the owner or move money wait for a person, who sees what the agent wants to do and why. Every piece of work records who asked and for whom. When an agent fails, a named person is told within a stated time.</p>
+        </div>
+      </div>
+      <div class="note"><p>A <b>run-time policy engine</b> enforces these controls dynamically, according to the context, the role of the person the agent acts for, and risk signals. The engine runs outside the agent, so nothing the agent reads can change what it is allowed to do.</p></div>
+    </div>
+  </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 16 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="run-01">
+      <header><span class="oid">RUN-01</span><h3>Network rules enforced at run time</h3></header>
+      <p class="stmt">Enforce the relationships recorded under the <a href="network.html">Network</a> discipline on every live interaction, so that an agent can reach only the agents it has been admitted to, under a current mandate or contract.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Unauthorized interaction between agents</dd></div>
+        <div><dt>Key metric</dt><dd>Interactions refused for lack of an admission, mandate or contract</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents can reach only other sandbox agents.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every message between agents is checked against the admissions list.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Every interaction is checked against a current mandate or contract by something other than the agents involved.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Refusals are reviewed each week, and the rules are tested by an outside party each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The enforcement point's records of interactions allowed and refused, linked to the admission or mandate each one relied on.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-02">
+      <header><span class="oid">RUN-02</span><h3>Identity, authentication and authorization</h3></header>
+      <p class="stmt">Give each agent a unique name bound to its own key, check it on every request, and trace every request back to the person or organization it acts for.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>One agent speaking as another, or acting for no one</dd></div>
+        <div><dt>Key metric</dt><dd>Share of requests that carry a verified agent identity and the party it acts for</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents use sandbox identities that work nowhere else.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has its own credentials, and every request is authenticated.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each request names the party it acts for, and authority is checked outside the agent on every request.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Identities are bound to keys held in hardware or a managed key service, and access reviews run each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The identity register, request logs showing the verified identity and the party acted for, and the access reviews.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-03">
+      <header><span class="oid">RUN-03</span><h3>Personal data protection</h3></header>
+      <p class="stmt">Find personal data in what agents read and write, and mask it or keep it out of prompts, replies and logs where it is not needed.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Exposure of personal data</dd></div>
+        <div><dt>Key metric</dt><dd>Personal data leaks found</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents use no real personal data.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Personal data is masked in logs.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Personal data is found and masked in prompts and replies as well, and leaks are reported as incidents.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Masking is tested each quarter with seeded data, and results go to the privacy officer.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The masking settings, the test results and the incident log.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-04">
+      <header><span class="oid">RUN-04</span><h3>Data minimization</h3></header>
+      <p class="stmt">Let agents collect and keep only the data their task needs, and state what they store, where and for how long.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Collecting or sharing more data than needed</dd></div>
+        <div><dt>Key metric</dt><dd>Data scope violations found</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment keeps no data after it ends.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent declares what data it keeps, where and for how long.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>What the agent stores is checked against its declaration, and excess is deleted.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Retention and deletion are audited each year against the declaration.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The data declaration and the results of comparing it with what is stored.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-05">
+      <header><span class="oid">RUN-05</span><h3>Tool access control</h3></header>
+      <p class="stmt">Give agents only the tools their task needs, through tool connections (for example Model Context Protocol servers) set to least privilege, with rights that expire and can be revoked.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Tool permissions wider than the task</dd></div>
+        <div><dt>Key metric</dt><dd>Share of tool connections set to least privilege</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents use sandbox tools only.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each tool an agent uses is on an approved list for that agent.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Tool rights are granted for the task at hand and expire, and each call is checked against what the tool accepts.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Tool grants are reviewed each quarter, and every grant and revocation is recorded.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The tool grants per agent, with their expiry, and the record of calls checked and refused.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-06">
+      <header><span class="oid">RUN-06</span><h3>Model gateway</h3></header>
+      <p class="stmt">Send model requests through a governed gateway that applies usage policy, content filtering, spending limits and access control.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Uncontrolled use of models</dd></div>
+        <div><dt>Key metric</dt><dd>Share of model requests made through the gateway</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox use goes through the gateway with a sandbox budget.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>All production model requests go through the gateway.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The gateway refuses requests from agents that are stopped or over their limit.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Gateway policy changes are approved by the governance council and recorded.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Gateway logs and the comparison of model spend with gateway traffic.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-07">
+      <header><span class="oid">RUN-07</span><h3>Content filtering and reply checks</h3></header>
+      <p class="stmt">Filter harmful or prohibited content going into and out of agents, and check each reply against its promised form and rules before it leaves.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Harmful or malformed output</dd></div>
+        <div><dt>Key metric</dt><dd>Replies blocked or corrected before they left</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment uses the standard filter.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Inputs and outputs pass the content filter.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each reply is checked against its declared form and rules before it is sent.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Filter effectiveness is tested each quarter, and results are reported to the governance council.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Filter and reply-check logs, and the latest effectiveness test.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-08">
+      <header><span class="oid">RUN-08</span><h3>Injected instructions ignored</h3></header>
+      <p class="stmt">Treat instructions hidden in what an agent reads, such as a web page, an email or a file, as content and never as commands, and make sure what it reads cannot change its permissions.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>An attacker steering an agent through its inputs</dd></div>
+        <div><dt>Key metric</dt><dd>Injection attempts detected and blocked</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment uses the standard defenses.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Known injection patterns are detected and blocked.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Permissions are enforced outside the agent, so an injected instruction cannot widen them.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The agent is tested with new injection techniques each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Detection logs and the results of the latest injection tests.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-09">
+      <header><span class="oid">RUN-09</span><h3>Rate limits</h3></header>
+      <p class="stmt">Limit how fast agents can act, so that a fault or an attack cannot exhaust resources or run up costs.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Exhausted resources or abuse</dd></div>
+        <div><dt>Key metric</dt><dd>Rate limit triggers</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox has a fixed rate limit.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has a rate limit set by its owner.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Rate limits apply per agent and per party it acts for, and a breach alerts the owner.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Limits are reviewed at each review date against actual use.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The configured limits and the log of triggers.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-10">
+      <header><span class="oid">RUN-10</span><h3>Observability</h3></header>
+      <p class="stmt">Trace every step, model call and tool call with its inputs, timing, tokens and cost, so that any run can be followed from start to finish.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Blind spots in agent behavior</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with step-level tracing</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment keeps basic logs.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each run is logged with its result, timing and cost.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Every step is traced, and traces can be joined across agents in a chain.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Traces are kept for the retention period and can be read by an outside auditor.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Sampled traces for the current version, and the coverage report.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-11">
+      <header><span class="oid">RUN-11</span><h3>Resilience and time limits</h3></header>
+      <p class="stmt">Make a slow or failing call give up after a set time and retry only within a limit, and fail over where the service needs it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Service disruption when an agent fails</dd></div>
+        <div><dt>Key metric</dt><dd>Failover test success rate</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies in a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every outside call has a time limit and a retry limit.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Circuit breakers stop calls to a failing dependency, and failover is tested each quarter.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Failover is tested each month, including the failure of a partner's agent.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The configured limits and the failover test results.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-12">
+      <header><span class="oid">RUN-12</span><h3>Capacity</h3></header>
+      <p class="stmt">Make sure agents can meet demand without slowing down, with capacity to spare.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Slower service under load</dd></div>
+        <div><dt>Key metric</dt><dd>Capacity headroom</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies in a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Capacity is reviewed at each release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Load tests run before release, and headroom is monitored.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Headroom is kept above a set level, and load tests include peak events.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Load test results and the headroom report.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-13">
+      <header><span class="oid">RUN-13</span><h3>Loop and step limits</h3></header>
+      <p class="stmt">Make each agent notice when it repeats itself or stops making progress, and stop within a set number of steps.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>An agent stuck in a loop running up cost overnight</dd></div>
+        <div><dt>Key metric</dt><dd>Runs stopped by a step or progress limit</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox has a fixed step limit per run.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has a step limit per run.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Repetition and lack of progress are detected, and the owner is alerted when a run is stopped.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Stopped runs are reviewed each week, and the limits are part of the release.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The configured limits and the record of runs that were stopped.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-14">
+      <header><span class="oid">RUN-14</span><h3>People in the loop</h3></header>
+      <p class="stmt">Set in advance, by risk, which acts need a person to decide. Show that person what the agent wants to do and why, and record every yes and no with who gave it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>An agent committing its owner to something nobody meant</dd></div>
+        <div><dt>Key metric</dt><dd>Share of high-risk acts that had a recorded human decision</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment takes no act with effect outside the sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Acts that move money or commit the owner wait for the owner's approval.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Approval thresholds are written down by risk, and every decision is recorded with who gave it.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Approvals for Tier 4 acts need two people, and the decisions are reviewed each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The approval thresholds and the record of decisions, each with the person, the time and what they were shown.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-15">
+      <header><span class="oid">RUN-15</span><h3>Records of work</h3></header>
+      <p class="stmt">Record every piece of work with who asked, on whose behalf, what the agent did and the result, including failures, in records the agent cannot change.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Nobody can say why an agent did something</dd></div>
+        <div><dt>Key metric</dt><dd>Share of work items with a complete record</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment keeps a log of its runs.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every piece of work names who asked and records the result, including errors.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The records are written where the agent cannot change them.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Someone outside the team can read the records without the team's help.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Sampled work records and the storage settings that prevent edits.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="run-16">
+      <header><span class="oid">RUN-16</span><h3>Alerts with an owner</h3></header>
+      <p class="stmt">Keep a current answer to whether each agent is working, and when it fails or goes outside its limits, tell a named person within a stated time.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>An agent that fails quietly until customers notice</dd></div>
+        <div><dt>Key metric</dt><dd>Time from failure to the owner being told</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment's builder checks it when they use it.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has a health check and alerts that reach a named person.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Health is measured by a real answer rather than by the process being up, and alerts have a response time.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Alerts reach someone at all hours, and response times are reported each month.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The alert settings with their owners, and the record of alerts and response times.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#run-01">RUN-01</a></td><td data-h="Objective">Network rules enforced at run time</td><td data-h="Key metric">Interactions refused for lack of an admission, mandate or contract</td></tr>
+      <tr><td data-h="ID"><a href="#run-02">RUN-02</a></td><td data-h="Objective">Identity, authentication and authorization</td><td data-h="Key metric">Share of requests that carry a verified agent identity and the party it acts for</td></tr>
+      <tr><td data-h="ID"><a href="#run-03">RUN-03</a></td><td data-h="Objective">Personal data protection</td><td data-h="Key metric">Personal data leaks found</td></tr>
+      <tr><td data-h="ID"><a href="#run-04">RUN-04</a></td><td data-h="Objective">Data minimization</td><td data-h="Key metric">Data scope violations found</td></tr>
+      <tr><td data-h="ID"><a href="#run-05">RUN-05</a></td><td data-h="Objective">Tool access control</td><td data-h="Key metric">Share of tool connections set to least privilege</td></tr>
+      <tr><td data-h="ID"><a href="#run-06">RUN-06</a></td><td data-h="Objective">Model gateway</td><td data-h="Key metric">Share of model requests made through the gateway</td></tr>
+      <tr><td data-h="ID"><a href="#run-07">RUN-07</a></td><td data-h="Objective">Content filtering and reply checks</td><td data-h="Key metric">Replies blocked or corrected before they left</td></tr>
+      <tr><td data-h="ID"><a href="#run-08">RUN-08</a></td><td data-h="Objective">Injected instructions ignored</td><td data-h="Key metric">Injection attempts detected and blocked</td></tr>
+      <tr><td data-h="ID"><a href="#run-09">RUN-09</a></td><td data-h="Objective">Rate limits</td><td data-h="Key metric">Rate limit triggers</td></tr>
+      <tr><td data-h="ID"><a href="#run-10">RUN-10</a></td><td data-h="Objective">Observability</td><td data-h="Key metric">Share of agents with step-level tracing</td></tr>
+      <tr><td data-h="ID"><a href="#run-11">RUN-11</a></td><td data-h="Objective">Resilience and time limits</td><td data-h="Key metric">Failover test success rate</td></tr>
+      <tr><td data-h="ID"><a href="#run-12">RUN-12</a></td><td data-h="Objective">Capacity</td><td data-h="Key metric">Capacity headroom</td></tr>
+      <tr><td data-h="ID"><a href="#run-13">RUN-13</a></td><td data-h="Objective">Loop and step limits</td><td data-h="Key metric">Runs stopped by a step or progress limit</td></tr>
+      <tr><td data-h="ID"><a href="#run-14">RUN-14</a></td><td data-h="Objective">People in the loop</td><td data-h="Key metric">Share of high-risk acts that had a recorded human decision</td></tr>
+      <tr><td data-h="ID"><a href="#run-15">RUN-15</a></td><td data-h="Objective">Records of work</td><td data-h="Key metric">Share of work items with a complete record</td></tr>
+      <tr><td data-h="ID"><a href="#run-16">RUN-16</a></td><td data-h="Objective">Alerts with an owner</td><td data-h="Key metric">Time from failure to the owner being told</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="lifecycle-build.html"><small>Previous</small><span>Build</span></a>
+  <a class="next" href="lifecycle-change.html"><small>Next</small><span>Change</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>

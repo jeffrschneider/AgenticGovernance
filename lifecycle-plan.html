@@ -1,486 +1,280 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Lifecycle Governance: Plan Time - Agentic Governance Framework</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            card: '#111827',
-                            accent: '#3B82F6',
-                            glow: '#60A5FA',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            danger: '#EF4444',
-                            warning: '#F59E0B'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0F19;
-            color: #E2E8F0;
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
-        }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0F19; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
-        .section-header { position: relative; display: inline-block; }
-        .section-header::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
-        }
-        .objective-card { transition: all 0.3s ease; }
-        .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15); }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Plan Time | Agentic Governance Framework</title>
+<meta name="description" content="Plan time decides which agents the organization needs, links each to a business objective, and registers it in the catalog with an owner.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html" class="on" aria-current="page"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section II, lifecycle phase 1 of 6</p>
+      <h1>Plan time</h1>
+      <p class="lede">Plan time decides which agents the organization needs before anyone builds them. Each planned agent is linked to a business objective, checked against the agents that already exist, and registered in the catalog with an owner and a first risk tier.</p>
+      <div class="adlc"><p>In the Agentic Development Lifecycle, this phase governs the decision that comes before <a href="https://agenticdevelopment.ai/stages.html#requirements">Requirements</a> (stage 1), and the reuse check at <a href="https://agenticdevelopment.ai/stages.html#source">Source</a> (stage 4), which looks for an agent that somebody has already built.</p></div>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
-                        <a href="index.html#lifecycle" class="text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-brand-accent">Lifecycle</a>
-                        <a href="index.html#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
-                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+  <section class="band">
+    <div class="wrap">
+      <h2>What plan time covers</h2>
+      <div class="cards three">
+        <div class="card">
+          <h3>Strategic planning</h3>
+          <p>Each initiative is aligned with a business objective from <a href="compliance-alignment.html">section I</a>. The organization keeps a roadmap of the capabilities it wants agents to provide, governs the money it puts into them, and assesses risks such as dependence on a single supplier.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="index.html#lifecycle" class="hover:text-brand-accent transition-colors">Lifecycle</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-300">Plan Time</span>
-            </div>
-
-            <div class="flex items-center gap-4 mb-6">
-                <div class="h-14 w-14 bg-blue-500/20 rounded-xl flex items-center justify-center">
-                    <i data-lucide="calendar-check" class="w-8 h-8 text-blue-400"></i>
-                </div>
-                <div>
-                    <span class="text-blue-400 font-mono text-sm">SECTION II - PHASE 1</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                        Lifecycle Governance: Plan Time
-                    </h1>
-                </div>
-            </div>
-
-            <p class="text-xl text-gray-400 max-w-3xl mb-8">
-                Strategic planning and portfolio management ensure AI agents align with business objectives from the outset. Plan Time governance prevents misaligned investments and uncontrolled agent proliferation.
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="target" class="w-5 h-5 text-blue-400"></i>
-                    <span class="text-sm text-gray-300"><strong class="text-white">8</strong> Control Objectives</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="compass" class="w-5 h-5 text-purple-400"></i>
-                    <span class="text-sm text-gray-300">Strategic Alignment</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="layers" class="w-5 h-5 text-emerald-400"></i>
-                    <span class="text-sm text-gray-300">Portfolio Management</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Portfolio planning</h3>
+          <p>Requests come through one intake process. Intake checks for an agent that already does the job, records what the new agent will depend on, and sets the conditions under which it will be retired.</p>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-
-        <!-- Control Objectives -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
-
-            <div class="grid gap-6">
-
-                <!-- PLN-01 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-blue-400">PLN-01</span>
-                            <i data-lucide="compass" class="w-10 h-10 text-blue-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Strategic Alignment Verification</h3>
-                            <p class="text-gray-400 mb-4">Ensure every AI agent initiative is explicitly linked to strategic business objectives and initiatives, preventing resource investment in misaligned projects.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Agents misaligned with business objectives</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents linked to strategic initiatives</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PLN-02 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-purple-400">PLN-02</span>
-                            <i data-lucide="git-merge" class="w-10 h-10 text-purple-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Portfolio Rationalization</h3>
-                            <p class="text-gray-400 mb-4">Identify and consolidate redundant or overlapping agent capabilities across the enterprise to optimize resource utilization and reduce maintenance burden.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Redundant or overlapping agents</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Number of duplicate capabilities identified</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PLN-03 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-yellow-400">PLN-03</span>
-                            <i data-lucide="inbox" class="w-10 h-10 text-yellow-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Demand Intake Standardization</h3>
-                            <p class="text-gray-400 mb-4">Establish a formal intake process for all new agent requests to prevent uncontrolled proliferation and ensure proper evaluation before development begins.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Uncontrolled agent proliferation</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% requests through formal intake process</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PLN-04 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-emerald-400">PLN-04</span>
-                            <i data-lucide="trending-up" class="w-10 h-10 text-emerald-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Investment Governance</h3>
-                            <p class="text-gray-400 mb-4">Implement rigorous evaluation of capital allocation to agent initiatives, including ROI projections and post-implementation validation.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Poor capital allocation to agent initiatives</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">ROI projection accuracy vs. actuals</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PLN-05 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-rose-400">PLN-05</span>
-                            <i data-lucide="network" class="w-10 h-10 text-rose-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Dependency Mapping Completeness</h3>
-                            <p class="text-gray-400 mb-4">Document all dependencies between agents and other systems to prevent cascade failures and enable impact analysis for changes.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Cascade failures from unknown dependencies</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with documented dependencies</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PLN-06 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-cyan-400">PLN-06</span>
-                            <i data-lucide="book-open" class="w-10 h-10 text-cyan-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Agent Catalog Completeness</h3>
-                            <p class="text-gray-400 mb-4">Maintain a comprehensive registry of all production agents to eliminate shadow agents operating outside governance oversight.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Shadow agents unknown to governance</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% production agents registered in catalog</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PLN-07 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-orange-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-orange-400">PLN-07</span>
-                            <i data-lucide="sunset" class="w-10 h-10 text-orange-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Retirement Planning</h3>
-                            <p class="text-gray-400 mb-4">Define sunset criteria for all agents at inception to prevent legacy agent accumulation and ensure orderly decommissioning.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Legacy agent accumulation</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with defined sunset criteria</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PLN-08 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-red-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-red-400">PLN-08</span>
-                            <i data-lucide="alert-triangle" class="w-10 h-10 text-red-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Strategic Risk Assessment</h3>
-                            <p class="text-gray-400 mb-4">Conduct comprehensive risk assessments for agentic strategy including vendor lock-in, technology obsolescence, and organizational readiness.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Unidentified risks in agentic strategy</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Risk assessment completion rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Summary Table -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800 text-gray-200">
-                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
-                            <th class="p-4">Objective</th>
-                            <th class="p-4">Primary Risk Addressed</th>
-                            <th class="p-4 rounded-tr-lg">Key Metric</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800 bg-brand-card">
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-blue-400 font-bold font-mono">PLN-01</td>
-                            <td class="p-4 text-sm text-gray-300">Strategic Alignment Verification</td>
-                            <td class="p-4 text-sm text-gray-400">Agents misaligned with business objectives</td>
-                            <td class="p-4 text-sm text-gray-400">% agents linked to strategic initiatives</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-purple-400 font-bold font-mono">PLN-02</td>
-                            <td class="p-4 text-sm text-gray-300">Portfolio Rationalization</td>
-                            <td class="p-4 text-sm text-gray-400">Redundant or overlapping agents</td>
-                            <td class="p-4 text-sm text-gray-400">Number of duplicate capabilities identified</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-yellow-400 font-bold font-mono">PLN-03</td>
-                            <td class="p-4 text-sm text-gray-300">Demand Intake Standardization</td>
-                            <td class="p-4 text-sm text-gray-400">Uncontrolled agent proliferation</td>
-                            <td class="p-4 text-sm text-gray-400">% requests through formal intake process</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-emerald-400 font-bold font-mono">PLN-04</td>
-                            <td class="p-4 text-sm text-gray-300">Investment Governance</td>
-                            <td class="p-4 text-sm text-gray-400">Poor capital allocation to agent initiatives</td>
-                            <td class="p-4 text-sm text-gray-400">ROI projection accuracy vs. actuals</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-rose-400 font-bold font-mono">PLN-05</td>
-                            <td class="p-4 text-sm text-gray-300">Dependency Mapping Completeness</td>
-                            <td class="p-4 text-sm text-gray-400">Cascade failures from unknown dependencies</td>
-                            <td class="p-4 text-sm text-gray-400">% agents with documented dependencies</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-cyan-400 font-bold font-mono">PLN-06</td>
-                            <td class="p-4 text-sm text-gray-300">Agent Catalog Completeness</td>
-                            <td class="p-4 text-sm text-gray-400">Shadow agents unknown to governance</td>
-                            <td class="p-4 text-sm text-gray-400">% production agents registered in catalog</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-orange-400 font-bold font-mono">PLN-07</td>
-                            <td class="p-4 text-sm text-gray-300">Retirement Planning</td>
-                            <td class="p-4 text-sm text-gray-400">Legacy agent accumulation</td>
-                            <td class="p-4 text-sm text-gray-400">% agents with defined sunset criteria</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-red-400 font-bold font-mono">PLN-08</td>
-                            <td class="p-4 text-sm text-gray-300">Strategic Risk Assessment</td>
-                            <td class="p-4 text-sm text-gray-400">Unidentified risks in agentic strategy</td>
-                            <td class="p-4 text-sm text-gray-400">Risk assessment completion rate</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="mt-16 pt-12 border-t border-gray-800">
-            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                <a href="compliance-alignment.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-colors group">
-                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Previous</span>
-                        <p class="text-white font-semibold">I. Compliance Alignment</p>
-                    </div>
-                </a>
-                <a href="lifecycle-design.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-purple-500/50 transition-colors group text-right sm:flex-row-reverse">
-                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Next</span>
-                        <p class="text-white font-semibold">III. Design Time</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
-                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
-            </div>
-            <div class="text-gray-600 text-sm text-center md:text-right">
-                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
-                <p>Framework Version 2.1</p>
-            </div>
+        <div class="card">
+          <h3>The agent catalog</h3>
+          <p>Every agent the organization runs or relies on is registered, with its owner, its tier, its objective and its status. The catalog is how governance knows what exists, and the health of the whole portfolio is reported from it.</p>
         </div>
-    </footer>
+      </div>
+      <p>The catalog entry made here is used in every later phase. Run-time checks read it, the Network discipline records the agent's relationships against it, and Decommission time removes the agent from it.</p>
+    </div>
+  </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 8 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="pln-01">
+      <header><span class="oid">PLN-01</span><h3>Strategic alignment</h3></header>
+      <p class="stmt">Link every agent initiative to a strategic objective before money is spent on it, so that effort does not go to work the organization does not want.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agents that do not serve the organization's objectives</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agent initiatives linked to a strategic objective</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The request names the question the experiment is meant to answer.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The request names the business objective and the person who stands behind it.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The portfolio board approves the link to a funded initiative before design starts.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The executive sponsor approves the initiative as part of the strategy.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The approved intake record, with the objective, the sponsor and the approval date.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="pln-02">
+      <header><span class="oid">PLN-02</span><h3>Portfolio rationalization</h3></header>
+      <p class="stmt">Find agents that do the same job, and consolidate them, so that the organization does not pay to build and run the same capability twice.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Redundant or overlapping agents</dd></div>
+        <div><dt>Key metric</dt><dd>Duplicate capabilities found and resolved</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The requester searches the catalog before starting an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Intake checks the catalog for an existing agent that does the job, and records the result.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>An architect confirms there is no overlap, or approves the overlap with a reason.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The portfolio is reviewed for overlap each quarter across the whole organization.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The catalog search recorded at intake, and the portfolio review with its consolidation decisions.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="pln-03">
+      <header><span class="oid">PLN-03</span><h3>Standard demand intake</h3></header>
+      <p class="stmt">Send every request for a new agent through one intake process, so that each is evaluated before work begins.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Uncontrolled growth in the number of agents</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents that came through intake</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>A short self-service form registers the experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The full intake form is completed and triaged within a set time.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Intake includes a first risk tier and an initial list of the obligations from section I.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Intake goes to the portfolio board with a business case.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The intake record for the agent, linked from its catalog entry.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="pln-04">
+      <header><span class="oid">PLN-04</span><h3>Investment governance</h3></header>
+      <p class="stmt">Evaluate what each agent initiative is expected to return before funding it, and compare the result with the projection afterwards.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Poor use of money on agent initiatives</dd></div>
+        <div><dt>Key metric</dt><dd>Projected return compared with actual return</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Experiments run within a fixed budget set by the team.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The request states the expected cost and benefit.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Finance reviews the business case, and the actual return is compared with it after six months.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The investment committee approves the case, and the comparison is reported to the executive sponsor.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The business case, the approval, and the later comparison of projected and actual return.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="pln-05">
+      <header><span class="oid">PLN-05</span><h3>Dependency mapping</h3></header>
+      <p class="stmt">Record what each planned agent will depend on and what will depend on it, including other agents, so that failures and changes can be traced. The <a href="network.html">Network</a> discipline governs these relationships once they exist.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Cascading failures from unknown dependencies</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with recorded dependencies</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The owner lists the systems the experiment calls.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every dependency on another agent or system is recorded in the catalog before release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Dependencies are declared in the agent's signed description and checked against what it actually calls.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The dependency map is reviewed by the owners of every agent on it before release.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The declared dependencies in the catalog, and the result of comparing them with observed calls.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="pln-06">
+      <header><span class="oid">PLN-06</span><h3>A complete agent catalog</h3></header>
+      <p class="stmt">Keep a registry of every agent the organization runs or relies on, with its owner, its tier and its status, so that no agent operates outside governance.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agents that governance does not know about</dd></div>
+        <div><dt>Key metric</dt><dd>Share of running agents found in the catalog</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Experiments are registered, and are marked as sandbox only.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every production agent has a catalog entry with a named owner before it runs.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The catalog entry is the source the run-time checks read, so an unregistered agent cannot run.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The catalog is reconciled with what is actually running each month, and the result is reported.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The catalog, and the latest reconciliation between catalog entries and running agents.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="pln-07">
+      <header><span class="oid">PLN-07</span><h3>Retirement planning</h3></header>
+      <p class="stmt">Set the conditions under which an agent will be retired when it is first approved, so that old agents do not pile up.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Old agents that nobody retires</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with written retirement conditions</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment has an end date.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent states the conditions that would end it.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The retirement conditions are checked at every review date.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The retirement plan names who is affected and how they will be told.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The retirement conditions in the agent's record, and the review records that checked them.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="pln-08">
+      <header><span class="oid">PLN-08</span><h3>Strategic risk assessment</h3></header>
+      <p class="stmt">Assess the risks in the agent strategy itself, including dependence on one supplier, technology going out of date and whether the organization is ready.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Unrecognized risks in the agent strategy</dd></div>
+        <div><dt>Key metric</dt><dd>Share of initiatives with a completed risk assessment</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No separate assessment is needed for an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The request notes any single supplier the agent would depend on.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Risk reviews the initiative and records how each strategic risk will be handled.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The assessment goes to the executive sponsor and is repeated each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The risk assessment, the decisions on each risk and who made them.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#pln-01">PLN-01</a></td><td data-h="Objective">Strategic alignment</td><td data-h="Key metric">Share of agent initiatives linked to a strategic objective</td></tr>
+      <tr><td data-h="ID"><a href="#pln-02">PLN-02</a></td><td data-h="Objective">Portfolio rationalization</td><td data-h="Key metric">Duplicate capabilities found and resolved</td></tr>
+      <tr><td data-h="ID"><a href="#pln-03">PLN-03</a></td><td data-h="Objective">Standard demand intake</td><td data-h="Key metric">Share of agents that came through intake</td></tr>
+      <tr><td data-h="ID"><a href="#pln-04">PLN-04</a></td><td data-h="Objective">Investment governance</td><td data-h="Key metric">Projected return compared with actual return</td></tr>
+      <tr><td data-h="ID"><a href="#pln-05">PLN-05</a></td><td data-h="Objective">Dependency mapping</td><td data-h="Key metric">Share of agents with recorded dependencies</td></tr>
+      <tr><td data-h="ID"><a href="#pln-06">PLN-06</a></td><td data-h="Objective">A complete agent catalog</td><td data-h="Key metric">Share of running agents found in the catalog</td></tr>
+      <tr><td data-h="ID"><a href="#pln-07">PLN-07</a></td><td data-h="Objective">Retirement planning</td><td data-h="Key metric">Share of agents with written retirement conditions</td></tr>
+      <tr><td data-h="ID"><a href="#pln-08">PLN-08</a></td><td data-h="Objective">Strategic risk assessment</td><td data-h="Key metric">Share of initiatives with a completed risk assessment</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="compliance-alignment.html"><small>Previous</small><span>Objectives and obligations</span></a>
+  <a class="next" href="lifecycle-design.html"><small>Next</small><span>Design</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>

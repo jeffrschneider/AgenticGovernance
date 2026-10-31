@@ -1,0 +1,139 @@
+{
+  "objectives": [
+    {
+      "id": "ASR-01",
+      "title": "Evidence for every objective",
+      "statement": "Name, for every control objective that applies to an agent, the evidence that proves it and where that evidence is kept.",
+      "risk": "Controls that cannot be shown to work",
+      "metric": "Share of applicable objectives with named evidence",
+      "tiers": [
+        "The builder can show the sandbox limits.",
+        "The evidence for each applicable objective is listed in the agent's record.",
+        "Evidence is produced by the systems that enforce the control, without anyone writing it by hand.",
+        "The evidence list is reviewed by internal audit each year."
+      ],
+      "evidence": "The agent's evidence list, mapping each objective to its records.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "ASR-02",
+      "title": "Evidence the agent cannot change",
+      "statement": "Draw evidence from records that the agent and its builders cannot edit, so that the agent is never vouching for itself.",
+      "risk": "Self-reported evidence",
+      "metric": "Share of evidence held where the agent cannot write",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "Evidence is stored outside the agent.",
+        "Evidence is stored where neither the agent nor its operators can change it, and changes to the store are recorded.",
+        "Evidence is signed when it is written, so that tampering can be detected by anyone who checks."
+      ],
+      "evidence": "The evidence store's settings and its own access records.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "ASR-03",
+      "title": "Current evidence",
+      "statement": "Keep evidence current. A review from last year says nothing about the version deployed this morning, so checks repeat with every change and on a schedule.",
+      "risk": "Old evidence for a new version",
+      "metric": "Share of evidence that matches the running version",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "Evidence is refreshed at each release.",
+        "Evidence is tied to the fingerprint of the version it covers, and stale evidence is flagged.",
+        "Evidence is refreshed continuously where the control allows it."
+      ],
+      "evidence": "Evidence records with the version fingerprint and date of each.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "ASR-04",
+      "title": "Readable by someone outside the team",
+      "statement": "Make evidence readable by people who did not build the agent: internal audit, an outside auditor or a partner, each with the access the operating model allows.",
+      "risk": "Evidence only the builders can read",
+      "metric": "Requests for evidence answered without the team's help",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "Internal audit can read the evidence.",
+        "An outside auditor can be given read access to the evidence for a defined scope and period.",
+        "Partners can verify the evidence that concerns them without seeing the rest."
+      ],
+      "evidence": "The access grants for evidence readers and the log of their reads.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "ASR-05",
+      "title": "Internal audit plan",
+      "statement": "Plan internal audits of agents by tier, so that higher-risk agents and relationships are audited more often.",
+      "risk": "High-risk agents that go unaudited",
+      "metric": "Share of the audit plan completed",
+      "tiers": [
+        "Experiments are sampled when the sandbox is audited.",
+        "Tier 2 agents are sampled in the yearly audit.",
+        "Tier 3 agents and relationships are audited each year.",
+        "Tier 4 agents and relationships are audited each half year."
+      ],
+      "evidence": "The audit plan, the audit reports and the tracking of findings.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "ASR-06",
+      "title": "Outside audit and attestation",
+      "statement": "Have high-tier agents audited by an independent party, and issue attestations that others can rely on.",
+      "risk": "Claims of control that nobody independent has checked",
+      "metric": "Share of Tier 4 agents with a current outside attestation",
+      "tiers": [
+        "No outside audit is required.",
+        "No outside audit is required, though the agent is in scope of the organization's general audits.",
+        "An outside auditor reviews the agent's controls when obligations require it.",
+        "An outside auditor attests to the agent's controls each year."
+      ],
+      "evidence": "The auditor's report or attestation, with its scope and date.",
+      "checkers": ["outside", "partner"]
+    },
+    {
+      "id": "ASR-07",
+      "title": "Verification across company lines",
+      "statement": "Let a partner verify the facts about an agent that it relies on, such as its identity, owner, version, mandate and stop, from signed records, without needing access to the other organization's systems.",
+      "risk": "Trusting another company's agent on its word",
+      "metric": "Share of cross-company relationships with verified evidence",
+      "tiers": [
+        "Sandbox agents do not deal with partners.",
+        "Partners can verify the agent's identity and owner.",
+        "Partners can verify identity, owner, version and the mandate for each piece of work.",
+        "Partners can verify the agent's attestations and its stop status at any time."
+      ],
+      "evidence": "The signed facts offered to partners, and the record of partner verifications.",
+      "checkers": ["partner", "outside"]
+    },
+    {
+      "id": "ASR-08",
+      "title": "Findings tracked to closure",
+      "statement": "Track every audit and assurance finding to closure, with an owner and a date, and confirm the fix.",
+      "risk": "Findings that are never fixed",
+      "metric": "Findings open past their due date",
+      "tiers": [
+        "Sandbox findings are noted.",
+        "Findings have an owner and a due date.",
+        "Fixes are confirmed by someone other than the owner.",
+        "Overdue findings are reported to the governance council."
+      ],
+      "evidence": "The findings log with owners, dates and confirmations.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "ASR-09",
+      "title": "Agents that run elsewhere",
+      "statement": "Apply the same assurance to agents the organization relies on but does not host, by requiring their owners to keep the records and let the organization read them.",
+      "risk": "A hosted agent assumed to be under control because someone else runs it",
+      "metric": "Share of outside agents with readable evidence",
+      "tiers": [
+        "Sandbox agents rely on no outside agents.",
+        "Outside agents have a named owner and a contract.",
+        "Outside agents' owners provide the evidence named in the contract.",
+        "Outside agents' evidence is verified as ASR-07 describes, and attested where the tier requires."
+      ],
+      "evidence": "The contract terms on evidence and the evidence received.",
+      "checkers": ["internal", "outside", "partner"]
+    }
+  ]
+}

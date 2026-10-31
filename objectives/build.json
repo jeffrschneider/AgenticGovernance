@@ -1,0 +1,139 @@
+{
+  "objectives": [
+    {
+      "id": "BLD-01",
+      "title": "Development standards",
+      "statement": "Build agents to consistent standards, with a written statement of the job, tests written from that statement, and then the code.",
+      "risk": "Inconsistent quality that is costly to maintain",
+      "metric": "Share of builds that meet the development standards",
+      "tiers": [
+        "The experiment follows the team's own practice.",
+        "The build has a written statement of the job and tests before it is released.",
+        "The tests are written from the statement before the code, by someone other than the code's author.",
+        "Each stage of the build is held by a named person or agent and leaves a signed record."
+      ],
+      "evidence": "The statement, the tests and the record of who held each stage.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "BLD-02",
+      "title": "Quality gates",
+      "statement": "Require every agent to pass set quality gates before it can be deployed.",
+      "risk": "Defective agents reaching production",
+      "metric": "Share of releases that passed every gate",
+      "tiers": [
+        "No gate applies inside the sandbox.",
+        "Automated tests and checks must pass before release.",
+        "A reviewer who is not the author approves the release after the automated gates pass.",
+        "Gate results are signed into the release record, and a failed gate can only be overridden by the executive sponsor."
+      ],
+      "evidence": "The gate results attached to the release record.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "BLD-03",
+      "title": "Security review of the code",
+      "statement": "Scan and review every agent's code for security weaknesses before it is deployed.",
+      "risk": "Weaknesses in agent code",
+      "metric": "Share of releases with a completed security scan and review",
+      "tiers": [
+        "The experiment is scanned with the standard tools.",
+        "Static scanning runs on every build, and serious findings block the release.",
+        "A security reviewer who is not the author reviews the code, and dynamic testing runs before release.",
+        "Findings and their resolution are signed into the release record and reviewed by an outside party each year."
+      ],
+      "evidence": "Scan results and the security review for the version that is running.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "BLD-04",
+      "title": "Test coverage",
+      "statement": "Test agents enough to find defects early, with unit, integration and behavior tests that include what the agent must refuse.",
+      "risk": "Defects that nobody found",
+      "metric": "Share of declared offerings and refusals covered by tests",
+      "tiers": [
+        "The experiment has the tests its builder judges useful.",
+        "Each declared offering has at least one test.",
+        "Each offering and each refusal is tested, including tests that try to make the agent act outside its scope.",
+        "Tests include adversarial cases, and the suite is reviewed by someone outside the building team."
+      ],
+      "evidence": "The test suite, its coverage of the declaration, and its results for the current version.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "BLD-05",
+      "title": "Approved release pipelines",
+      "statement": "Deploy only through approved pipelines, so that what runs is exactly what was approved, with no edits by hand.",
+      "risk": "Manual changes that bypass review",
+      "metric": "Share of deployments made through an approved pipeline",
+      "tiers": [
+        "The experiment may be deployed by hand inside the sandbox.",
+        "Every production deployment goes through an approved pipeline.",
+        "The running agent's fingerprint is checked against the approved release, and a mismatch stops it.",
+        "No person can change a running Tier 4 agent outside the pipeline, and attempts are recorded."
+      ],
+      "evidence": "Pipeline logs, and the comparison of the running fingerprint with the approved release.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "BLD-06",
+      "title": "Documentation",
+      "statement": "Document every agent, including its design decisions, its interfaces and how to operate it, and keep the documents in step with the version that runs.",
+      "risk": "Agents nobody else can run or fix",
+      "metric": "Share of agents that meet the documentation standard",
+      "tiers": [
+        "The experiment has a short description of what it does.",
+        "The agent has interface documentation and an operating guide.",
+        "The documentation is gathered from the agent's own declarations, so it cannot say more than they do.",
+        "The documentation is reviewed at each release by the people who operate the agent."
+      ],
+      "evidence": "The documentation for the current version, and the date it was last generated or reviewed.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "BLD-07",
+      "title": "Dependency security",
+      "statement": "Take each dependency from a known source, pin it to a version, and check it for known vulnerabilities, again whenever new ones are published.",
+      "risk": "A compromised or vulnerable dependency",
+      "metric": "Known vulnerabilities in dependencies, by age",
+      "tiers": [
+        "Dependencies come from the organization's approved sources.",
+        "Every dependency is pinned, and known vulnerabilities are checked at each build.",
+        "Dependencies are verified by checksum or signature, and new vulnerabilities trigger a review within a set time.",
+        "Serious vulnerabilities must be fixed or accepted by the executive sponsor within a set time, and the record is audited."
+      ],
+      "evidence": "The pinned dependency list, the verification results and the vulnerability scan history.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "BLD-08",
+      "title": "Signed build record and bill of materials",
+      "statement": "Give each package a signed record of what went into it and who held each stage, including every library, model and outside tool it uses at an exact version.",
+      "risk": "Nobody can say what is inside a running agent",
+      "metric": "Share of releases with a signed build record and bill of materials",
+      "tiers": [
+        "The experiment lists its main components.",
+        "Each release has a bill of materials.",
+        "Each release has a signed build record, and building the same source again gives the same package.",
+        "The build record is published to the parties who rely on the agent, and an outside auditor can verify it."
+      ],
+      "evidence": "The signed build record and bill of materials for the version that is running.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "BLD-09",
+      "title": "Models and prompts pinned",
+      "statement": "Record the model and the prompts each agent runs on, so that a model update or a prompt edit is a change like any other and goes through the same gates.",
+      "risk": "Behavior that changes without a release",
+      "metric": "Share of agents with their model and prompts pinned in the release",
+      "tiers": [
+        "The experiment notes which model it uses.",
+        "The model version and the prompts are part of the release.",
+        "A new model version or prompt is released only after the evaluation suite passes against it.",
+        "Model and prompt changes are reviewed by the value owner as well as the builders."
+      ],
+      "evidence": "The model version and prompt fingerprints in the release record, and the evaluation run for each change.",
+      "checkers": ["internal", "outside"]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "objectives": [
+    {
+      "id": "DCM-01",
+      "title": "Impact assessment",
+      "statement": "Assess who and what will be affected before an agent is retired, including the systems, people, processes and other agents that rely on it.",
+      "risk": "Disruption when an agent is retired",
+      "metric": "Share of retirements with an impact assessment",
+      "tiers": [
+        "The builder checks that no one else uses the experiment.",
+        "The assessment lists dependents from the catalog.",
+        "Each dependent's owner confirms their plan before retirement.",
+        "The executive sponsor approves the retirement after reviewing the assessment."
+      ],
+      "evidence": "The impact assessment and the confirmations from dependents' owners.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "DCM-02",
+      "title": "Data handled as stated",
+      "statement": "Migrate, archive or delete the agent's data as its declaration and the retention rules say, before it is shut down.",
+      "risk": "Lost data or data kept longer than allowed",
+      "metric": "Share of retirements whose data was handled as declared",
+      "tiers": [
+        "Sandbox data is deleted.",
+        "Data is migrated or archived according to the retention rules.",
+        "Deletion is verified, and the verification is recorded.",
+        "Data handling is certified by the data owner and audited."
+      ],
+      "evidence": "The record of what data was migrated, archived or deleted, with verification.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "DCM-03",
+      "title": "Knowledge transfer",
+      "statement": "Write down what was learned from running the agent before it is retired, so that the organization keeps it.",
+      "risk": "Losing what the organization learned",
+      "metric": "Share of retirements with a knowledge transfer record",
+      "tiers": [
+        "The builder notes what the experiment showed.",
+        "The owner writes a short retirement note.",
+        "The note covers incidents, limits that were hit and what replaced the agent.",
+        "The note is reviewed by the team that takes over the work."
+      ],
+      "evidence": "The retirement note in the agent's record.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "DCM-04",
+      "title": "Dependents told in time",
+      "statement": "Tell every dependent system, agent and person that the agent will be retired, early enough for them to plan.",
+      "risk": "Dependent systems failing",
+      "metric": "Share of dependents told before the notice period",
+      "tiers": [
+        "No notice is required for an experiment no one else uses.",
+        "Dependents in the catalog are told before retirement.",
+        "Notice follows a set period, and each dependent acknowledges it.",
+        "Partners outside the organization are told under their contracts' notice terms."
+      ],
+      "evidence": "The notices sent, the dates and the acknowledgements.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "DCM-05",
+      "title": "Records preserved",
+      "statement": "Keep the audit records, logs and evidence of a retired agent for as long as retention rules require, readable without the agent.",
+      "risk": "Being unable to investigate past events",
+      "metric": "Share of retirements with preserved records",
+      "tiers": [
+        "Sandbox logs are kept until the experiment's review is done.",
+        "Records are kept for the retention period.",
+        "Records stay readable without the retired agent's systems, and retrieval is tested.",
+        "An outside auditor can retrieve the records for the full regulatory period."
+      ],
+      "evidence": "The archive location and the result of the retrieval test.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "DCM-06",
+      "title": "Graceful degradation",
+      "statement": "Test that dependents handle the agent's absence through fallback paths before it is switched off, and make the agent's address stop answering rather than answer wrongly.",
+      "risk": "Hard failures in dependent systems",
+      "metric": "Fallback test success rate",
+      "tiers": [
+        "No requirement applies to an experiment no one else uses.",
+        "Dependents confirm they have a fallback.",
+        "Fallbacks are tested before shutdown.",
+        "The agent is withdrawn in stages, with a return path until fallbacks are proven."
+      ],
+      "evidence": "Fallback test results and the shutdown record.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "DCM-07",
+      "title": "Key retired and name never reused",
+      "statement": "Revoke the agent's credentials and retire its key when it ends, and never give its name to another agent, so that nothing can speak as it afterwards.",
+      "risk": "A retired agent's identity used by something else",
+      "metric": "Share of retired agents with revoked credentials and a reserved name",
+      "tiers": [
+        "Sandbox credentials are revoked.",
+        "All credentials are revoked on retirement.",
+        "The key is retired, and the name is reserved so that it cannot be issued again.",
+        "Partners that trusted the agent are told its identity is retired."
+      ],
+      "evidence": "The revocation record, and the name registry entry marked as retired.",
+      "checkers": ["internal", "outside", "partner"]
+    }
+  ]
+}

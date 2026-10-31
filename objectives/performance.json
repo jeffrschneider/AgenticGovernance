@@ -1,0 +1,184 @@
+{
+  "objectives": [
+    {
+      "id": "PRF-01",
+      "title": "Accuracy benchmarks",
+      "statement": "Measure each agent's accuracy against known correct answers, so that a decline is noticed.",
+      "risk": "Accuracy declining without anyone noticing",
+      "metric": "Share of agents with an accuracy benchmark",
+      "tiers": [
+        "The builder checks results by hand.",
+        "Each agent has a benchmark set that runs at release.",
+        "The benchmark runs on a schedule against live work, and a decline alerts the owner.",
+        "The benchmark set is reviewed by the value owner and refreshed each quarter."
+      ],
+      "evidence": "The benchmark set and its results over time.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "PRF-02",
+      "title": "Response times",
+      "statement": "Measure how quickly agents answer against the times promised to the people and agents that use them.",
+      "risk": "Slow agents that frustrate their users",
+      "metric": "Share of agents meeting their promised response time",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "Each agent states a response time and measures it.",
+        "Missed response times alert the owner, and the cause is recorded.",
+        "Response times are reported to dependents and partners under their contracts."
+      ],
+      "evidence": "Response time measurements against the promised times.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "PRF-03",
+      "title": "Throughput",
+      "statement": "Compare how much work agents can handle with the demand on them, to find bottlenecks before users do.",
+      "risk": "Bottlenecks in capacity",
+      "metric": "Throughput compared with demand",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "Throughput and demand are measured.",
+        "A forecast of demand is compared with capacity each quarter.",
+        "Capacity for peak demand is tested before known peak events."
+      ],
+      "evidence": "Throughput and demand measurements and the capacity forecast.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PRF-04",
+      "title": "Consistency",
+      "statement": "Measure how much an agent's answers to the same question vary, so that its behavior is predictable.",
+      "risk": "Unpredictable behavior",
+      "metric": "Variation in answers to repeated questions",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "A sample of repeated questions is checked at release.",
+        "Variation is measured on a schedule and kept within a stated range.",
+        "Variation outside the range blocks a release."
+      ],
+      "evidence": "The repeated-question results and the stated range.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PRF-05",
+      "title": "Continuous evaluation",
+      "statement": "Evaluate agents continuously, so that a change in how good their answers are between releases is caught.",
+      "risk": "Quality drifting between releases",
+      "metric": "Evaluation coverage across running agents",
+      "tiers": [
+        "The builder reviews sample outputs.",
+        "An evaluation suite runs at every release.",
+        "Evaluation also runs on a sample of live work, by an evaluator that is not the agent itself.",
+        "Evaluation results are part of each review and are shared with the value owner each month."
+      ],
+      "evidence": "Evaluation results for releases and for sampled live work.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "PRF-06",
+      "title": "Regression detection",
+      "statement": "Detect a fall in performance caused by a model update or a configuration change, and alert the owner.",
+      "risk": "Quality loss after a model update",
+      "metric": "Time to detect a regression",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "The evaluation suite runs after any model or configuration change.",
+        "A regression blocks promotion, and the previous version stays available.",
+        "Regressions are reported to the governance council when they reach production."
+      ],
+      "evidence": "Evaluation comparisons before and after each change.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PRF-07",
+      "title": "Factual errors",
+      "statement": "Measure how often agents state things that are not true, and keep the rate within a stated level.",
+      "risk": "Factual errors that damage trust",
+      "metric": "Rate of factual errors in sampled answers",
+      "tiers": [
+        "The builder notes errors seen in testing.",
+        "A sample of answers is checked for factual errors at release.",
+        "Factual errors are measured on live work, and the rate is kept within a stated level.",
+        "Answers that make claims are checked against a source before they are sent."
+      ],
+      "evidence": "Sampled answers with error findings, and the measured rate over time.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "PRF-08",
+      "title": "Business outcomes",
+      "statement": "Connect each agent's technical measures to the business objective it serves, so that technical success is not mistaken for value.",
+      "risk": "Technical success without business value",
+      "metric": "Share of agents whose objective measure is reported",
+      "tiers": [
+        "The experiment states what it set out to learn.",
+        "The objective's measure from section I is reported each quarter.",
+        "The value owner compares the measure with cost each quarter.",
+        "The measure is reported to the executive sponsor with the agent's cost."
+      ],
+      "evidence": "The objective measure, its trend and the value owner's review.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PRF-09",
+      "title": "Finding underperformers",
+      "statement": "Find agents that do worse than their benchmarks or than other agents doing similar work.",
+      "risk": "Poor agents harming the business",
+      "metric": "Time from decline to flag",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "Agents below their benchmark are flagged at review.",
+        "Agents below their benchmark are flagged automatically and given a remedy plan.",
+        "Persistent underperformers are reviewed by the governance council for retirement."
+      ],
+      "evidence": "The list of flagged agents and their remedy plans.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PRF-10",
+      "title": "Timely remedy",
+      "statement": "Track how long it takes to fix performance problems once they are found.",
+      "risk": "Poor performance going on too long",
+      "metric": "Mean time to remedy",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "Performance problems are tracked to closure.",
+        "Problems have target remedy times by severity.",
+        "Missed targets are reported to the executive sponsor."
+      ],
+      "evidence": "The problem log with dates found and fixed.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PRF-11",
+      "title": "Scheduled quality audits",
+      "statement": "Complete the scheduled performance and quality audits. The <a href=\"assurance.html\">Assurance</a> discipline sets the audit plan.",
+      "risk": "Gaps from missed audits",
+      "metric": "Share of scheduled audits completed",
+      "tiers": [
+        "No audit is required for an experiment.",
+        "Quality is audited at the agent's review date.",
+        "Quality is audited each half year by someone outside the team.",
+        "Quality is audited each quarter, and an outside auditor reviews the results each year."
+      ],
+      "evidence": "The audit schedule and completed audit reports.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "PRF-12",
+      "title": "User feedback",
+      "statement": "Collect feedback from the people and agents that use an agent, and use it to improve the agent.",
+      "risk": "Signals for improvement that nobody collects",
+      "metric": "Share of feedback acted on",
+      "tiers": [
+        "The builder asks users directly.",
+        "Users can give feedback, and the owner reviews it.",
+        "Feedback is tracked to an action or a reason for no action.",
+        "Feedback trends are reported with the agent's evaluation results."
+      ],
+      "evidence": "The feedback log and the actions taken.",
+      "checkers": ["internal"]
+    }
+  ]
+}

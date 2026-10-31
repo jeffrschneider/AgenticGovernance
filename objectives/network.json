@@ -1,0 +1,184 @@
+{
+  "objectives": [
+    {
+      "id": "NET-01",
+      "title": "A register of relationships",
+      "statement": "Record every standing relationship between agents: each dependency, delegation, mandate, contract and admission, with its owner, its tier and its end or review date.",
+      "risk": "Relationships that nobody knows exist",
+      "metric": "Share of observed interactions covered by a recorded relationship",
+      "tiers": [
+        "Relationships between sandbox agents are listed by the builder.",
+        "Every relationship a production agent relies on is in the register before it is used.",
+        "The register is checked against observed traffic each month, and unrecorded relationships are closed or recorded.",
+        "The register is reconciled continuously, and an interaction with no recorded relationship is refused."
+      ],
+      "evidence": "The relationship register and the latest comparison with observed interactions.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "NET-02",
+      "title": "Admissions: who may talk to whom",
+      "statement": "Let an agent receive work only from agents its owner has admitted. A stranger asks first, and the owner decides whether to let it in.",
+      "risk": "Unwanted or hostile agents reaching an agent",
+      "metric": "Messages refused from agents that were not admitted",
+      "tiers": [
+        "Sandbox agents accept messages only from the sandbox.",
+        "Each agent accepts messages only from admitted agents, and the admissions list has an owner.",
+        "Admissions are decided by the owner, recorded with a reason, and reviewed at each review date.",
+        "Admissions from outside the organization need the approval set by the operating model, and are reviewed each quarter."
+      ],
+      "evidence": "The admissions list with who admitted each agent and when, and the log of refused messages.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "NET-03",
+      "title": "Delegation that only narrows",
+      "statement": "When one agent passes work to another, pass a signed mandate that says what the receiver may do and for whom. A mandate passed on can only grant less than the one it came from, never more.",
+      "risk": "Authority growing as it passes down a chain",
+      "metric": "Delegations refused because they would have widened authority",
+      "tiers": [
+        "Sandbox agents may delegate only to sandbox agents.",
+        "Each delegated piece of work carries a mandate naming the party it acts for.",
+        "Mandates are signed, and every receiver checks that its mandate is no wider than its sender's.",
+        "Mandate chains are recorded end to end and sampled by internal audit each quarter."
+      ],
+      "evidence": "The mandate chain for sampled work, showing each step's scope against the one before it.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "NET-04",
+      "title": "Contracts between agents",
+      "statement": "Put standing work between agents under a contract that states what will be done, at what price, within what limits and until when.",
+      "risk": "Work between agents on terms nobody agreed",
+      "metric": "Share of standing relationships with a current contract",
+      "tiers": [
+        "No contract is needed between sandbox agents.",
+        "Each standing relationship has written terms, including limits and an end date.",
+        "Terms are accepted by the owners on both sides, and usage is checked against them.",
+        "Contracts that cross a company boundary are approved under the organization's contracting rules and reviewed before renewal."
+      ],
+      "evidence": "The contract, its acceptance by both owners and the usage measured against it.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "NET-05",
+      "title": "Relationships carry a tier",
+      "statement": "Give each relationship its own risk tier, set as the <a href=\"operating-model.html\">Operating Model</a> describes. A relationship through which one agent can commit money for another raises the tier.",
+      "risk": "A low-risk agent used as a path to a high-risk act",
+      "metric": "Share of relationships with a tier recorded",
+      "tiers": [
+        "Sandbox relationships are Tier 1.",
+        "Each production relationship starts at the higher tier of the two agents.",
+        "A relationship that can commit money, sign or make an irreversible change is at least Tier 3.",
+        "A Tier 4 relationship has an executive owner and is reviewed each quarter."
+      ],
+      "evidence": "The tier recorded for each relationship, with the reason when it is higher than either agent's.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "NET-06",
+      "title": "Loops between agents",
+      "statement": "Detect work that circles between agents, where each agent's own loop limit is never reached, and stop it.",
+      "risk": "Two agents keeping each other busy at the owners' expense",
+      "metric": "Cross-agent loops detected and stopped",
+      "tiers": [
+        "The sandbox limits the depth of any chain.",
+        "Each piece of work carries a chain identifier and a depth limit.",
+        "Repeated work across a chain is detected, stopped and reported to the owners involved.",
+        "Loop reports are reviewed each week, and the relationships involved are reviewed."
+      ],
+      "evidence": "Chain traces for stopped loops and the depth limits in force.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "NET-07",
+      "title": "Cascades contained",
+      "statement": "Stop a failure in one agent from spreading to the agents that depend on it, by limiting what each relationship can pass on.",
+      "risk": "One failure taking down many agents",
+      "metric": "Incidents that spread beyond the first agent",
+      "tiers": [
+        "No requirement applies in a sandbox.",
+        "Each relationship has a time limit and a retry limit.",
+        "Relationships have circuit breakers, and dependents have tested fallbacks.",
+        "Cascade drills that include partners' agents run each year."
+      ],
+      "evidence": "Relationship limits, circuit breaker records and drill results.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "NET-08",
+      "title": "Cost across a chain",
+      "statement": "Carry the spending limit and the paying account with work as it passes from agent to agent, so that the total cost of a chain is known and stays within what the first party allowed.",
+      "risk": "A chain of agents spending more than anyone approved",
+      "metric": "Share of chained work whose total cost was attributed to one account",
+      "tiers": [
+        "The sandbox budget covers every agent in it.",
+        "Each delegated piece of work names the account that pays.",
+        "The remaining budget travels with the work, and an agent refuses work that would exceed it.",
+        "Chain costs are reported per business objective each month."
+      ],
+      "evidence": "Cost records for sampled chains, showing the budget carried at each step.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "NET-09",
+      "title": "How far a stop reaches",
+      "statement": "Make a stop reach every piece of work the stopped agent delegated, so that work started for it does not carry on downstream.",
+      "risk": "Work continuing after its source has been stopped",
+      "metric": "Time for a stop to reach every downstream agent",
+      "tiers": [
+        "Stopping the sandbox stops everything in it.",
+        "Stopping an agent revokes the mandates it issued.",
+        "Every agent that received delegated work checks for a stop before acting, and the time a stop takes to reach them is measured.",
+        "Stop drills across the chain, including partners' agents, run each quarter."
+      ],
+      "evidence": "Stop records with the time each downstream agent saw the stop, and drill results.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "NET-10",
+      "title": "Change impact on dependents",
+      "statement": "Before an agent changes, tell the agents and owners that depend on it, and keep to the terms of any contract while they adjust. The <a href=\"lifecycle-change.html\">Change</a> phase sets the steps.",
+      "risk": "A change that breaks agents its owner never heard of",
+      "metric": "Dependents told before a change took effect",
+      "tiers": [
+        "No notice is required inside a sandbox.",
+        "Dependents in the register are told before release.",
+        "Dependents can test against the candidate version before it is promoted.",
+        "Changes that affect partners follow the notice terms in their contracts."
+      ],
+      "evidence": "The notices sent to dependents and any test runs they made against the candidate.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "NET-11",
+      "title": "Federation: shared rules at the boundary",
+      "statement": "Let each organization govern its own agents by its own policy, and agree the rules that apply where their agents meet: identity, admission, mandates, records and how a stop is honored.",
+      "risk": "Gaps where one organization's rules end and another's begin",
+      "metric": "Share of cross-company relationships under agreed boundary rules",
+      "tiers": [
+        "Sandbox agents do not cross the organization's boundary.",
+        "Cross-company interactions use verified identities and written terms.",
+        "Boundary rules are agreed in writing with each partner, and each side can verify the other's identities and mandates.",
+        "Boundary rules are reviewed each year with each partner, and each side's assurance evidence is exchanged."
+      ],
+      "evidence": "The agreed boundary rules with each partner, and the records showing they were applied.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "NET-12",
+      "title": "Records that both sides can reconcile",
+      "statement": "Keep records of interactions across a company boundary on both sides, in a form that each side can check against the other.",
+      "risk": "Disputes nobody can settle",
+      "metric": "Cross-company interactions whose records matched",
+      "tiers": [
+        "No requirement applies in a sandbox.",
+        "Each side records the interactions it sends and receives.",
+        "Records carry shared identifiers and signatures, so the two sides can be compared.",
+        "Records are reconciled each month, and differences are resolved under the contract."
+      ],
+      "evidence": "The records on each side and the reconciliation results.",
+      "checkers": ["internal", "outside", "partner"]
+    }
+  ]
+}

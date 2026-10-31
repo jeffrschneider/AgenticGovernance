@@ -1,0 +1,109 @@
+{
+  "objectives": [
+    {
+      "id": "IMP-01",
+      "title": "Governance health",
+      "statement": "Watch the health of governance itself, through measures that show when controls are failing.",
+      "risk": "Governance failures nobody notices",
+      "metric": "Share of governance measures reported on time",
+      "tiers": [
+        "The sandbox is reviewed each quarter.",
+        "Measures for each discipline are reported each quarter.",
+        "Measures are reported each month, with thresholds that trigger review.",
+        "Measures are reported to the governance council each month."
+      ],
+      "evidence": "The governance measures and their history.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "IMP-02",
+      "title": "Maturity assessment",
+      "statement": "Assess the maturity of governance regularly, to find gaps and improve.",
+      "risk": "Governance that stops improving",
+      "metric": "Assessments completed on schedule",
+      "tiers": [
+        "No assessment is required for the sandbox alone.",
+        "Maturity is assessed each year.",
+        "Maturity is assessed each year by someone outside the governance team.",
+        "Maturity is assessed each year by an outside party."
+      ],
+      "evidence": "The assessment reports and the actions taken.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "IMP-03",
+      "title": "Comparison with others",
+      "statement": "Compare governance practice with published practice elsewhere, to find improvements.",
+      "risk": "Falling behind good practice",
+      "metric": "Gaps found and closed",
+      "tiers": [
+        "No comparison is required.",
+        "Practice is compared with published guidance each year.",
+        "Practice is compared with peers each year.",
+        "The comparison is reported to the governance council with a plan."
+      ],
+      "evidence": "The comparison and the plan that followed.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "IMP-04",
+      "title": "The framework kept current",
+      "statement": "Revise the organization's framework when technology, threats or the business change, and record what changed and why.",
+      "risk": "Governance that does not adapt",
+      "metric": "Time since the last framework revision",
+      "tiers": [
+        "The sandbox rules are revised when needed.",
+        "The framework is reviewed each year.",
+        "The framework is reviewed each year and after any serious incident.",
+        "Framework revisions are approved by the governance council."
+      ],
+      "evidence": "The framework's version history with reasons.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "IMP-05",
+      "title": "Lessons learned",
+      "statement": "Capture lessons from incidents and audits, and feed them back into Design and Build, so that mistakes are not repeated.",
+      "risk": "Repeated mistakes",
+      "metric": "Share of incidents with a lesson captured and acted on",
+      "tiers": [
+        "The builder notes what went wrong.",
+        "Each incident has a written lesson.",
+        "Each lesson leads to a change in a standard, a test or a control, or a recorded reason for none.",
+        "Lessons are shared across business units and reviewed by the governance council."
+      ],
+      "evidence": "The lessons log and the changes it led to.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "IMP-06",
+      "title": "Governance as code",
+      "statement": "Turn controls into code where they can be, so that they are applied the same way every time and produce their own evidence.",
+      "risk": "Manual governance that slows work and varies",
+      "metric": "Share of controls enforced and evidenced by code",
+      "tiers": [
+        "Sandbox limits are enforced by the platform.",
+        "Release gates are automated.",
+        "Run-time limits on identity, reach, spend and stopping are enforced by code outside the agent.",
+        "Policies are written as code, versioned and reviewed like any other change."
+      ],
+      "evidence": "The list of controls with how each is enforced, and the policy code's history.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "IMP-07",
+      "title": "The loop from Change back to Design",
+      "statement": "Make sure what is learned at Run and Change reaches Design and Build: incidents, evaluation results, cost findings and partner feedback each lead to a change, a new control or a recorded decision to leave things as they are.",
+      "risk": "The same problems built into the next version",
+      "metric": "Share of run-time findings that reached a design or build decision",
+      "tiers": [
+        "The builder carries findings into the next experiment.",
+        "Findings are recorded against the agent and reviewed at the next release.",
+        "Each finding is linked to the design or build change it caused, or to a decision not to change.",
+        "The loop is reviewed each quarter by the governance council across all Tier 4 agents."
+      ],
+      "evidence": "Findings linked to the changes or decisions that followed them.",
+      "checkers": ["internal", "outside"]
+    }
+  ]
+}

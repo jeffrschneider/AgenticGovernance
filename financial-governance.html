@@ -1,267 +1,279 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Financial Governance (FinOps) - Agentic Governance Framework</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-                    colors: { brand: { dark: '#0B0F19', card: '#111827', accent: '#3B82F6', glow: '#60A5FA', purple: '#8B5CF6', success: '#10B981', danger: '#EF4444', warning: '#F59E0B' } }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #0B0F19; color: #E2E8F0; background-image: radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%); }
-        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #0B0F19; } ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
-        .section-header { position: relative; display: inline-block; } .section-header::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, #10B981, #8B5CF6); }
-        .objective-card { transition: all 0.3s ease; } .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(16, 185, 129, 0.15); }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Financial Governance | Agentic Governance Framework</title>
+<meta name="description" content="Financial governance for AI agents: every cost on a named account, spending ceilings enforced before money is spent, cost per job, unusual spending detected, and return compared with projection.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
-                        <a href="index.html#lifecycle" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Lifecycle</a>
-                        <a href="index.html#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
-                        <a href="index.html#financial" class="text-emerald-400 px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-emerald-400">Financial</a>
-                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html" class="on" aria-current="page">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section III, cross-cutting discipline</p>
+      <h1>Financial governance</h1>
+      <p class="lede">Agents spend money every time they call a model or a paid tool, and they can spend it quickly. Financial governance makes agent costs visible, puts each one on a named account, stops spending at a limit before it happens, and checks that each agent returns what it was expected to.</p>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>What financial governance covers</h2>
+      <div class="cards three">
+        <div class="card">
+          <h3>Cost attribution</h3>
+          <p>Every cost is assigned to a named account and cost center. When a marketing team's agent spends, the spending reaches the marketing budget.</p>
         </div>
-    </nav>
-
-    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="index.html#cross-cutting" class="hover:text-brand-accent transition-colors">Cross-Cutting</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-300">Financial Governance</span>
-            </div>
-            <div class="flex items-center gap-4 mb-6">
-                <div class="h-14 w-14 bg-emerald-500/20 rounded-xl flex items-center justify-center">
-                    <i data-lucide="dollar-sign" class="w-8 h-8 text-emerald-400"></i>
-                </div>
-                <div>
-                    <span class="text-emerald-400 font-mono text-sm">SECTION IX</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">Financial Governance (FinOps)</h1>
-                </div>
-            </div>
-            <p class="text-xl text-gray-400 max-w-3xl mb-8">Financial governance ensures AI agent costs are visible, accountable, and optimized. These controls enable cost attribution, budget management, ROI tracking, and economic anomaly detection.</p>
-            <div class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 bg-emerald-500/10 px-4 py-2 rounded-lg border border-emerald-500/30">
-                    <i data-lucide="trending-up" class="w-5 h-5 text-emerald-400"></i>
-                    <span class="text-sm text-emerald-300 font-semibold">FinOps for AI</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="target" class="w-5 h-5 text-emerald-400"></i>
-                    <span class="text-sm text-gray-300"><strong class="text-white">8</strong> Control Objectives</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Detailed tracking</h3>
+          <p>Costs are tagged by agent, by type of task, by project and by business objective, and each piece of work records what it cost.</p>
         </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <section>
-            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
-            <div class="grid gap-6">
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-emerald-400">FIN-01</span>
-                            <i data-lucide="pie-chart" class="w-10 h-10 text-emerald-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Cost Attribution Completeness</h3>
-                            <p class="text-gray-400 mb-4">Ensure all agent-related spending is attributed to appropriate cost centers for accountability and budget management.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Unaccountable spending</p></div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% spend attributed to cost centers</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-blue-400">FIN-02</span>
-                            <i data-lucide="wallet" class="w-10 h-10 text-blue-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Budget Authorization and Limits</h3>
-                            <p class="text-gray-400 mb-4">Implement budget controls and spending limits to prevent runaway costs from agent operations.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Runaway costs</p></div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Budget compliance rate</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-purple-400">FIN-03</span>
-                            <i data-lucide="calculator" class="w-10 h-10 text-purple-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Unit Economics Visibility</h3>
-                            <p class="text-gray-400 mb-4">Establish cost-per-task baselines for agents to understand unit economics and identify inefficiencies.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Hidden inefficiency</p></div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% agents with cost-per-task baseline</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-yellow-400">FIN-04</span>
-                            <i data-lucide="alert-triangle" class="w-10 h-10 text-yellow-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Economic Anomaly Detection</h3>
-                            <p class="text-gray-400 mb-4">Detect and alert on unusual spending patterns that may indicate problems or abuse.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Undetected cost problems</p></div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Mean time to detect anomaly</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-rose-400">FIN-05</span>
-                            <i data-lucide="trending-up" class="w-10 h-10 text-rose-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">ROI Accountability</h3>
-                            <p class="text-gray-400 mb-4">Track actual ROI against projections to ensure agents deliver promised business value.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Value destruction from poor agents</p></div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">% agents meeting ROI targets</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-cyan-400">FIN-06</span>
-                            <i data-lucide="file-bar-chart" class="w-10 h-10 text-cyan-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Financial Reporting and Transparency</h3>
-                            <p class="text-gray-400 mb-4">Provide accurate, timely financial reporting on agent costs to enable informed decision-making.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Poor decisions from bad data</p></div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Data accuracy rate</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-orange-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-orange-400">FIN-07</span>
-                            <i data-lucide="settings" class="w-10 h-10 text-orange-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Cost Optimization Execution</h3>
-                            <p class="text-gray-400 mb-4">Act on cost optimization recommendations to eliminate persistent inefficiencies.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Persistent inefficiency</p></div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Optimization recommendation closure rate</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-indigo-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-indigo-400">FIN-08</span>
-                            <i data-lucide="arrow-left-right" class="w-10 h-10 text-indigo-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Chargeback/Showback Accuracy</h3>
-                            <p class="text-gray-400 mb-4">Ensure accurate cost allocation and chargeback mechanisms to avoid disputes and maintain trust.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div><p class="text-gray-300 text-sm">Disputed or incorrect allocations</p></div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20"><div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div><p class="text-gray-300 text-sm">Allocation dispute rate</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead><tr class="bg-gray-800 text-gray-200"><th class="p-4 rounded-tl-lg font-mono">ID</th><th class="p-4">Objective</th><th class="p-4">Primary Risk Addressed</th><th class="p-4 rounded-tr-lg">Key Metric</th></tr></thead>
-                    <tbody class="divide-y divide-gray-800 bg-brand-card text-sm">
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-emerald-400 font-bold font-mono">FIN-01</td><td class="p-4 text-gray-300">Cost Attribution Completeness</td><td class="p-4 text-gray-400">Unaccountable spending</td><td class="p-4 text-gray-400">% spend attributed to cost centers</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-blue-400 font-bold font-mono">FIN-02</td><td class="p-4 text-gray-300">Budget Authorization and Limits</td><td class="p-4 text-gray-400">Runaway costs</td><td class="p-4 text-gray-400">Budget compliance rate</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-purple-400 font-bold font-mono">FIN-03</td><td class="p-4 text-gray-300">Unit Economics Visibility</td><td class="p-4 text-gray-400">Hidden inefficiency</td><td class="p-4 text-gray-400">% agents with cost-per-task baseline</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-yellow-400 font-bold font-mono">FIN-04</td><td class="p-4 text-gray-300">Economic Anomaly Detection</td><td class="p-4 text-gray-400">Undetected cost problems</td><td class="p-4 text-gray-400">Mean time to detect anomaly</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-rose-400 font-bold font-mono">FIN-05</td><td class="p-4 text-gray-300">ROI Accountability</td><td class="p-4 text-gray-400">Value destruction from poor agents</td><td class="p-4 text-gray-400">% agents meeting ROI targets</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-cyan-400 font-bold font-mono">FIN-06</td><td class="p-4 text-gray-300">Financial Reporting and Transparency</td><td class="p-4 text-gray-400">Poor decisions from bad data</td><td class="p-4 text-gray-400">Data accuracy rate</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-orange-400 font-bold font-mono">FIN-07</td><td class="p-4 text-gray-300">Cost Optimization Execution</td><td class="p-4 text-gray-400">Persistent inefficiency</td><td class="p-4 text-gray-400">Optimization recommendation closure rate</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-indigo-400 font-bold font-mono">FIN-08</td><td class="p-4 text-gray-300">Chargeback/Showback Accuracy</td><td class="p-4 text-gray-400">Disputed or incorrect allocations</td><td class="p-4 text-gray-400">Allocation dispute rate</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="mt-16 pt-12 border-t border-gray-800">
-            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                <a href="performance-qa.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-yellow-500/50 transition-colors group">
-                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-yellow-400 transition-colors"></i>
-                    <div><span class="text-xs text-gray-500">Previous</span><p class="text-white font-semibold">VIII. Performance & QA</p></div>
-                </a>
-                <a href="organizational-enablement.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-purple-500/50 transition-colors group text-right sm:flex-row-reverse">
-                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors"></i>
-                    <div><span class="text-xs text-gray-500">Next</span><p class="text-white font-semibold">X. Organizational Enablement</p></div>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0"><i data-lucide="shield" class="text-gray-600 h-6 w-6"></i><span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span></div>
-            <div class="text-gray-600 text-sm text-center md:text-right"><p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p><p>Framework Version 2.1</p></div>
+        <div class="card">
+          <h3>Model mix</h3>
+          <p>Costs are tracked across the model providers an organization uses, so that each step can go to the model that does it well enough for the least cost.</p>
         </div>
-    </footer>
-    <script>lucide.createIcons();</script>
+      </div>
+      <p>Ceilings are the easy part of financial governance. The view across everything is harder, especially when work passes along a chain of agents. Cost across a chain is covered under <a href="network.html">Network</a>, and each agent's cost is set against its value by the value owner named in <a href="compliance-alignment.html">section I</a>.</p>
+    </div>
+  </section>
+
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 8 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="fin-01">
+      <header><span class="oid">FIN-01</span><h3>Every cost on a named account</h3></header>
+      <p class="stmt">Attribute all agent spending to a named account and cost center, so that someone answers for every cost.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Spending that nobody answers for</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agent spend attributed to an account</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Experiments charge to the team's sandbox budget.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every agent's spending lands on a named cost center.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each piece of work records the account that pays for it.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Attribution is reconciled with suppliers' invoices each month.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Cost records by account, and the reconciliation with invoices.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="fin-02">
+      <header><span class="oid">FIN-02</span><h3>Spending ceilings</h3></header>
+      <p class="stmt">Set a limit per task and per period for each agent, and stop work that would pass a limit before it spends.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Runaway costs</dd></div>
+        <div><dt>Key metric</dt><dd>Work refused at a ceiling, and spend over budget</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox has a fixed budget that stops spending when it runs out.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has a period limit set by its owner.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each agent has limits per task and per period, enforced outside the agent before money is spent.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Limit changes need finance approval, and breaches are reported to the executive sponsor.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The configured ceilings, the record of refused work and any changes to the limits.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="fin-03">
+      <header><span class="oid">FIN-03</span><h3>Cost per job</h3></header>
+      <p class="stmt">Record what each piece of work cost, and set a baseline cost per task for each agent, so that inefficiency can be seen.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Hidden inefficiency</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with a cost-per-task baseline</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment reports its total cost.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent reports cost per task.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each piece of work records its cost, and the baseline is reviewed each quarter.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Cost per task is compared with other ways of doing the work.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Cost per job records and the baseline.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="fin-04">
+      <header><span class="oid">FIN-04</span><h3>Unusual spending detected</h3></header>
+      <p class="stmt">Detect unusual patterns of spending that may point to a fault or abuse, and alert the owner.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Cost problems found too late</dd></div>
+        <div><dt>Key metric</dt><dd>Mean time to detect unusual spending</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox budget is checked each week.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Spending is compared with the previous period each week.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Unusual spending alerts the owner within hours.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Unusual spending can pause the agent automatically until the owner reviews it.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Alert settings and the record of alerts raised.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="fin-05">
+      <header><span class="oid">FIN-05</span><h3>Return on investment</h3></header>
+      <p class="stmt">Track each agent's actual return against what was projected when it was approved.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agents that destroy value</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents meeting their return target</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment reports what it cost and what it showed.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Actual cost and benefit are reported at the review date.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The value owner compares the return with the projection each quarter.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The comparison is reported to the investment committee.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The projection, the actual figures and the value owner's review.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="fin-06">
+      <header><span class="oid">FIN-06</span><h3>Financial reporting</h3></header>
+      <p class="stmt">Report agent costs accurately and on time, so that decisions rest on good figures.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Poor decisions from bad figures</dd></div>
+        <div><dt>Key metric</dt><dd>Accuracy of reported agent costs</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No separate report is required for an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Costs are reported each month by agent.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Costs are reported by agent, by business objective and by account.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Reports are reconciled with the general ledger and reviewed by finance.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The monthly reports and their reconciliation.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="fin-07">
+      <header><span class="oid">FIN-07</span><h3>Acting on cost findings</h3></header>
+      <p class="stmt">Act on findings that would cut cost, such as sending a step to a cheaper model that does it well enough.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Inefficiency that persists</dd></div>
+        <div><dt>Key metric</dt><dd>Share of cost findings closed</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Cost findings are recorded.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each finding is acted on or declined with a reason within a set time.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Savings are measured and reported.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The cost findings log with actions and savings.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="fin-08">
+      <header><span class="oid">FIN-08</span><h3>Chargeback and showback</h3></header>
+      <p class="stmt">Allocate agent costs to the teams that use them accurately enough that teams accept the charges.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Disputed or wrong allocations</dd></div>
+        <div><dt>Key metric</dt><dd>Allocation disputes</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No allocation is needed for an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Costs are shown to the teams that use the agent.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Costs are charged to the teams that use the agent, by their use.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Charges between organizations follow the contract, and both sides' records reconcile.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Allocation reports and the dispute log.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#fin-01">FIN-01</a></td><td data-h="Objective">Every cost on a named account</td><td data-h="Key metric">Share of agent spend attributed to an account</td></tr>
+      <tr><td data-h="ID"><a href="#fin-02">FIN-02</a></td><td data-h="Objective">Spending ceilings</td><td data-h="Key metric">Work refused at a ceiling, and spend over budget</td></tr>
+      <tr><td data-h="ID"><a href="#fin-03">FIN-03</a></td><td data-h="Objective">Cost per job</td><td data-h="Key metric">Share of agents with a cost-per-task baseline</td></tr>
+      <tr><td data-h="ID"><a href="#fin-04">FIN-04</a></td><td data-h="Objective">Unusual spending detected</td><td data-h="Key metric">Mean time to detect unusual spending</td></tr>
+      <tr><td data-h="ID"><a href="#fin-05">FIN-05</a></td><td data-h="Objective">Return on investment</td><td data-h="Key metric">Share of agents meeting their return target</td></tr>
+      <tr><td data-h="ID"><a href="#fin-06">FIN-06</a></td><td data-h="Objective">Financial reporting</td><td data-h="Key metric">Accuracy of reported agent costs</td></tr>
+      <tr><td data-h="ID"><a href="#fin-07">FIN-07</a></td><td data-h="Objective">Acting on cost findings</td><td data-h="Key metric">Share of cost findings closed</td></tr>
+      <tr><td data-h="ID"><a href="#fin-08">FIN-08</a></td><td data-h="Objective">Chargeback and showback</td><td data-h="Key metric">Allocation disputes</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="performance-qa.html"><small>Previous</small><span>Performance and quality</span></a>
+  <a class="next" href="organizational-enablement.html"><small>Next</small><span>Organizational enablement</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>

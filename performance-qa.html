@@ -1,484 +1,359 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Performance and Quality Assurance - Agentic Governance Framework</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            card: '#111827',
-                            accent: '#3B82F6',
-                            glow: '#60A5FA',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            danger: '#EF4444',
-                            warning: '#F59E0B'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0F19;
-            color: #E2E8F0;
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(245, 158, 11, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
-        }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0F19; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
-        .section-header { position: relative; display: inline-block; }
-        .section-header::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, #F59E0B, #8B5CF6);
-        }
-        .objective-card { transition: all 0.3s ease; }
-        .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(245, 158, 11, 0.15); }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Performance and Quality | Agentic Governance Framework</title>
+<meta name="description" content="Performance and quality assurance for AI agents: accuracy against known answers, response times, continuous evaluation, regression detection, factual errors and business outcomes.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html" class="on" aria-current="page">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section III, cross-cutting discipline</p>
+      <h1>Performance and quality</h1>
+      <p class="lede">An agent that is up is not necessarily an agent that is working. Performance and quality assurance measures how good an agent's answers are, how quickly it gives them, and whether they serve the business objective the agent exists for.</p>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
-                        <a href="index.html#lifecycle" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Lifecycle</a>
-                        <a href="index.html#cross-cutting" class="text-yellow-400 px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-yellow-400">Cross-Cutting</a>
-                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+  <section class="band">
+    <div class="wrap">
+      <h2>What performance and quality covers</h2>
+      <div class="cards three">
+        <div class="card">
+          <h3>Benchmarks</h3>
+          <p>Each agent is measured against known correct answers, against the response times promised to its users, and against the cost of each task.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="index.html#cross-cutting" class="hover:text-brand-accent transition-colors">Cross-Cutting</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-300">Performance & QA</span>
-            </div>
-
-            <div class="flex items-center gap-4 mb-6">
-                <div class="h-14 w-14 bg-yellow-500/20 rounded-xl flex items-center justify-center">
-                    <i data-lucide="gauge" class="w-8 h-8 text-yellow-400"></i>
-                </div>
-                <div>
-                    <span class="text-yellow-400 font-mono text-sm">SECTION VIII</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                        Performance and Quality Assurance
-                    </h1>
-                </div>
-            </div>
-
-            <p class="text-xl text-gray-400 max-w-3xl mb-8">
-                Continuous performance monitoring and quality assurance ensure agents deliver value reliably. These controls track accuracy, latency, consistency, and business outcome correlation.
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 bg-yellow-500/10 px-4 py-2 rounded-lg border border-yellow-500/30">
-                    <i data-lucide="activity" class="w-5 h-5 text-yellow-400"></i>
-                    <span class="text-sm text-yellow-300 font-semibold">Cross-Cutting Discipline</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="target" class="w-5 h-5 text-yellow-400"></i>
-                    <span class="text-sm text-gray-300"><strong class="text-white">12</strong> Control Objectives</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="line-chart" class="w-5 h-5 text-blue-400"></i>
-                    <span class="text-sm text-gray-300">Continuous Evaluation</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Evaluation</h3>
+          <p>Agents are evaluated continuously by something other than themselves. The evaluation looks for factual errors, for regressions after a model or configuration change, and for weaknesses that adversarial tests expose.</p>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-
-        <!-- Control Objectives -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
-
-            <div class="grid gap-6">
-
-                <!-- PRF-01 to PRF-12 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-yellow-400">PRF-01</span>
-                            <i data-lucide="target" class="w-10 h-10 text-yellow-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Accuracy Benchmark Coverage</h3>
-                            <p class="text-gray-400 mb-4">Establish and maintain accuracy benchmarks for all agents against ground truth data to detect performance degradation.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Undetected accuracy degradation</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">% agents with accuracy benchmarks</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-blue-400">PRF-02</span>
-                            <i data-lucide="clock" class="w-10 h-10 text-blue-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Latency Standards Compliance</h3>
-                            <p class="text-gray-400 mb-4">Monitor agent response times against defined SLAs to ensure acceptable user experience.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Poor user experience from slow agents</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">% agents meeting latency SLA</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-purple-400">PRF-03</span>
-                            <i data-lucide="activity" class="w-10 h-10 text-purple-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Throughput Adequacy</h3>
-                            <p class="text-gray-400 mb-4">Monitor agent throughput against demand to identify capacity bottlenecks before they impact users.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Capacity bottlenecks</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">Throughput vs. demand ratio</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-emerald-400">PRF-04</span>
-                            <i data-lucide="copy" class="w-10 h-10 text-emerald-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Consistency and Reproducibility</h3>
-                            <p class="text-gray-400 mb-4">Measure and monitor agent response consistency to ensure predictable, reproducible behavior.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Unpredictable agent behavior</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">Response variance score</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-cyan-400">PRF-05</span>
-                            <i data-lucide="repeat" class="w-10 h-10 text-cyan-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Continuous Evaluation Execution</h3>
-                            <p class="text-gray-400 mb-4">Run continuous evaluation pipelines to detect performance drift between releases.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Performance drift between releases</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">Evaluation pipeline uptime</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-rose-400">PRF-06</span>
-                            <i data-lucide="arrow-down-circle" class="w-10 h-10 text-rose-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Regression Detection</h3>
-                            <p class="text-gray-400 mb-4">Detect and alert on performance regressions from model updates or configuration changes.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Degradation from model updates</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">Time to detect regression</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-orange-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-orange-400">PRF-07</span>
-                            <i data-lucide="sparkles" class="w-10 h-10 text-orange-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Hallucination Monitoring</h3>
-                            <p class="text-gray-400 mb-4">Monitor and measure hallucination rates to prevent factual errors that damage trust.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Factual errors damaging trust</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">Hallucination rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-indigo-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-indigo-400">PRF-08</span>
-                            <i data-lucide="link-2" class="w-10 h-10 text-indigo-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Business Outcome Correlation</h3>
-                            <p class="text-gray-400 mb-4">Correlate agent technical metrics with business outcomes to ensure agents deliver actual value.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Technical success without business value</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">Outcome correlation score</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-red-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-red-400">PRF-09</span>
-                            <i data-lucide="flag" class="w-10 h-10 text-red-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Underperformer Identification</h3>
-                            <p class="text-gray-400 mb-4">Quickly identify agents that are underperforming relative to their peers or benchmarks.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Poor agents damaging business</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">Time from degradation to flag</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-teal-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-teal-400">PRF-10</span>
-                            <i data-lucide="wrench" class="w-10 h-10 text-teal-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Remediation Timeliness</h3>
-                            <p class="text-gray-400 mb-4">Track and optimize time to remediate identified performance issues.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Prolonged exposure to poor performance</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">Mean time to remediate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-pink-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-pink-400">PRF-11</span>
-                            <i data-lucide="clipboard-list" class="w-10 h-10 text-pink-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Audit Completion Rate</h3>
-                            <p class="text-gray-400 mb-4">Ensure scheduled performance and quality audits are completed to maintain governance coverage.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Governance gaps from missed audits</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">% scheduled audits completed</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-lime-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-lime-400">PRF-12</span>
-                            <i data-lucide="message-circle" class="w-10 h-10 text-lime-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Feedback Loop Effectiveness</h3>
-                            <p class="text-gray-400 mb-4">Capture and incorporate user feedback to continuously improve agent performance.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i><span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span></div>
-                                    <p class="text-gray-300 text-sm">Improvement signals not captured</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i><span class="font-semibold text-emerald-400 text-sm">Key Metric</span></div>
-                                    <p class="text-gray-300 text-sm">Feedback incorporation rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Summary Table -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800 text-gray-200">
-                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
-                            <th class="p-4">Objective</th>
-                            <th class="p-4">Primary Risk Addressed</th>
-                            <th class="p-4 rounded-tr-lg">Key Metric</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800 bg-brand-card text-sm">
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-yellow-400 font-bold font-mono">PRF-01</td><td class="p-4 text-gray-300">Accuracy Benchmark Coverage</td><td class="p-4 text-gray-400">Undetected accuracy degradation</td><td class="p-4 text-gray-400">% agents with accuracy benchmarks</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-blue-400 font-bold font-mono">PRF-02</td><td class="p-4 text-gray-300">Latency Standards Compliance</td><td class="p-4 text-gray-400">Poor user experience from slow agents</td><td class="p-4 text-gray-400">% agents meeting latency SLA</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-purple-400 font-bold font-mono">PRF-03</td><td class="p-4 text-gray-300">Throughput Adequacy</td><td class="p-4 text-gray-400">Capacity bottlenecks</td><td class="p-4 text-gray-400">Throughput vs. demand ratio</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-emerald-400 font-bold font-mono">PRF-04</td><td class="p-4 text-gray-300">Consistency and Reproducibility</td><td class="p-4 text-gray-400">Unpredictable agent behavior</td><td class="p-4 text-gray-400">Response variance score</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-cyan-400 font-bold font-mono">PRF-05</td><td class="p-4 text-gray-300">Continuous Evaluation Execution</td><td class="p-4 text-gray-400">Performance drift between releases</td><td class="p-4 text-gray-400">Evaluation pipeline uptime</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-rose-400 font-bold font-mono">PRF-06</td><td class="p-4 text-gray-300">Regression Detection</td><td class="p-4 text-gray-400">Degradation from model updates</td><td class="p-4 text-gray-400">Time to detect regression</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-orange-400 font-bold font-mono">PRF-07</td><td class="p-4 text-gray-300">Hallucination Monitoring</td><td class="p-4 text-gray-400">Factual errors damaging trust</td><td class="p-4 text-gray-400">Hallucination rate</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-indigo-400 font-bold font-mono">PRF-08</td><td class="p-4 text-gray-300">Business Outcome Correlation</td><td class="p-4 text-gray-400">Technical success without business value</td><td class="p-4 text-gray-400">Outcome correlation score</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-red-400 font-bold font-mono">PRF-09</td><td class="p-4 text-gray-300">Underperformer Identification</td><td class="p-4 text-gray-400">Poor agents damaging business</td><td class="p-4 text-gray-400">Time from degradation to flag</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-teal-400 font-bold font-mono">PRF-10</td><td class="p-4 text-gray-300">Remediation Timeliness</td><td class="p-4 text-gray-400">Prolonged exposure to poor performance</td><td class="p-4 text-gray-400">Mean time to remediate</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-pink-400 font-bold font-mono">PRF-11</td><td class="p-4 text-gray-300">Audit Completion Rate</td><td class="p-4 text-gray-400">Governance gaps from missed audits</td><td class="p-4 text-gray-400">% scheduled audits completed</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-lime-400 font-bold font-mono">PRF-12</td><td class="p-4 text-gray-300">Feedback Loop Effectiveness</td><td class="p-4 text-gray-400">Improvement signals not captured</td><td class="p-4 text-gray-400">Feedback incorporation rate</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="mt-16 pt-12 border-t border-gray-800">
-            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                <a href="security-risk.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-red-500/50 transition-colors group">
-                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-red-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Previous</span>
-                        <p class="text-white font-semibold">VII. Security & Risk</p>
-                    </div>
-                </a>
-                <a href="financial-governance.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-emerald-500/50 transition-colors group text-right sm:flex-row-reverse">
-                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-emerald-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Next</span>
-                        <p class="text-white font-semibold">IX. Financial Governance</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
-                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
-            </div>
-            <div class="text-gray-600 text-sm text-center md:text-right">
-                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
-                <p>Framework Version 2.1</p>
-            </div>
+        <div class="card">
+          <h3>Feedback</h3>
+          <p>Signals from the people and agents that use an agent are collected and acted on. The agent's technical measures are reported beside the measure of its business objective.</p>
         </div>
-    </footer>
+      </div>
+      <p>An evaluation that passes says only that the answers were good on the day. Evidence goes stale, so evaluation repeats with every release and on a sample of live work, as the <a href="assurance.html">Assurance</a> discipline requires.</p>
+    </div>
+  </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 12 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="prf-01">
+      <header><span class="oid">PRF-01</span><h3>Accuracy benchmarks</h3></header>
+      <p class="stmt">Measure each agent's accuracy against known correct answers, so that a decline is noticed.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Accuracy declining without anyone noticing</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with an accuracy benchmark</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The builder checks results by hand.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has a benchmark set that runs at release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The benchmark runs on a schedule against live work, and a decline alerts the owner.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The benchmark set is reviewed by the value owner and refreshed each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The benchmark set and its results over time.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-02">
+      <header><span class="oid">PRF-02</span><h3>Response times</h3></header>
+      <p class="stmt">Measure how quickly agents answer against the times promised to the people and agents that use them.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Slow agents that frustrate their users</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents meeting their promised response time</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent states a response time and measures it.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Missed response times alert the owner, and the cause is recorded.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Response times are reported to dependents and partners under their contracts.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Response time measurements against the promised times.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-03">
+      <header><span class="oid">PRF-03</span><h3>Throughput</h3></header>
+      <p class="stmt">Compare how much work agents can handle with the demand on them, to find bottlenecks before users do.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Bottlenecks in capacity</dd></div>
+        <div><dt>Key metric</dt><dd>Throughput compared with demand</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Throughput and demand are measured.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A forecast of demand is compared with capacity each quarter.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Capacity for peak demand is tested before known peak events.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Throughput and demand measurements and the capacity forecast.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-04">
+      <header><span class="oid">PRF-04</span><h3>Consistency</h3></header>
+      <p class="stmt">Measure how much an agent's answers to the same question vary, so that its behavior is predictable.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Unpredictable behavior</dd></div>
+        <div><dt>Key metric</dt><dd>Variation in answers to repeated questions</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>A sample of repeated questions is checked at release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Variation is measured on a schedule and kept within a stated range.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Variation outside the range blocks a release.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The repeated-question results and the stated range.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-05">
+      <header><span class="oid">PRF-05</span><h3>Continuous evaluation</h3></header>
+      <p class="stmt">Evaluate agents continuously, so that a change in how good their answers are between releases is caught.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Quality drifting between releases</dd></div>
+        <div><dt>Key metric</dt><dd>Evaluation coverage across running agents</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The builder reviews sample outputs.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>An evaluation suite runs at every release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Evaluation also runs on a sample of live work, by an evaluator that is not the agent itself.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Evaluation results are part of each review and are shared with the value owner each month.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Evaluation results for releases and for sampled live work.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-06">
+      <header><span class="oid">PRF-06</span><h3>Regression detection</h3></header>
+      <p class="stmt">Detect a fall in performance caused by a model update or a configuration change, and alert the owner.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Quality loss after a model update</dd></div>
+        <div><dt>Key metric</dt><dd>Time to detect a regression</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The evaluation suite runs after any model or configuration change.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A regression blocks promotion, and the previous version stays available.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Regressions are reported to the governance council when they reach production.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Evaluation comparisons before and after each change.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-07">
+      <header><span class="oid">PRF-07</span><h3>Factual errors</h3></header>
+      <p class="stmt">Measure how often agents state things that are not true, and keep the rate within a stated level.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Factual errors that damage trust</dd></div>
+        <div><dt>Key metric</dt><dd>Rate of factual errors in sampled answers</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The builder notes errors seen in testing.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>A sample of answers is checked for factual errors at release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Factual errors are measured on live work, and the rate is kept within a stated level.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Answers that make claims are checked against a source before they are sent.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Sampled answers with error findings, and the measured rate over time.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-08">
+      <header><span class="oid">PRF-08</span><h3>Business outcomes</h3></header>
+      <p class="stmt">Connect each agent's technical measures to the business objective it serves, so that technical success is not mistaken for value.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Technical success without business value</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents whose objective measure is reported</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment states what it set out to learn.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The objective's measure from section I is reported each quarter.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The value owner compares the measure with cost each quarter.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The measure is reported to the executive sponsor with the agent's cost.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The objective measure, its trend and the value owner's review.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-09">
+      <header><span class="oid">PRF-09</span><h3>Finding underperformers</h3></header>
+      <p class="stmt">Find agents that do worse than their benchmarks or than other agents doing similar work.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Poor agents harming the business</dd></div>
+        <div><dt>Key metric</dt><dd>Time from decline to flag</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Agents below their benchmark are flagged at review.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Agents below their benchmark are flagged automatically and given a remedy plan.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Persistent underperformers are reviewed by the governance council for retirement.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The list of flagged agents and their remedy plans.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-10">
+      <header><span class="oid">PRF-10</span><h3>Timely remedy</h3></header>
+      <p class="stmt">Track how long it takes to fix performance problems once they are found.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Poor performance going on too long</dd></div>
+        <div><dt>Key metric</dt><dd>Mean time to remedy</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Performance problems are tracked to closure.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Problems have target remedy times by severity.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Missed targets are reported to the executive sponsor.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The problem log with dates found and fixed.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-11">
+      <header><span class="oid">PRF-11</span><h3>Scheduled quality audits</h3></header>
+      <p class="stmt">Complete the scheduled performance and quality audits. The <a href="assurance.html">Assurance</a> discipline sets the audit plan.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Gaps from missed audits</dd></div>
+        <div><dt>Key metric</dt><dd>Share of scheduled audits completed</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No audit is required for an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Quality is audited at the agent's review date.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Quality is audited each half year by someone outside the team.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Quality is audited each quarter, and an outside auditor reviews the results each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The audit schedule and completed audit reports.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="prf-12">
+      <header><span class="oid">PRF-12</span><h3>User feedback</h3></header>
+      <p class="stmt">Collect feedback from the people and agents that use an agent, and use it to improve the agent.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Signals for improvement that nobody collects</dd></div>
+        <div><dt>Key metric</dt><dd>Share of feedback acted on</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The builder asks users directly.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Users can give feedback, and the owner reviews it.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Feedback is tracked to an action or a reason for no action.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Feedback trends are reported with the agent's evaluation results.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The feedback log and the actions taken.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#prf-01">PRF-01</a></td><td data-h="Objective">Accuracy benchmarks</td><td data-h="Key metric">Share of agents with an accuracy benchmark</td></tr>
+      <tr><td data-h="ID"><a href="#prf-02">PRF-02</a></td><td data-h="Objective">Response times</td><td data-h="Key metric">Share of agents meeting their promised response time</td></tr>
+      <tr><td data-h="ID"><a href="#prf-03">PRF-03</a></td><td data-h="Objective">Throughput</td><td data-h="Key metric">Throughput compared with demand</td></tr>
+      <tr><td data-h="ID"><a href="#prf-04">PRF-04</a></td><td data-h="Objective">Consistency</td><td data-h="Key metric">Variation in answers to repeated questions</td></tr>
+      <tr><td data-h="ID"><a href="#prf-05">PRF-05</a></td><td data-h="Objective">Continuous evaluation</td><td data-h="Key metric">Evaluation coverage across running agents</td></tr>
+      <tr><td data-h="ID"><a href="#prf-06">PRF-06</a></td><td data-h="Objective">Regression detection</td><td data-h="Key metric">Time to detect a regression</td></tr>
+      <tr><td data-h="ID"><a href="#prf-07">PRF-07</a></td><td data-h="Objective">Factual errors</td><td data-h="Key metric">Rate of factual errors in sampled answers</td></tr>
+      <tr><td data-h="ID"><a href="#prf-08">PRF-08</a></td><td data-h="Objective">Business outcomes</td><td data-h="Key metric">Share of agents whose objective measure is reported</td></tr>
+      <tr><td data-h="ID"><a href="#prf-09">PRF-09</a></td><td data-h="Objective">Finding underperformers</td><td data-h="Key metric">Time from decline to flag</td></tr>
+      <tr><td data-h="ID"><a href="#prf-10">PRF-10</a></td><td data-h="Objective">Timely remedy</td><td data-h="Key metric">Mean time to remedy</td></tr>
+      <tr><td data-h="ID"><a href="#prf-11">PRF-11</a></td><td data-h="Objective">Scheduled quality audits</td><td data-h="Key metric">Share of scheduled audits completed</td></tr>
+      <tr><td data-h="ID"><a href="#prf-12">PRF-12</a></td><td data-h="Objective">User feedback</td><td data-h="Key metric">Share of feedback acted on</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="security-risk.html"><small>Previous</small><span>Security and risk</span></a>
+  <a class="next" href="financial-governance.html"><small>Next</small><span>Financial governance</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>

@@ -1,0 +1,154 @@
+{
+  "objectives": [
+    {
+      "id": "ORG-01",
+      "title": "Governance bodies that decide",
+      "statement": "Set up governance bodies, such as a council, an architecture board and an ethics committee, that make timely decisions and see that they are carried out.",
+      "risk": "Decisions not made or not enforced",
+      "metric": "Time from request to decision",
+      "tiers": [
+        "Experiments need no body's decision.",
+        "Tier 2 decisions are delegated to named reviewers.",
+        "Tier 3 decisions go to the architecture board or the ethics committee within a set time.",
+        "Tier 4 decisions go to the governance council, with the executive sponsor present."
+      ],
+      "evidence": "The bodies' charters, their minutes and decision times.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "ORG-02",
+      "title": "A named owner for every agent",
+      "statement": "Give every agent a named person or organization that answers for it, with clear responsibilities.",
+      "risk": "Gaps or overlaps in responsibility",
+      "metric": "Share of agents with a named owner",
+      "tiers": [
+        "The builder owns the experiment.",
+        "A named owner is recorded in the catalog before release.",
+        "The owner has a named deputy, and ownership is confirmed at each review date.",
+        "Ownership sits with a senior manager who reports on the agent to the governance council."
+      ],
+      "evidence": "The owner and deputy in the catalog, and the confirmations at review.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "ORG-03",
+      "title": "Who decides, acts and is informed",
+      "statement": "Write down, for each governance activity, who decides, who acts, who is consulted and who is informed.",
+      "risk": "Confusion over who decides",
+      "metric": "Share of governance activities with assigned roles",
+      "tiers": [
+        "The builder decides and acts for the experiment.",
+        "Roles are written down for release and incident decisions.",
+        "Roles are written down for every activity on this site that applies to the agent.",
+        "Roles are reviewed each year by the governance council."
+      ],
+      "evidence": "The responsibility matrix and its review date.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "ORG-04",
+      "title": "Executive training",
+      "statement": "Train executives in agent governance, so that their decisions on strategy rest on understanding.",
+      "risk": "Leaders deciding without understanding",
+      "metric": "Share of executives trained",
+      "tiers": [
+        "No training is required for an experiment.",
+        "Sponsors of Tier 2 agents complete the introduction.",
+        "Sponsors of Tier 3 agents complete the full course.",
+        "Members of the governance council complete the full course and a yearly refresher."
+      ],
+      "evidence": "Training records.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "ORG-05",
+      "title": "Builder training",
+      "statement": "Train the people who build agents in secure, compliant development practice.",
+      "risk": "Insecure or non-compliant building",
+      "metric": "Share of builders trained",
+      "tiers": [
+        "Builders read the sandbox rules.",
+        "Builders complete the development standards course.",
+        "Builders of Tier 3 agents complete the security course.",
+        "Builders of Tier 4 agents are certified and refresh their training each year."
+      ],
+      "evidence": "Training and certification records.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "ORG-06",
+      "title": "User training",
+      "statement": "Train the people who use agents in proper use, so that agents are neither misused nor wasted.",
+      "risk": "Misuse or little use of agents",
+      "metric": "Share of users trained",
+      "tiers": [
+        "No training is required for an experiment.",
+        "Users get a short guide before first use.",
+        "Users of Tier 3 agents complete training on what the agent may and may not do.",
+        "Users who approve acts for a Tier 4 agent complete training on what they are approving."
+      ],
+      "evidence": "Training records and the guides issued.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "ORG-07",
+      "title": "Liaisons in the business",
+      "statement": "Keep liaisons between governance and each business unit, so that governance stays in step with the work.",
+      "risk": "Business units out of touch with governance",
+      "metric": "Business unit satisfaction score",
+      "tiers": [
+        "No liaison is required for an experiment.",
+        "Each business unit with production agents has a named liaison.",
+        "Liaisons meet governance each month.",
+        "Liaisons report on their unit's agents to the governance council."
+      ],
+      "evidence": "The list of liaisons and meeting records.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "ORG-08",
+      "title": "Change management",
+      "statement": "Manage the change governance brings to people's work, so that it is adopted rather than worked around.",
+      "risk": "Governance that people avoid",
+      "metric": "Governance adoption rate",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "New governance steps are announced with guidance.",
+        "New governance steps are piloted and adjusted before they become mandatory.",
+        "Adoption is measured and reported to the governance council."
+      ],
+      "evidence": "Change plans and adoption measurements.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "ORG-09",
+      "title": "Communication",
+      "statement": "Tell the people affected what governance requires of them, in plain language.",
+      "risk": "People who do not know the rules",
+      "metric": "Awareness survey score",
+      "tiers": [
+        "The sandbox rules are published.",
+        "Governance requirements are published where builders and owners work.",
+        "Changes to requirements are sent to affected owners before they take effect.",
+        "Awareness is surveyed each year."
+      ],
+      "evidence": "Published requirements and survey results.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "ORG-10",
+      "title": "Feedback on governance",
+      "statement": "Collect feedback on governance itself from the people it affects, and act on it.",
+      "risk": "Governance that does not improve",
+      "metric": "Feedback received and acted on",
+      "tiers": [
+        "Builders can send feedback on the sandbox rules.",
+        "Feedback is collected after each review.",
+        "Feedback is tracked to an action or a reason for no action.",
+        "Feedback trends feed the yearly framework review in Continuous improvement."
+      ],
+      "evidence": "The feedback log and actions taken.",
+      "checkers": ["internal"]
+    }
+  ]
+}

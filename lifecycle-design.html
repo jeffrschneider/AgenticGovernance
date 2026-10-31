@@ -1,519 +1,300 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Lifecycle Governance: Design Time - Agentic Governance Framework</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            card: '#111827',
-                            accent: '#3B82F6',
-                            glow: '#60A5FA',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            danger: '#EF4444',
-                            warning: '#F59E0B'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0F19;
-            color: #E2E8F0;
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
-        }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0F19; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
-        .section-header { position: relative; display: inline-block; }
-        .section-header::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
-        }
-        .objective-card { transition: all 0.3s ease; }
-        .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15); }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Design Time | Agentic Governance Framework</title>
+<meta name="description" content="Design time scopes each agent to one job, declares what it does and refuses, and sets its limits before it is given credentials.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html" class="on" aria-current="page"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section II, lifecycle phase 2 of 6</p>
+      <h1>Design time</h1>
+      <p class="lede">Design time sets the shape and the limits of an agent before it is built. The agent is scoped to one job, what it does and what it refuses are written down, and the harm it could do is limited before it is given any credentials.</p>
+      <div class="adlc"><p>In the Agentic Development Lifecycle, this phase governs <a href="https://agenticdevelopment.ai/stages.html#architecture">Architecture and Design</a> (stage 2), <a href="https://agenticdevelopment.ai/stages.html#impact">Impact</a> (stage 3) and <a href="https://agenticdevelopment.ai/stages.html#source">Source</a> (stage 4).</p></div>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
-                        <a href="index.html#lifecycle" class="text-brand-purple px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-brand-purple">Lifecycle</a>
-                        <a href="index.html#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
-                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+  <section class="band">
+    <div class="wrap">
+      <h2>What design time covers</h2>
+      <div class="cards three">
+        <div class="card">
+          <h3>Architecture governance</h3>
+          <p>Agents are sized to one job, with clear boundaries so that they do not drift into each other's work. Explainability and security are designed in from the start.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="index.html#lifecycle" class="hover:text-brand-accent transition-colors">Lifecycle</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-300">Design Time</span>
-            </div>
-
-            <div class="flex items-center gap-4 mb-6">
-                <div class="h-14 w-14 bg-purple-500/20 rounded-xl flex items-center justify-center">
-                    <i data-lucide="pen-tool" class="w-8 h-8 text-purple-400"></i>
-                </div>
-                <div>
-                    <span class="text-purple-400 font-mono text-sm">SECTION III - PHASE 2</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                        Lifecycle Governance: Design Time
-                    </h1>
-                </div>
-            </div>
-
-            <p class="text-xl text-gray-400 max-w-3xl mb-8">
-                Architecture governance and design standards ensure agents are built on solid foundations. Design Time controls prevent technical debt, security vulnerabilities, and maintainability issues before code is written.
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="target" class="w-5 h-5 text-purple-400"></i>
-                    <span class="text-sm text-gray-300"><strong class="text-white">9</strong> Control Objectives</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="layout" class="w-5 h-5 text-blue-400"></i>
-                    <span class="text-sm text-gray-300">Architecture Standards</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="shield" class="w-5 h-5 text-rose-400"></i>
-                    <span class="text-sm text-gray-300">Security by Design</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Standards and patterns</h3>
+          <p>Agents use approved technology and patterns, follow naming conventions, and are designed to be observed, so that every step can be traced once they run.</p>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-
-        <!-- Control Objectives -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
-
-            <div class="grid gap-6">
-
-                <!-- DSN-01 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-purple-400">DSN-01</span>
-                            <i data-lucide="layout" class="w-10 h-10 text-purple-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Architecture Standards Compliance</h3>
-                            <p class="text-gray-400 mb-4">Ensure all agents conform to established architecture standards and patterns for consistency, maintainability, and interoperability.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Inconsistent, unmaintainable agent designs</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents conforming to architecture standards</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DSN-02 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-blue-400">DSN-02</span>
-                            <i data-lucide="scaling" class="w-10 h-10 text-blue-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Right-Sizing Validation</h3>
-                            <p class="text-gray-400 mb-4">Validate that agents are appropriately scoped to their intended purpose, preventing over-complex designs and scope creep.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Over-complex agents with scope creep</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Average capabilities per agent</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DSN-03 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-yellow-400">DSN-03</span>
-                            <i data-lucide="box" class="w-10 h-10 text-yellow-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Scope Boundary Definition</h3>
-                            <p class="text-gray-400 mb-4">Define and document clear scope boundaries for each agent to prevent functionality drift and overlap with other agents.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Functionality drift and overlap</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with documented scope boundaries</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DSN-04 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-emerald-400">DSN-04</span>
-                            <i data-lucide="eye" class="w-10 h-10 text-emerald-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Explainability Requirements</h3>
-                            <p class="text-gray-400 mb-4">Design agents with built-in explainability features enabling audit trails for all decisions and actions taken.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Inability to audit agent decisions</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with decision audit trail capability</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DSN-05 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-cyan-400">DSN-05</span>
-                            <i data-lucide="plug" class="w-10 h-10 text-cyan-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Interoperability Verification</h3>
-                            <p class="text-gray-400 mb-4">Verify that agent designs support seamless integration with existing enterprise systems through standard interfaces and protocols.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Integration failures with enterprise systems</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Integration test pass rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DSN-06 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-rose-400">DSN-06</span>
-                            <i data-lucide="shield" class="w-10 h-10 text-rose-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Security-by-Design Review</h3>
-                            <p class="text-gray-400 mb-4">Conduct security design reviews before development to identify and address potential vulnerabilities at the architecture level.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Vulnerabilities introduced at design</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with security design review completed</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DSN-07 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-orange-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-orange-400">DSN-07</span>
-                            <i data-lucide="check-circle" class="w-10 h-10 text-orange-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Design Review Completion</h3>
-                            <p class="text-gray-400 mb-4">Ensure all Tier 2 and above agents undergo formal design review and approval before proceeding to development.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Flawed designs reaching production</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% Tier 2+ agents with design approval</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DSN-08 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-red-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-red-400">DSN-08</span>
-                            <i data-lucide="search" class="w-10 h-10 text-red-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Shadow IT Discovery</h3>
-                            <p class="text-gray-400 mb-4">Implement mechanisms to discover ungoverned agents operating in production and bring them under governance control.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Ungoverned agents operating in production</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Shadow agents discovered per quarter</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DSN-09 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-indigo-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-indigo-400">DSN-09</span>
-                            <i data-lucide="flask-conical" class="w-10 h-10 text-indigo-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Sandbox Utilization</h3>
-                            <p class="text-gray-400 mb-4">Ensure experimental and development agents operate in isolated sandbox environments to prevent risky experimentation in production.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Risky experimentation in production</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% experimental agents in sandbox environments</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Summary Table -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800 text-gray-200">
-                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
-                            <th class="p-4">Objective</th>
-                            <th class="p-4">Primary Risk Addressed</th>
-                            <th class="p-4 rounded-tr-lg">Key Metric</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800 bg-brand-card">
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-purple-400 font-bold font-mono">DSN-01</td>
-                            <td class="p-4 text-sm text-gray-300">Architecture Standards Compliance</td>
-                            <td class="p-4 text-sm text-gray-400">Inconsistent, unmaintainable agent designs</td>
-                            <td class="p-4 text-sm text-gray-400">% agents conforming to architecture standards</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-blue-400 font-bold font-mono">DSN-02</td>
-                            <td class="p-4 text-sm text-gray-300">Right-Sizing Validation</td>
-                            <td class="p-4 text-sm text-gray-400">Over-complex agents with scope creep</td>
-                            <td class="p-4 text-sm text-gray-400">Average capabilities per agent</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-yellow-400 font-bold font-mono">DSN-03</td>
-                            <td class="p-4 text-sm text-gray-300">Scope Boundary Definition</td>
-                            <td class="p-4 text-sm text-gray-400">Functionality drift and overlap</td>
-                            <td class="p-4 text-sm text-gray-400">% agents with documented scope boundaries</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-emerald-400 font-bold font-mono">DSN-04</td>
-                            <td class="p-4 text-sm text-gray-300">Explainability Requirements</td>
-                            <td class="p-4 text-sm text-gray-400">Inability to audit agent decisions</td>
-                            <td class="p-4 text-sm text-gray-400">% agents with decision audit trail capability</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-cyan-400 font-bold font-mono">DSN-05</td>
-                            <td class="p-4 text-sm text-gray-300">Interoperability Verification</td>
-                            <td class="p-4 text-sm text-gray-400">Integration failures with enterprise systems</td>
-                            <td class="p-4 text-sm text-gray-400">Integration test pass rate</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-rose-400 font-bold font-mono">DSN-06</td>
-                            <td class="p-4 text-sm text-gray-300">Security-by-Design Review</td>
-                            <td class="p-4 text-sm text-gray-400">Vulnerabilities introduced at design</td>
-                            <td class="p-4 text-sm text-gray-400">% agents with security design review completed</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-orange-400 font-bold font-mono">DSN-07</td>
-                            <td class="p-4 text-sm text-gray-300">Design Review Completion</td>
-                            <td class="p-4 text-sm text-gray-400">Flawed designs reaching production</td>
-                            <td class="p-4 text-sm text-gray-400">% Tier 2+ agents with design approval</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-red-400 font-bold font-mono">DSN-08</td>
-                            <td class="p-4 text-sm text-gray-300">Shadow IT Discovery</td>
-                            <td class="p-4 text-sm text-gray-400">Ungoverned agents operating in production</td>
-                            <td class="p-4 text-sm text-gray-400">Shadow agents discovered per quarter</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-indigo-400 font-bold font-mono">DSN-09</td>
-                            <td class="p-4 text-sm text-gray-300">Sandbox Utilization</td>
-                            <td class="p-4 text-sm text-gray-400">Risky experimentation in production</td>
-                            <td class="p-4 text-sm text-gray-400">% experimental agents in sandbox environments</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="mt-16 pt-12 border-t border-gray-800">
-            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                <a href="lifecycle-plan.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-colors group">
-                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Previous</span>
-                        <p class="text-white font-semibold">II. Plan Time</p>
-                    </div>
-                </a>
-                <a href="lifecycle-build.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-emerald-500/50 transition-colors group text-right sm:flex-row-reverse">
-                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-emerald-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Next</span>
-                        <p class="text-white font-semibold">IV. Build Time</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
-                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
-            </div>
-            <div class="text-gray-600 text-sm text-center md:text-right">
-                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
-                <p>Framework Version 2.1</p>
-            </div>
+        <div class="card">
+          <h3>Ungoverned agents</h3>
+          <p>The organization looks for agents running outside governance, offers their builders a simple way to register them without penalty, and gives experiments a sandbox to run in.</p>
         </div>
-    </footer>
+      </div>
+      <p>Design is also where a change of scope comes back to. When the <a href="lifecycle-change.html">Change</a> phase alters what an agent does, refuses, reaches or may spend, the agent returns here for review before it is built again.</p>
+    </div>
+  </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 9 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="dsn-01">
+      <header><span class="oid">DSN-01</span><h3>Architecture standards</h3></header>
+      <p class="stmt">Design agents to the organization's architecture standards and patterns, so that they can be maintained and can work with each other.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Inconsistent designs that are hard to maintain</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents that conform to the architecture standards</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Experiments may use any pattern inside the sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The design uses approved patterns, or records why it does not.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>An architect reviews conformance before build starts.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The architecture board approves the design and any exception.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The design record, the patterns it uses, and the review decision.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dsn-02">
+      <header><span class="oid">DSN-02</span><h3>Right-sized agents</h3></header>
+      <p class="stmt">Scope each agent to one job it can do well, so that designs do not grow complicated and drift beyond their purpose.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agents that grow beyond their purpose</dd></div>
+        <div><dt>Key metric</dt><dd>Average number of declared offerings per agent</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No limit applies in a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The design states the one job the agent does.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>An architect challenges any agent that declares more than one job.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Any agent that combines jobs needs a written reason approved by the architecture board.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The agent's declared offerings and the design review that accepted them.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dsn-03">
+      <header><span class="oid">DSN-03</span><h3>Declared scope and refusals</h3></header>
+      <p class="stmt">Write down what each agent does and what it refuses to do, and sign that declaration, so that its scope is clear to anyone who relies on it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agents that drift into other agents' work</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with a signed declaration of what they do and refuse</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The owner describes the experiment's scope in a sentence.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent has a written declaration of its offerings and refusals.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The declaration is signed and published with every version.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The declaration is checked by someone other than the builder, and conformance to it is tested at release.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The signed declaration for the version that is running.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dsn-04">
+      <header><span class="oid">DSN-04</span><h3>Explainability</h3></header>
+      <p class="stmt">Design agents so that each decision and act can be explained afterwards, from records of what the agent saw and did.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Decisions nobody can explain</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents whose decisions can be traced step by step</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment keeps a log of its runs.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each act is recorded with its inputs and result.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Every step, model call and tool call is traced, so a single run can be followed from start to finish.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Explanations can be produced for an affected person or a regulator on request, within a set time.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Trace records for sampled runs, and the time taken to answer explanation requests.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dsn-05">
+      <header><span class="oid">DSN-05</span><h3>Interoperability</h3></header>
+      <p class="stmt">Design agents to standard interfaces and protocols, so that they can work with existing systems and with other agents.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agents that cannot work with other systems</dd></div>
+        <div><dt>Key metric</dt><dd>Integration test pass rate</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies in a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent uses the organization's approved protocols for messages and tools.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Integration with each declared dependency is tested before release.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Integration is tested with the partners and systems outside the organization that the agent will deal with.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The declared interfaces and the integration test results for the current version.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dsn-06">
+      <header><span class="oid">DSN-06</span><h3>Security by design</h3></header>
+      <p class="stmt">Review security at design time, so that the harm an agent could do is limited before it is given any credentials.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Weaknesses built into the design</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with a design-time security review</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment has no production credentials.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>A standard threat checklist is completed for the design.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A security reviewer sets the limits on what the agent can reach and do before build starts.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The security review includes a threat model reviewed by a second security reviewer.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The completed checklist or threat model, and the limits it set.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dsn-07">
+      <header><span class="oid">DSN-07</span><h3>Design review</h3></header>
+      <p class="stmt">Review and approve the design of every agent at Tier 2 or above before development begins.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Flawed designs reaching production</dd></div>
+        <div><dt>Key metric</dt><dd>Share of Tier 2 and higher agents with an approved design</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No design review is required.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>A peer reviews the design.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The architecture board reviews the design in full.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The architecture board reviews the design, and the executive sponsor approves it.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The design review record with the reviewers and their decision.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dsn-08">
+      <header><span class="oid">DSN-08</span><h3>Finding ungoverned agents</h3></header>
+      <p class="stmt">Look for agents running without governance, and bring them under it through a simple path that does not punish the people who built them.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Ungoverned agents on production systems</dd></div>
+        <div><dt>Key metric</dt><dd>Ungoverned agents found each quarter</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Builders are told how to register an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Network and spending data are scanned each quarter for agent activity that is not in the catalog.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Scans run each month, and an agent that is found is registered or stopped within a set time.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Scans run continuously, and unregistered agent traffic is blocked.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The scan results, the agents found and what happened to each.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="dsn-09">
+      <header><span class="oid">DSN-09</span><h3>Sandboxes for experiments</h3></header>
+      <p class="stmt">Run experimental agents in isolated sandboxes, so that risky trials never touch production systems or data.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Risky experiments on production systems</dd></div>
+        <div><dt>Key metric</dt><dd>Share of experimental agents in a sandbox</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment runs only in a sandbox with synthetic or public data.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>A production agent's new version is tried in a sandbox before release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Sandboxes for Tier 3 agents copy the production limits, so that a trial behaves as production would.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Sandbox results are kept as part of the release evidence.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The sandbox's network and data settings, and the list of agents running in it.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#dsn-01">DSN-01</a></td><td data-h="Objective">Architecture standards</td><td data-h="Key metric">Share of agents that conform to the architecture standards</td></tr>
+      <tr><td data-h="ID"><a href="#dsn-02">DSN-02</a></td><td data-h="Objective">Right-sized agents</td><td data-h="Key metric">Average number of declared offerings per agent</td></tr>
+      <tr><td data-h="ID"><a href="#dsn-03">DSN-03</a></td><td data-h="Objective">Declared scope and refusals</td><td data-h="Key metric">Share of agents with a signed declaration of what they do and refuse</td></tr>
+      <tr><td data-h="ID"><a href="#dsn-04">DSN-04</a></td><td data-h="Objective">Explainability</td><td data-h="Key metric">Share of agents whose decisions can be traced step by step</td></tr>
+      <tr><td data-h="ID"><a href="#dsn-05">DSN-05</a></td><td data-h="Objective">Interoperability</td><td data-h="Key metric">Integration test pass rate</td></tr>
+      <tr><td data-h="ID"><a href="#dsn-06">DSN-06</a></td><td data-h="Objective">Security by design</td><td data-h="Key metric">Share of agents with a design-time security review</td></tr>
+      <tr><td data-h="ID"><a href="#dsn-07">DSN-07</a></td><td data-h="Objective">Design review</td><td data-h="Key metric">Share of Tier 2 and higher agents with an approved design</td></tr>
+      <tr><td data-h="ID"><a href="#dsn-08">DSN-08</a></td><td data-h="Objective">Finding ungoverned agents</td><td data-h="Key metric">Ungoverned agents found each quarter</td></tr>
+      <tr><td data-h="ID"><a href="#dsn-09">DSN-09</a></td><td data-h="Objective">Sandboxes for experiments</td><td data-h="Key metric">Share of experimental agents in a sandbox</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="lifecycle-plan.html"><small>Previous</small><span>Plan</span></a>
+  <a class="next" href="lifecycle-build.html"><small>Next</small><span>Build</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>

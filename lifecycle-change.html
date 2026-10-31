@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Change Time | Agentic Governance Framework</title>
+<meta name="description" content="Change time governs updates, reconfiguration and rollback of running agents, and sends any change of scope back to Design and Build, which makes the lifecycle a loop.">
+</head>
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html" class="on" aria-current="page"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section II, lifecycle phase 5 of 6</p>
+      <h1>Change time</h1>
+      <p class="lede">Change time governs what happens to an agent after it is running: new versions, new settings and going back to an earlier version. A change that alters what the agent does, refuses, reaches or may spend goes back to Design and Build, which is what makes the lifecycle a loop.</p>
+      <div class="adlc"><p>In the Agentic Development Lifecycle, this phase governs the Change stages: <a href="https://agenticdevelopment.ai/stages.html#update">Update</a> (stage 21), <a href="https://agenticdevelopment.ai/stages.html#reconfigure">Reconfigure</a> (stage 22) and <a href="https://agenticdevelopment.ai/stages.html#rollback">Rollback</a> (stage 23). It also draws on <a href="https://agenticdevelopment.ai/stages.html#impact">Impact</a> (stage 3) before any change is released.</p></div>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>The three kinds of change</h2>
+      <div class="cards three">
+        <div class="card">
+          <h3>Update</h3>
+          <p>An update is a new version with the same identity. It is released as a candidate first, proven against its tests and evaluations, and only then promoted to replace the running version.</p>
+        </div>
+        <div class="card">
+          <h3>Reconfigure</h3>
+          <p>A reconfiguration changes settings, credentials, ceilings or permissions while the version stays the same. It is recorded and approved like a new version, because it can change what the agent is able to do.</p>
+        </div>
+        <div class="card">
+          <h3>Rollback</h3>
+          <p>A rollback returns to an earlier version as a recorded and practised step. Moving the code back is the easy part. Each release also says how the effects of a bad version would be undone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="loop">
+    <div class="wrap">
+      <h2>How change makes the lifecycle a loop</h2>
+      <p>Most changes are routine. A fix that keeps the agent within its declaration goes through Build and is promoted under the controls on this page. A change that alters the agent's declaration, its reach, its limits or the party it may act for is different: in effect it is a new agent arriving under the old name. That kind of change goes back through <a href="lifecycle-design.html">Design</a> and <a href="lifecycle-build.html">Build</a>, with a new security review, and the largest changes go back to <a href="lifecycle-plan.html">Plan</a> so that the agent's objective and obligations are confirmed again.</p>
+      <div class="fmap">
+        <div class="phases">
+          <a class="ph" href="lifecycle-plan.html"><span class="num">1</span><b>Plan</b><span class="sub">The largest changes return here</span></a>
+          <a class="ph" href="lifecycle-design.html"><span class="num">2</span><b>Design</b><span class="sub">Changes of scope return here</span></a>
+          <a class="ph" href="lifecycle-build.html"><span class="num">3</span><b>Build</b><span class="sub">Every change is built here</span></a>
+          <a class="ph" href="lifecycle-run.html"><span class="num">4</span><b>Run</b><span class="sub">Findings come from here</span></a>
+          <a class="ph" href="lifecycle-change.html"><span class="num">5</span><b>Change</b><span class="sub">Update, reconfigure, roll back</span></a>
+          <a class="ph" href="lifecycle-decommission.html"><span class="num">6</span><b>Decommission</b><span class="sub">The loop ends here</span></a>
+          <div class="ret">Change feeds back into Design and Build until the agent is decommissioned.</div>
+        </div>
+      </div>
+      <p>What is learned at Run, such as incidents, evaluation results, cost findings and feedback from partners, is what prompts most changes. <a href="continuous-improvement.html">Continuous improvement</a> is the home of this loop: it makes sure each finding leads to a change, a new control, or a recorded decision to leave things as they are.</p>
+    </div>
+  </section>
+
+  <section class="band" id="dependents">
+    <div class="wrap">
+      <h2>Changes and the agents that depend on them</h2>
+      <p>A change that is safe for its owner can still break the agents and people that rely on it. Before any change is released, everything that depends on the agent is named from the relationship register kept under the <a href="network.html">Network</a> discipline, and each dependent's owner is told. Dependents outside the organization are told under the notice terms of their contracts.</p>
+    </div>
+  </section>
+
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 8 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="chg-01">
+      <header><span class="oid">CHG-01</span><h3>Versions on record</h3></header>
+      <p class="stmt">Give every release a version, keep the agent's identity across versions, and keep the old versions on record so that anyone can see what ran when.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Nobody can say which version did what</dd></div>
+        <div><dt>Key metric</dt><dd>Share of running agents whose version is on record</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment notes its version when it changes.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every release has a version number and a fingerprint.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Every past version stays retrievable for the retention period, with its build record.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The version history is part of the evidence an outside auditor can read.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The version history with fingerprints, dates and build records.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="chg-02">
+      <header><span class="oid">CHG-02</span><h3>Impact on dependents</h3></header>
+      <p class="stmt">Before a change, name everything that depends on the agent and answer for each one. A change that is safe for its owner can still break the agents and people that rely on it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A change that breaks other teams' work</dd></div>
+        <div><dt>Key metric</dt><dd>Share of changes with a completed impact analysis</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The builder checks that no one else uses the experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The change lists the dependents recorded in the catalog.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each dependent's owner is told before release and may object, and the analysis is recorded.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Dependents outside the organization are told under the terms of their contracts, with the notice those contracts require.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The impact analysis listing each dependent, the notice given and any objection.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="chg-03">
+      <header><span class="oid">CHG-03</span><h3>Approved with a reason</h3></header>
+      <p class="stmt">Give each change a written reason and an approver, so that every change to a running agent can be explained later.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Changes that nobody can explain</dd></div>
+        <div><dt>Key metric</dt><dd>Share of changes with a reason and an approver</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The builder writes a one-line reason.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each change has a reason and is approved by the agent's owner.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Changes are approved by someone other than the person who made them.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Changes that alter what the agent may do or reach are approved by the governance council.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The change record with its reason, approver and date.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="chg-04">
+      <header><span class="oid">CHG-04</span><h3>Updates proven before promotion</h3></header>
+      <p class="stmt">Release a new version as a candidate first, prove it against its tests and evaluations, and only then promote it to replace the running version.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A new version that is worse than the old one</dd></div>
+        <div><dt>Key metric</dt><dd>Share of updates promoted after a passed candidate run</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment may be replaced directly.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>A new version passes its tests before it replaces the running one.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The candidate runs beside the current version, and evaluation results are compared before promotion.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Promotion is staged, and an automatic return to the previous version is ready if quality falls.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The candidate's test and evaluation results, compared with the current version's, and the promotion record.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="chg-05">
+      <header><span class="oid">CHG-05</span><h3>Reconfiguration as a change</h3></header>
+      <p class="stmt">Treat new settings, credentials, ceilings and permissions as changes with the same record as a new version, even when the code stays the same.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Settings changed without anyone knowing</dd></div>
+        <div><dt>Key metric</dt><dd>Share of configuration changes with a change record</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Configuration changes are noted by the builder.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each configuration change is recorded with who made it.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Changes to limits, credentials and permissions need approval before they take effect.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Configuration is held as code, and changes go through the same pipeline as releases.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The configuration history with who changed what, when and with whose approval.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="chg-06">
+      <header><span class="oid">CHG-06</span><h3>Rollback on purpose</h3></header>
+      <p class="stmt">Make going back a version a recorded step that has been practised, and include a plan for undoing what the bad version did, since moving the code back does not undo its effects.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A failed change with no way back</dd></div>
+        <div><dt>Key metric</dt><dd>Rollback test success rate</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment can be replaced by its previous copy.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every release can be rolled back, and rollbacks are recorded.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Rollback is tested before release, and the release names how its effects would be undone.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Rollback and the undoing of effects are rehearsed each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Rollback records and test results, and the plan for undoing effects in each release.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="chg-07">
+      <header><span class="oid">CHG-07</span><h3>Changes that go back to design</h3></header>
+      <p class="stmt">Send any change that alters what an agent does, refuses, reaches or may spend back through Design and Build, rather than letting it through as a routine update. This is how the lifecycle becomes a loop.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A new agent arriving under the name of an old one</dd></div>
+        <div><dt>Key metric</dt><dd>Share of scope changes that went back through design review</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>An experiment that changes its purpose is registered again.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>A change to the agent's declaration needs a design review.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A change to the agent's declaration, reach or limits goes back through Design and Build with a new security review.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Such a change also returns to Plan, so that its objective and obligations are confirmed again.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The comparison of the old and new declarations, and the design review it triggered.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="chg-08">
+      <header><span class="oid">CHG-08</span><h3>Emergency changes</h3></header>
+      <p class="stmt">Allow an urgent change to skip steps only through a named emergency path, and review it within a set time afterwards.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Emergencies used to avoid review</dd></div>
+        <div><dt>Key metric</dt><dd>Emergency changes reviewed within the set time</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No emergency path is needed in a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Emergency changes are marked as such and reviewed within a week.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Emergency changes need a named approver at the time and a full review within two working days.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Emergency changes are reported to the governance council, and a pattern of them triggers a review of the agent.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The emergency change log, with the approver at the time and the later review.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#chg-01">CHG-01</a></td><td data-h="Objective">Versions on record</td><td data-h="Key metric">Share of running agents whose version is on record</td></tr>
+      <tr><td data-h="ID"><a href="#chg-02">CHG-02</a></td><td data-h="Objective">Impact on dependents</td><td data-h="Key metric">Share of changes with a completed impact analysis</td></tr>
+      <tr><td data-h="ID"><a href="#chg-03">CHG-03</a></td><td data-h="Objective">Approved with a reason</td><td data-h="Key metric">Share of changes with a reason and an approver</td></tr>
+      <tr><td data-h="ID"><a href="#chg-04">CHG-04</a></td><td data-h="Objective">Updates proven before promotion</td><td data-h="Key metric">Share of updates promoted after a passed candidate run</td></tr>
+      <tr><td data-h="ID"><a href="#chg-05">CHG-05</a></td><td data-h="Objective">Reconfiguration as a change</td><td data-h="Key metric">Share of configuration changes with a change record</td></tr>
+      <tr><td data-h="ID"><a href="#chg-06">CHG-06</a></td><td data-h="Objective">Rollback on purpose</td><td data-h="Key metric">Rollback test success rate</td></tr>
+      <tr><td data-h="ID"><a href="#chg-07">CHG-07</a></td><td data-h="Objective">Changes that go back to design</td><td data-h="Key metric">Share of scope changes that went back through design review</td></tr>
+      <tr><td data-h="ID"><a href="#chg-08">CHG-08</a></td><td data-h="Objective">Emergency changes</td><td data-h="Key metric">Emergency changes reviewed within the set time</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="lifecycle-run.html"><small>Previous</small><span>Run</span></a>
+  <a class="next" href="lifecycle-decommission.html"><small>Next</small><span>Decommission</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
+</body>
+</html>

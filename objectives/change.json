@@ -1,0 +1,124 @@
+{
+  "objectives": [
+    {
+      "id": "CHG-01",
+      "title": "Versions on record",
+      "statement": "Give every release a version, keep the agent's identity across versions, and keep the old versions on record so that anyone can see what ran when.",
+      "risk": "Nobody can say which version did what",
+      "metric": "Share of running agents whose version is on record",
+      "tiers": [
+        "The experiment notes its version when it changes.",
+        "Every release has a version number and a fingerprint.",
+        "Every past version stays retrievable for the retention period, with its build record.",
+        "The version history is part of the evidence an outside auditor can read."
+      ],
+      "evidence": "The version history with fingerprints, dates and build records.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "CHG-02",
+      "title": "Impact on dependents",
+      "statement": "Before a change, name everything that depends on the agent and answer for each one. A change that is safe for its owner can still break the agents and people that rely on it.",
+      "risk": "A change that breaks other teams' work",
+      "metric": "Share of changes with a completed impact analysis",
+      "tiers": [
+        "The builder checks that no one else uses the experiment.",
+        "The change lists the dependents recorded in the catalog.",
+        "Each dependent's owner is told before release and may object, and the analysis is recorded.",
+        "Dependents outside the organization are told under the terms of their contracts, with the notice those contracts require."
+      ],
+      "evidence": "The impact analysis listing each dependent, the notice given and any objection.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "CHG-03",
+      "title": "Approved with a reason",
+      "statement": "Give each change a written reason and an approver, so that every change to a running agent can be explained later.",
+      "risk": "Changes that nobody can explain",
+      "metric": "Share of changes with a reason and an approver",
+      "tiers": [
+        "The builder writes a one-line reason.",
+        "Each change has a reason and is approved by the agent's owner.",
+        "Changes are approved by someone other than the person who made them.",
+        "Changes that alter what the agent may do or reach are approved by the governance council."
+      ],
+      "evidence": "The change record with its reason, approver and date.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "CHG-04",
+      "title": "Updates proven before promotion",
+      "statement": "Release a new version as a candidate first, prove it against its tests and evaluations, and only then promote it to replace the running version.",
+      "risk": "A new version that is worse than the old one",
+      "metric": "Share of updates promoted after a passed candidate run",
+      "tiers": [
+        "The experiment may be replaced directly.",
+        "A new version passes its tests before it replaces the running one.",
+        "The candidate runs beside the current version, and evaluation results are compared before promotion.",
+        "Promotion is staged, and an automatic return to the previous version is ready if quality falls."
+      ],
+      "evidence": "The candidate's test and evaluation results, compared with the current version's, and the promotion record.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "CHG-05",
+      "title": "Reconfiguration as a change",
+      "statement": "Treat new settings, credentials, ceilings and permissions as changes with the same record as a new version, even when the code stays the same.",
+      "risk": "Settings changed without anyone knowing",
+      "metric": "Share of configuration changes with a change record",
+      "tiers": [
+        "Configuration changes are noted by the builder.",
+        "Each configuration change is recorded with who made it.",
+        "Changes to limits, credentials and permissions need approval before they take effect.",
+        "Configuration is held as code, and changes go through the same pipeline as releases."
+      ],
+      "evidence": "The configuration history with who changed what, when and with whose approval.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "CHG-06",
+      "title": "Rollback on purpose",
+      "statement": "Make going back a version a recorded step that has been practised, and include a plan for undoing what the bad version did, since moving the code back does not undo its effects.",
+      "risk": "A failed change with no way back",
+      "metric": "Rollback test success rate",
+      "tiers": [
+        "The experiment can be replaced by its previous copy.",
+        "Every release can be rolled back, and rollbacks are recorded.",
+        "Rollback is tested before release, and the release names how its effects would be undone.",
+        "Rollback and the undoing of effects are rehearsed each quarter."
+      ],
+      "evidence": "Rollback records and test results, and the plan for undoing effects in each release.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "CHG-07",
+      "title": "Changes that go back to design",
+      "statement": "Send any change that alters what an agent does, refuses, reaches or may spend back through Design and Build, rather than letting it through as a routine update. This is how the lifecycle becomes a loop.",
+      "risk": "A new agent arriving under the name of an old one",
+      "metric": "Share of scope changes that went back through design review",
+      "tiers": [
+        "An experiment that changes its purpose is registered again.",
+        "A change to the agent's declaration needs a design review.",
+        "A change to the agent's declaration, reach or limits goes back through Design and Build with a new security review.",
+        "Such a change also returns to Plan, so that its objective and obligations are confirmed again."
+      ],
+      "evidence": "The comparison of the old and new declarations, and the design review it triggered.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "CHG-08",
+      "title": "Emergency changes",
+      "statement": "Allow an urgent change to skip steps only through a named emergency path, and review it within a set time afterwards.",
+      "risk": "Emergencies used to avoid review",
+      "metric": "Emergency changes reviewed within the set time",
+      "tiers": [
+        "No emergency path is needed in a sandbox.",
+        "Emergency changes are marked as such and reviewed within a week.",
+        "Emergency changes need a named approver at the time and a full review within two working days.",
+        "Emergency changes are reported to the governance council, and a pattern of them triggers a review of the agent."
+      ],
+      "evidence": "The emergency change log, with the approver at the time and the later review.",
+      "checkers": ["internal", "outside"]
+    }
+  ]
+}

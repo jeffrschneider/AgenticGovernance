@@ -1,447 +1,300 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Lifecycle Governance: Build Time - Agentic Governance Framework</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            card: '#111827',
-                            accent: '#3B82F6',
-                            glow: '#60A5FA',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            danger: '#EF4444',
-                            warning: '#F59E0B'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0F19;
-            color: #E2E8F0;
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
-        }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0F19; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
-        .section-header { position: relative; display: inline-block; }
-        .section-header::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
-        }
-        .objective-card { transition: all 0.3s ease; }
-        .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(16, 185, 129, 0.15); }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Build Time | Agentic Governance Framework</title>
+<meta name="description" content="Build time writes tests before code, reviews code for quality and security, and signs a record of what went into each package.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html" class="on" aria-current="page"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section II, lifecycle phase 3 of 6</p>
+      <h1>Build time</h1>
+      <p class="lede">Build time turns an approved design into a package that can be trusted. Tests are written from the design before the code, the code is reviewed for quality and for security by someone other than its author, and the package carries a signed record of what went into it.</p>
+      <div class="adlc"><p>In the Agentic Development Lifecycle, this phase governs <a href="https://agenticdevelopment.ai/stages.html#test">Test</a> (stage 5), <a href="https://agenticdevelopment.ai/stages.html#code">Code</a> (stage 6), <a href="https://agenticdevelopment.ai/stages.html#review">Review</a> (stage 7), <a href="https://agenticdevelopment.ai/stages.html#security">Security review</a> (stage 8), <a href="https://agenticdevelopment.ai/stages.html#package">Package</a> (stage 9) and <a href="https://agenticdevelopment.ai/stages.html#release">Release</a> (stage 10).</p></div>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
-                        <a href="index.html#lifecycle" class="text-brand-success px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-brand-success">Lifecycle</a>
-                        <a href="index.html#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
-                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+  <section class="band">
+    <div class="wrap">
+      <h2>What build time covers</h2>
+      <div class="cards three">
+        <div class="card">
+          <h3>Development standards</h3>
+          <p>Each agent is built in stages: a written statement of the job, tests written from it, and then the code. Integration with every declared dependency is tested, and so is everything the agent must refuse.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="index.html#lifecycle" class="hover:text-brand-accent transition-colors">Lifecycle</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-300">Build Time</span>
-            </div>
-
-            <div class="flex items-center gap-4 mb-6">
-                <div class="h-14 w-14 bg-emerald-500/20 rounded-xl flex items-center justify-center">
-                    <i data-lucide="hammer" class="w-8 h-8 text-emerald-400"></i>
-                </div>
-                <div>
-                    <span class="text-emerald-400 font-mono text-sm">SECTION IV - PHASE 3</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                        Lifecycle Governance: Build Time
-                    </h1>
-                </div>
-            </div>
-
-            <p class="text-xl text-gray-400 max-w-3xl mb-8">
-                Development standards and quality gates ensure agents are built securely and reliably. Build Time controls catch defects, vulnerabilities, and non-compliance before deployment.
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="target" class="w-5 h-5 text-emerald-400"></i>
-                    <span class="text-sm text-gray-300"><strong class="text-white">7</strong> Control Objectives</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="code" class="w-5 h-5 text-blue-400"></i>
-                    <span class="text-sm text-gray-300">Development Standards</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="check-square" class="w-5 h-5 text-purple-400"></i>
-                    <span class="text-sm text-gray-300">Quality Gates</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Quality gates</h3>
+          <p>A release passes its gates before it can be deployed. The gates include a code review, security scanning of the code as written and as it runs, and a baseline for performance.</p>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-
-        <!-- Control Objectives -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
-
-            <div class="grid gap-6">
-
-                <!-- BLD-01 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-emerald-400">BLD-01</span>
-                            <i data-lucide="code" class="w-10 h-10 text-emerald-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Development Standards Adherence</h3>
-                            <p class="text-gray-400 mb-4">Enforce consistent coding standards and practices across all agent development to ensure maintainability and reduce technical debt.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Inconsistent code quality and practices</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Code standards compliance rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BLD-02 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-blue-400">BLD-02</span>
-                            <i data-lucide="door-open" class="w-10 h-10 text-blue-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Quality Gate Enforcement</h3>
-                            <p class="text-gray-400 mb-4">Implement mandatory quality gates that all agents must pass before proceeding to production deployment.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Defective agents reaching production</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents passing all quality gates</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BLD-03 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-rose-400">BLD-03</span>
-                            <i data-lucide="scan" class="w-10 h-10 text-rose-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Security Scanning Coverage</h3>
-                            <p class="text-gray-400 mb-4">Ensure all agent code undergoes security scanning (static and dynamic analysis) to identify vulnerabilities before deployment.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Vulnerabilities in agent code</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with security scan completed</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BLD-04 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-purple-400">BLD-04</span>
-                            <i data-lucide="test-tubes" class="w-10 h-10 text-purple-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Test Coverage Adequacy</h3>
-                            <p class="text-gray-400 mb-4">Maintain adequate test coverage including unit tests, integration tests, and agent-specific behavioral tests to detect defects early.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Undetected defects</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Test coverage percentage</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BLD-05 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-yellow-400">BLD-05</span>
-                            <i data-lucide="git-branch" class="w-10 h-10 text-yellow-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">CI/CD Pipeline Compliance</h3>
-                            <p class="text-gray-400 mb-4">Ensure all deployments occur through approved CI/CD pipelines with proper controls, eliminating manual, error-prone deployment processes.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Manual, error-prone deployments</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% deployments through approved pipelines</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BLD-06 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-cyan-400">BLD-06</span>
-                            <i data-lucide="file-text" class="w-10 h-10 text-cyan-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Documentation Completeness</h3>
-                            <p class="text-gray-400 mb-4">Ensure all agents have complete documentation including architecture decisions, API specifications, and operational runbooks.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Unmaintainable agents</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents meeting documentation standards</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BLD-07 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-orange-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-orange-400">BLD-07</span>
-                            <i data-lucide="package" class="w-10 h-10 text-orange-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Dependency Security</h3>
-                            <p class="text-gray-400 mb-4">Monitor and remediate vulnerabilities in third-party dependencies and components used by agents.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Vulnerable third-party components</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Known vulnerabilities in dependencies</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Summary Table -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800 text-gray-200">
-                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
-                            <th class="p-4">Objective</th>
-                            <th class="p-4">Primary Risk Addressed</th>
-                            <th class="p-4 rounded-tr-lg">Key Metric</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800 bg-brand-card">
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-emerald-400 font-bold font-mono">BLD-01</td>
-                            <td class="p-4 text-sm text-gray-300">Development Standards Adherence</td>
-                            <td class="p-4 text-sm text-gray-400">Inconsistent code quality and practices</td>
-                            <td class="p-4 text-sm text-gray-400">Code standards compliance rate</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-blue-400 font-bold font-mono">BLD-02</td>
-                            <td class="p-4 text-sm text-gray-300">Quality Gate Enforcement</td>
-                            <td class="p-4 text-sm text-gray-400">Defective agents reaching production</td>
-                            <td class="p-4 text-sm text-gray-400">% agents passing all quality gates</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-rose-400 font-bold font-mono">BLD-03</td>
-                            <td class="p-4 text-sm text-gray-300">Security Scanning Coverage</td>
-                            <td class="p-4 text-sm text-gray-400">Vulnerabilities in agent code</td>
-                            <td class="p-4 text-sm text-gray-400">% agents with security scan completed</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-purple-400 font-bold font-mono">BLD-04</td>
-                            <td class="p-4 text-sm text-gray-300">Test Coverage Adequacy</td>
-                            <td class="p-4 text-sm text-gray-400">Undetected defects</td>
-                            <td class="p-4 text-sm text-gray-400">Test coverage percentage</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-yellow-400 font-bold font-mono">BLD-05</td>
-                            <td class="p-4 text-sm text-gray-300">CI/CD Pipeline Compliance</td>
-                            <td class="p-4 text-sm text-gray-400">Manual, error-prone deployments</td>
-                            <td class="p-4 text-sm text-gray-400">% deployments through approved pipelines</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-cyan-400 font-bold font-mono">BLD-06</td>
-                            <td class="p-4 text-sm text-gray-300">Documentation Completeness</td>
-                            <td class="p-4 text-sm text-gray-400">Unmaintainable agents</td>
-                            <td class="p-4 text-sm text-gray-400">% agents meeting documentation standards</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-orange-400 font-bold font-mono">BLD-07</td>
-                            <td class="p-4 text-sm text-gray-300">Dependency Security</td>
-                            <td class="p-4 text-sm text-gray-400">Vulnerable third-party components</td>
-                            <td class="p-4 text-sm text-gray-400">Known vulnerabilities in dependencies</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="mt-16 pt-12 border-t border-gray-800">
-            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                <a href="lifecycle-design.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-purple-500/50 transition-colors group">
-                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Previous</span>
-                        <p class="text-white font-semibold">III. Design Time</p>
-                    </div>
-                </a>
-                <a href="lifecycle-run.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-rose-500/50 transition-colors group text-right sm:flex-row-reverse">
-                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-rose-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Next</span>
-                        <p class="text-white font-semibold">V. Run Time</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
-                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
-            </div>
-            <div class="text-gray-600 text-sm text-center md:text-right">
-                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
-                <p>Framework Version 2.1</p>
-            </div>
+        <div class="card">
+          <h3>Provenance</h3>
+          <p>The package lists every library, model and outside tool at its exact version, takes each from a known source, and carries a signed record of who held each stage. The model and the prompts are pinned, so changing them is a release like any other.</p>
         </div>
-    </footer>
+      </div>
+      <p>The signed build record is what lets someone downstream trust the bytes. At run time, the running agent's fingerprint is compared with the approved release, and the two have to match.</p>
+    </div>
+  </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 9 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="bld-01">
+      <header><span class="oid">BLD-01</span><h3>Development standards</h3></header>
+      <p class="stmt">Build agents to consistent standards, with a written statement of the job, tests written from that statement, and then the code.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Inconsistent quality that is costly to maintain</dd></div>
+        <div><dt>Key metric</dt><dd>Share of builds that meet the development standards</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment follows the team's own practice.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The build has a written statement of the job and tests before it is released.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The tests are written from the statement before the code, by someone other than the code's author.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Each stage of the build is held by a named person or agent and leaves a signed record.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The statement, the tests and the record of who held each stage.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="bld-02">
+      <header><span class="oid">BLD-02</span><h3>Quality gates</h3></header>
+      <p class="stmt">Require every agent to pass set quality gates before it can be deployed.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Defective agents reaching production</dd></div>
+        <div><dt>Key metric</dt><dd>Share of releases that passed every gate</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No gate applies inside the sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Automated tests and checks must pass before release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A reviewer who is not the author approves the release after the automated gates pass.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Gate results are signed into the release record, and a failed gate can only be overridden by the executive sponsor.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The gate results attached to the release record.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="bld-03">
+      <header><span class="oid">BLD-03</span><h3>Security review of the code</h3></header>
+      <p class="stmt">Scan and review every agent's code for security weaknesses before it is deployed.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Weaknesses in agent code</dd></div>
+        <div><dt>Key metric</dt><dd>Share of releases with a completed security scan and review</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment is scanned with the standard tools.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Static scanning runs on every build, and serious findings block the release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A security reviewer who is not the author reviews the code, and dynamic testing runs before release.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Findings and their resolution are signed into the release record and reviewed by an outside party each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Scan results and the security review for the version that is running.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="bld-04">
+      <header><span class="oid">BLD-04</span><h3>Test coverage</h3></header>
+      <p class="stmt">Test agents enough to find defects early, with unit, integration and behavior tests that include what the agent must refuse.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Defects that nobody found</dd></div>
+        <div><dt>Key metric</dt><dd>Share of declared offerings and refusals covered by tests</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment has the tests its builder judges useful.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each declared offering has at least one test.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each offering and each refusal is tested, including tests that try to make the agent act outside its scope.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Tests include adversarial cases, and the suite is reviewed by someone outside the building team.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The test suite, its coverage of the declaration, and its results for the current version.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="bld-05">
+      <header><span class="oid">BLD-05</span><h3>Approved release pipelines</h3></header>
+      <p class="stmt">Deploy only through approved pipelines, so that what runs is exactly what was approved, with no edits by hand.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Manual changes that bypass review</dd></div>
+        <div><dt>Key metric</dt><dd>Share of deployments made through an approved pipeline</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment may be deployed by hand inside the sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every production deployment goes through an approved pipeline.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The running agent's fingerprint is checked against the approved release, and a mismatch stops it.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>No person can change a running Tier 4 agent outside the pipeline, and attempts are recorded.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Pipeline logs, and the comparison of the running fingerprint with the approved release.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="bld-06">
+      <header><span class="oid">BLD-06</span><h3>Documentation</h3></header>
+      <p class="stmt">Document every agent, including its design decisions, its interfaces and how to operate it, and keep the documents in step with the version that runs.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agents nobody else can run or fix</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents that meet the documentation standard</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment has a short description of what it does.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent has interface documentation and an operating guide.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The documentation is gathered from the agent's own declarations, so it cannot say more than they do.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The documentation is reviewed at each release by the people who operate the agent.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The documentation for the current version, and the date it was last generated or reviewed.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="bld-07">
+      <header><span class="oid">BLD-07</span><h3>Dependency security</h3></header>
+      <p class="stmt">Take each dependency from a known source, pin it to a version, and check it for known vulnerabilities, again whenever new ones are published.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A compromised or vulnerable dependency</dd></div>
+        <div><dt>Key metric</dt><dd>Known vulnerabilities in dependencies, by age</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Dependencies come from the organization's approved sources.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every dependency is pinned, and known vulnerabilities are checked at each build.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Dependencies are verified by checksum or signature, and new vulnerabilities trigger a review within a set time.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Serious vulnerabilities must be fixed or accepted by the executive sponsor within a set time, and the record is audited.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The pinned dependency list, the verification results and the vulnerability scan history.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="bld-08">
+      <header><span class="oid">BLD-08</span><h3>Signed build record and bill of materials</h3></header>
+      <p class="stmt">Give each package a signed record of what went into it and who held each stage, including every library, model and outside tool it uses at an exact version.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Nobody can say what is inside a running agent</dd></div>
+        <div><dt>Key metric</dt><dd>Share of releases with a signed build record and bill of materials</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment lists its main components.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each release has a bill of materials.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each release has a signed build record, and building the same source again gives the same package.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The build record is published to the parties who rely on the agent, and an outside auditor can verify it.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The signed build record and bill of materials for the version that is running.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="bld-09">
+      <header><span class="oid">BLD-09</span><h3>Models and prompts pinned</h3></header>
+      <p class="stmt">Record the model and the prompts each agent runs on, so that a model update or a prompt edit is a change like any other and goes through the same gates.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Behavior that changes without a release</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with their model and prompts pinned in the release</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment notes which model it uses.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The model version and the prompts are part of the release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A new model version or prompt is released only after the evaluation suite passes against it.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Model and prompt changes are reviewed by the value owner as well as the builders.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The model version and prompt fingerprints in the release record, and the evaluation run for each change.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#bld-01">BLD-01</a></td><td data-h="Objective">Development standards</td><td data-h="Key metric">Share of builds that meet the development standards</td></tr>
+      <tr><td data-h="ID"><a href="#bld-02">BLD-02</a></td><td data-h="Objective">Quality gates</td><td data-h="Key metric">Share of releases that passed every gate</td></tr>
+      <tr><td data-h="ID"><a href="#bld-03">BLD-03</a></td><td data-h="Objective">Security review of the code</td><td data-h="Key metric">Share of releases with a completed security scan and review</td></tr>
+      <tr><td data-h="ID"><a href="#bld-04">BLD-04</a></td><td data-h="Objective">Test coverage</td><td data-h="Key metric">Share of declared offerings and refusals covered by tests</td></tr>
+      <tr><td data-h="ID"><a href="#bld-05">BLD-05</a></td><td data-h="Objective">Approved release pipelines</td><td data-h="Key metric">Share of deployments made through an approved pipeline</td></tr>
+      <tr><td data-h="ID"><a href="#bld-06">BLD-06</a></td><td data-h="Objective">Documentation</td><td data-h="Key metric">Share of agents that meet the documentation standard</td></tr>
+      <tr><td data-h="ID"><a href="#bld-07">BLD-07</a></td><td data-h="Objective">Dependency security</td><td data-h="Key metric">Known vulnerabilities in dependencies, by age</td></tr>
+      <tr><td data-h="ID"><a href="#bld-08">BLD-08</a></td><td data-h="Objective">Signed build record and bill of materials</td><td data-h="Key metric">Share of releases with a signed build record and bill of materials</td></tr>
+      <tr><td data-h="ID"><a href="#bld-09">BLD-09</a></td><td data-h="Objective">Models and prompts pinned</td><td data-h="Key metric">Share of agents with their model and prompts pinned in the release</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="lifecycle-design.html"><small>Previous</small><span>Design</span></a>
+  <a class="next" href="lifecycle-run.html"><small>Next</small><span>Run</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>

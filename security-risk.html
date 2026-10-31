@@ -1,567 +1,383 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Security and Risk Management - Agentic Governance Framework</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            card: '#111827',
-                            accent: '#3B82F6',
-                            glow: '#60A5FA',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            danger: '#EF4444',
-                            warning: '#F59E0B'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0F19;
-            color: #E2E8F0;
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(239, 68, 68, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
-        }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0F19; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
-        .section-header { position: relative; display: inline-block; }
-        .section-header::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, #EF4444, #8B5CF6);
-        }
-        .objective-card { transition: all 0.3s ease; }
-        .objective-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(239, 68, 68, 0.15); }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Security and Risk | Agentic Governance Framework</title>
+<meta name="description" content="Security and risk for AI agents: identity and access, a fence around what each agent can reach, its own secrets, defense against injected instructions, supply chain integrity, incident response and a stop that holds.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html" class="on" aria-current="page">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section III, cross-cutting discipline</p>
+      <h1>Security and risk</h1>
+      <p class="lede">Agents hold credentials, call tools and read content written by people the organization does not know. Security and risk management protects agents from attack, limits the harm a compromised agent can do, and makes sure any agent can be stopped.</p>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="index.html#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
-                        <a href="index.html#lifecycle" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Lifecycle</a>
-                        <a href="index.html#cross-cutting" class="text-red-400 px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-red-400">Cross-Cutting</a>
-                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+  <section class="band">
+    <div class="wrap">
+      <h2>What security and risk covers</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Defensive guardrails</h3>
+          <p>Agents work under zero-trust rules. Each one has its own identity and secrets, can reach only the systems it declared, and validates what it accepts. Rate limits and spending limits cap the damage of a fault or an attack.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <a href="index.html#cross-cutting" class="hover:text-brand-accent transition-colors">Cross-Cutting</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-300">Security & Risk</span>
-            </div>
-
-            <div class="flex items-center gap-4 mb-6">
-                <div class="h-14 w-14 bg-red-500/20 rounded-xl flex items-center justify-center">
-                    <i data-lucide="shield" class="w-8 h-8 text-red-400"></i>
-                </div>
-                <div>
-                    <span class="text-red-400 font-mono text-sm">SECTION VII</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                        Security and Risk Management
-                    </h1>
-                </div>
-            </div>
-
-            <p class="text-xl text-gray-400 max-w-3xl mb-8">
-                Security is a continuous, cross-cutting discipline that spans all lifecycle phases. These controls address identity management, threat modeling, incident response, and supply chain security for AI agents.
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/30">
-                    <i data-lucide="alert-triangle" class="w-5 h-5 text-red-400"></i>
-                    <span class="text-sm text-red-300 font-semibold">Cross-Cutting Discipline</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="target" class="w-5 h-5 text-red-400"></i>
-                    <span class="text-sm text-gray-300"><strong class="text-white">12</strong> Control Objectives</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="lock" class="w-5 h-5 text-blue-400"></i>
-                    <span class="text-sm text-gray-300">Defense in Depth</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Threat modeling</h3>
+          <p>Each agent's threats are written down and kept current. They include instructions injected through content the agent reads, misuse of its tools, and models or components that have been tampered with.</p>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-
-        <!-- Control Objectives -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
-
-            <div class="grid gap-6">
-
-                <!-- SEC-01 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-red-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-red-400">SEC-01</span>
-                            <i data-lucide="user-check" class="w-10 h-10 text-red-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Identity and Access Management</h3>
-                            <p class="text-gray-400 mb-4">Implement comprehensive identity and access management for both agents and users interacting with agents.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Unauthorized agent or user access</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Access control compliance rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-02 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-orange-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-orange-400">SEC-02</span>
-                            <i data-lucide="split" class="w-10 h-10 text-orange-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Network Segmentation</h3>
-                            <p class="text-gray-400 mb-4">Implement network segmentation to prevent lateral movement from compromised agents and contain security incidents.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Lateral movement from compromised agents</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Segmentation policy compliance</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-03 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-yellow-400">SEC-03</span>
-                            <i data-lucide="text-cursor-input" class="w-10 h-10 text-yellow-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Input Validation Coverage</h3>
-                            <p class="text-gray-400 mb-4">Ensure comprehensive input validation for all agent inputs to prevent injection and manipulation attacks.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Injection and manipulation attacks</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with input validation</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-04 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-emerald-400">SEC-04</span>
-                            <i data-lucide="filter-x" class="w-10 h-10 text-emerald-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Output Sanitization</h3>
-                            <p class="text-gray-400 mb-4">Sanitize all agent outputs to prevent data leakage and ensure sensitive information is properly redacted.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Data leakage through responses</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Output violation incidents</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-05 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-purple-400">SEC-05</span>
-                            <i data-lucide="map" class="w-10 h-10 text-purple-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Threat Model Currency</h3>
-                            <p class="text-gray-400 mb-4">Maintain current threat models for all agents, regularly updating to reflect new attack vectors and vulnerabilities.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Unidentified attack vectors</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Threat model review recency</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-06 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-blue-400">SEC-06</span>
-                            <i data-lucide="bug" class="w-10 h-10 text-blue-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Adversarial Testing Coverage</h3>
-                            <p class="text-gray-400 mb-4">Conduct regular adversarial testing (red team exercises) for high-tier agents to discover vulnerabilities before attackers.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Undiscovered vulnerabilities</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% Tier 3+ agents with red team exercise</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-07 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-cyan-400">SEC-07</span>
-                            <i data-lucide="link" class="w-10 h-10 text-cyan-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Supply Chain Security</h3>
-                            <p class="text-gray-400 mb-4">Verify the provenance and integrity of all models, components, and dependencies used by agents.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Compromised models or components</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Verified provenance percentage</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-08 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-pink-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-pink-400">SEC-08</span>
-                            <i data-lucide="building-2" class="w-10 h-10 text-pink-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Vendor Security Assessment</h3>
-                            <p class="text-gray-400 mb-4">Conduct and maintain current security assessments for all third-party vendors providing agent components or services.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Third-party security gaps</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% vendors with current assessment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-09 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-indigo-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-indigo-400">SEC-09</span>
-                            <i data-lucide="pie-chart" class="w-10 h-10 text-indigo-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Concentration Risk Management</h3>
-                            <p class="text-gray-400 mb-4">Monitor and manage concentration risk from over-dependence on single providers for models, infrastructure, or services.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Over-dependence on single providers</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Concentration risk score</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-10 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-rose-400">SEC-10</span>
-                            <i data-lucide="siren" class="w-10 h-10 text-rose-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Incident Response Readiness</h3>
-                            <p class="text-gray-400 mb-4">Maintain tested incident response procedures specific to AI agent security incidents, including breach response playbooks.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Slow or ineffective breach response</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Incident response drill success rate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-11 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-red-600/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-red-500">SEC-11</span>
-                            <i data-lucide="power" class="w-10 h-10 text-red-500 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Kill Switch Availability</h3>
-                            <p class="text-gray-400 mb-4">Ensure all agents have tested kill switches that can immediately halt agent operations in case of compromise or malfunction.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Inability to stop compromised agents</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with tested kill switch</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEC-12 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-teal-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-teal-400">SEC-12</span>
-                            <i data-lucide="file-search" class="w-10 h-10 text-teal-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Forensic Logging Adequacy</h3>
-                            <p class="text-gray-400 mb-4">Maintain comprehensive forensic logging enabling investigation and attribution of security incidents involving agents.</p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Inability to investigate incidents</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Log completeness score</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Summary Table -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800 text-gray-200">
-                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
-                            <th class="p-4">Objective</th>
-                            <th class="p-4">Primary Risk Addressed</th>
-                            <th class="p-4 rounded-tr-lg">Key Metric</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800 bg-brand-card text-sm">
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-red-400 font-bold font-mono">SEC-01</td><td class="p-4 text-gray-300">Identity and Access Management</td><td class="p-4 text-gray-400">Unauthorized agent or user access</td><td class="p-4 text-gray-400">Access control compliance rate</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-orange-400 font-bold font-mono">SEC-02</td><td class="p-4 text-gray-300">Network Segmentation</td><td class="p-4 text-gray-400">Lateral movement from compromised agents</td><td class="p-4 text-gray-400">Segmentation policy compliance</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-yellow-400 font-bold font-mono">SEC-03</td><td class="p-4 text-gray-300">Input Validation Coverage</td><td class="p-4 text-gray-400">Injection and manipulation attacks</td><td class="p-4 text-gray-400">% agents with input validation</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-emerald-400 font-bold font-mono">SEC-04</td><td class="p-4 text-gray-300">Output Sanitization</td><td class="p-4 text-gray-400">Data leakage through responses</td><td class="p-4 text-gray-400">Output violation incidents</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-purple-400 font-bold font-mono">SEC-05</td><td class="p-4 text-gray-300">Threat Model Currency</td><td class="p-4 text-gray-400">Unidentified attack vectors</td><td class="p-4 text-gray-400">Threat model review recency</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-blue-400 font-bold font-mono">SEC-06</td><td class="p-4 text-gray-300">Adversarial Testing Coverage</td><td class="p-4 text-gray-400">Undiscovered vulnerabilities</td><td class="p-4 text-gray-400">% Tier 3+ agents with red team exercise</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-cyan-400 font-bold font-mono">SEC-07</td><td class="p-4 text-gray-300">Supply Chain Security</td><td class="p-4 text-gray-400">Compromised models or components</td><td class="p-4 text-gray-400">Verified provenance percentage</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-pink-400 font-bold font-mono">SEC-08</td><td class="p-4 text-gray-300">Vendor Security Assessment</td><td class="p-4 text-gray-400">Third-party security gaps</td><td class="p-4 text-gray-400">% vendors with current assessment</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-indigo-400 font-bold font-mono">SEC-09</td><td class="p-4 text-gray-300">Concentration Risk Management</td><td class="p-4 text-gray-400">Over-dependence on single providers</td><td class="p-4 text-gray-400">Concentration risk score</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-rose-400 font-bold font-mono">SEC-10</td><td class="p-4 text-gray-300">Incident Response Readiness</td><td class="p-4 text-gray-400">Slow or ineffective breach response</td><td class="p-4 text-gray-400">Incident response drill success rate</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-red-500 font-bold font-mono">SEC-11</td><td class="p-4 text-gray-300">Kill Switch Availability</td><td class="p-4 text-gray-400">Inability to stop compromised agents</td><td class="p-4 text-gray-400">% agents with tested kill switch</td></tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors"><td class="p-4 text-teal-400 font-bold font-mono">SEC-12</td><td class="p-4 text-gray-300">Forensic Logging Adequacy</td><td class="p-4 text-gray-400">Inability to investigate incidents</td><td class="p-4 text-gray-400">Log completeness score</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="mt-16 pt-12 border-t border-gray-800">
-            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                <a href="lifecycle-decommission.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-gray-500/50 transition-colors group">
-                    <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Previous</span>
-                        <p class="text-white font-semibold">VI. Decommission Time</p>
-                    </div>
-                </a>
-                <a href="performance-qa.html" class="flex items-center gap-3 bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-yellow-500/50 transition-colors group text-right sm:flex-row-reverse">
-                    <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-yellow-400 transition-colors"></i>
-                    <div>
-                        <span class="text-xs text-gray-500">Next</span>
-                        <p class="text-white font-semibold">VIII. Performance & QA</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
-                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
-            </div>
-            <div class="text-gray-600 text-sm text-center md:text-right">
-                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
-                <p>Framework Version 2.1</p>
-            </div>
+        <div class="card">
+          <h3>Supply chain</h3>
+          <p>Every model, library and outside tool comes from a known source and is verified before use. Suppliers are assessed, and dependence on any single supplier is watched and planned for.</p>
         </div>
-    </footer>
+        <div class="card">
+          <h3>Incident response and stopping</h3>
+          <p>A named person can pause or end any agent at once. A stop revokes the agent's credentials and is checked at every door, so the agent stays stopped. Playbooks for agent incidents are drilled, and forensic records cannot be changed by the agent.</p>
+        </div>
+      </div>
+      <p>The reach of a stop across delegated work, and loops and cascades between agents, are covered under <a href="network.html">Network</a>. Supply chain controls at build time are under <a href="lifecycle-build.html">Build time</a>.</p>
+    </div>
+  </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 13 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="sec-01">
+      <header><span class="oid">SEC-01</span><h3>Identity and access management</h3></header>
+      <p class="stmt">Manage the identities and access of agents and of the people who use or operate them, from one place, with access granted for a purpose and taken away when the purpose ends.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Unauthorized access by an agent or a person</dd></div>
+        <div><dt>Key metric</dt><dd>Access reviews completed on time</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox access uses sandbox identities.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Agent and operator access is granted through the identity system and reviewed each year.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Access is reviewed each quarter, and operator access to Tier 3 agents needs a second factor.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Access to Tier 4 agents is granted for a limited time on request, and every use is recorded.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The access register and the completed access reviews.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-02">
+      <header><span class="oid">SEC-02</span><h3>A network fence</h3></header>
+      <p class="stmt">Let each agent reach only the systems named in its declaration, so that a compromised agent cannot move sideways.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A compromised agent reaching other systems</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents whose reach is limited to their declared systems</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox cannot reach production networks.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent's outbound reach is limited to approved destinations.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Reach is limited to the systems in the agent's signed declaration, and attempts to go elsewhere are alerted.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The fence is tested by an outside party each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The fence rules per agent, compared with its declaration, and the log of blocked attempts.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-03">
+      <header><span class="oid">SEC-03</span><h3>Input validation</h3></header>
+      <p class="stmt">Validate every input an agent accepts against what it declares it accepts, so that malformed or hostile input is turned away.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Injection and manipulation through inputs</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents that validate their inputs</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment uses the standard validation library.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Inputs are validated against the declared form.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Validation runs outside the agent's own reasoning, and rejected inputs are logged.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Validation is tested with hostile inputs each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The declared input forms and the validation logs.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-04">
+      <header><span class="oid">SEC-04</span><h3>Output sanitization</h3></header>
+      <p class="stmt">Clean agent outputs of data that must not leave, such as secrets and data above the recipient's clearance.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Data leaking through replies</dd></div>
+        <div><dt>Key metric</dt><dd>Output violations found</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox output stays in the sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Outputs are scanned for secrets before they leave.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Outputs are checked against the recipient's clearance, and violations are incidents.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Output checks are tested with seeded data each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Scan logs, incident records and test results.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-05">
+      <header><span class="oid">SEC-05</span><h3>Current threat models</h3></header>
+      <p class="stmt">Keep a threat model for each agent, and update it when new kinds of attack appear or the agent changes.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Attacks nobody planned for</dd></div>
+        <div><dt>Key metric</dt><dd>Age of each agent's threat model</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No threat model is required for an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>A standard threat checklist is kept with the agent.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A threat model is reviewed at every change to the agent's reach or authority, and at least each year.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The threat model is reviewed each quarter and shared with internal audit.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The threat model with its review dates.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-06">
+      <header><span class="oid">SEC-06</span><h3>Adversarial testing</h3></header>
+      <p class="stmt">Attack high-tier agents on purpose, through red team exercises, to find weaknesses before others do.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Weaknesses found by attackers first</dd></div>
+        <div><dt>Key metric</dt><dd>Share of Tier 3 and higher agents with a red team exercise in the last year</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No exercise is required.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Automated adversarial tests run at release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A red team exercise runs each year and after major changes.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>An outside red team tests the agent each year, and findings are tracked to closure.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The exercise reports and the tracking of their findings.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-07">
+      <header><span class="oid">SEC-07</span><h3>Supply chain integrity</h3></header>
+      <p class="stmt">Verify where every model, component and dependency came from and that it has not been altered, before it is used and while it is in use.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Compromised models or components</dd></div>
+        <div><dt>Key metric</dt><dd>Share of components with verified provenance</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Components come from approved sources.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Components are pinned, and their sources are recorded in the bill of materials.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Components are verified by signature or checksum at build and at deploy.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Provenance is verified by an outside party each year, including the model suppliers' own attestations.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The bill of materials with verification results, and supplier attestations.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-08">
+      <header><span class="oid">SEC-08</span><h3>Supplier security assessment</h3></header>
+      <p class="stmt">Assess the security of every supplier of agent components or services, and keep the assessments current.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Security gaps at suppliers</dd></div>
+        <div><dt>Key metric</dt><dd>Share of suppliers with a current assessment</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Experiments use suppliers already approved.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each supplier has a security questionnaire on file.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each supplier is assessed each year, with evidence such as an independent audit report.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Critical suppliers are assessed in depth, and the contract gives the right to audit.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The supplier assessments and the audit reports they rely on.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-09">
+      <header><span class="oid">SEC-09</span><h3>Concentration risk</h3></header>
+      <p class="stmt">Watch for dependence on a single supplier of models, infrastructure or services, and keep a plan for replacing it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Dependence on one supplier</dd></div>
+        <div><dt>Key metric</dt><dd>Concentration risk score</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent's single-supplier dependencies are recorded.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each critical single-supplier dependency has a written exit plan.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Exit plans are tested, and concentration is reported to the governance council.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The dependency record, exit plans and test results.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-10">
+      <header><span class="oid">SEC-10</span><h3>Incident response</h3></header>
+      <p class="stmt">Keep tested response plans for agent security incidents. Record what happened without guessing, and leave the decisions to a person.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Slow or poor response to an incident</dd></div>
+        <div><dt>Key metric</dt><dd>Incident drill success rate</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox can be shut down on any incident.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent is covered by the organization's incident plan.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Agent-specific playbooks exist and are drilled each year.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Drills include partners and regulators' notice requirements, and run each half year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The playbooks, drill reports and incident records.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-11">
+      <header><span class="oid">SEC-11</span><h3>Pause and stop</h3></header>
+      <p class="stmt">Let a named person pause or end any agent at once. A stop revokes its credentials, every door checks for the stop so the agent stays stopped, and a paused agent resumes only when that person says so.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>An agent that cannot be stopped</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with a stop tested in the last quarter</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox can be shut down as a whole.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has a named person who can stop it, and the stop is tested at release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A stop revokes credentials at once and is checked at every point the agent passes through, and it is tested each quarter.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The stop is tested each month, and its reach across delegated work is measured as the Network discipline requires.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The named stoppers, the stop test results and the time each test took to take effect.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-12">
+      <header><span class="oid">SEC-12</span><h3>Forensic logging</h3></header>
+      <p class="stmt">Log enough, in records the agent cannot change, to investigate and attribute any security incident involving an agent.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Incidents nobody can investigate</dd></div>
+        <div><dt>Key metric</dt><dd>Log completeness score</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox logs are kept for the experiment's life.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Security events are logged centrally.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Logs cannot be changed by the agent or its operators, and are kept for the retention period.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Logs can be handed to an outside investigator without the team's help.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The logging settings, a completeness sample and the storage settings that prevent edits.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="sec-13">
+      <header><span class="oid">SEC-13</span><h3>Each agent's own secrets</h3></header>
+      <p class="stmt">Give every agent its own credentials, never shared with another agent or a person, named in its configuration rather than written into it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>One leaked secret opening many agents</dd></div>
+        <div><dt>Key metric</dt><dd>Shared or embedded credentials found</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox credentials work only in the sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has its own credentials held in a secrets store.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Credentials are short-lived and rotated, and a scan for shared or embedded secrets runs at every build.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Credential use is monitored, and use from an unexpected place stops the agent.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The secrets store inventory per agent and the scan results.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#sec-01">SEC-01</a></td><td data-h="Objective">Identity and access management</td><td data-h="Key metric">Access reviews completed on time</td></tr>
+      <tr><td data-h="ID"><a href="#sec-02">SEC-02</a></td><td data-h="Objective">A network fence</td><td data-h="Key metric">Share of agents whose reach is limited to their declared systems</td></tr>
+      <tr><td data-h="ID"><a href="#sec-03">SEC-03</a></td><td data-h="Objective">Input validation</td><td data-h="Key metric">Share of agents that validate their inputs</td></tr>
+      <tr><td data-h="ID"><a href="#sec-04">SEC-04</a></td><td data-h="Objective">Output sanitization</td><td data-h="Key metric">Output violations found</td></tr>
+      <tr><td data-h="ID"><a href="#sec-05">SEC-05</a></td><td data-h="Objective">Current threat models</td><td data-h="Key metric">Age of each agent's threat model</td></tr>
+      <tr><td data-h="ID"><a href="#sec-06">SEC-06</a></td><td data-h="Objective">Adversarial testing</td><td data-h="Key metric">Share of Tier 3 and higher agents with a red team exercise in the last year</td></tr>
+      <tr><td data-h="ID"><a href="#sec-07">SEC-07</a></td><td data-h="Objective">Supply chain integrity</td><td data-h="Key metric">Share of components with verified provenance</td></tr>
+      <tr><td data-h="ID"><a href="#sec-08">SEC-08</a></td><td data-h="Objective">Supplier security assessment</td><td data-h="Key metric">Share of suppliers with a current assessment</td></tr>
+      <tr><td data-h="ID"><a href="#sec-09">SEC-09</a></td><td data-h="Objective">Concentration risk</td><td data-h="Key metric">Concentration risk score</td></tr>
+      <tr><td data-h="ID"><a href="#sec-10">SEC-10</a></td><td data-h="Objective">Incident response</td><td data-h="Key metric">Incident drill success rate</td></tr>
+      <tr><td data-h="ID"><a href="#sec-11">SEC-11</a></td><td data-h="Objective">Pause and stop</td><td data-h="Key metric">Share of agents with a stop tested in the last quarter</td></tr>
+      <tr><td data-h="ID"><a href="#sec-12">SEC-12</a></td><td data-h="Objective">Forensic logging</td><td data-h="Key metric">Log completeness score</td></tr>
+      <tr><td data-h="ID"><a href="#sec-13">SEC-13</a></td><td data-h="Objective">Each agent's own secrets</td><td data-h="Key metric">Shared or embedded credentials found</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="network.html"><small>Previous</small><span>Network</span></a>
+  <a class="next" href="performance-qa.html"><small>Next</small><span>Performance and quality</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>
