@@ -32,7 +32,7 @@ const rich = (s) => esc(s).replace(/&lt;(\/?)(b|i|code)&gt;/g, "<$1$2>")
 
 function list(words) {
   if (words.length === 1) return words[0];
-  return words.slice(0, -1).join(", ") + (words.length > 2 ? "," : "") + " and " + words.at(-1);
+  return words.slice(0, -1).join(", ") + " and " + words.at(-1);
 }
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -112,7 +112,7 @@ function objectives(name) {
         <div><dt>Risk addressed</dt><dd>${rich(o.risk)}</dd></div>
         <div><dt>Key metric</dt><dd>${rich(o.metric)}</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
 ${tiers}
       </ol>

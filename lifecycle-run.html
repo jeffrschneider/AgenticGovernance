@@ -66,7 +66,7 @@
       <h2>What run time covers</h2>
       <div class="cards">
         <div class="card">
-          <h3>The network's rules, enforced</h3>
+          <h3>Enforcement of the network's rules</h3>
           <p>The relationships an agent depends on are recorded under the <a href="network.html">Network</a> discipline: who has admitted it, the mandates it works under, and its contracts with other agents. At run time each interaction is checked against them, so an agent reaches only the agents it has been admitted to, within the authority it was given.</p>
         </div>
         <div class="card">
@@ -107,7 +107,7 @@
         <div><dt>Risk addressed</dt><dd>Unauthorized interaction between agents</dd></div>
         <div><dt>Key metric</dt><dd>Interactions refused for lack of an admission, mandate or contract</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents can reach only other sandbox agents.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Every message between agents is checked against the admissions list.</li>
@@ -116,7 +116,7 @@
       </ol>
       <dl class="proof">
         <div><dt>Evidence</dt><dd>The enforcement point's records of interactions allowed and refused, linked to the admission or mandate each one relied on.</dd></div>
-        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
       </dl>
     </article>
     <article class="obj" id="run-02">
@@ -126,7 +126,7 @@
         <div><dt>Risk addressed</dt><dd>One agent speaking as another, or acting for no one</dd></div>
         <div><dt>Key metric</dt><dd>Share of requests that carry a verified agent identity and the party it acts for</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents use sandbox identities that work nowhere else.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has its own credentials, and every request is authenticated.</li>
@@ -135,7 +135,7 @@
       </ol>
       <dl class="proof">
         <div><dt>Evidence</dt><dd>The identity register, request logs showing the verified identity and the party acted for, and the access reviews.</dd></div>
-        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
       </dl>
     </article>
     <article class="obj" id="run-03">
@@ -145,7 +145,7 @@
         <div><dt>Risk addressed</dt><dd>Exposure of personal data</dd></div>
         <div><dt>Key metric</dt><dd>Personal data leaks found</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents use no real personal data.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Personal data is masked in logs.</li>
@@ -164,7 +164,7 @@
         <div><dt>Risk addressed</dt><dd>Collecting or sharing more data than needed</dd></div>
         <div><dt>Key metric</dt><dd>Data scope violations found</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment keeps no data after it ends.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>The agent declares what data it keeps, where and for how long.</li>
@@ -183,7 +183,7 @@
         <div><dt>Risk addressed</dt><dd>Tool permissions wider than the task</dd></div>
         <div><dt>Key metric</dt><dd>Share of tool connections set to least privilege</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents use sandbox tools only.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Each tool an agent uses is on an approved list for that agent.</li>
@@ -202,7 +202,7 @@
         <div><dt>Risk addressed</dt><dd>Uncontrolled use of models</dd></div>
         <div><dt>Key metric</dt><dd>Share of model requests made through the gateway</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox use goes through the gateway with a sandbox budget.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>All production model requests go through the gateway.</li>
@@ -221,7 +221,7 @@
         <div><dt>Risk addressed</dt><dd>Harmful or malformed output</dd></div>
         <div><dt>Key metric</dt><dd>Replies blocked or corrected before they left</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment uses the standard filter.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Inputs and outputs pass the content filter.</li>
@@ -240,7 +240,7 @@
         <div><dt>Risk addressed</dt><dd>An attacker steering an agent through its inputs</dd></div>
         <div><dt>Key metric</dt><dd>Injection attempts detected and blocked</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment uses the standard defenses.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Known injection patterns are detected and blocked.</li>
@@ -259,7 +259,7 @@
         <div><dt>Risk addressed</dt><dd>Exhausted resources or abuse</dd></div>
         <div><dt>Key metric</dt><dd>Rate limit triggers</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox has a fixed rate limit.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has a rate limit set by its owner.</li>
@@ -278,7 +278,7 @@
         <div><dt>Risk addressed</dt><dd>Blind spots in agent behavior</dd></div>
         <div><dt>Key metric</dt><dd>Share of agents with step-level tracing</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment keeps basic logs.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Each run is logged with its result, timing and cost.</li>
@@ -297,7 +297,7 @@
         <div><dt>Risk addressed</dt><dd>Service disruption when an agent fails</dd></div>
         <div><dt>Key metric</dt><dd>Failover test success rate</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies in a sandbox.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Every outside call has a time limit and a retry limit.</li>
@@ -316,7 +316,7 @@
         <div><dt>Risk addressed</dt><dd>Slower service under load</dd></div>
         <div><dt>Key metric</dt><dd>Capacity headroom</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies in a sandbox.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Capacity is reviewed at each release.</li>
@@ -335,7 +335,7 @@
         <div><dt>Risk addressed</dt><dd>An agent stuck in a loop running up cost overnight</dd></div>
         <div><dt>Key metric</dt><dd>Runs stopped by a step or progress limit</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox has a fixed step limit per run.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has a step limit per run.</li>
@@ -354,7 +354,7 @@
         <div><dt>Risk addressed</dt><dd>An agent committing its owner to something nobody meant</dd></div>
         <div><dt>Key metric</dt><dd>Share of high-risk acts that had a recorded human decision</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment takes no act with effect outside the sandbox.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Acts that move money or commit the owner wait for the owner's approval.</li>
@@ -363,7 +363,7 @@
       </ol>
       <dl class="proof">
         <div><dt>Evidence</dt><dd>The approval thresholds and the record of decisions, each with the person, the time and what they were shown.</dd></div>
-        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
       </dl>
     </article>
     <article class="obj" id="run-15">
@@ -373,7 +373,7 @@
         <div><dt>Risk addressed</dt><dd>Nobody can say why an agent did something</dd></div>
         <div><dt>Key metric</dt><dd>Share of work items with a complete record</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment keeps a log of its runs.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Every piece of work names who asked and records the result, including errors.</li>
@@ -382,7 +382,7 @@
       </ol>
       <dl class="proof">
         <div><dt>Evidence</dt><dd>Sampled work records and the storage settings that prevent edits.</dd></div>
-        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor, and a partner.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
       </dl>
     </article>
     <article class="obj" id="run-16">
@@ -392,7 +392,7 @@
         <div><dt>Risk addressed</dt><dd>An agent that fails quietly until customers notice</dd></div>
         <div><dt>Key metric</dt><dd>Time from failure to the owner being told</dd></div>
       </dl>
-      <p class="tierhead">What each tier requires (<a href="operating-model.html">the tiers</a>)</p>
+      <p class="tierhead">What each tier requires</p>
       <ol class="tiers">
         <li><span class="tier t1">Tier 1 Exploratory</span><br>The experiment's builder checks it when they use it.</li>
         <li><span class="tier t2">Tier 2 Operational</span><br>Each agent has a health check and alerts that reach a named person.</li>
