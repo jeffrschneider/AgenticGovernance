@@ -1,0 +1,31 @@
+name: checks
+
+# The site publishes from main, so every pull request is checked before it
+# can be merged: the generated parts are up to date, the links and wording
+# pass, and every piece of text clears the contrast floors.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Generated parts are up to date
+        run: node tools/build.mjs --check
+      - name: Links, wording and objectives
+        run: node tools/check-site.mjs
+      - name: Install the browser for the contrast gate
+        working-directory: tools
+        run: npm ci && npx playwright install --with-deps chromium
+      - name: Contrast (4.5:1 for all text, 7:1 for body text)
+        run: node tools/contrast-gate.mjs
