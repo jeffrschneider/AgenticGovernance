@@ -1,0 +1,199 @@
+{
+  "objectives": [
+    {
+      "id": "SEC-01",
+      "title": "Identity and access management",
+      "statement": "Manage the identities and access of agents and of the people who use or operate them, from one place, with access granted for a purpose and taken away when the purpose ends.",
+      "risk": "Unauthorized access by an agent or a person",
+      "metric": "Access reviews completed on time",
+      "tiers": [
+        "Sandbox access uses sandbox identities.",
+        "Agent and operator access is granted through the identity system and reviewed each year.",
+        "Access is reviewed each quarter, and operator access to Tier 3 agents needs a second factor.",
+        "Access to Tier 4 agents is granted for a limited time on request, and every use is recorded."
+      ],
+      "evidence": "The access register and the completed access reviews.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "SEC-02",
+      "title": "A network fence",
+      "statement": "Let each agent reach only the systems named in its declaration, so that a compromised agent cannot move sideways.",
+      "risk": "A compromised agent reaching other systems",
+      "metric": "Share of agents whose reach is limited to their declared systems",
+      "tiers": [
+        "The sandbox cannot reach production networks.",
+        "Each agent's outbound reach is limited to approved destinations.",
+        "Reach is limited to the systems in the agent's signed declaration, and attempts to go elsewhere are alerted.",
+        "The fence is tested by an outside party each year."
+      ],
+      "evidence": "The fence rules per agent, compared with its declaration, and the log of blocked attempts.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "SEC-03",
+      "title": "Input validation",
+      "statement": "Validate every input an agent accepts against what it declares it accepts, so that malformed or hostile input is turned away.",
+      "risk": "Injection and manipulation through inputs",
+      "metric": "Share of agents that validate their inputs",
+      "tiers": [
+        "The experiment uses the standard validation library.",
+        "Inputs are validated against the declared form.",
+        "Validation runs outside the agent's own reasoning, and rejected inputs are logged.",
+        "Validation is tested with hostile inputs each quarter."
+      ],
+      "evidence": "The declared input forms and the validation logs.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "SEC-04",
+      "title": "Output sanitization",
+      "statement": "Clean agent outputs of data that must not leave, such as secrets and data above the recipient's clearance.",
+      "risk": "Data leaking through replies",
+      "metric": "Output violations found",
+      "tiers": [
+        "Sandbox output stays in the sandbox.",
+        "Outputs are scanned for secrets before they leave.",
+        "Outputs are checked against the recipient's clearance, and violations are incidents.",
+        "Output checks are tested with seeded data each quarter."
+      ],
+      "evidence": "Scan logs, incident records and test results.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "SEC-05",
+      "title": "Current threat models",
+      "statement": "Keep a threat model for each agent, and update it when new kinds of attack appear or the agent changes.",
+      "risk": "Attacks nobody planned for",
+      "metric": "Age of each agent's threat model",
+      "tiers": [
+        "No threat model is required for an experiment.",
+        "A standard threat checklist is kept with the agent.",
+        "A threat model is reviewed at every change to the agent's reach or authority, and at least each year.",
+        "The threat model is reviewed each quarter and shared with internal audit."
+      ],
+      "evidence": "The threat model with its review dates.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "SEC-06",
+      "title": "Adversarial testing",
+      "statement": "Attack high-tier agents on purpose, through red team exercises, to find weaknesses before others do.",
+      "risk": "Weaknesses found by attackers first",
+      "metric": "Share of Tier 3 and higher agents with a red team exercise in the last year",
+      "tiers": [
+        "No exercise is required.",
+        "Automated adversarial tests run at release.",
+        "A red team exercise runs each year and after major changes.",
+        "An outside red team tests the agent each year, and findings are tracked to closure."
+      ],
+      "evidence": "The exercise reports and the tracking of their findings.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "SEC-07",
+      "title": "Supply chain integrity",
+      "statement": "Verify where every model, component and dependency came from and that it has not been altered, before it is used and while it is in use.",
+      "risk": "Compromised models or components",
+      "metric": "Share of components with verified provenance",
+      "tiers": [
+        "Components come from approved sources.",
+        "Components are pinned, and their sources are recorded in the bill of materials.",
+        "Components are verified by signature or checksum at build and at deploy.",
+        "Provenance is verified by an outside party each year, including the model suppliers' own attestations."
+      ],
+      "evidence": "The bill of materials with verification results, and supplier attestations.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "SEC-08",
+      "title": "Supplier security assessment",
+      "statement": "Assess the security of every supplier of agent components or services, and keep the assessments current.",
+      "risk": "Security gaps at suppliers",
+      "metric": "Share of suppliers with a current assessment",
+      "tiers": [
+        "Experiments use suppliers already approved.",
+        "Each supplier has a security questionnaire on file.",
+        "Each supplier is assessed each year, with evidence such as an independent audit report.",
+        "Critical suppliers are assessed in depth, and the contract gives the right to audit."
+      ],
+      "evidence": "The supplier assessments and the audit reports they rely on.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "SEC-09",
+      "title": "Concentration risk",
+      "statement": "Watch for dependence on a single supplier of models, infrastructure or services, and keep a plan for replacing it.",
+      "risk": "Dependence on one supplier",
+      "metric": "Concentration risk score",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "The agent's single-supplier dependencies are recorded.",
+        "Each critical single-supplier dependency has a written exit plan.",
+        "Exit plans are tested, and concentration is reported to the governance council."
+      ],
+      "evidence": "The dependency record, exit plans and test results.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "SEC-10",
+      "title": "Incident response",
+      "statement": "Keep tested response plans for agent security incidents. Record what happened without guessing, and leave the decisions to a person.",
+      "risk": "Slow or poor response to an incident",
+      "metric": "Incident drill success rate",
+      "tiers": [
+        "The sandbox can be shut down on any incident.",
+        "Each agent is covered by the organization's incident plan.",
+        "Agent-specific playbooks exist and are drilled each year.",
+        "Drills include partners and regulators' notice requirements, and run each half year."
+      ],
+      "evidence": "The playbooks, drill reports and incident records.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "SEC-11",
+      "title": "Pause and stop",
+      "statement": "Let a named person pause or end any agent at once. A stop revokes its credentials, every door checks for the stop so the agent stays stopped, and a paused agent resumes only when that person says so.",
+      "risk": "An agent that cannot be stopped",
+      "metric": "Share of agents with a stop tested in the last quarter",
+      "tiers": [
+        "The sandbox can be shut down as a whole.",
+        "Each agent has a named person who can stop it, and the stop is tested at release.",
+        "A stop revokes credentials at once and is checked at every point the agent passes through, and it is tested each quarter.",
+        "The stop is tested each month, and its reach across delegated work is measured as the Network discipline requires."
+      ],
+      "evidence": "The named stoppers, the stop test results and the time each test took to take effect.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "SEC-12",
+      "title": "Forensic logging",
+      "statement": "Log enough, in records nobody can alter unnoticed, to investigate and attribute any security incident involving an agent.",
+      "risk": "Incidents nobody can investigate",
+      "metric": "Log completeness score",
+      "tiers": [
+        "Sandbox logs are kept for the experiment's life.",
+        "Security events are logged centrally.",
+        "Logs cannot be changed by the agent or its operators, and are kept for the retention period.",
+        "Logs can be handed to an outside investigator without the team's help."
+      ],
+      "evidence": "The logging settings, a completeness sample and the storage settings that prevent edits.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "SEC-13",
+      "title": "Each agent's own secrets",
+      "statement": "Give every agent its own credentials, never shared with another agent or a person, named in its configuration rather than written into it.",
+      "risk": "One leaked secret opening many agents",
+      "metric": "Shared or embedded credentials found",
+      "tiers": [
+        "Sandbox credentials work only in the sandbox.",
+        "Each agent has its own credentials held in a secrets store.",
+        "Credentials are short-lived and rotated, and a scan for shared or embedded secrets runs at every build.",
+        "Credential use is monitored, and use from an unexpected place stops the agent."
+      ],
+      "evidence": "The secrets store inventory per agent and the scan results.",
+      "checkers": ["internal", "outside"]
+    }
+  ]
+}

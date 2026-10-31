@@ -1,0 +1,244 @@
+{
+  "objectives": [
+    {
+      "id": "RUN-01",
+      "title": "Network rules enforced at run time",
+      "statement": "Enforce the relationships recorded under the <a href=\"network.html\">Network</a> discipline on every live interaction, so that an agent can reach only the agents it has been admitted to, under a current mandate or contract.",
+      "risk": "Unauthorized interaction between agents",
+      "metric": "Interactions refused for lack of an admission, mandate or contract",
+      "tiers": [
+        "Sandbox agents can reach only other sandbox agents.",
+        "Every message between agents is checked against the admissions list.",
+        "Every interaction is checked against a current mandate or contract by something other than the agents involved.",
+        "Refusals are reviewed each week, and the rules are tested by an outside party each year."
+      ],
+      "evidence": "The enforcement point's records of interactions allowed and refused, linked to the admission or mandate each one relied on.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "RUN-02",
+      "title": "Identity, authentication and authorization",
+      "statement": "Give each agent a unique name bound to its own key, check it on every request, and trace every request back to the person or organization it acts for.",
+      "risk": "One agent speaking as another, or acting for no one",
+      "metric": "Share of requests that carry a verified agent identity and the party it acts for",
+      "tiers": [
+        "Sandbox agents use sandbox identities that work nowhere else.",
+        "Each agent has its own credentials, and every request is authenticated.",
+        "Each request names the party it acts for, and authority is checked outside the agent on every request.",
+        "Identities are bound to keys held in hardware or a managed key service, and access reviews run each quarter."
+      ],
+      "evidence": "The identity register, request logs showing the verified identity and the party acted for, and the access reviews.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "RUN-03",
+      "title": "Personal data protection",
+      "statement": "Find personal data in what agents read and write, and mask it or keep it out of prompts, replies and logs where it is not needed.",
+      "risk": "Exposure of personal data",
+      "metric": "Personal data leaks found",
+      "tiers": [
+        "Sandbox agents use no real personal data.",
+        "Personal data is masked in logs.",
+        "Personal data is found and masked in prompts and replies as well, and leaks are reported as incidents.",
+        "Masking is tested each quarter with seeded data, and results go to the privacy officer."
+      ],
+      "evidence": "The masking settings, the test results and the incident log.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "RUN-04",
+      "title": "Data minimization",
+      "statement": "Let agents collect and keep only the data their task needs, and state what they store, where and for how long.",
+      "risk": "Collecting or sharing more data than needed",
+      "metric": "Data scope violations found",
+      "tiers": [
+        "The experiment keeps no data after it ends.",
+        "The agent declares what data it keeps, where and for how long.",
+        "What the agent stores is checked against its declaration, and excess is deleted.",
+        "Retention and deletion are audited each year against the declaration."
+      ],
+      "evidence": "The data declaration and the results of comparing it with what is stored.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "RUN-05",
+      "title": "Tool access control",
+      "statement": "Give agents only the tools their task needs, through tool connections (for example Model Context Protocol servers) set to least privilege, with rights that expire and can be revoked.",
+      "risk": "Tool permissions wider than the task",
+      "metric": "Share of tool connections set to least privilege",
+      "tiers": [
+        "Sandbox agents use sandbox tools only.",
+        "Each tool an agent uses is on an approved list for that agent.",
+        "Tool rights are granted for the task at hand and expire, and each call is checked against what the tool accepts.",
+        "Tool grants are reviewed each quarter, and every grant and revocation is recorded."
+      ],
+      "evidence": "The tool grants per agent, with their expiry, and the record of calls checked and refused.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "RUN-06",
+      "title": "Model gateway",
+      "statement": "Send model requests through a governed gateway that applies usage policy, content filtering, spending limits and access control.",
+      "risk": "Uncontrolled use of models",
+      "metric": "Share of model requests made through the gateway",
+      "tiers": [
+        "Sandbox use goes through the gateway with a sandbox budget.",
+        "All production model requests go through the gateway.",
+        "The gateway refuses requests from agents that are stopped or over their limit.",
+        "Gateway policy changes are approved by the governance council and recorded."
+      ],
+      "evidence": "Gateway logs and the comparison of model spend with gateway traffic.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "RUN-07",
+      "title": "Content filtering and reply checks",
+      "statement": "Filter harmful or prohibited content going into and out of agents, and check each reply against its promised form and rules before it leaves.",
+      "risk": "Harmful or malformed output",
+      "metric": "Replies blocked or corrected before they left",
+      "tiers": [
+        "The experiment uses the standard filter.",
+        "Inputs and outputs pass the content filter.",
+        "Each reply is checked against its declared form and rules before it is sent.",
+        "Filter effectiveness is tested each quarter, and results are reported to the governance council."
+      ],
+      "evidence": "Filter and reply-check logs, and the latest effectiveness test.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "RUN-08",
+      "title": "Injected instructions ignored",
+      "statement": "Treat instructions hidden in what an agent reads, such as a web page, an email or a file, as content and never as commands, and make sure what it reads cannot change its permissions.",
+      "risk": "An attacker steering an agent through its inputs",
+      "metric": "Injection attempts detected and blocked",
+      "tiers": [
+        "The experiment uses the standard defenses.",
+        "Known injection patterns are detected and blocked.",
+        "Permissions are enforced outside the agent, so an injected instruction cannot widen them.",
+        "The agent is tested with new injection techniques each quarter."
+      ],
+      "evidence": "Detection logs and the results of the latest injection tests.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "RUN-09",
+      "title": "Rate limits",
+      "statement": "Limit how fast agents can act, so that a fault or an attack cannot exhaust resources or run up costs.",
+      "risk": "Exhausted resources or abuse",
+      "metric": "Rate limit triggers",
+      "tiers": [
+        "The sandbox has a fixed rate limit.",
+        "Each agent has a rate limit set by its owner.",
+        "Rate limits apply per agent and per party it acts for, and a breach alerts the owner.",
+        "Limits are reviewed at each review date against actual use."
+      ],
+      "evidence": "The configured limits and the log of triggers.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "RUN-10",
+      "title": "Observability",
+      "statement": "Trace every step, model call and tool call with its inputs, timing, tokens and cost, so that any run can be followed from start to finish.",
+      "risk": "Blind spots in agent behavior",
+      "metric": "Share of agents with step-level tracing",
+      "tiers": [
+        "The experiment keeps basic logs.",
+        "Each run is logged with its result, timing and cost.",
+        "Every step is traced, and traces can be joined across agents in a chain.",
+        "Traces are kept for the retention period and can be read by an outside auditor."
+      ],
+      "evidence": "Sampled traces for the current version, and the coverage report.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "RUN-11",
+      "title": "Resilience and time limits",
+      "statement": "Make a slow or failing call give up after a set time and retry only within a limit, and fail over where the service needs it.",
+      "risk": "Service disruption when an agent fails",
+      "metric": "Failover test success rate",
+      "tiers": [
+        "No requirement applies in a sandbox.",
+        "Every outside call has a time limit and a retry limit.",
+        "Circuit breakers stop calls to a failing dependency, and failover is tested each quarter.",
+        "Failover is tested each month, including the failure of a partner's agent."
+      ],
+      "evidence": "The configured limits and the failover test results.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "RUN-12",
+      "title": "Capacity",
+      "statement": "Make sure agents can meet demand without slowing down, with capacity to spare.",
+      "risk": "Slower service under load",
+      "metric": "Capacity headroom",
+      "tiers": [
+        "No requirement applies in a sandbox.",
+        "Capacity is reviewed at each release.",
+        "Load tests run before release, and headroom is monitored.",
+        "Headroom is kept above a set level, and load tests include peak events."
+      ],
+      "evidence": "Load test results and the headroom report.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "RUN-13",
+      "title": "Loop and step limits",
+      "statement": "Make each agent notice when it repeats itself or stops making progress, and stop within a set number of steps.",
+      "risk": "An agent stuck in a loop running up cost overnight",
+      "metric": "Runs stopped by a step or progress limit",
+      "tiers": [
+        "The sandbox has a fixed step limit per run.",
+        "Each agent has a step limit per run.",
+        "Repetition and lack of progress are detected, and the owner is alerted when a run is stopped.",
+        "Stopped runs are reviewed each week, and the limits are part of the release."
+      ],
+      "evidence": "The configured limits and the record of runs that were stopped.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "RUN-14",
+      "title": "People in the loop",
+      "statement": "Set in advance, by risk, which acts need a person to decide. Show that person what the agent wants to do and why, and record every yes and no with who gave it.",
+      "risk": "An agent committing its owner to something nobody meant",
+      "metric": "Share of high-risk acts that had a recorded human decision",
+      "tiers": [
+        "The experiment takes no act with effect outside the sandbox.",
+        "Acts that move money or commit the owner wait for the owner's approval.",
+        "Approval thresholds are written down by risk, and every decision is recorded with who gave it.",
+        "Approvals for Tier 4 acts need two people, and the decisions are reviewed each quarter."
+      ],
+      "evidence": "The approval thresholds and the record of decisions, each with the person, the time and what they were shown.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "RUN-15",
+      "title": "Records of work",
+      "statement": "Record every piece of work with who asked, on whose behalf, what the agent did and the result, including failures, in records nobody can alter unnoticed.",
+      "risk": "Nobody can say why an agent did something",
+      "metric": "Share of work items with a complete record",
+      "tiers": [
+        "The experiment keeps a log of its runs.",
+        "Every piece of work names who asked and records the result, including errors.",
+        "The records are only ever added to and each is signed, so nobody can change one without it showing.",
+        "Someone outside the team can read the records without the team's help."
+      ],
+      "evidence": "Sampled work records and the storage settings that prevent edits.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "RUN-16",
+      "title": "Alerts with an owner",
+      "statement": "Keep a current answer to whether each agent is working, and when it fails or goes outside its limits, tell a named person within a stated time.",
+      "risk": "An agent that fails quietly until customers notice",
+      "metric": "Time from failure to the owner being told",
+      "tiers": [
+        "The experiment's builder checks it when they use it.",
+        "Each agent has a health check and alerts that reach a named person.",
+        "Health is measured by a real answer rather than by the process being up, and alerts have a response time.",
+        "Alerts reach someone at all hours, and response times are reported each month."
+      ],
+      "evidence": "The alert settings with their owners, and the record of alerts and response times.",
+      "checkers": ["internal"]
+    }
+  ]
+}

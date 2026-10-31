@@ -1,0 +1,139 @@
+{
+  "objectives": [
+    {
+      "id": "CMP-01",
+      "title": "Contractual obligation mapping",
+      "statement": "Map each agent's capabilities and actions to the contracts that govern them, including customer agreements, supplier contracts for models and tools, and intellectual property terms.",
+      "risk": "Agent actions that breach contract terms",
+      "metric": "Share of agents mapped to their governing contracts",
+      "tiers": [
+        "The owner lists any contract whose data or tools the agent touches, even in a sandbox.",
+        "Each production capability names the contract clauses it relies on, and the map is checked at release.",
+        "Legal reviews the map before deployment, and a change to a governing contract triggers a review of the agent.",
+        "Legal signs the map, and contract obligations are enforced as written limits that the agent cannot change."
+      ],
+      "evidence": "The contract map in the agent's record, with the clause references, the reviewer and the date of the last review.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "CMP-02",
+      "title": "Regulatory requirement traceability",
+      "statement": "Trace each agent capability to the regulations that apply to it, so that every obligation is linked to the functions that must meet it.",
+      "risk": "Breach of applicable regulations",
+      "metric": "Share of capabilities traced to regulatory requirements",
+      "tiers": [
+        "The owner states whether the agent could fall under any regulation if it went to production.",
+        "Each capability that handles regulated data or decisions names the regulation and the requirement.",
+        "Compliance reviews the trace before deployment and keeps it current with every release.",
+        "The trace is part of the regulatory filing or register, and an outside auditor reviews it each year."
+      ],
+      "evidence": "A traceability matrix from capability to requirement, versioned with the agent, with the compliance reviewer named.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "CMP-03",
+      "title": "Regulatory change detection",
+      "statement": "Watch for changes in the regulations that apply, and assess their effect on existing agents before the change takes force.",
+      "risk": "Compliance drift as regulations change",
+      "metric": "Time from a regulation change to its impact assessment",
+      "tiers": [
+        "No separate watch is required while the agent stays in a sandbox.",
+        "Compliance subscribes to changes for the regulations named in the trace and reviews them each quarter.",
+        "Each relevant change gets a written impact assessment, with an owner and a date, before it takes force.",
+        "Changes are assessed within a set number of days, and the executive sponsor approves the response."
+      ],
+      "evidence": "A log of regulatory changes received, with the agents assessed, the decision taken and the date.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "CMP-04",
+      "title": "Internal policy adherence",
+      "statement": "Keep agents within internal policy, including acceptable use, risk appetite and data classification.",
+      "risk": "Breach of internal policy",
+      "metric": "Policy findings per audit",
+      "tiers": [
+        "The agent uses only data classified as public or synthetic.",
+        "The agent's declared data classes and acts are checked against policy automatically before release.",
+        "A policy owner reviews the agent's declaration, and exceptions are written down with an expiry date.",
+        "Policy is expressed as code that is evaluated on every act, and exceptions need executive approval."
+      ],
+      "evidence": "The policy evaluation results for the current version, and the register of exceptions with approvers and expiry dates.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "CMP-05",
+      "title": "Ethical principles in design and operation",
+      "statement": "Build fairness, transparency and bias mitigation into how agents are designed and how they run, and review each agent against them before it reaches production.",
+      "risk": "Harm from biased or unfair agents",
+      "metric": "Share of agents with a completed ethics review",
+      "tiers": [
+        "The owner records any group of people the agent's output could affect.",
+        "The agent passes a standard ethics checklist before release.",
+        "An ethics review board reviews the agent, and its outcomes are tested for bias across affected groups.",
+        "The review is repeated at each major change, and its results are published or shared with regulators where required."
+      ],
+      "evidence": "The completed checklist or review, the bias test results for the current version, and the reviewer's decision.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "CMP-06",
+      "title": "Compliance evidence retention",
+      "statement": "Keep the records that show compliance, including decision logs, policy maps and reviews, for as long as obligations require, in a form that someone outside the team can read.",
+      "risk": "Being unable to show compliance under audit",
+      "metric": "Audit readiness score",
+      "tiers": [
+        "Sandbox records are kept for the life of the experiment.",
+        "Records are kept for the period set by policy, in storage the agent cannot write to.",
+        "Records cannot be edited or deleted before their retention date, and retrieval is tested each year.",
+        "Records are held to regulatory retention periods, and an outside auditor can retrieve them without the team's help."
+      ],
+      "evidence": "The retention schedule, the storage settings that prevent edits, and the result of the last retrieval test.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "CMP-07",
+      "title": "Business objective traceability",
+      "statement": "Trace every agent to a business objective that someone in the organization still stands behind. An agent with no current objective is a candidate for retirement.",
+      "risk": "Agents that run on after their purpose has gone",
+      "metric": "Share of agents traced to a current business objective",
+      "tiers": [
+        "The owner writes one sentence on what the experiment is meant to learn and when it ends.",
+        "The agent names the business objective it serves and the measure that shows it is serving it.",
+        "The objective is linked to a funded initiative, and the measure is reported each quarter.",
+        "The objective is part of the organization's strategy, and the executive sponsor confirms it each year."
+      ],
+      "evidence": "The objective and its measure in the agent's record, with the person who stands behind it and the latest reported value.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "CMP-08",
+      "title": "An owner of the agent's value",
+      "statement": "Name a person who owns the value the agent is supposed to deliver. That person may be different from the person who runs the agent, and must be able to say whether it is still worth what it costs.",
+      "risk": "Agents that nobody can justify",
+      "metric": "Share of agents with a named owner of their value",
+      "tiers": [
+        "The person running the experiment owns its value.",
+        "A business owner is named, and accepts the agent at release.",
+        "The business owner signs off on cost against value each quarter.",
+        "An executive owns the value, and reports it to the governance council."
+      ],
+      "evidence": "The named value owner in the agent's record, and their latest sign-off with its date.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "CMP-09",
+      "title": "Review date and renewal",
+      "statement": "Give every agent a review date. At that date its objective, its obligations and its value are checked again, and it is renewed, changed or retired.",
+      "risk": "Approvals that never expire",
+      "metric": "Share of agents past their review date",
+      "tiers": [
+        "An experiment ends on its stated date unless it is renewed.",
+        "The agent is reviewed at least once a year.",
+        "The agent is reviewed at least every six months, and after any serious incident.",
+        "The agent is reviewed at least every quarter, and the governance council records the decision."
+      ],
+      "evidence": "The review date in the agent's record, and the minutes or record of the last review with its outcome.",
+      "checkers": ["internal", "outside"]
+    }
+  ]
+}

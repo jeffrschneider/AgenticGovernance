@@ -1,525 +1,327 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Compliance Alignment - Agentic Governance Framework</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            card: '#111827',
-                            accent: '#3B82F6',
-                            glow: '#60A5FA',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            danger: '#EF4444',
-                            warning: '#F59E0B'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0F19;
-            color: #E2E8F0;
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B0F19;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1E293B;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3B82F6;
-        }
-
-        .neon-border {
-            box-shadow: 0 0 5px rgba(59, 130, 246, 0.2);
-            transition: all 0.3s ease;
-        }
-        .neon-border:hover {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
-            border-color: #3B82F6;
-        }
-
-        .section-header {
-            position: relative;
-            display: inline-block;
-        }
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
-        }
-
-        .objective-card {
-            transition: all 0.3s ease;
-        }
-        .objective-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
-        }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Objectives and Obligations | Agentic Governance Framework</title>
+<meta name="description" content="Every agent traces to a business objective, an owner of its value and a review date, alongside its contractual, regulatory, internal policy and ethical obligations.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html" class="on" aria-current="page">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section I</p>
+      <h1>Objectives and obligations</h1>
+      <p class="lede">Every agent has to trace to two things: the business objective it serves, and the obligations that bind what it does. An agent that serves no current objective should be retired, and an agent that cannot show its obligations should not run.</p>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="index.html#compliance" class="text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors border-b-2 border-brand-accent">Compliance</a>
-                        <a href="index.html#lifecycle" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Lifecycle</a>
-                        <a href="index.html#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
-                        <a href="index.html#financial" class="text-brand-warning hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Financial</a>
-                        <a href="index.html#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+  <section class="band" id="objectives-of-the-agent">
+    <div class="wrap">
+      <h2>The objective behind each agent</h2>
+      <p>Agents are cheap to start and easy to forget. An agent built for a project that ended last year can keep running, spending money and holding credentials, long after anyone wanted it. To prevent that, every agent carries three facts about why it exists.</p>
+      <div class="cards three">
+        <div class="card"><h3>A business objective</h3><p>The agent names the objective it serves and the measure that shows whether it is serving it. Someone in the organization has to still stand behind that objective.</p></div>
+        <div class="card"><h3>An owner of its value</h3><p>A named person owns the value the agent is supposed to deliver. That person may not be the one who runs it, and must be able to say whether it is still worth what it costs.</p></div>
+        <div class="card"><h3>A review date</h3><p>On that date the objective, the obligations and the value are checked again, and the agent is renewed, changed or retired.</p></div>
+      </div>
+      <p>These facts are set at <a href="lifecycle-plan.html">Plan time</a>, checked at every review, and used at <a href="lifecycle-decommission.html">Decommission time</a> to decide when an agent should end. <a href="performance-qa.html">Performance and quality</a> reports the objective's measure, and <a href="financial-governance.html">Financial governance</a> sets it against the agent's cost.</p>
+    </div>
+  </section>
+
+  <section class="band" id="obligations">
+    <div class="wrap">
+      <h2>The four kinds of obligation</h2>
+      <p>Agent governance has to trace back to obligations that actually bind the organization. Each agent's record maps its capabilities to the obligations that govern them, so that a reviewer can see which rule each limit exists to satisfy.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Contractual</h3>
+          <p>These are the terms the organization has agreed with others.</p>
+          <ul><li>Customer agreements and service levels</li><li>Supplier contracts for models, tools and hosting</li><li>Intellectual property terms</li><li>Contracts between agents, covered under <a href="network.html">Network</a></li></ul>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <!-- Breadcrumb -->
-            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-                <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span class="text-gray-300">Compliance Alignment</span>
-            </div>
-
-            <div class="flex items-center gap-4 mb-6">
-                <div class="h-14 w-14 bg-blue-500/20 rounded-xl flex items-center justify-center">
-                    <i data-lucide="scale" class="w-8 h-8 text-blue-400"></i>
-                </div>
-                <div>
-                    <span class="text-blue-400 font-mono text-sm">SECTION I</span>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                        Compliance Alignment
-                    </h1>
-                </div>
-            </div>
-
-            <p class="text-xl text-gray-400 max-w-3xl mb-8">
-                All agentic governance must trace back to binding obligations. The Compliance Alignment layer ensures every AI agent operates within the boundaries of contracts, regulations, internal policies, and ethical principles.
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="target" class="w-5 h-5 text-blue-400"></i>
-                    <span class="text-sm text-gray-300"><strong class="text-white">6</strong> Control Objectives</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                    <span class="text-sm text-gray-300">Risk-Driven Approach</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-card px-4 py-2 rounded-lg border border-gray-800">
-                    <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                    <span class="text-sm text-gray-300">Measurable Metrics</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Regulatory</h3>
+          <p>These are the laws and rules that apply to what the agent does.</p>
+          <ul><li>Data protection and privacy law</li><li>Rules for AI systems</li><li>Sector regulation</li><li>Export controls</li></ul>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-
-        <!-- Introduction -->
-        <section class="mb-16">
-            <div class="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-8">
-                <h2 class="text-2xl font-bold text-white mb-4">Why Compliance Alignment Matters</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <p class="text-gray-400 mb-4">
-                            As autonomous AI agents make decisions and take actions on behalf of your organization, they inherit legal, regulatory, and ethical obligations. Without explicit compliance mapping, agents may inadvertently:
-                        </p>
-                        <ul class="space-y-2 text-gray-400">
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="alert-triangle" class="w-5 h-5 text-rose-400 mt-0.5 flex-shrink-0"></i>
-                                <span>Violate customer contract terms or SLAs</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="alert-triangle" class="w-5 h-5 text-rose-400 mt-0.5 flex-shrink-0"></i>
-                                <span>Breach data protection regulations (GDPR, CCPA, HIPAA)</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="alert-triangle" class="w-5 h-5 text-rose-400 mt-0.5 flex-shrink-0"></i>
-                                <span>Produce biased or unfair outcomes causing reputational harm</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="alert-triangle" class="w-5 h-5 text-rose-400 mt-0.5 flex-shrink-0"></i>
-                                <span>Fail to maintain audit trails required by regulators</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bg-brand-card/50 rounded-lg p-6 border border-gray-800">
-                        <h3 class="font-bold text-white mb-3 flex items-center gap-2">
-                            <i data-lucide="lightbulb" class="w-5 h-5 text-yellow-400"></i>
-                            Key Principle
-                        </h3>
-                        <p class="text-gray-300 italic">
-                            "Compliance is not a constraint on innovation—it's the foundation that enables sustainable, trustworthy AI adoption at enterprise scale."
-                        </p>
-                        <div class="mt-4 pt-4 border-t border-gray-700">
-                            <p class="text-sm text-gray-500">
-                                Each control objective below addresses a specific compliance risk with measurable outcomes that can be tracked and improved over time.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Control Objectives -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 section-header">Control Objectives</h2>
-
-            <div class="grid gap-6">
-
-                <!-- CMP-01 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-blue-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-blue-400">CMP-01</span>
-                            <i data-lucide="file-text" class="w-10 h-10 text-blue-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Contractual Obligation Mapping</h3>
-                            <p class="text-gray-400 mb-4">
-                                Ensure every AI agent's capabilities and actions are explicitly mapped to the contractual obligations that govern them. This includes customer agreements, vendor contracts, and intellectual property terms.
-                            </p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Agent actions violating contract terms</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents mapped to governing contracts</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CMP-02 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-purple-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-purple-400">CMP-02</span>
-                            <i data-lucide="git-branch" class="w-10 h-10 text-purple-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Regulatory Requirement Traceability</h3>
-                            <p class="text-gray-400 mb-4">
-                                Establish clear traceability between agent capabilities and applicable regulatory requirements. This ensures that compliance obligations are systematically linked to the features and functions each agent performs.
-                            </p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Non-compliance with applicable regulations</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% capabilities traced to regulatory requirements</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CMP-03 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-yellow-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-yellow-400">CMP-03</span>
-                            <i data-lucide="radar" class="w-10 h-10 text-yellow-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Regulatory Change Detection</h3>
-                            <p class="text-gray-400 mb-4">
-                                Implement monitoring systems to detect changes in applicable regulations and assess their impact on existing agents. Proactive detection prevents compliance drift as regulatory landscapes evolve.
-                            </p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Compliance drift from evolving regulations</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Time from regulation change to impact assessment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CMP-04 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-emerald-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-emerald-400">CMP-04</span>
-                            <i data-lucide="building" class="w-10 h-10 text-emerald-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Internal Policy Adherence</h3>
-                            <p class="text-gray-400 mb-4">
-                                Ensure agents operate within the boundaries defined by internal corporate policies, including acceptable use policies, risk appetite statements, and data classification requirements.
-                            </p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Violation of corporate policies</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Policy compliance audit findings</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CMP-05 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-rose-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-rose-400">CMP-05</span>
-                            <i data-lucide="heart-handshake" class="w-10 h-10 text-rose-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Ethical Principle Embedding</h3>
-                            <p class="text-gray-400 mb-4">
-                                Embed ethical principles into agent design and operation, including fairness, transparency, and bias mitigation. Every agent should undergo ethics review before production deployment.
-                            </p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Reputational harm from biased or unfair agents</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">% agents with ethics review completed</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CMP-06 -->
-                <div class="objective-card bg-brand-card rounded-xl border border-gray-800 overflow-hidden">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-48 bg-cyan-500/10 p-6 flex flex-col justify-center items-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                            <span class="font-mono font-bold text-2xl text-cyan-400">CMP-06</span>
-                            <i data-lucide="archive" class="w-10 h-10 text-cyan-400 mt-3"></i>
-                        </div>
-                        <div class="flex-1 p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Compliance Evidence Retention</h3>
-                            <p class="text-gray-400 mb-4">
-                                Maintain comprehensive records and evidence of compliance activities to demonstrate adherence during audits. This includes decision logs, policy mappings, and review documentation.
-                            </p>
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-rose-500/10 rounded-lg p-4 border border-rose-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="shield-alert" class="w-5 h-5 text-rose-400"></i>
-                                        <span class="font-semibold text-rose-400 text-sm">Primary Risk Addressed</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Inability to demonstrate compliance under audit</p>
-                                </div>
-                                <div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
-                                        <span class="font-semibold text-emerald-400 text-sm">Key Metric</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm">Audit readiness score</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Summary Table -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6 section-header">Quick Reference</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800 text-gray-200">
-                            <th class="p-4 rounded-tl-lg font-mono">ID</th>
-                            <th class="p-4">Objective</th>
-                            <th class="p-4">Primary Risk Addressed</th>
-                            <th class="p-4 rounded-tr-lg">Key Metric</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800 bg-brand-card">
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-blue-400 font-bold font-mono">CMP-01</td>
-                            <td class="p-4 text-sm text-gray-300">Contractual Obligation Mapping</td>
-                            <td class="p-4 text-sm text-gray-400">Agent actions violating contract terms</td>
-                            <td class="p-4 text-sm text-gray-400">% agents mapped to governing contracts</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-purple-400 font-bold font-mono">CMP-02</td>
-                            <td class="p-4 text-sm text-gray-300">Regulatory Requirement Traceability</td>
-                            <td class="p-4 text-sm text-gray-400">Non-compliance with applicable regulations</td>
-                            <td class="p-4 text-sm text-gray-400">% capabilities traced to regulatory requirements</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-yellow-400 font-bold font-mono">CMP-03</td>
-                            <td class="p-4 text-sm text-gray-300">Regulatory Change Detection</td>
-                            <td class="p-4 text-sm text-gray-400">Compliance drift from evolving regulations</td>
-                            <td class="p-4 text-sm text-gray-400">Time from regulation change to impact assessment</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-emerald-400 font-bold font-mono">CMP-04</td>
-                            <td class="p-4 text-sm text-gray-300">Internal Policy Adherence</td>
-                            <td class="p-4 text-sm text-gray-400">Violation of corporate policies</td>
-                            <td class="p-4 text-sm text-gray-400">Policy compliance audit findings</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-rose-400 font-bold font-mono">CMP-05</td>
-                            <td class="p-4 text-sm text-gray-300">Ethical Principle Embedding</td>
-                            <td class="p-4 text-sm text-gray-400">Reputational harm from biased or unfair agents</td>
-                            <td class="p-4 text-sm text-gray-400">% agents with ethics review completed</td>
-                        </tr>
-                        <tr class="hover:bg-gray-800/50 transition-colors">
-                            <td class="p-4 text-cyan-400 font-bold font-mono">CMP-06</td>
-                            <td class="p-4 text-sm text-gray-300">Compliance Evidence Retention</td>
-                            <td class="p-4 text-sm text-gray-400">Inability to demonstrate compliance under audit</td>
-                            <td class="p-4 text-sm text-gray-400">Audit readiness score</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Navigation to Other Sections -->
-        <section class="mt-16 pt-12 border-t border-gray-800">
-            <h3 class="text-xl font-bold text-gray-400 mb-6">Explore Other Sections</h3>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <a href="index.html#lifecycle" class="bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-colors group">
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-blue-500/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="git-commit" class="text-blue-400"></i>
-                        </div>
-                        <div>
-                            <span class="text-white font-semibold">Lifecycle Governance</span>
-                            <p class="text-xs text-gray-500">Plan, Design, Build, Run, Decommission</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="index.html#cross-cutting" class="bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-purple-500/50 transition-colors group">
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-purple-500/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="layers" class="text-purple-400"></i>
-                        </div>
-                        <div>
-                            <span class="text-white font-semibold">Cross-Cutting Disciplines</span>
-                            <p class="text-xs text-gray-500">Security, Performance, Enablement</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="index.html#operating-model" class="bg-brand-card p-4 rounded-lg border border-gray-800 hover:border-emerald-500/50 transition-colors group">
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-emerald-500/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="settings" class="text-emerald-400"></i>
-                        </div>
-                        <div>
-                            <span class="text-white font-semibold">Operating Model</span>
-                            <p class="text-xs text-gray-500">Agent Tiers & Governance Approach</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
-                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
-            </div>
-            <div class="text-gray-600 text-sm text-center md:text-right">
-                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
-                <p>Framework Version 2.1</p>
-            </div>
+        <div class="card">
+          <h3>Internal policy</h3>
+          <p>These are the organization's own rules.</p>
+          <ul><li>Acceptable use</li><li>Risk appetite</li><li>Data classification</li></ul>
         </div>
-    </footer>
+        <div class="card">
+          <h3>Ethical</h3>
+          <p>These are the principles the organization holds itself to.</p>
+          <ul><li>Fairness and transparency</li><li>Bias mitigation</li><li>Explainability</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        lucide.createIcons();
-    </script>
+  <section class="band" id="how-it-connects">
+    <div class="wrap">
+      <h2>How this section connects to the rest</h2>
+      <p>Objectives and obligations are where the values come from. The lifecycle and the disciplines turn them into controls. A data protection rule becomes a limit on what an agent may store, a contract's service level becomes a response time that is measured, and a risk appetite becomes the agent's risk tier on the <a href="operating-model.html">Operating Model</a> page. <a href="assurance.html">Assurance</a> then shows that each control holds, with evidence that someone outside the team can check.</p>
+    </div>
+  </section>
+
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 9 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="cmp-01">
+      <header><span class="oid">CMP-01</span><h3>Contractual obligation mapping</h3></header>
+      <p class="stmt">Map each agent's capabilities and actions to the contracts that govern them, including customer agreements, supplier contracts for models and tools, and intellectual property terms.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agent actions that breach contract terms</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents mapped to their governing contracts</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The owner lists any contract whose data or tools the agent touches, even in a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each production capability names the contract clauses it relies on, and the map is checked at release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Legal reviews the map before deployment, and a change to a governing contract triggers a review of the agent.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Legal signs the map, and contract obligations are enforced as written limits that the agent cannot change.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The contract map in the agent's record, with the clause references, the reviewer and the date of the last review.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="cmp-02">
+      <header><span class="oid">CMP-02</span><h3>Regulatory requirement traceability</h3></header>
+      <p class="stmt">Trace each agent capability to the regulations that apply to it, so that every obligation is linked to the functions that must meet it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Breach of applicable regulations</dd></div>
+        <div><dt>Key metric</dt><dd>Share of capabilities traced to regulatory requirements</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The owner states whether the agent could fall under any regulation if it went to production.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each capability that handles regulated data or decisions names the regulation and the requirement.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Compliance reviews the trace before deployment and keeps it current with every release.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The trace is part of the regulatory filing or register, and an outside auditor reviews it each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>A traceability matrix from capability to requirement, versioned with the agent, with the compliance reviewer named.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="cmp-03">
+      <header><span class="oid">CMP-03</span><h3>Regulatory change detection</h3></header>
+      <p class="stmt">Watch for changes in the regulations that apply, and assess their effect on existing agents before the change takes force.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Compliance drift as regulations change</dd></div>
+        <div><dt>Key metric</dt><dd>Time from a regulation change to its impact assessment</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No separate watch is required while the agent stays in a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Compliance subscribes to changes for the regulations named in the trace and reviews them each quarter.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Each relevant change gets a written impact assessment, with an owner and a date, before it takes force.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Changes are assessed within a set number of days, and the executive sponsor approves the response.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>A log of regulatory changes received, with the agents assessed, the decision taken and the date.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="cmp-04">
+      <header><span class="oid">CMP-04</span><h3>Internal policy adherence</h3></header>
+      <p class="stmt">Keep agents within internal policy, including acceptable use, risk appetite and data classification.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Breach of internal policy</dd></div>
+        <div><dt>Key metric</dt><dd>Policy findings per audit</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The agent uses only data classified as public or synthetic.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent's declared data classes and acts are checked against policy automatically before release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A policy owner reviews the agent's declaration, and exceptions are written down with an expiry date.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Policy is expressed as code that is evaluated on every act, and exceptions need executive approval.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The policy evaluation results for the current version, and the register of exceptions with approvers and expiry dates.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="cmp-05">
+      <header><span class="oid">CMP-05</span><h3>Ethical principles in design and operation</h3></header>
+      <p class="stmt">Build fairness, transparency and bias mitigation into how agents are designed and how they run, and review each agent against them before it reaches production.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Harm from biased or unfair agents</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with a completed ethics review</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The owner records any group of people the agent's output could affect.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent passes a standard ethics checklist before release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>An ethics review board reviews the agent, and its outcomes are tested for bias across affected groups.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The review is repeated at each major change, and its results are published or shared with regulators where required.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The completed checklist or review, the bias test results for the current version, and the reviewer's decision.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="cmp-06">
+      <header><span class="oid">CMP-06</span><h3>Compliance evidence retention</h3></header>
+      <p class="stmt">Keep the records that show compliance, including decision logs, policy maps and reviews, for as long as obligations require, in a form that someone outside the team can read.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Being unable to show compliance under audit</dd></div>
+        <div><dt>Key metric</dt><dd>Audit readiness score</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox records are kept for the life of the experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Records are kept for the period set by policy, in storage the agent cannot write to.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Records cannot be edited or deleted before their retention date, and retrieval is tested each year.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Records are held to regulatory retention periods, and an outside auditor can retrieve them without the team's help.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The retention schedule, the storage settings that prevent edits, and the result of the last retrieval test.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="cmp-07">
+      <header><span class="oid">CMP-07</span><h3>Business objective traceability</h3></header>
+      <p class="stmt">Trace every agent to a business objective that someone in the organization still stands behind. An agent with no current objective is a candidate for retirement.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agents that run on after their purpose has gone</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents traced to a current business objective</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The owner writes one sentence on what the experiment is meant to learn and when it ends.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent names the business objective it serves and the measure that shows it is serving it.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The objective is linked to a funded initiative, and the measure is reported each quarter.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The objective is part of the organization's strategy, and the executive sponsor confirms it each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The objective and its measure in the agent's record, with the person who stands behind it and the latest reported value.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="cmp-08">
+      <header><span class="oid">CMP-08</span><h3>An owner of the agent's value</h3></header>
+      <p class="stmt">Name a person who owns the value the agent is supposed to deliver. That person may be different from the person who runs the agent, and must be able to say whether it is still worth what it costs.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Agents that nobody can justify</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents with a named owner of their value</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The person running the experiment owns its value.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>A business owner is named, and accepts the agent at release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The business owner signs off on cost against value each quarter.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>An executive owns the value, and reports it to the governance council.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The named value owner in the agent's record, and their latest sign-off with its date.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="cmp-09">
+      <header><span class="oid">CMP-09</span><h3>Review date and renewal</h3></header>
+      <p class="stmt">Give every agent a review date. At that date its objective, its obligations and its value are checked again, and it is renewed, changed or retired.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Approvals that never expire</dd></div>
+        <div><dt>Key metric</dt><dd>Share of agents past their review date</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>An experiment ends on its stated date unless it is renewed.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The agent is reviewed at least once a year.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The agent is reviewed at least every six months, and after any serious incident.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The agent is reviewed at least every quarter, and the governance council records the decision.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The review date in the agent's record, and the minutes or record of the last review with its outcome.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#cmp-01">CMP-01</a></td><td data-h="Objective">Contractual obligation mapping</td><td data-h="Key metric">Share of agents mapped to their governing contracts</td></tr>
+      <tr><td data-h="ID"><a href="#cmp-02">CMP-02</a></td><td data-h="Objective">Regulatory requirement traceability</td><td data-h="Key metric">Share of capabilities traced to regulatory requirements</td></tr>
+      <tr><td data-h="ID"><a href="#cmp-03">CMP-03</a></td><td data-h="Objective">Regulatory change detection</td><td data-h="Key metric">Time from a regulation change to its impact assessment</td></tr>
+      <tr><td data-h="ID"><a href="#cmp-04">CMP-04</a></td><td data-h="Objective">Internal policy adherence</td><td data-h="Key metric">Policy findings per audit</td></tr>
+      <tr><td data-h="ID"><a href="#cmp-05">CMP-05</a></td><td data-h="Objective">Ethical principles in design and operation</td><td data-h="Key metric">Share of agents with a completed ethics review</td></tr>
+      <tr><td data-h="ID"><a href="#cmp-06">CMP-06</a></td><td data-h="Objective">Compliance evidence retention</td><td data-h="Key metric">Audit readiness score</td></tr>
+      <tr><td data-h="ID"><a href="#cmp-07">CMP-07</a></td><td data-h="Objective">Business objective traceability</td><td data-h="Key metric">Share of agents traced to a current business objective</td></tr>
+      <tr><td data-h="ID"><a href="#cmp-08">CMP-08</a></td><td data-h="Objective">An owner of the agent's value</td><td data-h="Key metric">Share of agents with a named owner of their value</td></tr>
+      <tr><td data-h="ID"><a href="#cmp-09">CMP-09</a></td><td data-h="Objective">Review date and renewal</td><td data-h="Key metric">Share of agents past their review date</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="index.html"><small>Previous</small><span>Overview</span></a>
+  <a class="next" href="lifecycle-plan.html"><small>Next</small><span>Plan</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>

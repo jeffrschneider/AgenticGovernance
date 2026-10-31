@@ -1,0 +1,124 @@
+{
+  "objectives": [
+    {
+      "id": "PLN-01",
+      "title": "Strategic alignment",
+      "statement": "Link every agent initiative to a strategic objective before money is spent on it, so that effort does not go to work the organization does not want.",
+      "risk": "Agents that do not serve the organization's objectives",
+      "metric": "Share of agent initiatives linked to a strategic objective",
+      "tiers": [
+        "The request names the question the experiment is meant to answer.",
+        "The request names the business objective and the person who stands behind it.",
+        "The portfolio board approves the link to a funded initiative before design starts.",
+        "The executive sponsor approves the initiative as part of the strategy."
+      ],
+      "evidence": "The approved intake record, with the objective, the sponsor and the approval date.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PLN-02",
+      "title": "Portfolio rationalization",
+      "statement": "Find agents that do the same job, and consolidate them, so that the organization does not pay to build and run the same capability twice.",
+      "risk": "Redundant or overlapping agents",
+      "metric": "Duplicate capabilities found and resolved",
+      "tiers": [
+        "The requester searches the catalog before starting an experiment.",
+        "Intake checks the catalog for an existing agent that does the job, and records the result.",
+        "An architect confirms there is no overlap, or approves the overlap with a reason.",
+        "The portfolio is reviewed for overlap each quarter across the whole organization."
+      ],
+      "evidence": "The catalog search recorded at intake, and the portfolio review with its consolidation decisions.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PLN-03",
+      "title": "Standard demand intake",
+      "statement": "Send every request for a new agent through one intake process, so that each is evaluated before work begins.",
+      "risk": "Uncontrolled growth in the number of agents",
+      "metric": "Share of agents that came through intake",
+      "tiers": [
+        "A short self-service form registers the experiment.",
+        "The full intake form is completed and triaged within a set time.",
+        "Intake includes a first risk tier and an initial list of the obligations from section I.",
+        "Intake goes to the portfolio board with a business case."
+      ],
+      "evidence": "The intake record for the agent, linked from its catalog entry.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PLN-04",
+      "title": "Investment governance",
+      "statement": "Evaluate what each agent initiative is expected to return before funding it, and compare the result with the projection afterwards.",
+      "risk": "Poor use of money on agent initiatives",
+      "metric": "Projected return compared with actual return",
+      "tiers": [
+        "Experiments run within a fixed budget set by the team.",
+        "The request states the expected cost and benefit.",
+        "Finance reviews the business case, and the actual return is compared with it after six months.",
+        "The investment committee approves the case, and the comparison is reported to the executive sponsor."
+      ],
+      "evidence": "The business case, the approval, and the later comparison of projected and actual return.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "PLN-05",
+      "title": "Dependency mapping",
+      "statement": "Record what each planned agent will depend on and what will depend on it, including other agents, so that failures and changes can be traced. The <a href=\"network.html\">Network</a> discipline governs these relationships once they exist.",
+      "risk": "Cascading failures from unknown dependencies",
+      "metric": "Share of agents with recorded dependencies",
+      "tiers": [
+        "The owner lists the systems the experiment calls.",
+        "Every dependency on another agent or system is recorded in the catalog before release.",
+        "Dependencies are declared in the agent's signed description and checked against what it actually calls.",
+        "The dependency map is reviewed by the owners of every agent on it before release."
+      ],
+      "evidence": "The declared dependencies in the catalog, and the result of comparing them with observed calls.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "PLN-06",
+      "title": "A complete agent catalog",
+      "statement": "Keep a registry of every agent the organization runs or relies on, with its owner, its tier and its status, so that no agent operates outside governance.",
+      "risk": "Agents that governance does not know about",
+      "metric": "Share of running agents found in the catalog",
+      "tiers": [
+        "Experiments are registered, and are marked as sandbox only.",
+        "Every production agent has a catalog entry with a named owner before it runs.",
+        "The catalog entry is the source the run-time checks read, so an unregistered agent cannot run.",
+        "The catalog is reconciled with what is actually running each month, and the result is reported."
+      ],
+      "evidence": "The catalog, and the latest reconciliation between catalog entries and running agents.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "PLN-07",
+      "title": "Retirement planning",
+      "statement": "Set the conditions under which an agent will be retired when it is first approved, so that old agents do not pile up.",
+      "risk": "Old agents that nobody retires",
+      "metric": "Share of agents with written retirement conditions",
+      "tiers": [
+        "The experiment has an end date.",
+        "The agent states the conditions that would end it.",
+        "The retirement conditions are checked at every review date.",
+        "The retirement plan names who is affected and how they will be told."
+      ],
+      "evidence": "The retirement conditions in the agent's record, and the review records that checked them.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "PLN-08",
+      "title": "Strategic risk assessment",
+      "statement": "Assess the risks in the agent strategy itself, including dependence on one supplier, technology going out of date and whether the organization is ready.",
+      "risk": "Unrecognized risks in the agent strategy",
+      "metric": "Share of initiatives with a completed risk assessment",
+      "tiers": [
+        "No separate assessment is needed for an experiment.",
+        "The request notes any single supplier the agent would depend on.",
+        "Risk reviews the initiative and records how each strategic risk will be handled.",
+        "The assessment goes to the executive sponsor and is repeated each year."
+      ],
+      "evidence": "The risk assessment, the decisions on each risk and who made them.",
+      "checkers": ["internal", "outside"]
+    }
+  ]
+}

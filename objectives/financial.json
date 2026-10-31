@@ -1,0 +1,124 @@
+{
+  "objectives": [
+    {
+      "id": "FIN-01",
+      "title": "Every cost on a named account",
+      "statement": "Attribute all agent spending to a named account and cost center, so that someone answers for every cost.",
+      "risk": "Spending that nobody answers for",
+      "metric": "Share of agent spend attributed to an account",
+      "tiers": [
+        "Experiments charge to the team's sandbox budget.",
+        "Every agent's spending lands on a named cost center.",
+        "Each piece of work records the account that pays for it.",
+        "Attribution is reconciled with suppliers' invoices each month."
+      ],
+      "evidence": "Cost records by account, and the reconciliation with invoices.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "FIN-02",
+      "title": "Spending ceilings",
+      "statement": "Set a limit per task and per period for each agent, and stop work that would pass a limit before it spends.",
+      "risk": "Runaway costs",
+      "metric": "Work refused at a ceiling, and spend over budget",
+      "tiers": [
+        "The sandbox has a fixed budget that stops spending when it runs out.",
+        "Each agent has a period limit set by its owner.",
+        "Each agent has limits per task and per period, enforced outside the agent before money is spent.",
+        "Limit changes need finance approval, and breaches are reported to the executive sponsor."
+      ],
+      "evidence": "The configured ceilings, the record of refused work and any changes to the limits.",
+      "checkers": ["internal", "outside", "partner"]
+    },
+    {
+      "id": "FIN-03",
+      "title": "Cost per job",
+      "statement": "Record what each piece of work cost, and set a baseline cost per task for each agent, so that inefficiency can be seen.",
+      "risk": "Hidden inefficiency",
+      "metric": "Share of agents with a cost-per-task baseline",
+      "tiers": [
+        "The experiment reports its total cost.",
+        "Each agent reports cost per task.",
+        "Each piece of work records its cost, and the baseline is reviewed each quarter.",
+        "Cost per task is compared with other ways of doing the work."
+      ],
+      "evidence": "Cost per job records and the baseline.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "FIN-04",
+      "title": "Unusual spending detected",
+      "statement": "Detect unusual patterns of spending that may point to a fault or abuse, and alert the owner.",
+      "risk": "Cost problems found too late",
+      "metric": "Mean time to detect unusual spending",
+      "tiers": [
+        "The sandbox budget is checked each week.",
+        "Spending is compared with the previous period each week.",
+        "Unusual spending alerts the owner within hours.",
+        "Unusual spending can pause the agent automatically until the owner reviews it."
+      ],
+      "evidence": "Alert settings and the record of alerts raised.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "FIN-05",
+      "title": "Return on investment",
+      "statement": "Track each agent's actual return against what was projected when it was approved.",
+      "risk": "Agents that destroy value",
+      "metric": "Share of agents meeting their return target",
+      "tiers": [
+        "The experiment reports what it cost and what it showed.",
+        "Actual cost and benefit are reported at the review date.",
+        "The value owner compares the return with the projection each quarter.",
+        "The comparison is reported to the investment committee."
+      ],
+      "evidence": "The projection, the actual figures and the value owner's review.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "FIN-06",
+      "title": "Financial reporting",
+      "statement": "Report agent costs accurately and on time, so that decisions rest on good figures.",
+      "risk": "Poor decisions from bad figures",
+      "metric": "Accuracy of reported agent costs",
+      "tiers": [
+        "No separate report is required for an experiment.",
+        "Costs are reported each month by agent.",
+        "Costs are reported by agent, by business objective and by account.",
+        "Reports are reconciled with the general ledger and reviewed by finance."
+      ],
+      "evidence": "The monthly reports and their reconciliation.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "FIN-07",
+      "title": "Acting on cost findings",
+      "statement": "Act on findings that would cut cost, such as sending a step to a cheaper model that does it well enough.",
+      "risk": "Inefficiency that persists",
+      "metric": "Share of cost findings closed",
+      "tiers": [
+        "No requirement applies to an experiment.",
+        "Cost findings are recorded.",
+        "Each finding is acted on or declined with a reason within a set time.",
+        "Savings are measured and reported."
+      ],
+      "evidence": "The cost findings log with actions and savings.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "FIN-08",
+      "title": "Chargeback and showback",
+      "statement": "Allocate agent costs to the teams that use them accurately enough that teams accept the charges.",
+      "risk": "Disputed or wrong allocations",
+      "metric": "Allocation disputes",
+      "tiers": [
+        "No allocation is needed for an experiment.",
+        "Costs are shown to the teams that use the agent.",
+        "Costs are charged to the teams that use the agent, by their use.",
+        "Charges between organizations follow the contract, and both sides' records reconcile."
+      ],
+      "evidence": "Allocation reports and the dispute log.",
+      "checkers": ["internal", "partner"]
+    }
+  ]
+}

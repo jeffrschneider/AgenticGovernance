@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Assurance | Agentic Governance Framework</title>
+<meta name="description" content="Assurance for AI agents: the evidence behind every control objective, who may check it, audits and attestations, and verification that works across company lines.">
+</head>
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html" class="on" aria-current="page">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section III, cross-cutting discipline</p>
+      <h1>Assurance</h1>
+      <p class="lede">A control is only as good as the evidence that it holds. Assurance makes sure every control objective has evidence that someone outside the team can check: internal audit, an outside auditor, or a partner whose agents are about to trust the organization's agents.</p>
+    </div>
+  </header>
+
+  <section class="band" id="evidence">
+    <div class="wrap">
+      <h2>What makes evidence count</h2>
+      <p>Every control objective on this site names its evidence and who may check it. For that evidence to prove anything, it has to meet three conditions.</p>
+      <div class="cards three">
+        <div class="card">
+          <h3>Nobody can alter it unnoticed</h3>
+          <p>Evidence comes from records that are only ever added to and are signed as they are written. Otherwise whoever can alter them is vouching for themselves.</p>
+        </div>
+        <div class="card">
+          <h3>It is current</h3>
+          <p>A review from last spring says nothing about the version deployed this morning. Evidence is tied to the version it covers, and the checks repeat.</p>
+        </div>
+        <div class="card">
+          <h3>Others can read it</h3>
+          <p>A log only the vendor can open, or a limit only the agent knows about, proves nothing to an auditor. Evidence is readable by the people entitled to check it.</p>
+        </div>
+      </div>
+      <p>Because every control has its own evidence, being under control is a list of checks rather than a single yes or no. If an agent passes every objective but one, the useful answer names the one it fails.</p>
+    </div>
+  </section>
+
+  <section class="band" id="who-checks">
+    <div class="wrap">
+      <h2>Who may check the evidence</h2>
+      <table class="grid">
+        <thead><tr><th scope="col">Checker</th><th scope="col">What they check</th><th scope="col">What they may see</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Internal audit</th><td data-h="Checks">Whether controls are designed well and working, across every tier, on the audit plan's schedule.</td><td data-h="Sees">All of the organization's evidence.</td></tr>
+          <tr><th scope="row">An outside auditor</th><td data-h="Checks">Whether controls meet a regulation, a standard or a contract, and whether the organization's claims about them are true.</td><td data-h="Sees">The evidence within the scope and period of the engagement.</td></tr>
+          <tr><th scope="row">A partner</th><td data-h="Checks">The facts it relies on about an agent it deals with, such as its identity, owner, version, mandate and stop.</td><td data-h="Sees">Only the evidence that concerns its own relationships.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="band" id="audits">
+    <div class="wrap">
+      <h2>Audits and attestations</h2>
+      <p>Internal audits are planned by risk tier, so that Tier 3 and Tier 4 agents and relationships are audited more often than others. An outside auditor reviews high-tier agents when obligations require it, and attests each year to the controls of Tier 4 agents. An attestation is a signed statement that others can rely on, and its scope and date are part of it.</p>
+      <p>Findings from every audit are tracked to closure, with an owner and a date, and someone other than the owner confirms the fix.</p>
+    </div>
+  </section>
+
+  <section class="band" id="across-companies">
+    <div class="wrap">
+      <h2>Verification across company lines</h2>
+      <p>When an organization's agent deals with another company's agent, it cannot audit the other company. It can still verify the facts it relies on, if those facts come as signed records: who the agent is, who owns it, which version is running, what mandate the current work carries, and whether the agent has been stopped. A partner checks these facts without needing access to the other company's systems.</p>
+      <p>The same applies to agents the organization relies on but does not host. Where an agent runs does not settle whether it is under control. An agent hosted by someone else, with no named owner and no spending limit, is not under control. An agent on its owner's own servers can be, if the owner keeps the records and lets others read them. A contract with the owner of an outside agent says which evidence the owner will provide.</p>
+      <p>The shared rules that apply where two organizations' agents meet are covered under <a href="network.html#federation">Network</a>.</p>
+    </div>
+  </section>
+
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 9 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="asr-01">
+      <header><span class="oid">ASR-01</span><h3>Evidence for every objective</h3></header>
+      <p class="stmt">Name, for every control objective that applies to an agent, the evidence that proves it and where that evidence is kept.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Controls that cannot be shown to work</dd></div>
+        <div><dt>Key metric</dt><dd>Share of applicable objectives with named evidence</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The builder can show the sandbox limits.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>The evidence for each applicable objective is listed in the agent's record.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Evidence is produced by the systems that enforce the control, without anyone writing it by hand.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The evidence list is reviewed by internal audit each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The agent's evidence list, mapping each objective to its records.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="asr-02">
+      <header><span class="oid">ASR-02</span><h3>Immutable evidence</h3></header>
+      <p class="stmt">Draw evidence from records that are only ever added to and are signed as they are written, so that nobody, whether the agent, its builders, its owner or the platform, can alter one without it showing.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Self-reported evidence</dd></div>
+        <div><dt>Key metric</dt><dd>Share of evidence held in signed, append-only records</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Evidence is stored outside the agent.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Evidence is append-only and signed when it is written, so neither the agent nor its operators can change it unnoticed.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Anyone outside the organization can verify the signatures and the chain of records without the team's help.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The evidence store's settings and its own access records.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="asr-03">
+      <header><span class="oid">ASR-03</span><h3>Current evidence</h3></header>
+      <p class="stmt">Keep evidence current. A review from last year says nothing about the version deployed this morning, so checks repeat with every change and on a schedule.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Old evidence for a new version</dd></div>
+        <div><dt>Key metric</dt><dd>Share of evidence that matches the running version</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Evidence is refreshed at each release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Evidence is tied to the fingerprint of the version it covers, and stale evidence is flagged.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Evidence is refreshed continuously where the control allows it.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Evidence records with the version fingerprint and date of each.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="asr-04">
+      <header><span class="oid">ASR-04</span><h3>Readable by someone outside the team</h3></header>
+      <p class="stmt">Make evidence readable by people who did not build the agent: internal audit, an outside auditor or a partner, each with the access the operating model allows.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Evidence only the builders can read</dd></div>
+        <div><dt>Key metric</dt><dd>Requests for evidence answered without the team's help</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies to an experiment.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Internal audit can read the evidence.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>An outside auditor can be given read access to the evidence for a defined scope and period.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Partners can verify the evidence that concerns them without seeing the rest.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The access grants for evidence readers and the log of their reads.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="asr-05">
+      <header><span class="oid">ASR-05</span><h3>Internal audit plan</h3></header>
+      <p class="stmt">Plan internal audits of agents by tier, so that higher-risk agents and relationships are audited more often.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>High-risk agents that go unaudited</dd></div>
+        <div><dt>Key metric</dt><dd>Share of the audit plan completed</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Experiments are sampled when the sandbox is audited.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Tier 2 agents are sampled in the yearly audit.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Tier 3 agents and relationships are audited each year.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Tier 4 agents and relationships are audited each half year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The audit plan, the audit reports and the tracking of findings.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="asr-06">
+      <header><span class="oid">ASR-06</span><h3>Outside audit and attestation</h3></header>
+      <p class="stmt">Have high-tier agents audited by an independent party, and issue attestations that others can rely on.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Claims of control that nobody independent has checked</dd></div>
+        <div><dt>Key metric</dt><dd>Share of Tier 4 agents with a current outside attestation</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No outside audit is required.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>No outside audit is required, though the agent is in scope of the organization's general audits.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>An outside auditor reviews the agent's controls when obligations require it.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>An outside auditor attests to the agent's controls each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The auditor's report or attestation, with its scope and date.</dd></div>
+        <div><dt>Who may check it</dt><dd>An outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="asr-07">
+      <header><span class="oid">ASR-07</span><h3>Verification across company lines</h3></header>
+      <p class="stmt">Let a partner verify the facts about an agent that it relies on, such as its identity, owner, version, mandate and stop, from signed records, without needing access to the other organization's systems.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Trusting another company's agent on its word</dd></div>
+        <div><dt>Key metric</dt><dd>Share of cross-company relationships with verified evidence</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents do not deal with partners.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Partners can verify the agent's identity and owner.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Partners can verify identity, owner, version and the mandate for each piece of work.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Partners can verify the agent's attestations and its stop status at any time.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The signed facts offered to partners, and the record of partner verifications.</dd></div>
+        <div><dt>Who may check it</dt><dd>A partner and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="asr-08">
+      <header><span class="oid">ASR-08</span><h3>Findings tracked to closure</h3></header>
+      <p class="stmt">Track every audit and assurance finding to closure, with an owner and a date, and confirm the fix.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Findings that are never fixed</dd></div>
+        <div><dt>Key metric</dt><dd>Findings open past their due date</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox findings are noted.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Findings have an owner and a due date.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Fixes are confirmed by someone other than the owner.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Overdue findings are reported to the governance council.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The findings log with owners, dates and confirmations.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="asr-09">
+      <header><span class="oid">ASR-09</span><h3>Agents that run elsewhere</h3></header>
+      <p class="stmt">Apply the same assurance to agents the organization relies on but does not host, by requiring their owners to keep the records and let the organization read them.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A hosted agent assumed to be under control because someone else runs it</dd></div>
+        <div><dt>Key metric</dt><dd>Share of outside agents with readable evidence</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents rely on no outside agents.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Outside agents have a named owner and a contract.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Outside agents' owners provide the evidence named in the contract.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Outside agents' evidence is verified as ASR-07 describes, and attested where the tier requires.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The contract terms on evidence and the evidence received.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#asr-01">ASR-01</a></td><td data-h="Objective">Evidence for every objective</td><td data-h="Key metric">Share of applicable objectives with named evidence</td></tr>
+      <tr><td data-h="ID"><a href="#asr-02">ASR-02</a></td><td data-h="Objective">Immutable evidence</td><td data-h="Key metric">Share of evidence held in signed, append-only records</td></tr>
+      <tr><td data-h="ID"><a href="#asr-03">ASR-03</a></td><td data-h="Objective">Current evidence</td><td data-h="Key metric">Share of evidence that matches the running version</td></tr>
+      <tr><td data-h="ID"><a href="#asr-04">ASR-04</a></td><td data-h="Objective">Readable by someone outside the team</td><td data-h="Key metric">Requests for evidence answered without the team's help</td></tr>
+      <tr><td data-h="ID"><a href="#asr-05">ASR-05</a></td><td data-h="Objective">Internal audit plan</td><td data-h="Key metric">Share of the audit plan completed</td></tr>
+      <tr><td data-h="ID"><a href="#asr-06">ASR-06</a></td><td data-h="Objective">Outside audit and attestation</td><td data-h="Key metric">Share of Tier 4 agents with a current outside attestation</td></tr>
+      <tr><td data-h="ID"><a href="#asr-07">ASR-07</a></td><td data-h="Objective">Verification across company lines</td><td data-h="Key metric">Share of cross-company relationships with verified evidence</td></tr>
+      <tr><td data-h="ID"><a href="#asr-08">ASR-08</a></td><td data-h="Objective">Findings tracked to closure</td><td data-h="Key metric">Findings open past their due date</td></tr>
+      <tr><td data-h="ID"><a href="#asr-09">ASR-09</a></td><td data-h="Objective">Agents that run elsewhere</td><td data-h="Key metric">Share of outside agents with readable evidence</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="organizational-enablement.html"><small>Previous</small><span>Organizational enablement</span></a>
+  <a class="next" href="continuous-improvement.html"><small>Next</small><span>Continuous improvement</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
+</body>
+</html>

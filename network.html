@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Network | Agentic Governance Framework</title>
+<meta name="description" content="The network discipline governs the relationships between agents and their live interactions: admissions, delegation that only narrows, contracts, loops, cascades, cost across a chain, how far a stop reaches, and federation between organizations.">
+</head>
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html" class="on" aria-current="page">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section III, cross-cutting discipline</p>
+      <h1>The network</h1>
+      <p class="lede">Agents rarely work alone. They depend on each other, pass work to each other and act for each other, often across teams and across companies. This discipline governs those relationships, and the interactions that run along them, in every phase of the lifecycle.</p>
+    </div>
+  </header>
+
+  <section class="band" id="why">
+    <div class="wrap">
+      <h2>Why the network needs its own discipline</h2>
+      <p>Each agent can be under control on its own while the network as a whole is not. Two well-behaved agents can keep each other busy all night. A failure in one agent can spread to every agent that depends on it. A mandate can grow as it is passed along a chain, until an agent four steps away acts with more authority than the person who started the work. None of these problems belongs to a single agent, so none of them is caught by governing agents one at a time.</p>
+      <p>The discipline has two halves. <b>Relationships</b> are the standing arrangements between agents, which are recorded and approved before they are used. <b>Interactions</b> are the live traffic along those relationships, which is watched and limited while the network runs.</p>
+    </div>
+  </section>
+
+  <section class="band" id="relationships">
+    <div class="wrap">
+      <h2>Relationships</h2>
+      <p>Every relationship is recorded in a register with its owner, its risk tier and its end or review date. An interaction that no recorded relationship covers is a finding, and at the higher tiers it is refused.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Dependencies</h3>
+          <p>A dependency records that one agent relies on another to do its job. The register of dependencies is what <a href="lifecycle-change.html">Change time</a> reads to find who must be told before a change.</p>
+        </div>
+        <div class="card">
+          <h3>Delegation and mandates</h3>
+          <p>When one agent passes work to another, it passes a signed mandate that says what the receiver may do and for whom. Delegation only narrows: a mandate passed on can grant less than the one it came from, and never more.</p>
+        </div>
+        <div class="card">
+          <h3>Contracts</h3>
+          <p>Standing work between agents is done under a contract that states what will be done, at what price, within what limits and until when. Both owners accept it, and usage is measured against it.</p>
+        </div>
+        <div class="card">
+          <h3>Admissions</h3>
+          <p>Admissions decide who may talk to whom. An agent receives work only from agents its owner has admitted, and a stranger has to ask before it can send anything.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="interactions">
+    <div class="wrap">
+      <h2>Interactions</h2>
+      <p>Interactions are governed by watching what actually passes between agents and limiting what each relationship can carry.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Loops between agents</h3>
+          <p>Work that circles between agents is caught even when each agent's own loop limit is never reached. Each piece of work carries a chain identifier and a depth limit.</p>
+        </div>
+        <div class="card">
+          <h3>Cascades</h3>
+          <p>A failure in one agent is kept from spreading to its dependents by time limits, retry limits and circuit breakers on each relationship, and by fallbacks that have been tested.</p>
+        </div>
+        <div class="card">
+          <h3>Cost across a chain</h3>
+          <p>The spending limit and the paying account travel with the work from agent to agent, so the total cost of a chain is known and stays within what the first party allowed.</p>
+        </div>
+        <div class="card">
+          <h3>How far a stop reaches</h3>
+          <p>Stopping an agent also stops the work it delegated. Every agent that received delegated work checks for a stop before it acts, and the time a stop takes to reach them is measured.</p>
+        </div>
+        <div class="card">
+          <h3>Impact of a change</h3>
+          <p>Before an agent changes, the agents that depend on it are told and can test against the new version. Contract terms are kept while they adjust.</p>
+        </div>
+        <div class="card">
+          <h3>Enforcement at run time</h3>
+          <p>At <a href="lifecycle-run.html">Run time</a>, every interaction is checked against the admissions, mandates and contracts in the register by something other than the agents involved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="federation">
+    <div class="wrap">
+      <h2>Federation between organizations</h2>
+      <p>When agents from different organizations work together, no single organization governs the whole network. Each organization governs its own agents by its own policy. Where their agents meet, both sides agree a set of shared rules, and each side can check that the other is keeping them.</p>
+      <p>The shared rules at the boundary cover five things:</p>
+      <ul>
+        <li>Each side can verify the identity and the owner of the other side's agents.</li>
+        <li>Admissions across the boundary are decided by the owner of the receiving agent.</li>
+        <li>Mandates that cross the boundary still only narrow, and each side can verify the chain.</li>
+        <li>Both sides keep records of what passed between them, in a form that the other side can reconcile.</li>
+        <li>A stop issued on one side is honored by the other side's agents for any work the stopped agent delegated.</li>
+      </ul>
+      <p>The <a href="assurance.html">Assurance</a> discipline covers how one organization verifies these facts about another's agents without needing access to its systems.</p>
+    </div>
+  </section>
+
+  <section class="band" id="tiers">
+    <div class="wrap">
+      <h2>Relationships have risk tiers</h2>
+      <p>A relationship gets its own risk tier, as the <a href="operating-model.html">Operating Model</a> page explains. It starts at the higher tier of the two agents it joins. A relationship through which one agent can commit money, sign or make an irreversible change for another is at least Tier 3, even when both agents are lower. A chain of relationships is governed at the highest tier of any link in it.</p>
+      <p>Implementations of these controls for agent networks exist, including one from AgentMesh, the sponsor of this site.</p>
+    </div>
+  </section>
+
+<!-- BEGIN objectives -->
+<section class="band" id="objectives">
+  <div class="wrap">
+    <h2>Control objectives</h2>
+    <p>There are 12 control objectives here. Each one states what it asks for, the risk it addresses and how it is measured. It then says what each risk tier requires, what evidence proves it, and who may check that evidence. The <a href="operating-model.html">Operating Model</a> page explains the tiers.</p>
+    <div class="objs">
+    <article class="obj" id="net-01">
+      <header><span class="oid">NET-01</span><h3>A register of relationships</h3></header>
+      <p class="stmt">Record every standing relationship between agents: each dependency, delegation, mandate, contract and admission, with its owner, its tier and its end or review date.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Relationships that nobody knows exist</dd></div>
+        <div><dt>Key metric</dt><dd>Share of observed interactions covered by a recorded relationship</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Relationships between sandbox agents are listed by the builder.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Every relationship a production agent relies on is in the register before it is used.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The register is checked against observed traffic each month, and unrecorded relationships are closed or recorded.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>The register is reconciled continuously, and an interaction with no recorded relationship is refused.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The relationship register and the latest comparison with observed interactions.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-02">
+      <header><span class="oid">NET-02</span><h3>Admissions: who may talk to whom</h3></header>
+      <p class="stmt">Let an agent receive work only from agents its owner has admitted. A stranger asks first, and the owner decides whether to let it in.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Unwanted or hostile agents reaching an agent</dd></div>
+        <div><dt>Key metric</dt><dd>Messages refused from agents that were not admitted</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents accept messages only from the sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each agent accepts messages only from admitted agents, and the admissions list has an owner.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Admissions are decided by the owner, recorded with a reason, and reviewed at each review date.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Admissions from outside the organization need the approval set by the operating model, and are reviewed each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The admissions list with who admitted each agent and when, and the log of refused messages.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-03">
+      <header><span class="oid">NET-03</span><h3>Delegation that only narrows</h3></header>
+      <p class="stmt">When one agent passes work to another, pass a signed mandate that says what the receiver may do and for whom. A mandate passed on can only grant less than the one it came from, never more.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Authority growing as it passes down a chain</dd></div>
+        <div><dt>Key metric</dt><dd>Delegations refused because they would have widened authority</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents may delegate only to sandbox agents.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each delegated piece of work carries a mandate naming the party it acts for.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Mandates are signed, and every receiver checks that its mandate is no wider than its sender's.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Mandate chains are recorded end to end and sampled by internal audit each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The mandate chain for sampled work, showing each step's scope against the one before it.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-04">
+      <header><span class="oid">NET-04</span><h3>Contracts between agents</h3></header>
+      <p class="stmt">Put standing work between agents under a contract that states what will be done, at what price, within what limits and until when.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Work between agents on terms nobody agreed</dd></div>
+        <div><dt>Key metric</dt><dd>Share of standing relationships with a current contract</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No contract is needed between sandbox agents.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each standing relationship has written terms, including limits and an end date.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Terms are accepted by the owners on both sides, and usage is checked against them.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Contracts that cross a company boundary are approved under the organization's contracting rules and reviewed before renewal.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The contract, its acceptance by both owners and the usage measured against it.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-05">
+      <header><span class="oid">NET-05</span><h3>Relationships carry a tier</h3></header>
+      <p class="stmt">Give each relationship its own risk tier, set as the <a href="operating-model.html">Operating Model</a> describes. A relationship through which one agent can commit money for another raises the tier.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A low-risk agent used as a path to a high-risk act</dd></div>
+        <div><dt>Key metric</dt><dd>Share of relationships with a tier recorded</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox relationships are Tier 1.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each production relationship starts at the higher tier of the two agents.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>A relationship that can commit money, sign or make an irreversible change is at least Tier 3.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>A Tier 4 relationship has an executive owner and is reviewed each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The tier recorded for each relationship, with the reason when it is higher than either agent's.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and an outside auditor.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-06">
+      <header><span class="oid">NET-06</span><h3>Loops between agents</h3></header>
+      <p class="stmt">Detect work that circles between agents, where each agent's own loop limit is never reached, and stop it.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Two agents keeping each other busy at the owners' expense</dd></div>
+        <div><dt>Key metric</dt><dd>Cross-agent loops detected and stopped</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox limits the depth of any chain.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each piece of work carries a chain identifier and a depth limit.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Repeated work across a chain is detected, stopped and reported to the owners involved.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Loop reports are reviewed each week, and the relationships involved are reviewed.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Chain traces for stopped loops and the depth limits in force.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-07">
+      <header><span class="oid">NET-07</span><h3>Cascades contained</h3></header>
+      <p class="stmt">Stop a failure in one agent from spreading to the agents that depend on it, by limiting what each relationship can pass on.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>One failure taking down many agents</dd></div>
+        <div><dt>Key metric</dt><dd>Incidents that spread beyond the first agent</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies in a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each relationship has a time limit and a retry limit.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Relationships have circuit breakers, and dependents have tested fallbacks.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Cascade drills that include partners' agents run each year.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Relationship limits, circuit breaker records and drill results.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-08">
+      <header><span class="oid">NET-08</span><h3>Cost across a chain</h3></header>
+      <p class="stmt">Carry the spending limit and the paying account with work as it passes from agent to agent, so that the total cost of a chain is known and stays within what the first party allowed.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A chain of agents spending more than anyone approved</dd></div>
+        <div><dt>Key metric</dt><dd>Share of chained work whose total cost was attributed to one account</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>The sandbox budget covers every agent in it.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each delegated piece of work names the account that pays.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>The remaining budget travels with the work, and an agent refuses work that would exceed it.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Chain costs are reported per business objective each month.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Cost records for sampled chains, showing the budget carried at each step.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-09">
+      <header><span class="oid">NET-09</span><h3>How far a stop reaches</h3></header>
+      <p class="stmt">Make a stop reach every piece of work the stopped agent delegated, so that work started for it does not carry on downstream.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Work continuing after its source has been stopped</dd></div>
+        <div><dt>Key metric</dt><dd>Time for a stop to reach every downstream agent</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Stopping the sandbox stops everything in it.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Stopping an agent revokes the mandates it issued.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Every agent that received delegated work checks for a stop before acting, and the time a stop takes to reach them is measured.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Stop drills across the chain, including partners' agents, run each quarter.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>Stop records with the time each downstream agent saw the stop, and drill results.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-10">
+      <header><span class="oid">NET-10</span><h3>Change impact on dependents</h3></header>
+      <p class="stmt">Before an agent changes, tell the agents and owners that depend on it, and keep to the terms of any contract while they adjust. The <a href="lifecycle-change.html">Change</a> phase sets the steps.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>A change that breaks agents its owner never heard of</dd></div>
+        <div><dt>Key metric</dt><dd>Dependents told before a change took effect</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No notice is required inside a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Dependents in the register are told before release.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Dependents can test against the candidate version before it is promoted.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Changes that affect partners follow the notice terms in their contracts.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The notices sent to dependents and any test runs they made against the candidate.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-11">
+      <header><span class="oid">NET-11</span><h3>Federation: shared rules at the boundary</h3></header>
+      <p class="stmt">Let each organization govern its own agents by its own policy, and agree the rules that apply where their agents meet: identity, admission, mandates, records and how a stop is honored.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Gaps where one organization's rules end and another's begin</dd></div>
+        <div><dt>Key metric</dt><dd>Share of cross-company relationships under agreed boundary rules</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>Sandbox agents do not cross the organization's boundary.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Cross-company interactions use verified identities and written terms.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Boundary rules are agreed in writing with each partner, and each side can verify the other's identities and mandates.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Boundary rules are reviewed each year with each partner, and each side's assurance evidence is exchanged.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The agreed boundary rules with each partner, and the records showing they were applied.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    <article class="obj" id="net-12">
+      <header><span class="oid">NET-12</span><h3>Records that both sides can reconcile</h3></header>
+      <p class="stmt">Keep records of interactions across a company boundary on both sides, in a form that each side can check against the other.</p>
+      <dl class="facts">
+        <div><dt>Risk addressed</dt><dd>Disputes nobody can settle</dd></div>
+        <div><dt>Key metric</dt><dd>Cross-company interactions whose records matched</dd></div>
+      </dl>
+      <p class="tierhead">What each tier requires</p>
+      <ol class="tiers">
+        <li><span class="tier t1">Tier 1 Exploratory</span><br>No requirement applies in a sandbox.</li>
+        <li><span class="tier t2">Tier 2 Operational</span><br>Each side records the interactions it sends and receives.</li>
+        <li><span class="tier t3">Tier 3 Critical</span><br>Records carry shared identifiers and signatures, so the two sides can be compared.</li>
+        <li><span class="tier t4">Tier 4 Strategic</span><br>Records are reconciled each month, and differences are resolved under the contract.</li>
+      </ol>
+      <dl class="proof">
+        <div><dt>Evidence</dt><dd>The records on each side and the reconciliation results.</dd></div>
+        <div><dt>Who may check it</dt><dd>Internal audit, an outside auditor and a partner.</dd></div>
+      </dl>
+    </article>
+    </div>
+    <h3 id="quick-reference">Quick reference</h3>
+    <table class="qref">
+      <thead><tr><th scope="col">ID</th><th scope="col">Objective</th><th scope="col">Key metric</th></tr></thead>
+      <tbody>
+      <tr><td data-h="ID"><a href="#net-01">NET-01</a></td><td data-h="Objective">A register of relationships</td><td data-h="Key metric">Share of observed interactions covered by a recorded relationship</td></tr>
+      <tr><td data-h="ID"><a href="#net-02">NET-02</a></td><td data-h="Objective">Admissions: who may talk to whom</td><td data-h="Key metric">Messages refused from agents that were not admitted</td></tr>
+      <tr><td data-h="ID"><a href="#net-03">NET-03</a></td><td data-h="Objective">Delegation that only narrows</td><td data-h="Key metric">Delegations refused because they would have widened authority</td></tr>
+      <tr><td data-h="ID"><a href="#net-04">NET-04</a></td><td data-h="Objective">Contracts between agents</td><td data-h="Key metric">Share of standing relationships with a current contract</td></tr>
+      <tr><td data-h="ID"><a href="#net-05">NET-05</a></td><td data-h="Objective">Relationships carry a tier</td><td data-h="Key metric">Share of relationships with a tier recorded</td></tr>
+      <tr><td data-h="ID"><a href="#net-06">NET-06</a></td><td data-h="Objective">Loops between agents</td><td data-h="Key metric">Cross-agent loops detected and stopped</td></tr>
+      <tr><td data-h="ID"><a href="#net-07">NET-07</a></td><td data-h="Objective">Cascades contained</td><td data-h="Key metric">Incidents that spread beyond the first agent</td></tr>
+      <tr><td data-h="ID"><a href="#net-08">NET-08</a></td><td data-h="Objective">Cost across a chain</td><td data-h="Key metric">Share of chained work whose total cost was attributed to one account</td></tr>
+      <tr><td data-h="ID"><a href="#net-09">NET-09</a></td><td data-h="Objective">How far a stop reaches</td><td data-h="Key metric">Time for a stop to reach every downstream agent</td></tr>
+      <tr><td data-h="ID"><a href="#net-10">NET-10</a></td><td data-h="Objective">Change impact on dependents</td><td data-h="Key metric">Dependents told before a change took effect</td></tr>
+      <tr><td data-h="ID"><a href="#net-11">NET-11</a></td><td data-h="Objective">Federation: shared rules at the boundary</td><td data-h="Key metric">Share of cross-company relationships under agreed boundary rules</td></tr>
+      <tr><td data-h="ID"><a href="#net-12">NET-12</a></td><td data-h="Objective">Records that both sides can reconcile</td><td data-h="Key metric">Cross-company interactions whose records matched</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END objectives -->
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="lifecycle-decommission.html"><small>Previous</small><span>Decommission</span></a>
+  <a class="next" href="security-risk.html"><small>Next</small><span>Security and risk</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
+</body>
+</html>

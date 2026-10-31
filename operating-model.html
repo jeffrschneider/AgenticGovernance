@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Operating Model and Risk Tiers | Agentic Governance Framework</title>
+<meta name="description" content="The operating model sets how strictly each control objective applies, through four risk tiers for agents and for the relationships between them.">
+</head>
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html" class="on" aria-current="page">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Section IV</p>
+      <h1>The operating model and its risk tiers</h1>
+      <p class="lede">A fixed set of rules cannot fit every agent. The operating model sets how strictly each control applies, by risk tier, so that rigorous control goes where it is needed and low-risk experiments can move quickly. Every control objective on this site says what it requires at each of the four tiers.</p>
+    </div>
+  </header>
+
+  <section class="band" id="tiers">
+    <div class="wrap">
+      <h2>The four tiers</h2>
+      <table class="grid">
+        <thead><tr><th scope="col">Tier</th><th scope="col">What the agent is like</th><th scope="col">How it is governed</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span class="tier t1">Tier 1 Exploratory</span></th><td data-h="Like">It runs only in a sandbox, uses no production data, and has no effect outside the sandbox.</td><td data-h="Governed">Teams serve themselves inside fixed limits set by the platform.</td></tr>
+          <tr><th scope="row"><span class="tier t2">Tier 2 Operational</span></th><td data-h="Like">It runs on production systems with limited autonomy, and its actions can be reversed.</td><td data-h="Governed">A peer reviews it, and automated checks run at every release and while it runs.</td></tr>
+          <tr><th scope="row"><span class="tier t3">Tier 3 Critical</span></th><td data-h="Like">It acts with high autonomy, handles sensitive data, or takes actions that cannot be reversed.</td><td data-h="Governed">The architecture board reviews its design in full, it is monitored continuously, and internal audit checks it each year.</td></tr>
+          <tr><th scope="row"><span class="tier t4">Tier 4 Strategic</span></th><td data-h="Like">It affects the whole organization, deals with the outside world on the organization's behalf, or falls within regulation.</td><td data-h="Governed">An executive sponsors it, the governance council decides on it, and an outside auditor attests to its controls.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="band" id="agent-tier">
+    <div class="wrap">
+      <h2>Setting an agent's tier</h2>
+      <p>An agent's tier is set at <a href="lifecycle-plan.html">Plan time</a>, confirmed at <a href="lifecycle-design.html">Design time</a>, and reviewed whenever the agent changes. The tier is the highest one that any of these questions points to:</p>
+      <ul>
+        <li>How much does the agent decide on its own, without a person approving each act?</li>
+        <li>How sensitive is the data it reads, stores or sends?</li>
+        <li>Can its actions be reversed, and at what cost?</li>
+        <li>Can it spend money, sign, or commit the organization to something?</li>
+        <li>Does it deal with customers, partners or the public on the organization's behalf?</li>
+        <li>Does a regulation apply to what it does?</li>
+      </ul>
+      <p>When a change raises the answer to any of these questions, the change goes back through Design and Build at the new tier, as the <a href="lifecycle-change.html">Change</a> phase requires.</p>
+    </div>
+  </section>
+
+  <section class="band" id="relationship-tier">
+    <div class="wrap">
+      <h2>Setting a relationship's tier</h2>
+      <p>Tiers apply to the relationships between agents as well as to the agents themselves, because a low-risk agent can be used as a path to a high-risk act. The <a href="network.html">Network</a> discipline records a tier for every relationship, set by these rules:</p>
+      <ul>
+        <li>A relationship starts at the higher tier of the two agents it joins.</li>
+        <li>A relationship through which one agent can commit money, sign or make an irreversible change for another is at least Tier 3.</li>
+        <li>A relationship that crosses into another organization is at least Tier 2, and it is governed by the boundary rules agreed with that organization.</li>
+        <li>A chain of relationships is governed at the highest tier of any link in it.</li>
+      </ul>
+      <div class="note"><p>For example, two Tier 2 agents might share a relationship in which one can place orders on the other's account. That relationship is Tier 3, so the mandate it carries is signed and checked on every order, and each order above the set threshold waits for a person.</p></div>
+    </div>
+  </section>
+
+  <section class="band" id="reading-tiers">
+    <div class="wrap">
+      <h2>Reading the tiers in a control objective</h2>
+      <p>Each control objective lists four requirements, one for each tier. The requirements add up as the tier rises: a Tier 3 agent meets the Tier 2 requirement as well as its own, unless the Tier 3 requirement replaces it. Where a requirement says no control is needed at a tier, the objective still applies, and it is satisfied by the limits of that tier, such as the sandbox.</p>
+      <p>An organization can make any requirement stricter for its own agents. It should record each requirement it makes weaker as an exception, with an approver and an expiry date.</p>
+    </div>
+  </section>
+
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="prev" href="continuous-improvement.html"><small>Previous</small><span>Continuous improvement</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
+</body>
+</html>

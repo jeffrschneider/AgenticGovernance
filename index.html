@@ -1,827 +1,255 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Agentic Governance Framework v2.1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',
-                            card: '#111827',
-                            accent: '#3B82F6', // Blue
-                            glow: '#60A5FA',
-                            purple: '#8B5CF6',
-                            success: '#10B981',
-                            danger: '#EF4444',
-                            warning: '#F59E0B'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0F19;
-            color: #E2E8F0;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B0F19; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1E293B; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3B82F6; 
-        }
-
-        .neon-border {
-            box-shadow: 0 0 5px rgba(59, 130, 246, 0.2);
-            transition: all 0.3s ease;
-        }
-        .neon-border:hover {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
-            border-color: #3B82F6;
-        }
-
-        .section-header {
-            position: relative;
-            display: inline-block;
-        }
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
-        }
-
-        /* Diagram Grid Styles */
-        .arch-diagram {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1rem;
-            padding: 2rem;
-            background: #111827;
-            border: 1px solid #1F2937;
-            border-radius: 0.5rem;
-        }
-        .arch-box {
-            background: #1F2937;
-            border: 1px solid #374151;
-            padding: 1rem;
-            border-radius: 0.375rem;
-            text-align: center;
-            font-size: 0.875rem;
-            position: relative;
-        }
-        .arch-layer {
-            grid-column: 1 / -1;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px dashed #3B82F6;
-            color: #93C5FD;
-            font-weight: bold;
-            padding: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .arch-arrow-down {
-            grid-column: 1 / -1;
-            height: 20px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            color: #6B7280;
-        }
-
-        details > summary {
-            list-style: none;
-        }
-        details > summary::-webkit-details-marker {
-            display: none;
-        }
-    </style>
+<!-- BEGIN head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="site.css">
+<script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<!-- END head -->
+<title>Agentic Governance Framework</title>
+<meta name="description" content="A framework for governing networks of AI agents: the lifecycle from plan to decommission, the cross-cutting disciplines, risk tiers, and control objectives with the evidence that proves each one.">
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="layout">
+<!-- BEGIN rail -->
+<aside class="rail" id="sidenav">
+  <div class="railhead">
+    <a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg><span class="wm"><b>Agentic Governance</b>Framework</span></a>
+    <button class="iconbtn theme" id="themebtn" type="button" aria-label="Switch between light and dark"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+    <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sidenav">Menu</button>
+  </div>
+  <nav aria-label="Pages">
+    <div class="grp">Framework</div>
+    <a href="index.html" class="on" aria-current="page">Overview</a>
+    <a href="compliance-alignment.html">Objectives and obligations</a>
+    <div class="grp">Lifecycle</div>
+    <a href="lifecycle-plan.html"><span class="n">1</span>Plan</a>
+    <a href="lifecycle-design.html"><span class="n">2</span>Design</a>
+    <a href="lifecycle-build.html"><span class="n">3</span>Build</a>
+    <a href="lifecycle-run.html"><span class="n">4</span>Run</a>
+    <a href="lifecycle-change.html"><span class="n">5</span>Change</a>
+    <a href="lifecycle-decommission.html"><span class="n">6</span>Decommission</a>
+    <div class="grp">Cross-cutting disciplines</div>
+    <a href="network.html">Network</a>
+    <a href="security-risk.html">Security and risk</a>
+    <a href="performance-qa.html">Performance and quality</a>
+    <a href="financial-governance.html">Financial governance</a>
+    <a href="organizational-enablement.html">Organizational enablement</a>
+    <a href="assurance.html">Assurance</a>
+    <a href="continuous-improvement.html">Continuous improvement</a>
+    <div class="grp">Operating model</div>
+    <a href="operating-model.html">Risk tiers</a>
+  </nav>
+  <div class="foot">
+    <p>The lifecycle's stages are defined by the <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a>.</p>
+    <p>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a>.</p>
+  </div>
+</aside>
+<!-- END rail -->
+<main class="main" id="top">
+  <header class="pagehead">
+    <div class="wrap">
+      <p class="kicker">Agentic Governance Framework</p>
+      <h1>Governing a network of agents</h1>
+      <p class="lede">This framework sets out how an organization governs the agents it builds, buys and relies on, and the relationships between them. It covers each phase of an agent's life, the disciplines that apply in every phase, and the control objectives that show whether governance is working.</p>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="shield-check" class="text-brand-accent h-6 w-6"></i>
-                    <!-- Menu Title Update -->
-                    <span class="font-mono font-bold text-lg tracking-tight">Agentic Governance</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#foundations" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Foundations</a>
-                        <a href="#compliance" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Compliance</a>
-                        <a href="#lifecycle" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Lifecycle</a>
-                        <a href="#cross-cutting" class="hover:text-brand-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Cross-Cutting</a>
-                        <a href="#financial" class="text-brand-warning hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Financial</a>
-                        <a href="#operating-model" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">Operating Model</a>
-                    </div>
-                </div>
-            </div>
+  <section class="band" id="foundations">
+    <div class="wrap">
+      <h2>Managed and governed agent networks</h2>
+      <p>An agent network is <b>managed</b> when someone who did not build it can check that it is under control. The check covers the agents themselves, the standing relationships between them, and their live interactions. The relationships are the dependencies, the delegations and mandates, the contracts, and the admissions that say who may talk to whom. The interactions are the requests and the work that pass along those relationships while the network runs.</p>
+      <p>A network is <b>governed</b> when the organization's side is in place as well. Written policy sets what "under control" must mean for each agent and each relationship. Every agent traces to a business objective that someone still stands behind. Accountable people set the rules and audit the results.</p>
+      <p>Governance supplies the values that management enforces. A spending ceiling on an agent is a management control. The amount of the ceiling, and who may change it, are governance decisions. The control objectives on this site say what management has to show so that governance can be satisfied.</p>
+      <div class="defs">
+        <div class="def">
+          <h3>A managed network</h3>
+          <p>Someone who did not build it can check that these are under control:</p>
+          <ul>
+            <li><b>The agents.</b> Each one has a known identity and owner, limits on what it may do, spend and reach, a record of how it was made, records of what it has done, and a person who can stop it.</li>
+            <li><b>The relationships.</b> Every dependency, delegation, mandate, contract and admission is recorded, and delegated authority only narrows.</li>
+            <li><b>The interactions.</b> Loops between agents are caught, failures do not cascade, cost is known across a chain, and a stop reaches all the work it should.</li>
+          </ul>
         </div>
-    </nav>
-
-    <!-- Hero Section / Foundations -->
-    <header id="foundations" class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div class="max-w-7xl mx-auto text-center relative z-10">
-            <!-- Version Badge Removed -->
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-gray-400">
-                Agentic Enterprise<br>Governance Framework
-            </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400">
-                Balancing the speed of AI autonomy with the rigor of enterprise control. 
-            </p>
-            
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-                <div class="p-6 rounded-xl bg-brand-card border border-gray-800 neon-border">
-                    <div class="text-brand-accent mb-2 font-mono text-sm">TENSION 01</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Agility vs. Control</h3>
-                    <p class="text-sm text-gray-400">Enable speed without sacrificing accountability.</p>
-                </div>
-                <div class="p-6 rounded-xl bg-brand-card border border-gray-800 neon-border">
-                    <div class="text-brand-purple mb-2 font-mono text-sm">TENSION 02</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Autonomy vs. Oversight</h3>
-                    <p class="text-sm text-gray-400">Freedom to act within defined boundaries.</p>
-                </div>
-                <div class="p-6 rounded-xl bg-brand-card border border-gray-800 neon-border">
-                    <div class="text-brand-success mb-2 font-mono text-sm">TENSION 03</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Innovation vs. Standards</h3>
-                    <p class="text-sm text-gray-400">Experimentation with enterprise coherence.</p>
-                </div>
-            </div>
-
-            <!-- Intro Text Replaced for Educational Tone -->
-            <div class="max-w-4xl mx-auto border-t border-gray-800 pt-10 text-left">
-                <h3 class="text-white font-bold text-2xl mb-4 text-center">Why an Agentic Framework?</h3>
-                <div class="prose prose-invert prose-lg text-gray-400 max-w-none">
-                    <p class="mb-4">
-                        As organizations rapidly integrate autonomous AI agents into their workflows, traditional IT governance models often fall short. Unlike standard software, agents operate with a high degree of autonomy—making decisions, executing transactions, and interacting with external systems without direct human intervention.
-                    </p>
-                    <p>
-                        Without a dedicated governance framework, this autonomy creates significant risks ranging from data leakage and hallucination to regulatory non-compliance and runaway operational costs. This framework provides the necessary scaffolding to harness agentic power responsibly, ensuring that every autonomous action remains aligned with enterprise values, security protocols, and strategic goals.
-                    </p>
-                </div>
-            </div>
+        <div class="def">
+          <h3>A governed network</h3>
+          <p>The organization has also put its side in place:</p>
+          <ul>
+            <li><b>Written policy</b> sets what "under control" must mean for each agent and each relationship, by risk tier.</li>
+            <li><b>Every agent traces to a business objective</b> that a named person still stands behind, with an owner of its value and a review date.</li>
+            <li><b>Accountable people</b> set the rules, decide the exceptions and audit the results.</li>
+          </ul>
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pb-24">
-
-        <!-- Section I: Compliance -->
-        <section id="compliance" class="scroll-mt-24">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-                <div>
-                    <h2 class="text-3xl font-bold mb-4 section-header">I. Compliance Alignment Layer</h2>
-                    <p class="text-gray-400 max-w-3xl">All agentic governance must trace back to binding obligations. We maintain a compliance mapping that connects each agent capability to its governing obligations.</p>
-                </div>
-                <a href="compliance-alignment.html" class="mt-4 md:mt-0 inline-flex items-center gap-2 bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    View Control Objectives
-                </a>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-brand-card p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors group">
-                    <div class="h-10 w-10 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="file-text" class="text-blue-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Contractual</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li class="flex gap-2"><span class="text-blue-500">•</span>Customer agreements (SLAs)</li>
-                        <li class="flex gap-2"><span class="text-blue-500">•</span>Vendor contracts (LLMs)</li>
-                        <li class="flex gap-2"><span class="text-blue-500">•</span>IP Agreements</li>
-                    </ul>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-brand-card p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors group">
-                    <div class="h-10 w-10 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="scale" class="text-purple-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Regulatory</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li class="flex gap-2"><span class="text-purple-500">•</span>GDPR, CCPA, HIPAA</li>
-                        <li class="flex gap-2"><span class="text-purple-500">•</span>EU AI Act</li>
-                        <li class="flex gap-2"><span class="text-purple-500">•</span>Export controls</li>
-                    </ul>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-brand-card p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors group">
-                    <div class="h-10 w-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="building" class="text-emerald-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Internal Policy</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li class="flex gap-2"><span class="text-emerald-500">•</span>Acceptable Use Policy</li>
-                        <li class="flex gap-2"><span class="text-emerald-500">•</span>Risk Appetite</li>
-                        <li class="flex gap-2"><span class="text-emerald-500">•</span>Data Classification</li>
-                    </ul>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="bg-brand-card p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors group">
-                    <div class="h-10 w-10 bg-rose-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="heart-handshake" class="text-rose-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Ethical</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li class="flex gap-2"><span class="text-rose-500">•</span>Fairness & Transparency</li>
-                        <li class="flex gap-2"><span class="text-rose-500">•</span>Bias Mitigation</li>
-                        <li class="flex gap-2"><span class="text-rose-500">•</span>Explainability Standards</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section II: Lifecycle -->
-        <section id="lifecycle" class="scroll-mt-24">
-            <h2 class="text-3xl font-bold mb-8 section-header">II. Lifecycle Governance Model</h2>
-            <!-- Intro Sentence Added -->
-            <p class="text-gray-400 mb-8 max-w-3xl">Governance must be embedded at each phase, not bolted on afterward.</p>
-            
-            <div class="space-y-4">
-                
-                <!-- Plan Time -->
-                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
-                        <div class="flex items-center gap-4">
-                            <span class="bg-blue-500/20 text-blue-400 font-mono text-xs px-2 py-1 rounded border border-blue-500/30">PHASE 1</span>
-                            <h3 class="text-xl font-bold">Plan Time</h3>
-                        </div>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
-                    </summary>
-                    <div class="p-6 pt-0 border-t border-gray-800/50">
-                        <div class="grid md:grid-cols-3 gap-8 mt-4">
-                            <div>
-                                <h4 class="font-bold text-blue-400 mb-2">Strategic Planning</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Alignment to business objectives</li>
-                                    <li>Capability roadmapping</li>
-                                    <li>Investment governance</li>
-                                    <li>Risk assessment (vendor lock-in)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-blue-400 mb-2">Portfolio Planning</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Demand intake & rationalization</li>
-                                    <li>Duplication detection</li>
-                                    <li>Retirement planning for legacy</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-blue-400 mb-2">Agent Catalog</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Centralized registry</li>
-                                    <li>Ownership assignment</li>
-                                    <li>Portfolio Health Dashboard</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-6 text-right">
-                            <a href="lifecycle-plan.html" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
-                                View Control Objectives <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
-                </details>
-
-                <!-- Design Time -->
-                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
-                        <div class="flex items-center gap-4">
-                            <span class="bg-purple-500/20 text-purple-400 font-mono text-xs px-2 py-1 rounded border border-purple-500/30">PHASE 2</span>
-                            <h3 class="text-xl font-bold">Design Time</h3>
-                        </div>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
-                    </summary>
-                    <div class="p-6 pt-0 border-t border-gray-800/50">
-                        <div class="grid md:grid-cols-3 gap-8 mt-4">
-                            <div>
-                                <h4 class="font-bold text-purple-400 mb-2">Architecture Governance</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Right-sizing principles</li>
-                                    <li>Scope boundaries</li>
-                                    <li>Explainability mandates</li>
-                                    <li>Security-by-design</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-purple-400 mb-2">Standards & Patterns</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Approved tech stacks</li>
-                                    <li>Naming conventions</li>
-                                    <li>Observability requirements</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-purple-400 mb-2">Shadow IT Control</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Discovery mechanisms</li>
-                                    <li>Amnesty pathways</li>
-                                    <li>Sandbox environments</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-6 text-right">
-                            <a href="lifecycle-design.html" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">
-                                View Control Objectives <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
-                </details>
-
-                <!-- Build Time -->
-                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
-                        <div class="flex items-center gap-4">
-                            <span class="bg-emerald-500/20 text-emerald-400 font-mono text-xs px-2 py-1 rounded border border-emerald-500/30">PHASE 3</span>
-                            <h3 class="text-xl font-bold">Build Time</h3>
-                        </div>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
-                    </summary>
-                    <div class="p-6 pt-0 border-t border-gray-800/50">
-                        <div class="grid md:grid-cols-2 gap-8 mt-4">
-                            <div>
-                                <h4 class="font-bold text-emerald-400 mb-2">Development Standards</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Agent-specific CI/CD pipelines</li>
-                                    <li>Unit testing & simulation</li>
-                                    <li>Integration testing</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-emerald-400 mb-2">Quality Gates</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Code review</li>
-                                    <li>Security scanning (static/dynamic)</li>
-                                    <li>Performance baseline validation</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-6 text-right">
-                            <a href="lifecycle-build.html" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">
-                                View Control Objectives <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
-                </details>
-
-                <!-- Run Time -->
-                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50" open>
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
-                        <div class="flex items-center gap-4">
-                            <span class="bg-rose-500/20 text-rose-400 font-mono text-xs px-2 py-1 rounded border border-rose-500/30">PHASE 4</span>
-                            <h3 class="text-xl font-bold">Run Time (Critical)</h3>
-                        </div>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
-                    </summary>
-                    <div class="p-6 pt-0 border-t border-gray-800/50">
-                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
-                            <div class="bg-gray-800/30 p-4 rounded">
-                                <h4 class="font-bold text-rose-400 mb-2 text-sm">Agent Mesh</h4>
-                                <ul class="text-xs text-gray-400 space-y-1">
-                                    <li>Traffic management</li>
-                                    <li>Service auth (mTLS)</li>
-                                    <li>Circuit breakers</li>
-                                    <li>Auto-scaling</li>
-                                </ul>
-                            </div>
-                            <div class="bg-gray-800/30 p-4 rounded">
-                                <h4 class="font-bold text-rose-400 mb-2 text-sm">Data Protection</h4>
-                                <ul class="text-xs text-gray-400 space-y-1">
-                                    <li>Real-time PII masking</li>
-                                    <li>Data minimization</li>
-                                    <li>Cross-border controls</li>
-                                    <li>Automated redaction</li>
-                                </ul>
-                            </div>
-                            <div class="bg-gray-800/30 p-4 rounded">
-                                <h4 class="font-bold text-rose-400 mb-2 text-sm">MCP Security</h4>
-                                <ul class="text-xs text-gray-400 space-y-1">
-                                    <li>Tool allowlisting</li>
-                                    <li>Scope limitation</li>
-                                    <li>Audit logging</li>
-                                    <li>Anomaly detection</li>
-                                </ul>
-                            </div>
-                            <div class="bg-gray-800/30 p-4 rounded">
-                                <h4 class="font-bold text-rose-400 mb-2 text-sm">Model Gateway</h4>
-                                <ul class="text-xs text-gray-400 space-y-1">
-                                    <li>Prompt injection detection</li>
-                                    <li>Content filtering</li>
-                                    <li>Token limits</li>
-                                    <li>Model versioning</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-4 p-3 border border-rose-500/20 rounded bg-rose-900/10 text-center">
-                            <span class="text-rose-400 font-bold text-sm">Runtime Policy Engine:</span> <span class="text-gray-400 text-sm">Enforces rules dynamically based on context, user role, and risk signals.</span>
-                        </div>
-                        <div class="mt-6 text-right">
-                            <a href="lifecycle-run.html" class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 text-sm font-medium transition-colors">
-                                View Control Objectives <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
-                </details>
-
-                <!-- Decommission Time (Added) -->
-                <details class="group bg-brand-card border border-gray-800 rounded-lg overflow-hidden transition-all duration-300 open:ring-1 open:ring-blue-500/50">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-800/50">
-                        <div class="flex items-center gap-4">
-                            <span class="bg-gray-500/20 text-gray-400 font-mono text-xs px-2 py-1 rounded border border-gray-500/30">PHASE 5</span>
-                            <h3 class="text-xl font-bold">Decommission Time</h3>
-                        </div>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"></i>
-                    </summary>
-                    <div class="p-6 pt-0 border-t border-gray-800/50">
-                        <div class="grid md:grid-cols-2 gap-8 mt-4">
-                            <div>
-                                <h4 class="font-bold text-gray-400 mb-2">Retirement Planning</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Impact assessment before shutdown</li>
-                                    <li>Data migration & archival</li>
-                                    <li>Knowledge transfer documentation</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-400 mb-2">Graceful Degradation</h4>
-                                <ul class="text-sm text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Downstream dependency notification</li>
-                                    <li>Historical audit record preservation</li>
-                                    <li>Fallback path verification</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-6 text-right">
-                            <a href="lifecycle-decommission.html" class="inline-flex items-center gap-2 text-gray-400 hover:text-gray-300 text-sm font-medium transition-colors">
-                                View Control Objectives <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
-                </details>
-
-            </div>
-        </section>
-
-        <!-- Section IV & V & VI & VII: Cross Cutting Grid -->
-        <section id="cross-cutting" class="scroll-mt-24">
-            <h2 class="text-3xl font-bold mb-4 section-header">Cross-Cutting Disciplines</h2>
-            <p class="text-gray-400 mb-8 max-w-4xl">
-                While the lifecycle model addresses governance at specific points in time, certain disciplines must be continuous and omnipresent. These cross-cutting concerns—Security, Performance, Enablement, and Financial Governance—operate in parallel with every phase of development and deployment, ensuring a holistic approach to risk management and value realization.
-            </p>
-            
-            <div class="space-y-6">
-                
-                <!-- Security -->
-                <div class="bg-brand-card/50 border-l-4 border-red-500 p-6 rounded-r-lg hover:bg-gray-800/50 transition-colors">
-                    <div class="flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="md:w-1/4">
-                            <h3 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
-                                <i data-lucide="lock" class="w-6 h-6 text-red-500"></i> IV. Security & Risk
-                            </h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-wider font-mono">Continuous Protection</p>
-                        </div>
-                        <div class="md:w-3/4 grid md:grid-cols-3 gap-6">
-                            <div>
-                                <strong class="text-gray-200 block mb-1">Defensive Guardrails:</strong>
-                                <p class="text-sm text-gray-400">Zero-trust arch, input validation, rate limiting.</p>
-                            </div>
-                            <div>
-                                <strong class="text-gray-200 block mb-1">Threat Modeling:</strong>
-                                <p class="text-sm text-gray-400">Prompt injection, tool misuse, model poisoning detection.</p>
-                            </div>
-                            <div>
-                                <strong class="text-gray-200 block mb-1">Incident Response:</strong>
-                                <p class="text-sm text-gray-400">Kill switches, forensic logging, AI-specific playbooks.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-right">
-                        <a href="security-risk.html" class="inline-flex items-center gap-2 text-red-400 hover:text-red-300 text-sm font-medium transition-colors">
-                            View Control Objectives <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Performance -->
-                <div class="bg-brand-card/50 border-l-4 border-yellow-500 p-6 rounded-r-lg hover:bg-gray-800/50 transition-colors">
-                     <div class="flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="md:w-1/4">
-                            <h3 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
-                                <i data-lucide="gauge" class="w-6 h-6 text-yellow-500"></i> V. Performance & QA
-                            </h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-wider font-mono">Quality Assurance</p>
-                        </div>
-                        <div class="md:w-3/4 grid md:grid-cols-3 gap-6">
-                            <div>
-                                <strong class="text-gray-200 block mb-1">Benchmarks:</strong>
-                                <p class="text-sm text-gray-400">Accuracy against ground truth, latency, cost per task.</p>
-                            </div>
-                            <div>
-                                <strong class="text-gray-200 block mb-1">Evaluation:</strong>
-                                <p class="text-sm text-gray-400">Hallucination detection, regression detection, adversarial testing.</p>
-                            </div>
-                            <div>
-                                <strong class="text-gray-200 block mb-1">Feedback Loops:</strong>
-                                <p class="text-sm text-gray-400">Capture signals from business users to improve agent performance.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-right">
-                        <a href="performance-qa.html" class="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 text-sm font-medium transition-colors">
-                            View Control Objectives <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Enablement -->
-                <div class="bg-brand-card/50 border-l-4 border-purple-500 p-6 rounded-r-lg hover:bg-gray-800/50 transition-colors">
-                     <div class="flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="md:w-1/4">
-                            <h3 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
-                                <i data-lucide="users" class="w-6 h-6 text-purple-500"></i> VI. Enablement
-                            </h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-wider font-mono">Organizational Change</p>
-                        </div>
-                        <div class="md:w-3/4 grid md:grid-cols-3 gap-6">
-                            <div>
-                                <strong class="text-gray-200 block mb-1">Governance Bodies:</strong>
-                                <p class="text-sm text-gray-400">Strategy Council, Arch Board, AI Ethics Committee.</p>
-                            </div>
-                            <div>
-                                <strong class="text-gray-200 block mb-1">RACI & Roles:</strong>
-                                <p class="text-sm text-gray-400">Dedicated AI officers, named owners for every agent.</p>
-                            </div>
-                            <div>
-                                <strong class="text-gray-200 block mb-1">Change Mgmt:</strong>
-                                <p class="text-sm text-gray-400">Training programs, maturity models, resistance management.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-right">
-                        <a href="organizational-enablement.html" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">
-                            View Control Objectives <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Financial (Highlighted) -->
-                <div id="financial" class="bg-emerald-900/10 border-l-4 border-emerald-500 p-6 rounded-r-lg hover:bg-emerald-900/20 transition-colors">
-                     <div class="flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="md:w-1/4">
-                            <h3 class="text-2xl font-bold text-emerald-400 mb-2 flex items-center gap-2">
-                                <i data-lucide="dollar-sign" class="w-6 h-6 text-emerald-500"></i> VII. Financial
-                            </h3>
-                            <p class="text-xs text-emerald-500/70 uppercase tracking-wider font-mono">FinOps for Agents</p>
-                        </div>
-                        <div class="md:w-3/4 grid md:grid-cols-3 gap-6">
-                            <div>
-                                <strong class="text-white block mb-1">Token Economics:</strong>
-                                <p class="text-sm text-gray-400">Assign cost centers to agents. Marketing Agent spend hits the marketing budget.</p>
-                            </div>
-                            <div>
-                                <strong class="text-white block mb-1">Granular Tracking:</strong>
-                                <p class="text-sm text-gray-400">Tagging standards by agent, task type, project.</p>
-                            </div>
-                            <div>
-                                <strong class="text-white block mb-1">Multi-Model Strategy:</strong>
-                                <p class="text-sm text-gray-400">Track and optimize costs across different LLM providers (e.g., using cheaper models for simpler tasks).</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-right">
-                        <a href="financial-governance.html" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">
-                            View Control Objectives <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Governance Operating Model -->
-        <section id="operating-model" class="scroll-mt-24">
-            <!-- Corrected Numbering to VIII -->
-             <h2 class="text-3xl font-bold mb-4 section-header">VIII. Operating Model</h2>
-             <p class="text-gray-400 mb-8 max-w-4xl">
-                 A static framework is insufficient for dynamic agentic systems. The Operating Model defines how governance is applied in practice, tailoring oversight intensity to the specific risk profile of each agent. By tiering agents based on their autonomy and impact, organizations can apply rigorous control where necessary (Strategic/Critical agents) while allowing faster innovation cycles for lower-risk experiments (Exploratory agents).
-             </p>
-             
-             <div class="overflow-x-auto">
-                 <table class="w-full text-left border-collapse">
-                     <thead>
-                         <tr class="bg-gray-800 text-gray-200">
-                             <th class="p-4 rounded-tl-lg">Tier</th>
-                             <th class="p-4">Characteristics</th>
-                             <th class="p-4 rounded-tr-lg">Governance Approach</th>
-                         </tr>
-                     </thead>
-                     <tbody class="divide-y divide-gray-800 bg-brand-card">
-                         <tr class="hover:bg-gray-800/50 transition-colors">
-                             <td class="p-4 text-blue-400 font-bold font-mono">Tier 1: Exploratory</td>
-                             <td class="p-4 text-sm text-gray-400">Sandbox only, no production data.</td>
-                             <td class="p-4 text-sm text-gray-300">Self-service with guardrails.</td>
-                         </tr>
-                         <tr class="hover:bg-gray-800/50 transition-colors">
-                             <td class="p-4 text-emerald-400 font-bold font-mono">Tier 2: Operational</td>
-                             <td class="p-4 text-sm text-gray-400">Production use, limited autonomy, reversible actions.</td>
-                             <td class="p-4 text-sm text-gray-300">Lightweight review, automated checks.</td>
-                         </tr>
-                         <tr class="hover:bg-gray-800/50 transition-colors">
-                             <td class="p-4 text-yellow-400 font-bold font-mono">Tier 3: Critical</td>
-                             <td class="p-4 text-sm text-gray-400">High autonomy, sensitive data, irreversible actions.</td>
-                             <td class="p-4 text-sm text-gray-300">Full design review, continuous monitoring.</td>
-                         </tr>
-                         <tr class="hover:bg-gray-800/50 transition-colors">
-                             <td class="p-4 text-rose-400 font-bold font-mono">Tier 4: Strategic</td>
-                             <td class="p-4 text-sm text-gray-400">Enterprise-wide impact, external-facing, regulatory scope.</td>
-                             <td class="p-4 text-sm text-gray-300">Executive sponsorship, external audit.</td>
-                         </tr>
-                     </tbody>
-                 </table>
-             </div>
-        </section>
-
-        <!-- Visual Architecture Diagram -->
-        <section class="py-12">
-            <!-- Renamed Title -->
-            <h2 class="text-center text-2xl font-bold mb-8 text-gray-500">Framework Visual Summary</h2>
-            <div class="arch-diagram hidden md:grid">
-                
-                <!-- Compliance Layer -->
-                <div class="arch-layer" style="background: rgba(139, 92, 246, 0.1); border-color: #8B5CF6; color: #C4B5FD;">
-                    Compliance Alignment Layer (Contracts • Regulations • Policies • Ethics)
-                </div>
-
-                <!-- Down Arrows -->
-                <div class="arch-arrow-down">
-                    <i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i><i data-lucide="arrow-down"></i>
-                </div>
-
-                <!-- Phases Boxes -->
-                <div class="arch-box border-blue-500/50">
-                    <strong class="block text-blue-400 mb-2">PLAN</strong>
-                    <ul class="text-xs text-left text-gray-400 space-y-1">
-                        <li>Strategy</li>
-                        <li>Portfolio</li>
-                        <li>Catalog</li>
-                    </ul>
-                </div>
-                <div class="arch-box border-purple-500/50">
-                    <strong class="block text-purple-400 mb-2">DESIGN</strong>
-                    <ul class="text-xs text-left text-gray-400 space-y-1">
-                        <li>Architecture</li>
-                        <li>Standards</li>
-                        <li>Shadow IT</li>
-                    </ul>
-                </div>
-                <div class="arch-box border-emerald-500/50">
-                    <strong class="block text-emerald-400 mb-2">BUILD</strong>
-                    <ul class="text-xs text-left text-gray-400 space-y-1">
-                        <li>CI/CD</li>
-                        <li>Quality Gates</li>
-                        <li>Dev Stds</li>
-                    </ul>
-                </div>
-                <div class="arch-box border-rose-500/50" style="grid-column: span 2;">
-                    <strong class="block text-rose-400 mb-2">RUN</strong>
-                    <div class="grid grid-cols-2 gap-2 text-xs text-left text-gray-400">
-                        <div>
-                            <li>Agent Mesh</li>
-                            <li>Data Prot</li>
-                        </div>
-                        <div>
-                            <li>MCP Sec</li>
-                            <li>Model GW</li>
-                        </div>
-                    </div>
-                </div>
-                <div class="arch-box border-gray-500/50">
-                    <strong class="block text-gray-400 mb-2">DECOM</strong>
-                    <ul class="text-xs text-left text-gray-400 space-y-1">
-                        <li>Impact</li>
-                        <li>Knowledge</li>
-                        <li>Data</li>
-                    </ul>
-                </div>
-
-                <!-- Down Arrows -->
-                <div class="arch-arrow-down">
-                    <i data-lucide="arrow-down"></i>
-                </div>
-
-                <!-- Cross Cutting Layer -->
-                <div class="arch-layer grid grid-cols-4 gap-4" style="background: rgba(16, 185, 129, 0.05); border-color: #10B981; color: #6EE7B7;">
-                    <div class="text-center"><strong class="block text-red-400">Security</strong>Guardrails</div>
-                    <div class="text-center"><strong class="block text-yellow-400">Performance</strong>Benchmarks</div>
-                    <div class="text-center"><strong class="block text-purple-400">Enablement</strong>Training</div>
-                    <!-- Financial FinOps Changed to Financial Cost Models -->
-                    <div class="text-center"><strong class="block text-emerald-400">Financial</strong>Cost Models</div>
-                </div>
-            </div>
-            
-            <!-- Mobile Fallback for Diagram -->
-            <div class="md:hidden bg-gray-900 p-4 rounded text-center text-sm text-gray-400 border border-gray-800">
-                (View on desktop to see full architectural diagram)
-            </div>
-        </section>
-
-        <!-- Outro Section Added -->
-        <section class="max-w-4xl mx-auto text-center py-12 border-t border-gray-800">
-            <div class="flex justify-center mb-8">
-                <div class="relative">
-                    <div class="absolute inset-0 bg-brand-accent/20 blur-xl rounded-full animate-pulse-slow"></div>
-                    <i data-lucide="compass" class="relative w-16 h-16 text-brand-accent"></i>
-                </div>
-            </div>
-            <h3 class="text-2xl font-bold mb-4 text-white">The Path Forward</h3>
-            <p class="text-gray-400 text-lg mb-6">
-                This governance framework is not a static rulebook but a living system. By treating governance as code and policy as an enabler, organizations can harness the transformative power of Agentic AI while protecting their reputation, data, and bottom line.
-            </p>
-            <a href="continuous-improvement.html" class="inline-flex items-center gap-2 bg-brand-accent hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-sm font-bold transition-colors shadow-lg shadow-blue-500/20">
-                <i data-lucide="trending-up" class="w-5 h-5"></i>
-                Explore Continuous Improvement
-            </a>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="shield" class="text-gray-600 h-6 w-6"></i>
-                <span class="font-mono font-bold text-gray-500">AgenticGovernance.net</span>
-            </div>
-            <div class="text-gray-600 text-sm text-center md:text-right">
-                <p>&copy; 2026 <a href="https://legendary.ai" class="hover:text-brand-accent transition-colors">Legendary AI</a></p>
-                <p>Framework Version 2.1</p>
-            </div>
+  <section class="band" id="tensions">
+    <div class="wrap">
+      <h2>The tensions governance has to balance</h2>
+      <div class="cards three">
+        <div class="card">
+          <h3>Agility and control</h3>
+          <p>Teams need to put agents to work quickly, and the organization still needs to know who answers for each one.</p>
         </div>
-    </footer>
+        <div class="card">
+          <h3>Autonomy and oversight</h3>
+          <p>Agents are useful because they act on their own, so the limits on what they may do have to be set in advance and enforced outside them.</p>
+        </div>
+        <div class="card">
+          <h3>Innovation and standards</h3>
+          <p>Experiments should be cheap and fast, and the agents that reach production should still fit together.</p>
+        </div>
+      </div>
+      <h3>Why agents need their own framework</h3>
+      <p>Ordinary software does what its code says. An agent decides what to do next, calls tools, spends money and hands work to other agents, often with no person watching each step. IT governance written for ordinary software does not ask who an agent acts for, what it may commit its owner to, or what happens when a mistake travels along a chain of agents belonging to different teams or companies.</p>
+      <p>Without governance written for agents, that autonomy brings real risks: data leaving where it should not, answers that are wrong, broken obligations, and costs nobody approved. This framework gives an organization the structure to use agents and still keep each one, and each relationship between them, aligned with its policies, its obligations and its objectives.</p>
+    </div>
+  </section>
 
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
+  <section class="band" id="framework">
+    <div class="wrap">
+      <h2>How the framework is organized</h2>
+      <p>The framework has four parts. Objectives and obligations come first, because every agent has to trace to them. The lifecycle governs each agent from plan to decommission, and the change phase makes it a loop. The cross-cutting disciplines apply in every phase. The operating model sets how strictly each control applies, by risk tier.</p>
+      <div class="fmap">
+        <a class="layer" href="compliance-alignment.html"><span class="num">I</span><b>Objectives and obligations</b><span class="sub">Every agent traces to a business objective, an owner of its value and a review date, and to its contractual, regulatory, internal policy and ethical obligations.</span></a>
+        <p class="cap">II. Lifecycle</p>
+        <div class="phases">
+          <a class="ph" href="lifecycle-plan.html"><span class="num">1</span><b>Plan</b><span class="sub">Strategy, portfolio, catalog</span></a>
+          <a class="ph" href="lifecycle-design.html"><span class="num">2</span><b>Design</b><span class="sub">Architecture, scope, security by design</span></a>
+          <a class="ph" href="lifecycle-build.html"><span class="num">3</span><b>Build</b><span class="sub">Tests, review, signed builds</span></a>
+          <a class="ph" href="lifecycle-run.html"><span class="num">4</span><b>Run</b><span class="sub">Identity, limits, records, alerts</span></a>
+          <a class="ph" href="lifecycle-change.html"><span class="num">5</span><b>Change</b><span class="sub">Update, reconfigure, roll back</span></a>
+          <a class="ph" href="lifecycle-decommission.html"><span class="num">6</span><b>Decommission</b><span class="sub">Impact, data, notice, records</span></a>
+          <div class="ret">Change feeds back into Design and Build, so the lifecycle is a loop.</div>
+        </div>
+        <p class="cap">III. Cross-cutting disciplines</p>
+        <div class="discs">
+          <a class="disc" href="network.html">Network</a>
+          <a class="disc" href="security-risk.html">Security and risk</a>
+          <a class="disc" href="performance-qa.html">Performance and quality</a>
+          <a class="disc" href="financial-governance.html">Financial governance</a>
+          <a class="disc" href="organizational-enablement.html">Organizational enablement</a>
+          <a class="disc" href="assurance.html">Assurance</a>
+          <a class="disc" href="continuous-improvement.html">Continuous improvement</a>
+        </div>
+        <a class="layer" href="operating-model.html"><span class="num">IV</span><b>Operating model</b><span class="sub">Four risk tiers, for agents and for relationships, set what every control objective requires.</span></a>
+      </div>
+    </div>
+  </section>
 
-        // Optional: Simple scroll reveal effect
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+  <section class="band" id="compliance">
+    <div class="wrap">
+      <p class="kicker">Section I</p>
+      <h2>Objectives and obligations</h2>
+      <p>Every agent has to trace to a business objective that someone still stands behind, to a named person who owns the value it is supposed to deliver, and to a date when that value will be checked again. Alongside its objective, each agent carries its obligations: the contracts, regulations, internal policies and ethical principles that bind what it does.</p>
+      <div class="cards">
+        <div class="card"><h3>Objectives</h3><p>Each agent has a business objective, an owner of its value, and a review date at which it is renewed, changed or retired.</p></div>
+        <div class="card"><h3>Contractual obligations</h3><p>These include customer agreements and service levels, supplier contracts for models and tools, and intellectual property terms.</p></div>
+        <div class="card"><h3>Regulatory obligations</h3><p>These include data protection and privacy law, rules for AI systems, sector regulation and export controls.</p></div>
+        <div class="card"><h3>Internal policy and ethics</h3><p>Internal policy covers acceptable use, risk appetite and data classification. Ethics covers fairness, transparency, bias mitigation and explainability.</p></div>
+      </div>
+      <p><a href="compliance-alignment.html">Read the section on objectives and obligations</a></p>
+    </div>
+  </section>
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+  <section class="band" id="lifecycle">
+    <div class="wrap">
+      <p class="kicker">Section II</p>
+      <h2>The lifecycle</h2>
+      <p>Governance is built into each phase of an agent's life, rather than added at the end. There are six phases. The fifth, Change, covers updates, reconfiguration and rollback, and it feeds back into Design and Build. That makes the lifecycle a loop that ends only when an agent is decommissioned. <a href="continuous-improvement.html">Continuous improvement</a> is where that loop is governed.</p>
+      <p>The <a href="https://agenticdevelopment.ai/stages.html">Agentic Development Lifecycle</a> defines the work of building and running an agent as 24 stages in seven phases. Each phase here names the stages it governs and links to them, so the stages are described in one place.</p>
+      <div class="cards three">
+        <a class="card" href="lifecycle-plan.html"><span class="label">Phase 1</span><h3>Plan</h3><p>Decide which agents the organization needs, register them, and link each to an objective.</p><span class="go">Plan time</span></a>
+        <a class="card" href="lifecycle-design.html"><span class="label">Phase 2</span><h3>Design</h3><p>Scope each agent to one job, declare what it does and refuses, and set its limits before it has credentials.</p><span class="go">Design time</span></a>
+        <a class="card" href="lifecycle-build.html"><span class="label">Phase 3</span><h3>Build</h3><p>Write the tests before the code, review it, and sign a record of what went into the package.</p><span class="go">Build time</span></a>
+        <a class="card" href="lifecycle-run.html"><span class="label">Phase 4</span><h3>Run</h3><p>Enforce identity, limits and the network's rules on every act, and keep records nobody can alter unnoticed.</p><span class="go">Run time</span></a>
+        <a class="card" href="lifecycle-change.html"><span class="label">Phase 5</span><h3>Change</h3><p>Update, reconfigure and roll back on purpose, and send any change of scope back to Design and Build.</p><span class="go">Change time</span></a>
+        <a class="card" href="lifecycle-decommission.html"><span class="label">Phase 6</span><h3>Decommission</h3><p>Tell dependents, handle the data as stated, keep the records, and retire the key and the name.</p><span class="go">Decommission time</span></a>
+      </div>
+    </div>
+  </section>
 
-        document.querySelectorAll('section').forEach(section => {
-            // section.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700'); 
-            // In a real production site, we'd add the observer logic here to toggle classes
-            // For this single file, keeping it simple static/css hover interactions
-        });
-    </script>
+  <section class="band" id="cross-cutting">
+    <div class="wrap">
+      <p class="kicker">Section III</p>
+      <h2>Cross-cutting disciplines</h2>
+      <p>The lifecycle governs an agent at particular points in time. Some disciplines have to apply all the time, in every phase. There are seven of them, and each has its own control objectives.</p>
+      <div class="cards">
+        <a class="card" href="network.html"><h3>Network</h3><p>This discipline governs the relationships between agents and their live interactions. It covers admissions, delegation that only narrows, contracts, loops, cascades, cost across a chain and how far a stop reaches, and federation between organizations.</p><span class="go">The network discipline</span></a>
+        <a class="card" href="security-risk.html"><h3>Security and risk</h3><p>Each agent can reach only what it declared, holds its own secrets, ignores instructions hidden in what it reads, and stays stopped once it is stopped.</p><span class="go">Security and risk</span></a>
+        <a class="card" href="performance-qa.html"><h3>Performance and quality</h3><p>Agents are measured against known answers and evaluated continuously by something other than themselves, so that regressions and factual errors are caught.</p><span class="go">Performance and quality</span></a>
+        <a class="card" href="financial-governance.html" id="financial"><h3>Financial governance</h3><p>Every cost lands on a named account, ceilings refuse work before it spends, and each agent's return is compared with what was projected.</p><span class="go">Financial governance</span></a>
+        <a class="card" href="organizational-enablement.html"><h3>Organizational enablement</h3><p>Governance bodies make timely decisions, every agent has a named owner, roles are clear, and the people who sponsor, build and use agents are trained.</p><span class="go">Organizational enablement</span></a>
+        <a class="card" href="assurance.html"><h3>Assurance</h3><p>Every control objective has immutable evidence, audits and attestations rely on that evidence, and partners can verify it across company lines.</p><span class="go">Assurance</span></a>
+        <a class="card" href="continuous-improvement.html"><h3>Continuous improvement</h3><p>What is learned at Run and Change goes back into Design and Build, lessons from incidents are acted on, and controls are written as code.</p><span class="go">Continuous improvement</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="operating-model">
+    <div class="wrap">
+      <p class="kicker">Section IV</p>
+      <h2>The operating model and its risk tiers</h2>
+      <p>A framework that applied every control at full strength to every agent would stop experiments altogether. The operating model sets how strictly each control applies, by risk tier, so that exploratory agents move quickly and critical ones get full scrutiny. Tiers apply to agents and to the relationships between them. A relationship through which one agent can commit money for another raises the tier.</p>
+      <table class="grid">
+        <thead><tr><th scope="col">Tier</th><th scope="col">What the agent or relationship is like</th><th scope="col">How it is governed</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span class="tier t1">Tier 1 Exploratory</span></th><td data-h="Like">It runs in a sandbox with no production data.</td><td data-h="Governed">Teams serve themselves inside fixed limits.</td></tr>
+          <tr><th scope="row"><span class="tier t2">Tier 2 Operational</span></th><td data-h="Like">It runs on production systems with limited autonomy, and its actions can be reversed.</td><td data-h="Governed">A light review and automated checks apply.</td></tr>
+          <tr><th scope="row"><span class="tier t3">Tier 3 Critical</span></th><td data-h="Like">It acts with high autonomy, handles sensitive data, or takes actions that cannot be reversed.</td><td data-h="Governed">The design gets a full review, and the agent is monitored continuously.</td></tr>
+          <tr><th scope="row"><span class="tier t4">Tier 4 Strategic</span></th><td data-h="Like">It affects the whole organization, faces the outside world, or falls within regulation.</td><td data-h="Governed">An executive sponsors it, and an outside auditor checks it.</td></tr>
+        </tbody>
+      </table>
+      <p><a href="operating-model.html">Read how tiers are set for agents and relationships</a></p>
+    </div>
+  </section>
+
+  <section class="band" id="reading">
+    <div class="wrap">
+      <h2>How to read a control objective</h2>
+      <p>Every page ends with its control objectives. Each objective has an identifier, such as RUN-02, that stays the same between versions of this framework so that an organization can map its own controls to it. Each one gives the same six things:</p>
+      <ul>
+        <li><b>The statement</b> says what the control asks for.</li>
+        <li><b>The risk addressed</b> says what goes wrong without it.</li>
+        <li><b>The key metric</b> is how an organization can measure whether the control is working.</li>
+        <li><b>What each tier requires</b> gives one requirement for each of the four risk tiers, from Tier 1 Exploratory to Tier 4 Strategic.</li>
+        <li><b>The evidence</b> names the records that prove the control holds.</li>
+        <li><b>Who may check it</b> says whether internal audit, an outside auditor or a partner may read that evidence.</li>
+      </ul>
+      <p>The management attributes behind these objectives fall into eleven areas: identity, authority, spend, reach, provenance (including the software supply chain), behavior inside the agent, people in the loop, records, watching, stopping, and change. Each area appears in the objectives of the phase or discipline where it is enforced.</p>
+    </div>
+  </section>
+
+  <section class="band" id="governance-as-code">
+    <div class="wrap">
+      <h2>Governance as code</h2>
+      <p>This framework is meant to be applied, and it should change as agents change. The most reliable way to apply it is to write controls as code: a ceiling is enforced before money is spent, a mandate is checked before work is accepted, and a stop is checked at every door. A control written this way applies the same way every time, and it produces its own evidence as it runs.</p>
+      <p>Policy written as code is versioned, reviewed and released like any other change, which is how governance keeps up with the agents it governs. The <a href="continuous-improvement.html">Continuous improvement</a> discipline covers how that happens.</p>
+    </div>
+  </section>
+
+<!-- BEGIN pager -->
+<nav class="wrap pager" aria-label="Previous and next">
+  <a class="next" href="compliance-alignment.html"><small>Next</small><span>Objectives and obligations</span></a>
+</nav>
+<!-- END pager -->
+<!-- BEGIN foot -->
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>Agentic Governance Framework, version 3.0</span>
+    <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+    <span>Lifecycle stages from the <a href="https://agenticdevelopment.ai/">Agentic Development Lifecycle</a></span>
+  </div>
+</footer>
+<script src="site.js"></script>
+<!-- END foot -->
+</main>
+</div>
 </body>
 </html>

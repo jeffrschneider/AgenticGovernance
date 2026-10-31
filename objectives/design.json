@@ -1,0 +1,139 @@
+{
+  "objectives": [
+    {
+      "id": "DSN-01",
+      "title": "Architecture standards",
+      "statement": "Design agents to the organization's architecture standards and patterns, so that they can be maintained and can work with each other.",
+      "risk": "Inconsistent designs that are hard to maintain",
+      "metric": "Share of agents that conform to the architecture standards",
+      "tiers": [
+        "Experiments may use any pattern inside the sandbox.",
+        "The design uses approved patterns, or records why it does not.",
+        "An architect reviews conformance before build starts.",
+        "The architecture board approves the design and any exception."
+      ],
+      "evidence": "The design record, the patterns it uses, and the review decision.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "DSN-02",
+      "title": "Right-sized agents",
+      "statement": "Scope each agent to one job it can do well, so that designs do not grow complicated and drift beyond their purpose.",
+      "risk": "Agents that grow beyond their purpose",
+      "metric": "Average number of declared offerings per agent",
+      "tiers": [
+        "No limit applies in a sandbox.",
+        "The design states the one job the agent does.",
+        "An architect challenges any agent that declares more than one job.",
+        "Any agent that combines jobs needs a written reason approved by the architecture board."
+      ],
+      "evidence": "The agent's declared offerings and the design review that accepted them.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "DSN-03",
+      "title": "Declared scope and refusals",
+      "statement": "Write down what each agent does and what it refuses to do, and sign that declaration, so that its scope is clear to anyone who relies on it.",
+      "risk": "Agents that drift into other agents' work",
+      "metric": "Share of agents with a signed declaration of what they do and refuse",
+      "tiers": [
+        "The owner describes the experiment's scope in a sentence.",
+        "The agent has a written declaration of its offerings and refusals.",
+        "The declaration is signed and published with every version.",
+        "The declaration is checked by someone other than the builder, and conformance to it is tested at release."
+      ],
+      "evidence": "The signed declaration for the version that is running.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "DSN-04",
+      "title": "Explainability",
+      "statement": "Design agents so that each decision and act can be explained afterwards, from records of what the agent saw and did.",
+      "risk": "Decisions nobody can explain",
+      "metric": "Share of agents whose decisions can be traced step by step",
+      "tiers": [
+        "The experiment keeps a log of its runs.",
+        "Each act is recorded with its inputs and result.",
+        "Every step, model call and tool call is traced, so a single run can be followed from start to finish.",
+        "Explanations can be produced for an affected person or a regulator on request, within a set time."
+      ],
+      "evidence": "Trace records for sampled runs, and the time taken to answer explanation requests.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "DSN-05",
+      "title": "Interoperability",
+      "statement": "Design agents to standard interfaces and protocols, so that they can work with existing systems and with other agents.",
+      "risk": "Agents that cannot work with other systems",
+      "metric": "Integration test pass rate",
+      "tiers": [
+        "No requirement applies in a sandbox.",
+        "The agent uses the organization's approved protocols for messages and tools.",
+        "Integration with each declared dependency is tested before release.",
+        "Integration is tested with the partners and systems outside the organization that the agent will deal with."
+      ],
+      "evidence": "The declared interfaces and the integration test results for the current version.",
+      "checkers": ["internal", "partner"]
+    },
+    {
+      "id": "DSN-06",
+      "title": "Security by design",
+      "statement": "Review security at design time, so that the harm an agent could do is limited before it is given any credentials.",
+      "risk": "Weaknesses built into the design",
+      "metric": "Share of agents with a design-time security review",
+      "tiers": [
+        "The experiment has no production credentials.",
+        "A standard threat checklist is completed for the design.",
+        "A security reviewer sets the limits on what the agent can reach and do before build starts.",
+        "The security review includes a threat model reviewed by a second security reviewer."
+      ],
+      "evidence": "The completed checklist or threat model, and the limits it set.",
+      "checkers": ["internal", "outside"]
+    },
+    {
+      "id": "DSN-07",
+      "title": "Design review",
+      "statement": "Review and approve the design of every agent at Tier 2 or above before development begins.",
+      "risk": "Flawed designs reaching production",
+      "metric": "Share of Tier 2 and higher agents with an approved design",
+      "tiers": [
+        "No design review is required.",
+        "A peer reviews the design.",
+        "The architecture board reviews the design in full.",
+        "The architecture board reviews the design, and the executive sponsor approves it."
+      ],
+      "evidence": "The design review record with the reviewers and their decision.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "DSN-08",
+      "title": "Finding ungoverned agents",
+      "statement": "Look for agents running without governance, and bring them under it through a simple path that does not punish the people who built them.",
+      "risk": "Ungoverned agents on production systems",
+      "metric": "Ungoverned agents found each quarter",
+      "tiers": [
+        "Builders are told how to register an experiment.",
+        "Network and spending data are scanned each quarter for agent activity that is not in the catalog.",
+        "Scans run each month, and an agent that is found is registered or stopped within a set time.",
+        "Scans run continuously, and unregistered agent traffic is blocked."
+      ],
+      "evidence": "The scan results, the agents found and what happened to each.",
+      "checkers": ["internal"]
+    },
+    {
+      "id": "DSN-09",
+      "title": "Sandboxes for experiments",
+      "statement": "Run experimental agents in isolated sandboxes, so that risky trials never touch production systems or data.",
+      "risk": "Risky experiments on production systems",
+      "metric": "Share of experimental agents in a sandbox",
+      "tiers": [
+        "The experiment runs only in a sandbox with synthetic or public data.",
+        "A production agent's new version is tried in a sandbox before release.",
+        "Sandboxes for Tier 3 agents copy the production limits, so that a trial behaves as production would.",
+        "Sandbox results are kept as part of the release evidence."
+      ],
+      "evidence": "The sandbox's network and data settings, and the list of agents running in it.",
+      "checkers": ["internal"]
+    }
+  ]
+}
