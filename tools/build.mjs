@@ -36,7 +36,12 @@ function list(words) {
 }
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
-const head = () => `<!-- BEGIN head -->
+// The social preview tags read the page's own title and description, which sit outside this block.
+const head = (file, html) => {
+  const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || "Agentic Governance Framework";
+  const desc = (html.match(/<meta name="description" content="([^"]*)">/) || [])[1] || "";
+  const url = "https://agenticgovernance.net/" + (file === "index.html" ? "" : file);
+  return `<!-- BEGIN head -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -45,7 +50,20 @@ const head = () => `<!-- BEGIN head -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
 <link rel="stylesheet" href="site.css">
 <script>try{if(localStorage.getItem("ag-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Agentic Governance Framework">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="https://agenticgovernance.net/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Agentic Governance Framework: governance sets the values, management enforces them, assurance checks the evidence, and findings change the policy.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://agenticgovernance.net/og.png">
 <!-- END head -->`;
+};
 
 const MARK = `<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linejoin="round" d="M16 5.5 7.5 9v6.5c0 5.6 3.6 9.9 8.5 11.5 4.9-1.6 8.5-5.9 8.5-11.5V9z"/><path fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m12 16 3 3 5.5-6"/></svg>`;
 
@@ -154,7 +172,7 @@ for (const p of PAGES) {
   const path = join(root, p.file);
   const before = readFileSync(path, "utf8");
   let html = before;
-  html = replace(html, "head", head(), p.file);
+  html = replace(html, "head", head(p.file, html), p.file);
   html = replace(html, "rail", rail(p.file), p.file);
   if (p.obj) html = replace(html, "objectives", objectives(p.obj), p.file);
   html = replace(html, "pager", pager(p.file), p.file);
